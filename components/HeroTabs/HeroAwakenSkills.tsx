@@ -133,9 +133,7 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
           ? skill.label_list.map((id: number) => labelMap[id]).filter(Boolean).join(', ')
           : ''
 
-        const iconPath = skill.iconpath
-          ?.replace('Textures/', '/assets/resources/textures/')
-          ?.concat('.png')
+        const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/skillIcon_${skill.skillid}.png`
 
         // Descrição principal
         const desList = safeParse(skill.skill_des)

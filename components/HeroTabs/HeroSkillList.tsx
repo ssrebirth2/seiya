@@ -117,6 +117,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
   }, [skillIds, lang])
 
   const renderSkillDetails = (skill: any): React.ReactElement => {
+    const skillid = skill.skillid
     const name = getT(skill.name)
     const cd = skill.cd === -1 ? '-' : skill.cd
     const skillType = getT(`LC_SKILL_type_des_${skill.skill_type}`)
@@ -150,7 +151,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
       .map(id => skills.get(id))
       .filter(Boolean)
 
-    const iconPath = skill.iconpath?.replace('Textures/', '/assets/resources/textures/')?.concat('.png')
+    const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/skillIcon_${skill.skillid}.png`
 
     return (
       <div
@@ -209,7 +210,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     <section className="mt-6">
       <div className="flex flex-wrap justify-center gap-6 mb-4">
         {rootSkills.map(skill => {
-          const iconPath = skill.iconpath?.replace('Textures/', '/assets/resources/textures/')?.concat('.png')
+          const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/skillIcon_${skill.skillid}.png`
           const name = getT(skill.name)
           const isActive = activeSkillId === toId(skill.skillid)
 
