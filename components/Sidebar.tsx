@@ -12,11 +12,11 @@ const navItems = [
 ]
 
 const LANGUAGES = [
-  { code: 'EN', label: '🇺🇸 English' },
   { code: 'CN', label: '🇨🇳 中文' },
+  { code: 'EN', label: '🇺🇸 English' },
   { code: 'ID', label: '🇮🇩 Bahasa Indonesia' },
   { code: 'TH', label: '🇹🇭 ไทย' },
-  { code: 'PT', label: '🇧🇷 Português' },
+  { code: 'BR', label: '🇧🇷 Português(IA)' },
 ]
 
 export function Sidebar() {
