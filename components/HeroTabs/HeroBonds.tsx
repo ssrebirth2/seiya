@@ -189,7 +189,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
       .map((sid) => combineSkillData.get(String(sid)))
       .filter(Boolean)
 
-    const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/SkillIcon_${skill.skillid}.png`
+    const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
 
     return (
       <div
