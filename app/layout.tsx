@@ -4,7 +4,7 @@ import { Sidebar } from '@/components/Sidebar'
 import { LanguageProvider } from '@/context/LanguageContext'
 
 export const metadata = {
-  title: 'Game Datamine',
+  title: 'Saint Seiya Rebirth 2 (EX)',
   description: 'Visualizador de dados de heróis e habilidades.',
 }
 
@@ -15,11 +15,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <LanguageProvider>
           <div className="min-h-screen flex flex-col">
             <header className="p-4 border-b border-[var(--panel-border)] bg-[var(--panel)]">
-              <h1 className="text-xl font-bold">📊 Game Datamine</h1>
+              <h1 className="text-xl font-bold">Saint Seiya Rebirth 2 (EX)</h1>
             </header>
 
             <div className="flex flex-1 container mx-auto gap-6 p-4">
-              <div className="w-64 hidden md:block">
+              <div>
                 <Sidebar />
               </div>
               <main className="flex-1">{children}</main>

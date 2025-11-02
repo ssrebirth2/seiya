@@ -25,7 +25,7 @@ export function ThemeToggle() {
       onClick={toggleTheme}
       className="mt-4 w-full text-center block border border-[var(--panel-border)] rounded p-2 hover:bg-[var(--panel-hover)]"
     >
-      {theme === 'dark' ? '☀️ Tema Claro' : '🌙 Tema Escuro'}
+      {theme === 'dark' ? '☀️' : '🌙'}
     </button>
   )
 }

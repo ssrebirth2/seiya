@@ -27,12 +27,7 @@ export function Sidebar() {
 
   // 🔹 Detecta automaticamente janelas pequenas
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      // Considera compacto até 1280px pra garantir botão visível em qualquer tela
-      setIsCompact(width < 1280)
-    }
-
+    const handleResize = () => setIsCompact(window.innerWidth < 1280)
     handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
@@ -40,88 +35,101 @@ export function Sidebar() {
 
   return (
     <>
-      {/* 🔹 Botão flutuante — sempre visível em telas pequenas */}
+      {/* 🔹 Botão flutuante — aparece sempre em telas pequenas */}
       {isCompact && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-5 left-5 z-50 bg-[var(--panel)] text-[var(--foreground)] border border-[var(--panel-border)] rounded-full shadow-lg p-3 text-2xl hover:bg-[var(--panel-hover)] active:scale-95 transition-all duration-200"
+          className="fixed bottom-6 left-6 z-50 bg-[var(--panel)] border border-[var(--panel-border)] text-[var(--foreground)] rounded-full shadow-md hover:shadow-lg p-3 text-2xl hover:bg-[var(--panel-hover)] active:scale-95 transition-all duration-200 backdrop-blur-sm"
           aria-label="Abrir menu lateral"
         >
           ☰
         </button>
       )}
 
-      {/* 🔹 Overlay (fundo escuro clicável) */}
+      {/* 🔹 Overlay escuro */}
       {open && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-[1px] z-40 animate-fadeIn"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 animate-fadeIn"
           onClick={() => setOpen(false)}
         />
       )}
 
-      {/* 🔹 Sidebar */}
+      {/* 🔹 Sidebar principal */}
       <aside
-        className={`sidebar-toc fixed top-0 left-0 h-full z-50 bg-[var(--panel)] border-r border-[var(--panel-border)] transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 h-full z-50 bg-[var(--panel)] border-r border-[var(--panel-border)] 
+          transform transition-transform duration-300 ease-in-out
           ${open ? 'translate-x-0' : '-translate-x-full'}
-          ${!isCompact ? 'md:static md:translate-x-0 md:h-fit md:rounded md:shadow-none' : 'shadow-2xl'}
+          ${!isCompact ? 'md:static md:translate-x-0 md:h-fit md:shadow-none' : 'shadow-lg rounded-r-lg'}
         `}
       >
-        <div className="p-4 flex flex-col h-full">
-          {/* Cabeçalho (mobile) */}
+        <div className="flex flex-col h-full p-4 space-y-4 text-[var(--foreground)]">
+          {/* 🔹 Cabeçalho (mobile) */}
           {isCompact && (
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-base font-semibold">Menu</h2>
+            <div className="flex justify-between items-center mb-2 border-b border-[var(--panel-border)] pb-2">
+              <h2 className="text-base font-semibold text-[var(--text-muted)] tracking-wide">
+                Menu
+              </h2>
               <button
                 onClick={() => setOpen(false)}
-                className="text-xl font-bold hover:text-[var(--text-muted)]"
+                className="text-lg font-bold hover:text-[var(--text-muted)] transition"
               >
                 ✖
               </button>
             </div>
           )}
 
-          <h2 className="text-sm font-semibold text-[var(--text-muted)] uppercase mb-2">
-            Navegação
-          </h2>
-
-          <ul className="flex-1">
-            {navItems.map((item) => (
-              <li
-                key={item.href}
-                className={`rounded mb-1 ${
-                  pathname === item.href ? 'bg-[var(--panel-hover)]' : ''
-                }`}
+          {/* 🔹 Tema e idioma */}
+          <div className="space-y-3">
+            <ThemeToggle />
+            <div>
+              <label className="block text-xs text-[var(--text-muted)] mb-1">
+                🌐 Idioma
+              </label>
+              <select
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
+                className="w-full p-2 border border-[var(--panel-border)] bg-[var(--panel-hover)] rounded text-sm focus:outline-none focus:ring-1 focus:ring-[var(--panel-border)] transition"
               >
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2 hover:bg-[var(--panel-hover)] rounded transition"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-4">
-            <label className="block text-xs text-[var(--text-muted)] mb-1">
-              🌐 Idioma
-            </label>
-            <select
-              value={lang}
-              onChange={(e) => setLang(e.target.value)}
-              className="w-full p-2 border border-[var(--panel-border)] bg-[var(--panel-hover)] rounded text-sm"
-            >
-              {LANGUAGES.map((l) => (
-                <option key={l.code} value={l.code}>
-                  {l.label}
-                </option>
-              ))}
-            </select>
+                {LANGUAGES.map((l) => (
+                  <option key={l.code} value={l.code}>
+                    {l.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
-          <div className="mt-4">
-            <ThemeToggle />
+          {/* 🔹 Navegação */}
+          <div className="mt-2">
+            <h3 className="text-xs font-semibold text-[var(--text-muted)] uppercase tracking-wide mb-2">
+              Navegação
+            </h3>
+
+            <ul className="flex-1 space-y-1">
+              {navItems.map((item) => (
+                <li
+                  key={item.href}
+                  className={`rounded-md overflow-hidden ${
+                    pathname === item.href
+                      ? 'bg-[var(--panel-hover)] border border-[var(--panel-border)] shadow-inner'
+                      : 'hover:bg-[var(--panel-hover)] transition'
+                  }`}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block px-3 py-2 text-sm font-medium tracking-wide"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 🔹 Rodapé */}
+          <div className="mt-auto pt-3 border-t border-[var(--panel-border)] text-center text-xs text-[var(--text-muted)]">
+            © {new Date().getFullYear()} Game Datamine
           </div>
         </div>
       </aside>
