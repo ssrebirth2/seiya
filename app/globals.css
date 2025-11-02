@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================
+   🩶 THEME: Neutral Gray (Dark/Light)
+   ========================================================== */
+
+/* 🎨 Variáveis padrão (modo escuro) */
+:root {
+  --background: #111;
+  --foreground: #e8e8e8;
+  --panel: rgba(26, 26, 26, 0.6); /* escuro com 70% opacidade */
+  --panel-border: #2a2a2a;
+  --panel-hover: #242424;
+  --text-muted: #b0b0b0;
+  --border: var(--panel-border);
+}
+
+/* 🎨 Tema claro usando classe `.light` */
+html.light {
+  --background: #f5f5f5;
+  --foreground: #1a1a1a;
+  --panel: rgba(255, 255, 255, 0.6); /* claro com 70% opacidade */
+  --panel-border: #dcdcdc;
+  --panel-hover: #f0f0f0;
+  --text-muted: #555;
+}
+
+/* ==========================================================
+   🔤 Tipografia base
+   ========================================================== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================
+   🧭 Scrollbar (cinza discreta)
+   ========================================================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--panel);
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* ==========================================================
+   🪶 Painéis e blocos
+   ========================================================== */
+.panel {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+/* ==========================================================
+   📘 Table of Contents
+   ========================================================== */
+.sidebar-toc {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  width: 230px;
+}
+
+.sidebar-toc h2 {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid var(--panel-border);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar-toc li {
+  border: 1px solid var(--panel-border);
+  border-radius: 2px;
+  background-color: var(--panel);
+  margin-bottom: 4px;
+  transition: background-color 0.15s ease;
+}
+
+.sidebar-toc li:hover {
+  background-color: var(--panel-hover);
+}
+
+.sidebar-toc a {
+  display: block;
+  color: var(--foreground);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+}
+
+.sidebar-toc a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================
+   🧾 Headers e textos
+   ========================================================== */
+h1, h2, h3, h4 {
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+/* ==========================================================
+   FEITROS POR MIM
+   ========================================================== */
+
+.skill-link {
+  cursor: help;
+  text-decoration: underline dotted;
+}
+.tooltip {
+  transition: opacity 0.12s ease;
+}
+
+   
