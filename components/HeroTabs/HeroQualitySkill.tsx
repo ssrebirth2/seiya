@@ -134,7 +134,7 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
     .filter(Boolean)
     .join(', ')
 
-  const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/skillIcon_${skill.skillid}.png`
+  const iconPath = `/assets/resources/textures/Hero/skillIcon/texture/SkillIcon_${skill.skillid}.png`
 
   const desList = safeParse(skill.skill_des)
   const mainDescription =
