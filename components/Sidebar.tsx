@@ -7,8 +7,9 @@ import { useLanguage } from '@/context/LanguageContext'
 import { useState, useEffect } from 'react'
 
 const navItems = [
-  { label: '🏠 Início', href: '/' },
-  { label: '🧙 Heróis', href: '/heroes' },
+  { label: 'Início', href: '/' },
+  { label: 'Heróis', href: '/heroes' },
+  { label: 'Artefatos', href: '/artifacts' },
 ]
 
 const LANGUAGES = [
@@ -83,7 +84,7 @@ export function Sidebar() {
             <ThemeToggle />
             <div>
               <label className="block text-xs text-[var(--text-muted)] mb-1">
-                🌐 Idioma
+                🌐
               </label>
               <select
                 value={lang}
