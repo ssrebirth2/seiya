@@ -156,4 +156,15 @@ html {
   transition: opacity 0.12s ease;
 }
 
+:root {
+  --sidebar-width: 16rem; /* igual a w-64 */
+}
+
+html, body {
+  background-color: var(--background);
+}
+
+main {
+  border-left: 1px solid var(--panel-border);
+}
    
