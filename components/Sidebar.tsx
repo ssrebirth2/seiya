@@ -5,12 +5,13 @@ import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { useLanguage } from '@/context/LanguageContext'
 import { useState, useEffect } from 'react'
-import { Home, Users, Shield } from 'lucide-react'
+import { Home, Users, Shield, Files } from 'lucide-react'
 
 const navItems = [
   { label: 'Home', href: '/', icon: <Home size={16} /> },
   { label: 'Heroes', href: '/heroes', icon: <Users size={16} /> },
   { label: 'Artifacts', href: '/artifacts', icon: <Shield size={16} /> },
+  { label: 'Ultimate Power', href: '/force-cards', icon: <Files size={16} /> },
 ]
 
 const LANGUAGES = [

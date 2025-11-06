@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",                    // ✅ ADICIONAR ESTA LINHA
     "types": ["react", "react-dom"],
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -20,7 +21,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["*"]                     // ✅ Mantém assim (sem "./")
     }
   },
   "include": [
@@ -31,7 +32,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"],
-  
+  "exclude": ["node_modules"]
 }
-
