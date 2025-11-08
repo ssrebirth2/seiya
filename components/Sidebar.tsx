@@ -41,7 +41,7 @@ export function Sidebar() {
       {isMobile && !open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed top-5 left-5 z-50 bg-[var(--panel)] border border-[var(--panel-border)] text-[var(--foreground)] rounded-full shadow-md hover:shadow-lg p-3 text-lg hover:bg-[var(--panel-hover)] active:scale-95 transition-all duration-200"
+          className="fixed top-1 right-1 z-50 bg-[var(--panel)]  border-[var(--panel-border)] text-[var(--foreground)] shadow-md hover:shadow-lg p-3 text-lg hover:bg-[var(--panel-hover)] active:scale-95 transition-all duration-200"
           aria-label="Open sidebar"
         >
           ☰
