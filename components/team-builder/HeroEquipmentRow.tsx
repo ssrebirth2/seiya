@@ -265,7 +265,7 @@ export default function HeroEquipmentRow({
           </div>
 
           {/* Cartas */}
-          <div className="mt-20 ml-20 flex flex-col items-center w-full">
+          <div className="mt-20 ml-5 flex flex-col items-center w-full">
             <div className="flex justify-center gap-2">
               {Array.from({ length: 3 }).map((_, i) => (
                 <div
