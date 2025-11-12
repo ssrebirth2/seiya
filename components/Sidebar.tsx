@@ -21,10 +21,12 @@ const navItemsTools = [
 
 const LANGUAGES = [
   { code: 'CN', label: '🇨🇳 中文' },
+  { code: 'PT', label: '🇧🇷 Português' },
   { code: 'EN', label: '🇺🇸 English' },
+  { code: 'ES', label: '🇪🇸 Español' },
+  { code: 'FR', label: '🇫🇷 Français' },
   { code: 'ID', label: '🇮🇩 Bahasa Indonesia' },
   { code: 'TH', label: '🇹🇭 ไทย' },
-  { code: 'PT', label: '🇧🇷 Português(IA)' },
 ]
 
 export function Sidebar() {
