@@ -17,6 +17,7 @@ const navItemsMain = [
 // 🧰 Nova seção "TOOLS"
 const navItemsTools = [
   { label: 'Team Builder', href: '/team-builder', icon: <Wrench size={16} /> },
+  { label: 'News', href: '/news', icon: <Wrench size={16} /> },
 ]
 
 const LANGUAGES = [
