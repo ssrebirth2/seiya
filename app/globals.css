@@ -167,4 +167,24 @@ html, body {
 main {
   border-left: 1px solid var(--panel-border);
 }
+
+.news-detail-page {
+  padding: 16px;
+  text-align: center; /* ajuda a centralizar inline-block */
+}
+
+.news-detail-panel {
+  display: inline-block;     /* faz o painel "encolher" ao conteúdo */
+  width: fit-content;        /* largura baseada no conteúdo */
+  max-width: 100%;           /* nunca passa da tela */
+  text-align: left;          /* texto volta ao normal */
+}
+
+/* MUITO IMPORTANTE: imagens do HTML do WeChat */
+.news-detail-panel .wechat-content img {
+  display: block;
+  max-width: 100%;           /* se a imagem for maior que o painel/tela, ela encolhe */
+  height: auto;
+}
+
    

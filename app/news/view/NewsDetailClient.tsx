@@ -56,11 +56,15 @@ export default function NewsDetailClient() {
   }
 
   return (
-    <div className="panel">
+  <div className="news-detail-page">
+    <div className="news-detail-panel panel">
       <Link href="/news" className="text-sm underline">
         ← Voltar
       </Link>
-      <h1 className="text-2xl font-bold mt-3">{post.title ?? "(sem título)"}</h1>
+
+      <h1 className="text-2xl font-bold mt-3">
+        {post.title ?? "(sem título)"}
+      </h1>
 
       <div className="text-sm text-muted mt-1">
         Autor: {post.author ?? "Desconhecido"} · Publicado:{" "}
@@ -74,5 +78,7 @@ export default function NewsDetailClient() {
         }}
       />
     </div>
-  );
+  </div>
+);
+
 }
