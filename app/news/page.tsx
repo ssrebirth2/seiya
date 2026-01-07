@@ -1,3 +1,8 @@
+// app/news/page.tsx
+
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import Link from 'next/link'
 import { createClient } from '@supabase/supabase-js'
 
@@ -19,7 +24,7 @@ function formatLocalDate(iso?: string | null) {
   const d = new Date(iso)
   return d.toLocaleString(undefined, {
     dateStyle: 'medium',
-    timeStyle: 'short'
+    timeStyle: 'short',
   })
 }
 
@@ -46,11 +51,10 @@ export default async function NewsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {posts?.map((p: WechatPost) => (
           <Link
-            key={p.id} // ✅ key adicionada
+            key={p.id}
             href={`/news/view?id=${encodeURIComponent(p.id)}`}
             className="border rounded-lg overflow-hidden hover:shadow-md transition bg-white/5"
           >
-            {/* ✅ COVER */}
             {p.cover_url ? (
               <div className="aspect-[16/9] bg-black/10">
                 <img
