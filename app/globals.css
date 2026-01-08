@@ -169,22 +169,44 @@ main {
 }
 
 .news-detail-page {
+  display: flex;
+  justify-content: center;
   padding: 16px;
-  text-align: center; /* ajuda a centralizar inline-block */
 }
 
+/* 🔒 limite real da página */
 .news-detail-panel {
-  display: inline-block;     /* faz o painel "encolher" ao conteúdo */
-  width: fit-content;        /* largura baseada no conteúdo */
-  max-width: 100%;           /* nunca passa da tela */
-  text-align: left;          /* texto volta ao normal */
+  width: 100%;
+  max-width: 677px;
+  overflow: hidden; /* ← impede vazamento */
 }
 
-/* MUITO IMPORTANTE: imagens do HTML do WeChat */
-.news-detail-panel .wechat-content img {
+/* wrapper interno para forçar tudo caber */
+.wechat-content-wrapper {
+  max-width: 677px;
+  overflow-x: hidden;
+}
+
+/* 🔥 NORMALIZAÇÃO DO HTML DO WECHAT */
+.wechat-content,
+.wechat-content * {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* imagens SEMPRE contidas */
+.wechat-content img {
   display: block;
-  max-width: 100%;           /* se a imagem for maior que o painel/tela, ela encolhe */
-  height: auto;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
-   
+/* tabelas e blocos largos */
+.wechat-content table {
+  width: 100% !important;
+}
+
+/* remove larguras inline comuns do WeChat */
+.wechat-content [style*="width"] {
+  max-width: 100% !important;
+}

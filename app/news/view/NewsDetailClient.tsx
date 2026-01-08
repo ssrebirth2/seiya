@@ -55,30 +55,33 @@ export default function NewsDetailClient() {
     );
   }
 
-  return (
+return (
   <div className="news-detail-page">
     <div className="news-detail-panel panel">
-      <Link href="/news" className="text-sm underline">
-        ← Voltar
-      </Link>
+      <div className="wechat-content-wrapper">
+        <Link href="/news" className="text-sm underline">
+          ← Voltar
+        </Link>
 
-      <h1 className="text-2xl font-bold mt-3">
-        {post.title ?? "(sem título)"}
-      </h1>
+        <h1 className="text-2xl font-bold mt-3">
+          {post.title ?? "(sem título)"}
+        </h1>
 
-      <div className="text-sm text-muted mt-1">
-        Autor: {post.author ?? "Desconhecido"} · Publicado:{" "}
-        {post.published_at ?? "Desconhecido"}
+        <div className="text-sm text-muted mt-1">
+          Autor: {post.author ?? "Desconhecido"} · Publicado:{" "}
+          {post.published_at ?? "Desconhecido"}
+        </div>
+
+        <div
+          className="wechat-content mt-6"
+          dangerouslySetInnerHTML={{
+            __html: post.content_html ?? "<p>Sem conteúdo</p>",
+          }}
+        />
       </div>
-
-      <div
-        className="wechat-content mt-6"
-        dangerouslySetInnerHTML={{
-          __html: post.content_html ?? "<p>Sem conteúdo</p>",
-        }}
-      />
     </div>
   </div>
 );
+
 
 }
