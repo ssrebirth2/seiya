@@ -22,7 +22,8 @@ const navItemsTools = [
 
 const LANGUAGES = [
   { code: 'CN', label: '🇨🇳 中文' },
-  { code: 'PT', label: '🇧🇷 Português' },
+  { code: 'PO', label: '🇧🇷 Português' },
+  { code: 'PT', label: '🇧🇷 Revisada' },
   { code: 'EN', label: '🇺🇸 English' },
   { code: 'ES', label: '🇪🇸 Español' },
   { code: 'FR', label: '🇫🇷 Français' },
