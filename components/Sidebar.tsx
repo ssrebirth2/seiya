@@ -12,7 +12,7 @@ const navItemsMain = [
   { label: 'Heroes', href: '/heroes', icon: <Users size={16} /> },
   { label: 'Artifacts', href: '/artifacts', icon: <Shield size={16} /> },
   { label: 'Ultimate Power', href: '/force-cards', icon: <Zap size={16} /> },
-  { label: 'Items', href: '/items', icon: <Database size={16} /> },
+//  { label: 'Items', href: '/items', icon: <Database size={16} /> },
 ]
 
 // 🧰 Nova seção "TOOLS"
