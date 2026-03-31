@@ -5,19 +5,19 @@ import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { useLanguage } from '@/context/LanguageContext'
 import { useState, useEffect } from 'react'
-import { Home, Users, Shield, Zap, Wrench } from 'lucide-react' // 🧩 Wrench para Tools ícone
+import { Home, Users, Shield, Zap, Wrench, Database } from 'lucide-react' // 🧩 Wrench para Tools ícone
 
 const navItemsMain = [
   { label: 'Home', href: '/', icon: <Home size={16} /> },
   { label: 'Heroes', href: '/heroes', icon: <Users size={16} /> },
   { label: 'Artifacts', href: '/artifacts', icon: <Shield size={16} /> },
   { label: 'Ultimate Power', href: '/force-cards', icon: <Zap size={16} /> },
+  { label: 'Items', href: '/items', icon: <Database size={16} /> },
 ]
 
 // 🧰 Nova seção "TOOLS"
 const navItemsTools = [
   { label: 'Team Builder', href: '/team-builder', icon: <Wrench size={16} /> },
-  { label: 'News', href: '/news', icon: <Wrench size={16} /> },
 ]
 
 const LANGUAGES = [
@@ -28,7 +28,6 @@ const LANGUAGES = [
   { code: 'ES', label: '🇪🇸 Español' },
   { code: 'FR', label: '🇫🇷 Français' },
   { code: 'ID', label: '🇮🇩 Bahasa Indonesia' },
-  { code: 'TH', label: '🇹🇭 ไทย' },
 ]
 
 export function Sidebar() {
