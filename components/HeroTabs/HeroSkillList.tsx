@@ -15,6 +15,28 @@ interface SkillLine {
   text: string
 }
 
+// Função auxiliar para converter o caminho bruto do Supabase para o formato de asset
+const convertIconPath = (rawPath?: string): string => {
+  if (!rawPath) return ''
+
+  // Remove barra inicial, se houver
+  const cleanPath = rawPath.replace(/^\/+/, '')
+  const lastSlashIndex = cleanPath.lastIndexOf('/')
+  let dir = ''
+  let file = cleanPath
+
+  if (lastSlashIndex !== -1) {
+    dir = cleanPath.substring(0, lastSlashIndex)
+    file = cleanPath.substring(lastSlashIndex + 1)
+  }
+
+  // Converte o diretório para letras minúsculas
+  const lowerDir = dir.toLowerCase()
+
+  // Monta o caminho final com prefixo e extensão .png
+  return `/assets/resources/${lowerDir}/${file}.png`
+}
+
 export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
   const { lang } = useLanguage()
   const [skills, setSkills] = useState<Map<string, any>>(new Map())
@@ -151,7 +173,8 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
       .map(id => skills.get(id))
       .filter(Boolean)
 
-    const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
+    // Usar iconpath do Supabase convertido, com fallback para o caminho antigo
+    const iconPath = convertIconPath(skill.iconpath) || `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
 
     return (
       <div
@@ -210,7 +233,8 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     <section className="mt-6">
       <div className="flex flex-wrap justify-center gap-6 mb-4">
         {rootSkills.map(skill => {
-          const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
+          // Usar iconpath do Supabase convertido, com fallback para o caminho antigo
+          const iconPath = convertIconPath(skill.iconpath) || `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
           const name = getT(skill.name)
           const isActive = activeSkillId === toId(skill.skillid)
 
