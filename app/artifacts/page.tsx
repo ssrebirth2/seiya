@@ -61,9 +61,7 @@ export default function ArtifactListPage() {
           keys.add(`LC_COMMON_quality_name_${a.initial_quality}`)
       })
 
-      const [translated] = await Promise.all([
-        translateKeys(Array.from(keys), lang),
-      ])
+      const translated = await translateKeys(Array.from(keys), lang)
 
       const resMap: Record<number, any> = {}
       res?.forEach((r) => (resMap[r.id] = r))

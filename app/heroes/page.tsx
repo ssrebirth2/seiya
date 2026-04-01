@@ -6,6 +6,10 @@ import { supabase } from '@/lib/supabase'
 import { useLanguage } from '@/context/LanguageContext'
 import { translateKeys } from '@/lib/translate'
 import { applySkillValues, setupGlobalSkillTooltips } from '@/lib/applySkillValues'
+import { getQueryClient } from '@/lib/query-client'
+import { fetchHeroTypeDescMap } from '@/lib/heroTypeDescConfig'
+import { queryKeys } from '@/lib/queryKeys'
+import { GAME_CONFIG_STALE_MS } from '@/lib/queryConfig'
 
 interface Hero {
   id: number
@@ -43,18 +47,24 @@ export default function HeroListPage() {
   useEffect(() => {
     const loadData = async () => {
       const translationKeys = new Set<string>()
+      const qc = getQueryClient()
 
-      // --- HEROES ---
-      const { data: heroData } = await supabase
-        .from('RoleConfig')
-        .select('id, camp, stance, damagetype, occupation')
-        .lte('id', 1499)
-        .order('id')
+      const [{ data: heroData }, tMap] = await Promise.all([
+        supabase
+          .from('RoleConfig')
+          .select('id, camp, stance, damagetype, occupation')
+          .lte('id', 1499)
+          .order('id'),
+        qc.fetchQuery({
+          queryKey: queryKeys.heroTypeDesc,
+          queryFn: fetchHeroTypeDescMap,
+          staleTime: GAME_CONFIG_STALE_MS,
+        }),
+      ])
 
       if (!heroData) return
       setHeroes(heroData)
 
-      // --- ROLE NAMES ---
       const resourceIds = heroData.map((h) => h.id * 10)
       const { data: resources } = await supabase
         .from('RoleResourcesConfig')
@@ -70,19 +80,9 @@ export default function HeroListPage() {
       })
       setRoleNameMap(rMap)
 
-      // --- TYPE MAPS ---
-      const { data: types } = await supabase
-        .from('HeroTypeDescConfig')
-        .select('key, desc')
-
-      const tMap: Record<string, string> = {}
-      types?.forEach((t) => {
-        tMap[t.key] = t.desc
-        translationKeys.add(t.desc)
-      })
+      Object.values(tMap).forEach((desc) => translationKeys.add(desc))
       setTypeMap(tMap)
 
-      // --- TRANSLATIONS ---
       const translationMap = await translateKeys(Array.from(translationKeys), lang)
       setTranslations(translationMap)
       setLoading(false)
@@ -125,7 +125,7 @@ export default function HeroListPage() {
     })
 
     return result
-  }, [heroes, filters, translations, sortBy])
+  }, [heroes, filters, translations, sortBy, roleNameMap, typeMap])
 
   const renderHTML = (text: string) => (
     <span

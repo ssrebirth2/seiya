@@ -6,6 +6,10 @@ import { supabase } from '@/lib/supabase'
 import { useLanguage } from '@/context/LanguageContext'
 import { translateKeys } from '@/lib/translate'
 import { applySkillValues, setupGlobalSkillTooltips } from '@/lib/applySkillValues'
+import { getQueryClient } from '@/lib/query-client'
+import { fetchHeroTypeDescMap } from '@/lib/heroTypeDescConfig'
+import { queryKeys } from '@/lib/queryKeys'
+import { GAME_CONFIG_STALE_MS } from '@/lib/queryConfig'
 import HeroTabsContainer from '@/components/HeroTabs/HeroTabsContainer'
 
 export default function HeroProfilePage() {
@@ -31,30 +35,24 @@ export default function HeroProfilePage() {
   useEffect(() => {
     const loadHeroData = async () => {
       try {
-        // === Busca dados principais ===
-        const { data: heroData } = await supabase
-          .from('RoleConfig')
-          .select('*')
-          .eq('id', heroId)
-          .single()
+        const resourceId = heroId * 10
+        const qc = getQueryClient()
+
+        const [{ data: heroData }, { data: resource }, tMap] = await Promise.all([
+          supabase.from('RoleConfig').select('*').eq('id', heroId).single(),
+          supabase.from('RoleResourcesConfig').select('role_name').eq('id', resourceId).single(),
+          qc.fetchQuery({
+            queryKey: queryKeys.heroTypeDesc,
+            queryFn: fetchHeroTypeDescMap,
+            staleTime: GAME_CONFIG_STALE_MS,
+          }),
+        ])
 
         if (!heroData) return
 
-        // === Busca resource e tipos ===
-        const resourceId = heroId * 10
-        const [{ data: resource }, { data: types }] = await Promise.all([
-          supabase.from('RoleResourcesConfig').select('role_name').eq('id', resourceId).single(),
-          supabase.from('HeroTypeDescConfig').select('key, desc'),
-        ])
-
-        const tMap: Record<string, string> = {}
         const translationKeys = new Set<string>()
-
         if (resource?.role_name) translationKeys.add(resource.role_name)
-        types?.forEach((t) => {
-          tMap[t.key] = t.desc
-          translationKeys.add(t.desc)
-        })
+        Object.values(tMap).forEach((desc) => translationKeys.add(desc))
         setTypeMap(tMap)
 
         // === Labels ===

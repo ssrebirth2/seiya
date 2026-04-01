@@ -1,4 +1,7 @@
-import { supabase } from '@/lib/supabase'
+import { getQueryClient } from '@/lib/query-client'
+import { fetchRawEquipmentCatalog } from '@/lib/fetchers/equipmentCatalog'
+import { queryKeys } from '@/lib/queryKeys'
+import { GAME_CONFIG_STALE_MS } from '@/lib/queryConfig'
 
 export type ForceCard = {
   id: number
@@ -8,15 +11,15 @@ export type ForceCard = {
 }
 
 export async function loadForceCards() {
-  const [{ data: items }, { data: infos }] = await Promise.all([
-    supabase.from('ForceCardItemConfig').select('id,name,quality'),
-    supabase.from('ForceCardInfoConfig').select('id,condition'),
-  ])
-  const infoMap: Record<number, any> = {}
-  infos?.forEach((r) => (infoMap[r.id] = r))
-  return (items || []).map((i) => ({
-    ...i,
-    condition: infoMap[i.id]?.condition || null,
+  const qc = getQueryClient()
+  const { forceCards } = await qc.fetchQuery({
+    queryKey: queryKeys.equipmentCatalogRaw,
+    queryFn: fetchRawEquipmentCatalog,
+    staleTime: GAME_CONFIG_STALE_MS,
+  })
+  return forceCards.map((c) => ({
+    ...c,
+    condition: c.condition ?? undefined,
   })) as ForceCard[]
 }
 

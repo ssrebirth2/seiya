@@ -1,7 +1,10 @@
 'use client'
 
 import { create } from 'zustand'
-import { supabase } from '@/lib/supabase'
+import { getQueryClient } from '@/lib/query-client'
+import { fetchRawEquipmentCatalog } from '@/lib/fetchers/equipmentCatalog'
+import { queryKeys } from '@/lib/queryKeys'
+import { GAME_CONFIG_STALE_MS } from '@/lib/queryConfig'
 
 type Equipment = {
   artifact: number | null
@@ -115,21 +118,12 @@ export const useEquipmentStore = create<EquipmentStore>((set, get) => ({
     try {
       console.time('⏳ Equipment load')
 
-      const [cardsRes, infoRes, artifactsRes] = await Promise.all([
-        supabase.from('ForceCardItemConfig').select('id, name, quality'),
-        supabase.from('ForceCardInfoConfig').select('id, condition'),
-        supabase.from('ArtifactConfig').select('id, name, initial_quality, limit'),
-      ])
-
-      // 🔹 Map de informações complementares
-      const infoMap: Record<number, any> = {}
-      infoRes.data?.forEach((r) => (infoMap[r.id] = r))
-
-      let forceCards = (cardsRes.data || []).map((c) => ({
-        ...c,
-        condition: infoMap[c.id]?.condition || null,
-      }))
-      let artifacts = artifactsRes.data || []
+      const qc = getQueryClient()
+      const { forceCards, artifacts } = await qc.fetchQuery({
+        queryKey: queryKeys.equipmentCatalogRaw,
+        queryFn: fetchRawEquipmentCatalog,
+        staleTime: GAME_CONFIG_STALE_MS,
+      })
 
       // ============================================================
       // 🔍 Verifica existência real das imagens e filtra inválidos

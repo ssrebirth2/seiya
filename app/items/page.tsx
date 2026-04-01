@@ -249,70 +249,42 @@ export default function ItemsPage() {
     [translations]
   )
 
-  // Carregar buffer completo de itens
+  // Buffer de itens + índice used-in + tipos em paralelo
   useEffect(() => {
     let cancelled = false
 
     const run = async () => {
       setBufferLoading(true)
-      try {
-        const buffer = await loadAllItemsBuffer()
-        if (!cancelled) setAllItemsBuffer(buffer)
-      } catch (error) {
-        console.error('Failed to load items buffer:', error)
-      } finally {
-        if (!cancelled) setBufferLoading(false)
-      }
-    }
-
-    run()
-    return () => {
-      cancelled = true
-    }
-  }, [])
-
-  // Carregar índice used-in
-  useEffect(() => {
-    let cancelled = false
-
-    const run = async () => {
       setUsedInLoading(true)
-      try {
-        const idx = await buildUsedInIndex()
-        if (!cancelled) setUsedInIndex(idx)
-      } finally {
-        if (!cancelled) setUsedInLoading(false)
-      }
-    }
-
-    run()
-    return () => {
-      cancelled = true
-    }
-  }, [])
-
-  // Carregar tipos
-  useEffect(() => {
-    let cancelled = false
-
-    const run = async () => {
       setLoading(true)
       try {
-        const { data } = await supabase
-          .from('ItemTypeConfig')
-          .select('id,itemType,name,normal_tag_name,select_tag_name')
-          .order('id')
+        const [buffer, idx, typesResult] = await Promise.all([
+          loadAllItemsBuffer(),
+          buildUsedInIndex(),
+          supabase
+            .from('ItemTypeConfig')
+            .select('id,itemType,name,normal_tag_name,select_tag_name')
+            .order('id'),
+        ])
 
-        const safeTypes = (data || []).map((t: any) => ({
+        const safeTypes = ((typesResult.data || []) as any[]).map((t) => ({
           ...t,
           id: toNum(t.id),
         })) as ItemTypeRow[]
 
-        if (!cancelled) setTypes(safeTypes)
+        if (!cancelled) {
+          setAllItemsBuffer(buffer)
+          setUsedInIndex(idx)
+          setTypes(safeTypes)
+        }
       } catch (error) {
-        console.error('Failed to load types:', error)
+        console.error('Failed to load items page data:', error)
       } finally {
-        if (!cancelled) setLoading(false)
+        if (!cancelled) {
+          setBufferLoading(false)
+          setUsedInLoading(false)
+          setLoading(false)
+        }
       }
     }
 

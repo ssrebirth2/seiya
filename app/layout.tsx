@@ -2,6 +2,7 @@ import './globals.css'
 import { ReactNode } from 'react'
 import { Sidebar } from '@/components/Sidebar'
 import { LanguageProvider } from '@/context/LanguageContext'
+import { QueryProvider } from '@/components/QueryProvider'
 
 export const metadata = {
   title: 'Saint Seiya: Rebirth 2 (EX)',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <body className="bg-[var(--background)] text-[var(--foreground)] antialiased">
         <LanguageProvider>
+          <QueryProvider>
           <div className="flex min-h-screen overflow-hidden bg-[var(--background)]">
             {/* 🔹 Sidebar fixa em telas grandes / retrátil em telas pequenas */}
             <Sidebar />
@@ -46,6 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </footer>
             </div>
           </div>
+          </QueryProvider>
         </LanguageProvider>
       </body>
     </html>

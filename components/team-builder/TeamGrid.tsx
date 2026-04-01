@@ -2,12 +2,12 @@
 
 import { DndContext, useDroppable, useDraggable } from '@dnd-kit/core'
 import { useTeamStore } from './useTeamStore'
-import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { useEffect, useState, useRef } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { translateKeys } from '@/lib/translate'
 import { applySkillValues } from '@/lib/applySkillValues'
 import { useRouter } from 'next/navigation' // ✅ adicionado
+import { useHeroTypeDescConfig } from '@/lib/hooks/useHeroTypeDescConfig'
 
 // 👉 Ordem visual: BACK, MID, FRONT
 const cols = [
@@ -25,44 +25,51 @@ type TeamGridProps = {
 export default function TeamGrid({ initialTeam, readOnly = false, onReady }: TeamGridProps) {
   const { team, removeHero, swapHeroes } = useTeamStore()
   const { lang } = useLanguage()
-
-  const [typeMap, setTypeMap] = useState<Record<string, string>>({})
+  const { data: typeMap = {}, isSuccess: typesReady } = useHeroTypeDescConfig()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [isDragging, setIsDragging] = useState(false)
-  const [signaledReady, setSignaledReady] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [gridReady, setGridReady] = useState(false)
+  const onReadyFired = useRef(false)
+  const onReadyRef = useRef(onReady)
+  onReadyRef.current = onReady
 
   useEffect(() => {
-    const load = async () => {
+    if (!typesReady) return
+
+    let cancelled = false
+    ;(async () => {
       try {
-        const { data, error } = await supabase.from('HeroTypeDescConfig').select('key, desc')
-        if (error) throw error
-
-        const map: Record<string, string> = {}
         const tkeys = new Set<string>()
-        data?.forEach((row) => {
-          map[row.key] = row.desc
-          tkeys.add(row.desc)
-        })
+        Object.values(typeMap).forEach((d) => tkeys.add(d))
         tkeys.add('LC_COMMON_partner')
-        setTypeMap(map)
-
         const tr = await translateKeys(Array.from(tkeys), lang)
-        setTranslations(tr)
+        if (!cancelled) {
+          setTranslations(tr)
+          setGridReady(true)
+          if (!onReadyFired.current) {
+            onReadyFired.current = true
+            onReadyRef.current?.()
+          }
+        }
       } catch (err) {
         console.error('⚠️ TeamGrid load failed:', err)
-        setTranslations({})
-      } finally {
-        setLoading(false)
-        if (!signaledReady) {
-          setSignaledReady(true)
-          onReady?.()
+        if (!cancelled) {
+          setTranslations({})
+          setGridReady(true)
+          if (!onReadyFired.current) {
+            onReadyFired.current = true
+            onReadyRef.current?.()
+          }
         }
       }
-    }
+    })()
 
-    load()
-  }, [lang, onReady, signaledReady])
+    return () => {
+      cancelled = true
+    }
+  }, [lang, typesReady, typeMap])
+
+  const loading = !typesReady || !gridReady
 
   const getT = (key?: string) => (key ? translations[key] || key : '')
 

@@ -86,25 +86,6 @@ export default function ArtifactDetailPage() {
       const firstSkillId =
         starRows.map(s => parseOrEmpty(s.skill_up)[0]?.skill_id).find(Boolean) || null
 
-      let skill: SkillConfig | null = null
-      if (firstSkillId) {
-        const { data: skillRows } = await supabase
-          .from('SkillConfig')
-          .select('*')
-          .eq('skillid', firstSkillId)
-          .limit(1)
-        skill = (skillRows?.[0] as SkillConfig) || null
-      }
-
-      // === Traduções ===
-      const keys = new Set<string>()
-      const valueIds = new Set<number>()
-
-      if (artifact.name) keys.add(artifact.name)
-      if (artifact.desc) keys.add(artifact.desc)
-      if (artifact.camp) keys.add(artifact.camp)
-
-      // 🔹 processar tags (label_list)
       let labelIds: number[] = []
       try {
         if (artifact.label_list) {
@@ -119,15 +100,27 @@ export default function ArtifactDetailPage() {
         labelIds = []
       }
 
-      let labelRecords: any[] = []
-      if (labelIds.length > 0) {
-        const { data: labels } = await supabase
-          .from('SkillLabelConfig')
-          .select('id, name')
-          .in('id', labelIds)
-        labelRecords = labels ?? []
-        labelRecords.forEach(l => keys.add(l.name))
-      }
+      const [skillRes, labelsRes] = await Promise.all([
+        firstSkillId
+          ? supabase.from('SkillConfig').select('*').eq('skillid', firstSkillId).limit(1)
+          : Promise.resolve({ data: null as SkillConfig[] | null }),
+        labelIds.length > 0
+          ? supabase.from('SkillLabelConfig').select('id, name').in('id', labelIds)
+          : Promise.resolve({ data: [] as { id: number; name: string }[] | null }),
+      ])
+
+      const skill = (skillRes.data?.[0] as SkillConfig) || null
+      const labelRecords: any[] = labelsRes.data ?? []
+
+      // === Traduções ===
+      const keys = new Set<string>()
+      const valueIds = new Set<number>()
+
+      if (artifact.name) keys.add(artifact.name)
+      if (artifact.desc) keys.add(artifact.desc)
+      if (artifact.camp) keys.add(artifact.camp)
+
+      labelRecords.forEach(l => keys.add(l.name))
 
       // 🔹 processar restrições (limit)
       let limitDisplay = ''

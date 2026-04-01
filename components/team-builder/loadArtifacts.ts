@@ -1,4 +1,7 @@
-import { supabase } from '@/lib/supabase'
+import { getQueryClient } from '@/lib/query-client'
+import { fetchRawEquipmentCatalog } from '@/lib/fetchers/equipmentCatalog'
+import { queryKeys } from '@/lib/queryKeys'
+import { GAME_CONFIG_STALE_MS } from '@/lib/queryConfig'
 
 export type Artifact = {
   id: number
@@ -8,8 +11,13 @@ export type Artifact = {
 }
 
 export async function loadArtifacts() {
-  const { data } = await supabase.from('ArtifactConfig').select('id,name,initial_quality,limit')
-  return (data || []) as Artifact[]
+  const qc = getQueryClient()
+  const { artifacts } = await qc.fetchQuery({
+    queryKey: queryKeys.equipmentCatalogRaw,
+    queryFn: fetchRawEquipmentCatalog,
+    staleTime: GAME_CONFIG_STALE_MS,
+  })
+  return artifacts as Artifact[]
 }
 
 export function canEquipArtifact(hero: any, artifact: Artifact): boolean {
