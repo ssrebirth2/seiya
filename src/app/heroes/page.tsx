@@ -13,6 +13,7 @@ import { GAME_CONFIG_STALE_MS } from '@/lib/query/query-config'
 import { ListPagePanel } from '@/components/layout/ListPagePanel'
 import GameImage from '@/components/ui/GameImage'
 import { squareHeroHeadUrl } from '@/lib/assets/game-images'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 import { isHeroListed } from '@/lib/game/hidden-hero-ids'
 
 interface Hero {
@@ -25,6 +26,7 @@ interface Hero {
 
 export default function HeroListPage() {
   const { lang } = useLanguage()
+  const { data: iconMap } = useHeroHeadIconMap()
   const [heroes, setHeroes] = useState<Hero[]>([])
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [typeMap, setTypeMap] = useState<Record<string, string>>({})
@@ -240,7 +242,7 @@ export default function HeroListPage() {
                 className="catalog-card-link"
               >
                 <GameImage
-                  src={squareHeroHeadUrl(id)}
+                  src={squareHeroHeadUrl(id, iconMap)}
                   alt={name}
                   className="mx-auto w-32 h-32 rounded-md mb-2 object-cover bg-panel-hover"
                 />

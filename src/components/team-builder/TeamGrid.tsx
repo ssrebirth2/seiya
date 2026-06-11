@@ -8,8 +8,10 @@ import { translateKeys } from '@/lib/i18n/language-package'
 import { formatDisplayText } from '@/lib/game/apply-skill-values'
 import { useRouter } from 'next/navigation' // ✅ adicionado
 import { useHeroTypeDescConfig } from '@/hooks/use-hero-type-desc'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 import GameImage from '@/components/ui/GameImage'
 import { squareHeroHeadUrl } from '@/lib/assets/game-images'
+import type { HeroHeadIconMap } from '@/lib/game/fetch-hero-head-icons'
 
 // 👉 Ordem visual: BACK, MID, FRONT
 const cols = [
@@ -28,6 +30,7 @@ export default function TeamGrid({ initialTeam, readOnly = false, onReady }: Tea
   const { team, removeHero, swapHeroes } = useTeamStore()
   const { lang } = useLanguage()
   const { data: typeMap = {}, isSuccess: typesReady } = useHeroTypeDescConfig()
+  const { data: iconMap } = useHeroHeadIconMap()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [isDragging, setIsDragging] = useState(false)
   const [gridReady, setGridReady] = useState(false)
@@ -137,6 +140,7 @@ export default function TeamGrid({ initialTeam, readOnly = false, onReady }: Tea
                     <HeroAvatar
                       id={hero.position}
                       heroId={hero.id}
+                      iconMap={iconMap}
                       readOnly={readOnly}
                       onRemove={() => removeHero(pos)}
                     />
@@ -167,6 +171,7 @@ export default function TeamGrid({ initialTeam, readOnly = false, onReady }: Tea
                         <HeroAvatar
                           id={hero.position}
                           heroId={hero.id}
+                          iconMap={iconMap}
                           readOnly={readOnly}
                           onRemove={() => removeHero(pos)}
                         />
@@ -234,11 +239,13 @@ function DropSlot({
 function HeroAvatar({
   id,
   heroId,
+  iconMap,
   onRemove,
   readOnly,
 }: {
   id: string
   heroId: number
+  iconMap?: HeroHeadIconMap
   onRemove?: () => void
   readOnly?: boolean
 }) {
@@ -251,7 +258,7 @@ function HeroAvatar({
         onClick={() => router.push(`/heroes/${heroId}`)} // ✅ abre página do herói
       >
         <GameImage
-          src={squareHeroHeadUrl(heroId)}
+          src={squareHeroHeadUrl(heroId, iconMap)}
           alt=""
           className="w-24 h-24 sm:w-26 sm:h-26 lg:w-28 lg:h-28 rounded border border-panel-border bg-panel-hover object-cover"
         />
@@ -268,7 +275,7 @@ function HeroAvatar({
     <div ref={setNodeRef} style={style} {...attributes}>
       <div className="relative">
         <GameImage
-          src={squareHeroHeadUrl(heroId)}
+          src={squareHeroHeadUrl(heroId, iconMap)}
           alt=""
           className="w-24 h-24 sm:w-26 sm:h-26 lg:w-28 lg:h-28 rounded border border-panel-border touch-none select-none bg-panel-hover object-cover"
           {...listeners}

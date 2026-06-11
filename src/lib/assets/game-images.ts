@@ -7,16 +7,31 @@ import {
 
 export { IMAGE_UNAVAILABLE }
 
-export function squareHeroHeadUrl(heroId: number): string {
-  return resolveAssetUrl(
-    `/assets/resources/textures/hero/squareherohead/SquareHeroHead_${heroId}0.png`
-  )
+import {
+  getHeroCircleHeadUrl,
+  getHeroSquareHeadUrl,
+  type HeroHeadIconMap,
+} from '@/lib/game/fetch-hero-head-icons'
+import { resolveHeroHeadIconUrl } from '@/lib/game/resolve-hero-head-icon'
+
+/** Square head from IconConfig.role_square_icon_path (via hero icon map), with legacy fallback. */
+export function squareHeroHeadUrl(heroId: number, iconMap?: HeroHeadIconMap): string {
+  return getHeroSquareHeadUrl(iconMap, heroId)
 }
 
-export function circleHeroHeadUrl(heroId: number): string {
-  return resolveAssetUrl(
-    `/assets/resources/textures/hero/circleherohead/CircleHeroHead_${heroId}0.png`
-  )
+/** Circle head from IconConfig.role_circle_icon_path (via hero icon map), with legacy fallback. */
+export function circleHeroHeadUrl(heroId: number, iconMap?: HeroHeadIconMap): string {
+  return getHeroCircleHeadUrl(iconMap, heroId)
+}
+
+/** @deprecated Prefer resolveHeroHeadIconUrl with IconConfig path from Supabase. */
+export function squareHeroHeadUrlFromDb(dbPath?: string | null): string {
+  return resolveHeroHeadIconUrl(dbPath)
+}
+
+/** @deprecated Prefer resolveHeroHeadIconUrl with IconConfig path from Supabase. */
+export function circleHeroHeadUrlFromDb(dbPath?: string | null): string {
+  return resolveHeroHeadIconUrl(dbPath)
 }
 
 export function superSkillBannerPath(heroId: number): string {

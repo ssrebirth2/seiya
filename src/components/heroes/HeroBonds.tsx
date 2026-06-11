@@ -21,6 +21,7 @@ import SkillCooldownMeta from './SkillCooldownMeta'
 import Link from 'next/link'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 
 interface HeroBondsProps {
   heroId: number
@@ -33,6 +34,7 @@ interface SkillLine {
 
 export default function HeroBonds({ heroId }: HeroBondsProps) {
   const { lang } = useLanguage()
+  const { data: iconMap } = useHeroHeadIconMap()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [relation, setRelation] = useState<any | null>(null)
   const [fetters, setFetters] = useState<any[]>([])
@@ -65,7 +67,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
       {ids.map((id) => (
           <Link key={id} href={`/heroes/${id}`}>
             <GameImage
-              src={circleHeroHeadUrl(id)}
+              src={circleHeroHeadUrl(id, iconMap)}
               alt={`Hero ${id}`}
               className="rounded-md border border-panel-border hover:scale-110 transition-transform bg-panel-hover object-cover"
               style={{ width: size, height: size }}

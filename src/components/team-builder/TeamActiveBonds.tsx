@@ -9,6 +9,7 @@ import { applySkillValues, loadSkillValues } from '@/lib/game/apply-skill-values
 import { normalizeDesValueList, parseGameData } from '@/lib/game/parse-game-data'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 
 type TeamHero = { id: number; stance: number; position: string }
@@ -23,6 +24,7 @@ export default function TeamActiveBonds({
   const { team: storeTeam } = useTeamStore()
   const team = teamOverride ?? storeTeam
   const { lang } = useLanguage()
+  const { data: iconMap } = useHeroHeadIconMap()
 
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
@@ -174,7 +176,7 @@ export default function TeamActiveBonds({
           {heroList.map((hid) => (
             <GameImage
               key={hid}
-              src={circleHeroHeadUrl(hid)}
+              src={circleHeroHeadUrl(hid, iconMap)}
               alt={`Hero ${hid}`}
               className="w-10 h-10 rounded-md border border-panel-border bg-panel-hover object-cover"
             />

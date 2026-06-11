@@ -9,6 +9,10 @@ const OUTPUT = join(ROOT, 'src', 'lib', 'assets', 'asset-manifest.json')
 const SCAN_DIRS = [
   'assets/resources/textures/hero/squareherohead',
   'assets/resources/textures/hero/circleherohead',
+  'assets/resources/textures/hero/heroshowcard',
+  'assets/resources/textures/hero/herohalfcard',
+  'assets/resources/textures/hero/herobardcard',
+  'assets/resources/textures/hero/barherohead',
   'assets/resources/textures/hero/skillicon/texture',
   'assets/resources/textures/hero/skillicon/skillbanner',
   'assets/resources/textures/hero/talent',

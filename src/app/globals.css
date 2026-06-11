@@ -291,6 +291,16 @@ img[data-unavailable='true'] {
     filter: drop-shadow(0 12px 28px rgb(0 0 0 / 0.22));
   }
 
+  .hero-profile-head {
+    @apply h-24 w-24 shrink-0 rounded-md object-cover sm:h-28 sm:w-28;
+    border: 1px solid var(--panel-border);
+    background-color: var(--panel-hover);
+  }
+
+  html.light .hero-profile-head {
+    background-color: var(--panel-solid);
+  }
+
   html.light .profile-header-art {
     filter: drop-shadow(0 10px 24px rgb(0 0 0 / 0.12));
   }

@@ -7,6 +7,7 @@ import { applySkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-ski
 import { useTeamStore } from '@/lib/team-builder/stores/use-team-store'
 import GameImage from '@/components/ui/GameImage'
 import { squareHeroHeadUrl } from '@/lib/assets/game-images'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 
 type HeroBasic = {
   id: number
@@ -19,6 +20,7 @@ type HeroBasic = {
 
 export default function HeroPool({ heroes }: { heroes: HeroBasic[] }) {
   const { lang } = useLanguage()
+  const { data: iconMap } = useHeroHeadIconMap()
   const { addHero, team } = useTeamStore()
 
   const [roleNameMap, setRoleNameMap] = useState<Record<number, string>>({})
@@ -70,9 +72,9 @@ export default function HeroPool({ heroes }: { heroes: HeroBasic[] }) {
     return availableHeroes.map((h) => {
       const resourceId = h.id * 10
       const name = getT(roleNameMap[resourceId])
-      return { ...h, name, imageUrl: squareHeroHeadUrl(h.id) }
+      return { ...h, name, imageUrl: squareHeroHeadUrl(h.id, iconMap) }
     })
-  }, [availableHeroes, roleNameMap, translations])
+  }, [availableHeroes, roleNameMap, translations, iconMap])
 
   return (
     <div className="overflow-x-auto whitespace-nowrap py-3">

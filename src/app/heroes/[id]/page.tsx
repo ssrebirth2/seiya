@@ -18,8 +18,15 @@ import { isAssetAvailable } from '@/lib/assets/asset-registry'
 import {
   superSkillBannerPath,
   superSkillBannerUrl,
-  squareHeroHeadUrl,
+  IMAGE_UNAVAILABLE,
 } from '@/lib/assets/game-images'
+import {
+  fetchHeroHeadIconEntry,
+  fetchHeroHeadIconMap,
+  getHeroSquareHeadUrl,
+  type HeroHeadIconEntry,
+} from '@/lib/game/fetch-hero-head-icons'
+import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
 
 const SPECIAL_FIELDS = ['camp', 'stance', 'damagetype', 'occupation'] as const
 const QUALITY_MAP: Record<number, string> = { 2: 'R', 3: 'SR', 4: 'SSR', 5: 'UR' }
@@ -50,6 +57,8 @@ export default function HeroProfilePage() {
   const { id } = useParams()
   const heroId = parseInt(id as string)
   const { lang } = useLanguage()
+  const { data: iconMap } = useHeroHeadIconMap()
+  const [heroHeadEntry, setHeroHeadEntry] = useState<HeroHeadIconEntry | null>(null)
 
   const [hero, setHero] = useState<any>(null)
   const [translations, setTranslations] = useState<Record<string, string>>({})
@@ -69,7 +78,7 @@ export default function HeroProfilePage() {
         const resourceId = heroId * 10
         const qc = getQueryClient()
 
-        const [{ data: heroData }, { data: resource }, tMap] = await Promise.all([
+        const [{ data: heroData }, { data: resource }, tMap, headEntry] = await Promise.all([
           supabase.from('RoleConfig').select('*').eq('id', heroId).single(),
           supabase.from('RoleResourcesConfig').select('role_name').eq('id', resourceId).single(),
           qc.fetchQuery({
@@ -77,9 +86,17 @@ export default function HeroProfilePage() {
             queryFn: fetchHeroTypeDescMap,
             staleTime: GAME_CONFIG_STALE_MS,
           }),
+          fetchHeroHeadIconEntry(heroId),
+          qc.prefetchQuery({
+            queryKey: queryKeys.heroHeadIcons,
+            queryFn: fetchHeroHeadIconMap,
+            staleTime: GAME_CONFIG_STALE_MS,
+          }),
         ])
 
         if (!heroData) return
+
+        setHeroHeadEntry(headEntry)
 
         const translationKeys = new Set<string>()
         if (resource?.role_name) translationKeys.add(resource.role_name)
@@ -160,6 +177,12 @@ export default function HeroProfilePage() {
     return getT(String(value))
   }
 
+  const headIconUrl = useMemo(() => {
+    const map =
+      heroHeadEntry != null ? { [heroId]: heroHeadEntry } : iconMap
+    return getHeroSquareHeadUrl(map, heroId)
+  }, [heroHeadEntry, iconMap, heroId])
+  const hasHeadIcon = headIconUrl !== IMAGE_UNAVAILABLE
   const bannerPath = useMemo(() => superSkillBannerPath(heroId), [heroId])
   const bannerUrl = useMemo(() => superSkillBannerUrl(heroId), [heroId])
   const hasBannerArt = useMemo(() => isAssetAvailable(bannerPath), [bannerPath])
@@ -245,11 +268,13 @@ export default function HeroProfilePage() {
           </Link>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-5">
-            <GameImage
-              src={squareHeroHeadUrl(heroId)}
-              alt={getT(roleName)}
-              className="h-24 w-24 shrink-0 rounded-xl border-2 border-panel-border bg-panel-solid object-cover shadow-lg ring-1 ring-panel-border/50 sm:h-28 sm:w-28"
-            />
+            {hasHeadIcon && (
+              <GameImage
+                src={headIconUrl}
+                alt={getT(roleName)}
+                className="hero-profile-head"
+              />
+            )}
 
             <div className="min-w-0 flex-1 space-y-2 pr-0 sm:max-w-[58%] md:max-w-[52%]">
               <div className="flex flex-wrap items-center gap-2">
