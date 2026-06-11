@@ -11,6 +11,7 @@ const SCAN_DIRS = [
   'assets/resources/textures/hero/circleherohead',
   'assets/resources/textures/hero/skillicon/texture',
   'assets/resources/textures/hero/skillicon/skillbanner',
+  'assets/resources/textures/hero/talent',
   'assets/resources/textures/dynamis/card',
   'assets/resources/textures/artifact/artifactskill/skillicon',
   'assets/resources/textures/artifact/artifactshowview',

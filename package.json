@@ -10,7 +10,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "knip": "knip"
+    "knip": "knip",
+    "talents:check": "node scripts/check-talent-tables.mjs",
+    "talents:export": "python scripts/import-talent-configs.py --export-json scripts/data/talents --no-upload",
+    "talents:import": "python scripts/import-talent-configs.py",
+    "talents:import-json": "node scripts/import-talent-json.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

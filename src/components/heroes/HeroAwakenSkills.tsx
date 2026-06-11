@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter, NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
 import { useLanguage } from '@/context/language-context'
 import { applySkillValues, loadSkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import {
@@ -12,6 +12,10 @@ import {
   parseGameData,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
+
+import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
+import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
+import SkillCooldownMeta from './SkillCooldownMeta'
 
 interface HeroAwakenSkillsProps {
   heroId: number
@@ -29,7 +33,7 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
   const [labelMap, setLabelMap] = useState<Record<number, string>>({})
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = createTranslationGetter(translations)
 
   useEffect(() => {
     setupGlobalSkillTooltips()
@@ -76,7 +80,10 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
 
       skillRows.forEach((s) => {
         if (s.name?.startsWith('LC_')) tkeys.add(s.name)
-        if (s.skill_type) tkeys.add(`LC_SKILL_type_des_${s.skill_type}`)
+        if (s.skill_type) {
+          const typeKey = skillTypeLcKey(s.skill_type)
+          if (typeKey) tkeys.add(typeKey)
+        }
         parsePrimitiveList(s.label_list).forEach((l) => labelIds.add(Number(l)))
 
         for (const f of ['skill_des', 'awaken_skill_des'] as const) {
@@ -121,14 +128,13 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
     <section className="mt-6">
       {skills.map((skill) => {
         const name = getT(skill.name)
-        const cd = skill.cd === -1 ? '-' : skill.cd
-        const skillType = getT(`LC_SKILL_type_des_${skill.skill_type}`)
+        const skillType = resolveSkillTypeLabel(skill.skill_type, getT)
         const labels = parsePrimitiveList(skill.label_list)
           .map((id) => labelMap[Number(id)])
           .filter(Boolean)
           .join(', ')
 
-        const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
+        const iconPath = resolveSkillIconUrl(skill)
 
         const desList = normalizeDesValueList(skill.skill_des)
         const mainDescription =
@@ -164,7 +170,7 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
 
             <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
               {skillType && <p><strong>Tipo:</strong> {skillType}</p>}
-              <p><strong>Cooldown:</strong> {cd}</p>
+              <SkillCooldownMeta cd={skill.cd} />
               {labels && <p><strong>Tags:</strong> {labels}</p>}
             </div>
 

@@ -4,15 +4,25 @@ import { supabase } from '@/lib/supabase-client'
 const translationCache: Record<string, Record<string, string>> = {}
 const CHUNK_SIZE = 200
 const FALLBACK_LANG = 'CN'
-export const TRANSLATION_UNAVAILABLE = 'Translation unavailable'
+export const NOT_AVAILABLE_LABEL = 'Not available'
+/** @deprecated use NOT_AVAILABLE_LABEL */
+export const NOT_IMPLEMENTED_LABEL = NOT_AVAILABLE_LABEL
+/** @deprecated use NOT_AVAILABLE_LABEL */
+export const TRANSLATION_UNAVAILABLE = NOT_AVAILABLE_LABEL
 
 const isLcKey = (key: string) => key.startsWith('LC_')
 
 /** True when no usable translation was loaded for this key. */
-const isUnresolvedTranslation = (key: string, value: string | undefined): boolean => {
+export function isMissingLcTranslation(key: string, value: string | undefined): boolean {
+  if (!isLcKey(key)) return false
   if (!value?.trim()) return true
-  return value === key
+  if (value === key) return true
+  if (value === NOT_AVAILABLE_LABEL) return true
+  return false
 }
+
+const isUnresolvedTranslation = (key: string, value: string | undefined): boolean =>
+  isMissingLcTranslation(key, value)
 
 function chunk<T>(arr: T[], size: number): T[][] {
   const out: T[][] = []
@@ -75,7 +85,22 @@ function resolveTranslation(key: string, lang: string): string {
     if (!isUnresolvedTranslation(key, cn)) return cn!
   }
 
-  return TRANSLATION_UNAVAILABLE
+  return NOT_AVAILABLE_LABEL
+}
+
+/** Safe getter for preloaded translation maps — never surfaces raw LC_ keys. */
+export function createTranslationGetter(translations: Record<string, string>) {
+  return (key?: string): string => {
+    if (!key?.trim()) return ''
+    const resolved = translations[key]
+    if (isLcKey(key)) {
+      if (resolved == null || isMissingLcTranslation(key, resolved)) {
+        return NOT_AVAILABLE_LABEL
+      }
+      return resolved
+    }
+    return resolved ?? key
+  }
 }
 
 export async function translateKeys(keys: string[], lang: string = 'EN'): Promise<Record<string, string>> {

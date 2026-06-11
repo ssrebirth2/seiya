@@ -16,7 +16,8 @@ import {
 import ArtifactSkillList from '@/components/artifacts/ArtifactSkillList'
 import ArtifactPreviewImage from '@/components/ui/ArtifactPreviewImage'
 import GameImage from '@/components/ui/GameImage'
-import { artifactSkillIconPath, artifactSkillIconUrl } from '@/lib/assets/game-images'
+import { resolveAssetUrl, IMAGE_UNAVAILABLE } from '@/lib/assets/asset-registry'
+import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 
 type StarRow = {
   id: number
@@ -315,8 +316,8 @@ export default function ArtifactDetailPage() {
           </h2>
           <div className="flex items-start gap-4">
             <GameImage
-              src={artifactSkillIconUrl(skill.skillid)}
-              rawSrc={artifactSkillIconPath(skill.skillid)}
+              src={resolveAssetUrl(resolveSkillIconUrl(skill), IMAGE_UNAVAILABLE)}
+              rawSrc={resolveSkillIconUrl(skill) || undefined}
               alt={getT(skill.name)}
               className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20"
             />

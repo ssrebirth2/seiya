@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated talent seed data (regenerate with npm run talents:export)
+/scripts/data/talents/

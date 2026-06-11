@@ -5,6 +5,7 @@ import HeroSkillList from './HeroSkillList'
 import HeroQualitySkill from './HeroQualitySkill'
 import HeroAwakenSkills from './HeroAwakenSkills'
 import HeroBonds from './HeroBonds'
+import HeroTalents from './HeroTalents'
 
 interface HeroTabsContainerProps {
   heroId: number
@@ -12,12 +13,13 @@ interface HeroTabsContainerProps {
   onTabsReady?: () => void
 }
 
-type TabKey = 'skills' | 'quality' | 'awaken' | 'bonds'
+type TabKey = 'skills' | 'quality' | 'awaken' | 'talents' | 'bonds'
 
 const TABS: { key: TabKey; label: string; shortLabel: string }[] = [
   { key: 'skills', label: 'Skills', shortLabel: 'Skills' },
   { key: 'quality', label: 'Quality Skill', shortLabel: 'Quality' },
   { key: 'awaken', label: 'Awaken Skills', shortLabel: 'Awaken' },
+  { key: 'talents', label: 'Talents', shortLabel: 'Talents' },
   { key: 'bonds', label: 'Bonds', shortLabel: 'Bonds' },
 ]
 
@@ -51,7 +53,7 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
         </div>
       </div>
 
-      <div className="p-4 sm:p-6">
+      <div className="min-w-0 p-4 sm:p-6">
         {/* Keep panels mounted so tab switches don't re-fetch from Supabase */}
         <div
           role="tabpanel"
@@ -73,6 +75,13 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
           className={activeTab === 'awaken' ? 'block' : 'hidden'}
         >
           <HeroAwakenSkills heroId={heroId} />
+        </div>
+        <div
+          role="tabpanel"
+          aria-hidden={activeTab !== 'talents'}
+          className={activeTab === 'talents' ? 'block' : 'hidden'}
+        >
+          <HeroTalents heroId={heroId} />
         </div>
         <div
           role="tabpanel"

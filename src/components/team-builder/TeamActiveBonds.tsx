@@ -9,6 +9,7 @@ import { applySkillValues, loadSkillValues } from '@/lib/game/apply-skill-values
 import { normalizeDesValueList, parseGameData } from '@/lib/game/parse-game-data'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
+import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 
 type TeamHero = { id: number; stance: number; position: string }
 
@@ -162,9 +163,7 @@ export default function TeamActiveBonds({
         : ''
 
     const isComboSkill = Number(combo.type) === 1
-    const icon = isComboSkill
-      ? `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
-      : null
+    const icon = isComboSkill ? resolveSkillIconUrl(skill) : null
 
     return (
       <div

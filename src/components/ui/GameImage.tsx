@@ -20,6 +20,7 @@ export default function GameImage({
   fallbackSrc = IMAGE_UNAVAILABLE,
   onError,
   alt = '',
+  className,
   ...props
 }: GameImageProps) {
   const srcUrl = typeof src === 'string' ? src : undefined
@@ -44,6 +45,7 @@ export default function GameImage({
       alt={alt}
       src={currentSrc}
       data-unavailable={currentSrc === fallbackSrc ? 'true' : undefined}
+      className={className}
       onError={(e) => {
         const original = rawSrc || srcUrl
         if (currentSrc !== fallbackSrc && original) {

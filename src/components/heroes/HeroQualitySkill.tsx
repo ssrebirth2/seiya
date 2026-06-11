@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter, NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
 import { applySkillValues, loadSkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import {
   extractSkillIdFromInfo,
@@ -11,6 +11,9 @@ import {
   normalizeDesValueList,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
+import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
+import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
+import SkillCooldownMeta from './SkillCooldownMeta'
 
 interface HeroQualitySkillProps {
   heroId: number
@@ -28,7 +31,7 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
   const [labelMap, setLabelMap] = useState<Record<number, string>>({})
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = createTranslationGetter(translations)
 
   useEffect(() => {
     setupGlobalSkillTooltips()
@@ -71,7 +74,10 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
       const labelIds = new Set<number>()
 
       if (skillRow.name?.startsWith('LC_')) tkeys.add(skillRow.name)
-      if (skillRow.skill_type) tkeys.add(`LC_SKILL_type_des_${skillRow.skill_type}`)
+      if (skillRow.skill_type) {
+        const typeKey = skillTypeLcKey(skillRow.skill_type)
+        if (typeKey) tkeys.add(typeKey)
+      }
 
       // === PARTE CRÍTICA: label_list pode ser string JSON ===
       parsePrimitiveList(skillRow.label_list).forEach((l) => labelIds.add(Number(l)))
@@ -114,8 +120,7 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
     return <p className="text-sm text-text-muted">No quality skill found.</p>
 
   const name = getT(skill.name)
-  const cd = skill.cd === -1 ? '-' : skill.cd
-  const skillType = getT(`LC_SKILL_type_des_${skill.skill_type}`)
+  const skillType = resolveSkillTypeLabel(skill.skill_type, getT)
 
   // === PARTE CRÍTICA: renderizar tags a partir de label_list (string/array) ===
   const labels = parsePrimitiveList(skill.label_list)
@@ -123,7 +128,7 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
     .filter(Boolean)
     .join(', ')
 
-  const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
+  const iconPath = resolveSkillIconUrl(skill)
 
   const desList = normalizeDesValueList(skill.skill_des)
   const mainDescription =
@@ -157,7 +162,7 @@ export default function HeroQualitySkill({ heroId }: HeroQualitySkillProps) {
 
         <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
           {skillType && <p><strong>Tipo:</strong> {skillType}</p>}
-          <p><strong>Cooldown:</strong> {cd}</p>
+          <SkillCooldownMeta cd={skill.cd} />
           {labels && <p><strong>Tags:</strong> {labels}</p>}
         </div>
 

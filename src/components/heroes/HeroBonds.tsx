@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import {
   applySkillValues,
   loadSkillValues,
@@ -15,6 +15,9 @@ import {
   parseGameData,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
+import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
+import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
+import SkillCooldownMeta from './SkillCooldownMeta'
 import Link from 'next/link'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
@@ -55,7 +58,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
     return []
   }
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = createTranslationGetter(translations)
 
   const renderHeroIcons = (ids: number[], size = 48) => (
     <div className="flex justify-center gap-2 mb-2">
@@ -143,7 +146,10 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
       allSkills.forEach((s) => {
         map.set(String(s.skillid), s)
         if (s.name?.startsWith('LC_')) tkeys.add(s.name)
-        if (s.skill_type) tkeys.add(`LC_SKILL_type_des_${s.skill_type}`)
+        if (s.skill_type) {
+          const typeKey = skillTypeLcKey(s.skill_type)
+          if (typeKey) tkeys.add(typeKey)
+        }
         parsePrimitiveList(s.label_list).forEach((l) => labelIds.add(Number(l)))
         for (const f of ['skill_des', 'skill_sketch'] as const) {
           normalizeDesValueList(s[f]).forEach((it) => {
@@ -192,8 +198,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
   // -------------------------------
   const renderSkillDetails = (skill: any): React.ReactElement => {
     const name = getT(skill.name)
-    const cd = skill.cd === -1 ? '-' : skill.cd
-    const skillType = getT(`LC_SKILL_type_des_${skill.skill_type}`)
+    const skillType = resolveSkillTypeLabel(skill.skill_type, getT)
     const labels = parsePrimitiveList(skill.label_list)
       .map((id) => labelMap[Number(id)])
       .filter(Boolean)
@@ -218,7 +223,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
       .map((sid) => combineSkillData.get(String(sid)))
       .filter(Boolean)
 
-    const iconPath = `/assets/resources/textures/hero/skillicon/texture/SkillIcon_${skill.skillid}.png`
+    const iconPath = resolveSkillIconUrl(skill)
 
     return (
       <div
@@ -232,7 +237,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
 
         <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
           {skillType && <p><strong>Tipo:</strong> {skillType}</p>}
-          <p><strong>Cooldown:</strong> {cd}</p>
+          <SkillCooldownMeta cd={skill.cd} />
           {labels && <p><strong>Tags:</strong> {labels}</p>}
         </div>
 

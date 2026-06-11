@@ -96,12 +96,17 @@ export function artifactIconUrlByArtifactId(artifactId: number): string {
   return resolveAssetUrl(artifactIconPathByArtifactId(artifactId))
 }
 
-export function artifactSkillIconPath(skillId: number): string {
-  return `/assets/resources/textures/artifact/artifactskill/skillicon/SkillIcon_${skillId}.png`
+import { convertSkillIconPath } from '@/lib/game/resolve-skill-icon'
+
+/** @deprecated Use resolveSkillIconUrl(skillRow) with SkillConfig.iconpath from Supabase. */
+export function artifactSkillIconPath(_skillId: number): string {
+  return ''
 }
 
-export function artifactSkillIconUrl(skillId: number): string {
-  return resolveAssetUrl(artifactSkillIconPath(skillId))
+/** @deprecated Use resolveSkillIconUrl(skillRow) with SkillConfig.iconpath from Supabase. */
+export function artifactSkillIconUrl(skill: { iconpath?: unknown }): string {
+  const path = convertSkillIconPath(typeof skill.iconpath === 'string' ? skill.iconpath : null)
+  return path ? resolveAssetUrl(path) : IMAGE_UNAVAILABLE
 }
 
 export function forceCardSmallPath(cardId: number): string {
