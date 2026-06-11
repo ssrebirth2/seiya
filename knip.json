@@ -1,0 +1,12 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreDependencies": [
+    "@dnd-kit/sortable",
+    "@dnd-kit/utilities",
+    "@netlify/plugin-nextjs",
+    "baseline-browser-mapping",
+    "dotenv",
+    "jsdom",
+    "playwright"
+  ]
+}
