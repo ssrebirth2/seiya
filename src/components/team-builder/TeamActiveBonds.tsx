@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useTeamStore } from '@/lib/team-builder/stores/use-team-store'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { applySkillValues, loadSkillValues } from '@/lib/game/apply-skill-values'
 import { normalizeDesValueList, parseGameData } from '@/lib/game/parse-game-data'
 import GameImage from '@/components/ui/GameImage'
@@ -24,6 +25,7 @@ export default function TeamActiveBonds({
   const { team: storeTeam } = useTeamStore()
   const team = teamOverride ?? storeTeam
   const { lang } = useLanguage()
+  const { t } = useUiTranslation()
   const { data: iconMap } = useHeroHeadIconMap()
 
   const [translations, setTranslations] = useState<Record<string, string>>({})
@@ -208,11 +210,9 @@ export default function TeamActiveBonds({
 
   return (
     <div>
-      <h2 className="text-xl font-semibold mb-2 text-center">Combinations Skills</h2>
+      <h2 className="mb-2 text-center text-xl font-semibold">{t(UI_KEYS.teamBuilder.comboSkills)}</h2>
       {activeCombos.length === 0 ? (
-        <div className="text-sm text-center text-text-muted">
-          No active combination skills detected.
-        </div>
+        <div className="text-center text-sm text-text-muted">{t(UI_KEYS.common.noData)}</div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {activeCombos.map((combo) => {

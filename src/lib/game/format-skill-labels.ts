@@ -17,6 +17,9 @@ export function resolveSkillTypeLabel(
   return getT(key)
 }
 
-export function isNotAvailableLabel(value?: string): boolean {
-  return value === NOT_AVAILABLE_LABEL
+export function isNotAvailableLabel(value?: string, noDataLabel?: string): boolean {
+  if (!value) return false
+  if (value === NOT_AVAILABLE_LABEL) return true
+  if (noDataLabel && value === noDataLabel) return true
+  return false
 }

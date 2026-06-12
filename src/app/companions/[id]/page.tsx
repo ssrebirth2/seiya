@@ -6,7 +6,9 @@ import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { qualityNameKey } from '@/lib/i18n/ui-keys'
 import { applySkillValues } from '@/lib/game/apply-skill-values'
 import CompanionProfileShowcase from '@/components/companions/CompanionProfileShowcase'
 import CompanionStarSkill from '@/components/companions/CompanionStarSkill'
@@ -16,6 +18,7 @@ export default function CompanionDetailPage() {
   const { id } = useParams()
   const companionId = parseInt(id as string, 10)
   const { lang } = useLanguage()
+  const { t, site } = useUiTranslation()
 
   const [companion, setCompanion] = useState<any>(null)
   const [resource, setResource] = useState<any>(null)
@@ -23,7 +26,7 @@ export default function CompanionDetailPage() {
   const [isReady, setIsReady] = useState(false)
 
   const getT = useCallback(
-    (key?: string) => translations[key || ''] || key || '',
+    (key?: string) => createTranslationGetter(translations)(key),
     [translations]
   )
 
@@ -63,7 +66,7 @@ export default function CompanionDetailPage() {
       if (spirit.name) keys.add(spirit.name)
       if (spirit.desc) keys.add(spirit.desc)
       if (spirit.init_quality != null) {
-        keys.add(`LC_COMMON_quality_name_${spirit.init_quality}`)
+        keys.add(qualityNameKey(spirit.init_quality))
       }
 
       const translated = await translateKeys(Array.from(keys), lang)
@@ -80,7 +83,7 @@ export default function CompanionDetailPage() {
   const qualityLabel = useMemo(
     () =>
       companion?.init_quality != null
-        ? getT(`LC_COMMON_quality_name_${companion.init_quality}`)
+        ? getT(qualityNameKey(companion.init_quality))
         : '',
     [companion, getT]
   )
@@ -101,7 +104,7 @@ export default function CompanionDetailPage() {
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">Loading companion profile...</p>
+          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
         </div>
       </div>
     )
@@ -110,10 +113,10 @@ export default function CompanionDetailPage() {
   if (!companion) {
     return (
       <div className="panel py-12 text-center">
-        <p className="mb-4 text-text-muted">Companion not found.</p>
+        <p className="mb-4 text-text-muted">{site('companionNotFound')}</p>
         <Link href="/companions" className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
-          Back to Companions
+          {site('backToCompanions')}
         </Link>
       </div>
     )
@@ -133,7 +136,7 @@ export default function CompanionDetailPage() {
       {companion.skill_id && (
         <section className="panel">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            Star Skill
+            {t(UI_KEYS.companion.starSkill)}
           </h2>
           <CompanionStarSkill skillId={companion.skill_id} />
         </section>

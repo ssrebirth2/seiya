@@ -4,26 +4,25 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { useLanguage } from '@/context/language-context'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Home, Users, Shield, Sparkles, Zap, Wrench } from 'lucide-react'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 const navItemsMain = [
-  { label: 'Home', href: '/', icon: <Home size={16} /> },
-  { label: 'Heroes', href: '/heroes', icon: <Users size={16} /> },
-  { label: 'Artifacts', href: '/artifacts', icon: <Shield size={16} /> },
-  { label: 'Companions', href: '/companions', icon: <Sparkles size={16} /> },
-  { label: 'Ultimate Power', href: '/force-cards', icon: <Zap size={16} /> },
-//  { label: 'Items', href: '/items', icon: <Database size={16} /> },
+  { lcKey: UI_KEYS.nav.home, href: '/', icon: <Home size={16} /> },
+  { lcKey: UI_KEYS.nav.heroes, href: '/heroes', icon: <Users size={16} /> },
+  { lcKey: UI_KEYS.nav.artifacts, href: '/artifacts', icon: <Shield size={16} /> },
+  { lcKey: UI_KEYS.nav.companions, href: '/companions', icon: <Sparkles size={16} /> },
+  { lcKey: UI_KEYS.nav.forceCards, href: '/force-cards', icon: <Zap size={16} /> },
 ]
 
-// 🧰 Nova seção "TOOLS"
 const navItemsTools = [
-  { label: 'Team Builder', href: '/team-builder', icon: <Wrench size={16} /> },
+  { lcKey: UI_KEYS.nav.teamBuilder, href: '/team-builder', icon: <Wrench size={16} /> },
 ]
 
 const LANGUAGES = [
   { code: 'CN', label: '🇨🇳 中文' },
-  { code: 'PT', label: '🇧🇷 Revisada' },
+  { code: 'PT', label: '🇧🇷 Português' },
   { code: 'EN', label: '🇺🇸 English' },
   { code: 'SP', label: '🇪🇸 Español' },
   { code: 'FR', label: '🇫🇷 Français' },
@@ -33,8 +32,11 @@ const LANGUAGES = [
 export function Sidebar() {
   const pathname = usePathname()
   const { lang, setLang } = useLanguage()
+  const { t, site } = useUiTranslation()
   const [open, setOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+
+  const toolsLabel = useMemo(() => t(UI_KEYS.nav.tools), [t])
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024)
@@ -45,18 +47,16 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Botão flutuante (mobile) */}
       {isMobile && !open && (
         <button
           onClick={() => setOpen(true)}
           className="fixed top-1 right-1 z-50 border border-panel-border bg-panel p-3 text-lg text-foreground shadow-md transition-all duration-200 hover:bg-panel-hover hover:shadow-lg active:scale-95"
-          aria-label="Open sidebar"
+          aria-label={site('openSidebar')}
         >
           ☰
         </button>
       )}
 
-      {/* Overlay (mobile) */}
       {isMobile && open && (
         <div
           className="overlay-backdrop fixed inset-0 z-40 animate-fadeIn backdrop-blur-sm"
@@ -64,7 +64,6 @@ export function Sidebar() {
         />
       )}
 
-      {/* Sidebar */}
       {(!isMobile || open) && (
         <aside
           className={`fixed top-0 left-0 z-50 flex h-screen w-[var(--sidebar-width,16rem)] flex-col justify-between border-r border-panel-border bg-panel-solid transition-transform duration-300 ease-in-out ${
@@ -73,12 +72,7 @@ export function Sidebar() {
               : 'translate-x-0'
           }`}
         >
-          {/* Header */}
           <div className="border-b border-panel-border px-6 pb-4 pt-6">
-            <h1 className="text-center text-lg font-bold uppercase tracking-wide text-foreground">
-              Menu
-            </h1>
-            <br />
             <div className="text-center">
               <select
                 value={lang}
@@ -94,19 +88,14 @@ export function Sidebar() {
             </div>
           </div>
 
-          {/* Navegação */}
-          <nav className="flex-1 overflow-y-auto mt-4 px-3">
-            {/* 🔹 MAIN Section */}
-            <h3 className="mb-2 px-4 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
-              Main
-            </h3>
-            <ul className="space-y-1 mb-6">
+          <nav className="mt-4 flex-1 overflow-y-auto px-3">
+            <ul className="mb-6 space-y-1">
               {navItemsMain.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-3 rounded-md px-4 py-2 text-sm font-medium transition-all duration-150 ${
                       pathname === item.href ||
                       (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                         ? 'border border-panel-border bg-panel-hover text-foreground shadow-inner'
@@ -114,15 +103,14 @@ export function Sidebar() {
                     }`}
                   >
                     <span className="opacity-80">{item.icon}</span>
-                    <span>{item.label}</span>
+                    <span>{t(item.lcKey)}</span>
                   </Link>
                 </li>
               ))}
             </ul>
 
-            {/* 🔹 TOOLS Section */}
             <h3 className="mb-2 px-4 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
-              Tools
+              {toolsLabel}
             </h3>
             <ul className="space-y-1">
               {navItemsTools.map((item) => (
@@ -130,7 +118,7 @@ export function Sidebar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
+                    className={`flex items-center gap-3 rounded-md px-4 py-2 text-sm font-medium transition-all duration-150 ${
                       pathname === item.href ||
                       (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                         ? 'border border-panel-border bg-panel-hover text-foreground shadow-inner'
@@ -138,16 +126,15 @@ export function Sidebar() {
                     }`}
                   >
                     <span className="opacity-80">{item.icon}</span>
-                    <span>{item.label}</span>
+                    <span>{t(item.lcKey)}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Rodapé */}
           <footer className="border-t border-panel-border p-4 text-xs text-text-muted">
-            <div className="flex items-center justify-between mb-3">
+            <div className="mb-3 flex items-center justify-between">
               <ThemeToggle />
             </div>
           </footer>

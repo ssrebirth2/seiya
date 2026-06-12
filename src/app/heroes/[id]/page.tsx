@@ -6,8 +6,7 @@ import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
-import { applySkillValues, formatDisplayText, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import { getQueryClient } from '@/lib/query/query-client'
 import { fetchHeroTypeDescMap } from '@/lib/game/hero-type-desc'
 import { queryKeys } from '@/lib/query/query-keys'
@@ -27,19 +26,21 @@ import {
   type HeroHeadIconEntry,
 } from '@/lib/game/fetch-hero-head-icons'
 import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { qualityNameKey } from '@/lib/i18n/ui-keys'
+import { applySkillValues, formatDisplayText, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 
 const SPECIAL_FIELDS = ['camp', 'stance', 'damagetype', 'occupation'] as const
-const QUALITY_MAP: Record<number, string> = { 2: 'R', 3: 'SR', 4: 'SSR', 5: 'UR' }
 
-const FIELD_LABELS: Record<string, string> = {
-  rolename_short: 'Short Name',
-  role_constellation_name: 'Constellation',
-  role_labels: 'Tags',
-  quality: 'Quality',
-  occupation: 'Class',
-  stance: 'Position',
-  damagetype: 'Damage Type',
-  camp: 'Faction',
+const FIELD_LABEL_KEYS: Record<string, string | null> = {
+  rolename_short: null,
+  role_constellation_name: UI_KEYS.hero.constellation,
+  role_labels: null,
+  quality: null,
+  occupation: UI_KEYS.filter.class,
+  stance: UI_KEYS.filter.position,
+  damagetype: null,
+  camp: UI_KEYS.filter.faction,
 }
 
 const FIELDS_TO_SHOW = [
@@ -57,6 +58,7 @@ export default function HeroProfilePage() {
   const { id } = useParams()
   const heroId = parseInt(id as string)
   const { lang } = useLanguage()
+  const { t, site, noData } = useUiTranslation()
   const { data: iconMap } = useHeroHeadIconMap()
   const [heroHeadEntry, setHeroHeadEntry] = useState<HeroHeadIconEntry | null>(null)
 
@@ -68,7 +70,7 @@ export default function HeroProfilePage() {
   const [skillIds, setSkillIds] = useState<(number | string)[]>([])
   const [isReady, setIsReady] = useState(false)
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = useMemo(() => createTranslationGetter(translations), [translations])
 
   useEffect(() => setupGlobalSkillTooltips(), [])
 
@@ -133,6 +135,8 @@ export default function HeroProfilePage() {
           if (tMap[mapKey]) translationKeys.add(tMap[mapKey])
         })
 
+        if (heroData.quality) translationKeys.add(qualityNameKey(heroData.quality))
+
         const translated = await translateKeys(Array.from(translationKeys), lang)
 
         const lblMap: Record<number, string> = {}
@@ -166,7 +170,7 @@ export default function HeroProfilePage() {
   }, [heroId, lang])
 
   const translateField = (key: string, value: any) => {
-    if (key === 'quality') return QUALITY_MAP[value] || value
+    if (key === 'quality') return getT(qualityNameKey(Number(value)))
     if (key === 'role_labels') {
       const ids = Array.isArray(value) ? value : []
       return ids.map((id) => labelMap[id]).filter(Boolean).join(', ')
@@ -175,6 +179,16 @@ export default function HeroProfilePage() {
       return getT(typeMap[`${key}_${value}`])
     }
     return getT(String(value))
+  }
+
+  const fieldLabel = (key: string) => {
+    const lcKey = FIELD_LABEL_KEYS[key]
+    if (lcKey) return t(lcKey)
+    if (key === 'rolename_short') return site('shortName')
+    if (key === 'role_labels') return site('tags')
+    if (key === 'quality') return t(UI_KEYS.common.quality)
+    if (key === 'damagetype') return t(UI_KEYS.filter.damageType)
+    return key
   }
 
   const headIconUrl = useMemo(() => {
@@ -199,18 +213,18 @@ export default function HeroProfilePage() {
       if (val === undefined || val === null || val === '') return null
       return {
         key,
-        label: FIELD_LABELS[key] || key,
+        label: fieldLabel(key),
         value: translateField(key, val),
       }
     }).filter(Boolean) as { key: string; label: string; value: string }[]
-  }, [hero, translations, labelMap, typeMap])
+  }, [hero, translations, labelMap, typeMap, t, site, getT])
 
   if (!isReady) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">Loading hero profile...</p>
+          <p className="text-sm text-text-muted">{site('loadingHeroProfile')}</p>
         </div>
       </div>
     )
@@ -219,16 +233,17 @@ export default function HeroProfilePage() {
   if (!hero) {
     return (
       <div className="panel py-12 text-center">
-        <p className="mb-4 text-text-muted">Hero not found.</p>
+        <p className="mb-4 text-text-muted">{site('heroNotFound')}</p>
         <Link href="/heroes" className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
-          Back to Heroes
+          {site('backToHeroes')}
         </Link>
       </div>
     )
   }
 
-  const qualityLabel = hero.quality != null ? QUALITY_MAP[hero.quality] || String(hero.quality) : null
+  const qualityLabel =
+    hero.quality != null ? getT(qualityNameKey(hero.quality)) : null
 
   return (
     <div className="page-stack -mx-2 sm:mx-0">
@@ -264,7 +279,7 @@ export default function HeroProfilePage() {
             className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
           >
             <ArrowLeft size={14} className="shrink-0" />
-            Back to Heroes
+            {site('backToHeroes')}
           </Link>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-5">
@@ -316,7 +331,7 @@ export default function HeroProfilePage() {
       {statEntries.length > 0 && (
         <section className="panel">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            Attributes
+            {t(UI_KEYS.common.baseAttribute)}
           </h2>
           <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
             {statEntries.map(({ key, label, value }) => (
@@ -346,7 +361,7 @@ export default function HeroProfilePage() {
         </section>
       ) : (
         <section className="panel text-center text-sm text-text-muted">
-          No skills available for this hero.
+          {site('noSkills')}
         </section>
       )}
     </div>

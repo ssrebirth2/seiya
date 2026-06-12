@@ -16,6 +16,7 @@ import {
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
 import SkillCooldownMeta from './SkillCooldownMeta'
+import { SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 
 interface HeroAwakenSkillsProps {
   heroId: number
@@ -169,9 +170,13 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
             </div>
 
             <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
-              {skillType && <p><strong>Tipo:</strong> {skillType}</p>}
+              {skillType && <p>{skillType}</p>}
               <SkillCooldownMeta cd={skill.cd} />
-              {labels && <p><strong>Tags:</strong> {labels}</p>}
+              {labels && (
+                <p>
+                  <strong>{SITE_ONLY_LABELS.tags}:</strong> {labels}
+                </p>
+              )}
             </div>
 
             {sketchLines.map((line, i) => (

@@ -5,8 +5,6 @@
     "@dnd-kit/utilities",
     "@netlify/plugin-nextjs",
     "baseline-browser-mapping",
-    "dotenv",
-    "jsdom",
-    "playwright"
+    "dotenv"
   ]
 }

@@ -89,24 +89,6 @@ export function getHeroCircleHeadUrl(map: HeroHeadIconMap | undefined, heroId: n
   )
 }
 
-/** Profile portrait — card art first (montar.py hero_card_icon / HeroShowCard). */
-export function getHeroPortraitUrl(entry: HeroHeadIconEntry | undefined, heroId: number): string {
-  return firstAvailableUrl(
-    [
-      entry?.showCardPath,
-      entry?.halfCardPath,
-      entry?.squarePath,
-      entry?.circlePath,
-      entry?.barPath,
-    ],
-    legacySquareHeadPath(heroId)
-  )
-}
-
-export function getHeroHeadIconEntry(map: HeroHeadIconMap | undefined, heroId: number): HeroHeadIconEntry {
-  return map?.[heroId] ?? EMPTY_HERO_HEAD_ICON_ENTRY
-}
-
 /** Single hero: RoleConfig → IconConfig + RoleResourcesConfig. */
 export async function fetchHeroHeadIconEntry(heroId: number): Promise<HeroHeadIconEntry> {
   const { data: role, error: roleError } = await supabase

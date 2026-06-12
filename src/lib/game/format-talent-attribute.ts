@@ -6,15 +6,6 @@ export function formatTalentAttributeValue(value: number, isPercent: number): st
   return String(value)
 }
 
-export function formatTalentAttributeLabel(
-  entry: TalentAttributeEntry,
-  getT: (key?: string) => string
-): string {
-  const name = getT(entry.stat)
-  const val = formatTalentAttributeValue(entry.value, entry.isPercent)
-  return `${name}: +${val}`
-}
-
 export function formatUnlockRequirement(
   desc: string | undefined,
   value: number | undefined,

@@ -12,6 +12,7 @@ import { useTeamStore } from '@/lib/team-builder/stores/use-team-store'
 import { useEquipmentStore } from '@/lib/team-builder/stores/use-equipment-store'
 import HeroEquipmentList from '@/components/team-builder/HeroEquipmentList'
 import { ListPagePanel } from '@/components/layout/ListPagePanel'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type HeroRow = {
   id: number
@@ -23,6 +24,7 @@ type HeroRow = {
 }
 
 export default function TeamBuilderPage() {
+  const { t, site } = useUiTranslation()
   const [heroes, setHeroes] = useState<HeroRow[]>([])
   const [filtered, setFiltered] = useState<HeroRow[]>([])
   const [filters, setFilters] = useState({
@@ -144,7 +146,7 @@ export default function TeamBuilderPage() {
     return (
       <div className="flex min-h-[40vh] flex-col items-center justify-center text-center animate-fadeIn">
         <div className="loader mb-4 h-10 w-10 animate-spin rounded-full border-4 border-t-accent" />
-        <p className="text-sm text-text-muted">Loading Team Builder…</p>
+        <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
       </div>
     )
   }
@@ -154,7 +156,9 @@ export default function TeamBuilderPage() {
   // ============================================================
   return (
     <ListPagePanel>
-      <h1 className="mb-4 text-2xl font-bold uppercase tracking-wide">Team Builder</h1>
+      <h1 className="mb-4 text-2xl font-bold uppercase tracking-wide">
+        {t(UI_KEYS.nav.teamBuilder)}
+      </h1>
 
       {isReadOnly && (
         <p className="mb-4 text-sm text-text-muted">This is a shared team — editing is disabled.</p>

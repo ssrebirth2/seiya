@@ -2,8 +2,9 @@
 
 import { useEffect, useState, useMemo, useRef } from 'react'
 import { supabase } from '@/lib/supabase-client'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import { useLanguage } from '@/context/language-context'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type Props = { info: any }
 
@@ -242,9 +243,10 @@ function AttributeTable({
   stats: { name: string; base: number; starValue: number; total: number }[]
   getT: (k?: string) => string
 }) {
+  const { t } = useUiTranslation()
   return (
     <div className="flex-1 overflow-x-auto">
-      <h3 className="text-lg font-bold mb-3">Attributes</h3>
+      <h3 className="mb-3 text-lg font-bold">{t(UI_KEYS.common.baseAttribute)}</h3>
       <table className="w-full text-sm border border-panel-border rounded-lg overflow-hidden table-auto">
         <thead className="bg-panel-hover text-xs uppercase tracking-wider">
           <tr>

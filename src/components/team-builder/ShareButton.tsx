@@ -4,8 +4,10 @@ import { useTeamStore } from '@/lib/team-builder/stores/use-team-store'
 import { useEquipmentStore } from '@/lib/team-builder/stores/use-equipment-store'
 import { encodeTeam } from '@/lib/team-builder/team-share-codec'
 import { useState } from 'react'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export default function ShareButton() {
+  const { t, site } = useUiTranslation()
   const { team } = useTeamStore()
   const [copied, setCopied] = useState(false)
 
@@ -15,7 +17,6 @@ export default function ShareButton() {
       return
     }
 
-    // ✅ Obtém equipamentos e inclui apenas heróis que têm algo equipado
     const allEquipment = useEquipmentStore.getState().equipment || {}
     const equipment: Record<number, { artifact: number | null; cards: number[] }> = {}
 
@@ -28,7 +29,6 @@ export default function ShareButton() {
       }
     }
 
-    // ✅ Payload completo: time + equipamentos
     const payload = {
       team: team.map((h: any) => ({
         id: h.id,
@@ -50,7 +50,7 @@ export default function ShareButton() {
       setTimeout(() => setCopied(false), 3000)
     } catch (err) {
       console.error('Error generating share link:', err)
-      if (url) window.prompt('Copy this link manually:', url)
+      if (url) window.prompt(`${t(UI_KEYS.common.copy)}:`, url)
     }
   }
 
@@ -58,9 +58,9 @@ export default function ShareButton() {
     <button
       onClick={handleShare}
       className="rounded border border-panel-border bg-panel px-4 py-2 text-foreground transition hover:bg-accent hover:text-accent-fg"
-      title="Generate a shareable team link"
+      title={site('shareTeam')}
     >
-      {copied ? 'Copied!' : 'Share Team'}
+      {copied ? t(UI_KEYS.common.copySuccess) : site('shareTeam')}
     </button>
   )
 }

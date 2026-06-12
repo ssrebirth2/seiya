@@ -2,10 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
-// ==========================================================
-// ✅ Tipagens dos componentes filhos
-// ==========================================================
 interface ForceCardProgressionProps {
   info: any
   starUps: any[]
@@ -21,9 +19,6 @@ interface ForceCardAwakenProps {
   awakens: any[]
 }
 
-// ==========================================================
-// ✅ Lazy loading com tipagem explícita
-// ==========================================================
 const ForceCardStats = dynamic<ForceCardStatsProps>(
   () => import('./ForceCardStats'),
   { ssr: false }
@@ -37,9 +32,6 @@ const ForceCardAwaken = dynamic<ForceCardAwakenProps>(
   { ssr: false }
 )
 
-// ==========================================================
-// 🧩 Tipagem do Container
-// ==========================================================
 interface ForceCardTabsContainerProps {
   info: any
   starUps: any[]
@@ -50,9 +42,6 @@ interface ForceCardTabsContainerProps {
 
 type TabKey = 'progression' | 'stats' | 'awaken'
 
-// ==========================================================
-// 🪝 Hook: Carregamento unificado
-// ==========================================================
 function useForceCardDataReady(
   info: any,
   starUps: any[],
@@ -77,9 +66,6 @@ function useForceCardDataReady(
   return ready
 }
 
-// ==========================================================
-// 🧱 Componente Principal
-// ==========================================================
 export default function ForceCardTabsContainer({
   info,
   starUps,
@@ -87,10 +73,10 @@ export default function ForceCardTabsContainer({
   awakens,
   reborns,
 }: ForceCardTabsContainerProps) {
+  const { t, site } = useUiTranslation()
   const [activeTab, setActiveTab] = useState<TabKey>('progression')
   const isReady = useForceCardDataReady(info, starUps, levels, awakens, reborns)
 
-  // 🔹 Persistência da aba ativa (localStorage)
   useEffect(() => {
     const storedTab = localStorage.getItem('forceCardActiveTab') as TabKey | null
     if (storedTab && ['progression', 'stats', 'awaken'].includes(storedTab)) {
@@ -104,43 +90,35 @@ export default function ForceCardTabsContainer({
 
   const tabs = useMemo(
     () => [
-      { key: 'progression' as TabKey, label: 'Progression' },
-      { key: 'stats' as TabKey, label: 'Attributes' },
-      { key: 'awaken' as TabKey, label: 'Awaken' },
+      { key: 'progression' as TabKey, label: t(UI_KEYS.forceCard.progressionTab) },
+      { key: 'stats' as TabKey, label: t(UI_KEYS.forceCard.attributesTab) },
+      { key: 'awaken' as TabKey, label: t(UI_KEYS.forceCard.awakenTab) },
     ],
-    []
+    [t]
   )
 
   const handleTabClick = (key: TabKey) => {
-    if (activeTab === key) return // evita re-render desnecessário
+    if (activeTab === key) return
     setActiveTab(key)
   }
 
-  // ==========================================================
-  // 🔄 Estado de carregamento real
-  // ==========================================================
   if (!isReady) {
     return (
       <div className="flex justify-center py-10">
         <div className="flex flex-col items-center gap-3">
           <div className="spinner h-6 w-6" />
-          <p className="text-xs text-text-muted">
-            Loading Force Card data...
-          </p>
+          <p className="text-xs text-text-muted">{site('loadingForceCard')}</p>
         </div>
       </div>
     )
   }
 
-  // ==========================================================
-  // 🧭 Tabs + Conteúdo (todas pré-carregadas)
-  // ==========================================================
   return (
     <section>
       <nav
         className="border-b border-panel-border px-3 sm:px-4"
         role="tablist"
-        aria-label="Force card details"
+        aria-label={t(UI_KEYS.forceCard.cardDetail)}
       >
         <div className="flex gap-1 overflow-x-auto pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {tabs.map(({ key, label }) => (

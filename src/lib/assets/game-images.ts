@@ -12,7 +12,6 @@ import {
   getHeroSquareHeadUrl,
   type HeroHeadIconMap,
 } from '@/lib/game/fetch-hero-head-icons'
-import { resolveHeroHeadIconUrl } from '@/lib/game/resolve-hero-head-icon'
 
 /** Square head from IconConfig.role_square_icon_path (via hero icon map), with legacy fallback. */
 export function squareHeroHeadUrl(heroId: number, iconMap?: HeroHeadIconMap): string {
@@ -24,26 +23,12 @@ export function circleHeroHeadUrl(heroId: number, iconMap?: HeroHeadIconMap): st
   return getHeroCircleHeadUrl(iconMap, heroId)
 }
 
-/** @deprecated Prefer resolveHeroHeadIconUrl with IconConfig path from Supabase. */
-export function squareHeroHeadUrlFromDb(dbPath?: string | null): string {
-  return resolveHeroHeadIconUrl(dbPath)
-}
-
-/** @deprecated Prefer resolveHeroHeadIconUrl with IconConfig path from Supabase. */
-export function circleHeroHeadUrlFromDb(dbPath?: string | null): string {
-  return resolveHeroHeadIconUrl(dbPath)
-}
-
 export function superSkillBannerPath(heroId: number): string {
   return `/assets/resources/textures/hero/skillicon/skillbanner/SuperSkill_${heroId}0.png`
 }
 
 export function superSkillBannerUrl(heroId: number): string {
   return resolveAssetUrl(superSkillBannerPath(heroId))
-}
-
-export function resolveGameAssetUrl(url: string | undefined): string {
-  return resolveAssetUrl(url)
 }
 
 /**
@@ -58,7 +43,7 @@ const ARTIFACT_PREVIEW_ID_OVERRIDES: Record<number, string> = {
  * Supabase `preview_icon` → manifest path (case-insensitive).
  * Returns undefined when no matching file exists — never substitutes another image.
  */
-export function artifactPreviewPathFromDb(dbPath: string): string | undefined {
+function artifactPreviewPathFromDb(dbPath: string): string | undefined {
   let relative = dbPath.replace(/^Textures\//i, '').replace(/\\/g, '/')
 
   const spiritMatch = relative.match(/^PrimarySpirit\/Spirit\/(ItemIcon_\d+)$/i)
@@ -70,14 +55,6 @@ export function artifactPreviewPathFromDb(dbPath: string): string | undefined {
 
   const candidate = `/assets/resources/textures/${relative}.png`
   return getCanonicalAssetPath(candidate)
-}
-
-/** Preview art from Supabase — path is name-based, not artifact ID. */
-export function artifactPreviewUrlFromDb(dbPath: string | undefined): string {
-  if (!dbPath) return IMAGE_UNAVAILABLE
-  const previewPath = artifactPreviewPathFromDb(dbPath)
-  if (!previewPath) return IMAGE_UNAVAILABLE
-  return resolveAssetUrl(previewPath)
 }
 
 /**
@@ -102,44 +79,8 @@ export function resolveArtifactPreviewAsset(
   return { src: previewPath, rawSrc: previewPath }
 }
 
-/** List / thumbnail icon keyed by artifact config ID (e.g. 4001 → SkillIcon_400100). */
-export function artifactIconPathByArtifactId(artifactId: number): string {
-  return `/assets/resources/textures/artifact/artifactskill/skillicon/SkillIcon_${artifactId}00.png`
-}
-
-export function artifactIconUrlByArtifactId(artifactId: number): string {
-  return resolveAssetUrl(artifactIconPathByArtifactId(artifactId))
-}
-
-import { convertSkillIconPath } from '@/lib/game/resolve-skill-icon'
-
-/** @deprecated Use resolveSkillIconUrl(skillRow) with SkillConfig.iconpath from Supabase. */
-export function artifactSkillIconPath(_skillId: number): string {
-  return ''
-}
-
-/** @deprecated Use resolveSkillIconUrl(skillRow) with SkillConfig.iconpath from Supabase. */
-export function artifactSkillIconUrl(skill: { iconpath?: unknown }): string {
-  const path = convertSkillIconPath(typeof skill.iconpath === 'string' ? skill.iconpath : null)
-  return path ? resolveAssetUrl(path) : IMAGE_UNAVAILABLE
-}
-
-export function forceCardSmallPath(cardId: number): string {
+function forceCardSmallPath(cardId: number): string {
   return `/assets/resources/textures/dynamis/card/Card_small_${cardId}.png`
-}
-
-export function forceCardSmallUrl(cardId: number): string {
-  return resolveAssetUrl(forceCardSmallPath(cardId))
-}
-
-export function forceCardListIconPath(cardId: number, hasIconPath: boolean): string {
-  return hasIconPath
-    ? forceCardSmallPath(cardId)
-    : '/assets/resources/textures/dynamis/card/ItemIcon_10000.png'
-}
-
-export function forceCardListIconUrl(cardId: number, hasIconPath: boolean): string {
-  return resolveAssetUrl(forceCardListIconPath(cardId, hasIconPath))
 }
 
 /** List thumbnail: Card_small when listed, else generic icon, else placeholder — no 404. */
@@ -157,6 +98,14 @@ export function resolveForceCardListIcon(cardId: number, hasIconPath: boolean): 
     src: resolveAssetUrl(fallback),
     rawSrc: isAssetAvailable(fallback) ? fallback : undefined,
   }
+}
+
+function forceCardPath(cardId: number): string {
+  return `/assets/resources/textures/dynamis/card/Card_${cardId}.png`
+}
+
+function forceCardFramePath(quality: number): string {
+  return `/assets/resources/textures/dynamis/jjzl_box_kapaikuang_${quality}.png`
 }
 
 /** Detail view: card art and optional frame, manifest-only. */
@@ -186,40 +135,24 @@ export function resolveForceCardDisplayAsset(
   }
 }
 
-export function forceCardPath(cardId: number): string {
-  return `/assets/resources/textures/dynamis/card/Card_${cardId}.png`
-}
-
-export function forceCardUrl(cardId: number): string {
-  return resolveAssetUrl(forceCardPath(cardId))
-}
-
-export function forceCardFramePath(quality: number): string {
-  return `/assets/resources/textures/dynamis/jjzl_box_kapaikuang_${quality}.png`
-}
-
-export function forceCardFrameUrl(quality: number): string {
-  return resolveAssetUrl(forceCardFramePath(quality))
-}
-
 /** Normalize Supabase texture path → site-relative path (no extension). */
-export function texturePathFromDb(dbPath: string): string {
+function texturePathFromDb(dbPath: string): string {
   const relative = dbPath.replace(/^Textures\//i, '').replace(/\\/g, '/').toLowerCase()
   return `/assets/resources/textures/${relative}.png`
 }
 
 /** Companion gallery preview — preserves PrimarySpirit/Spirit/ path from game. */
-export function companionPreviewPathFromDb(dbPath: string): string | undefined {
+function companionPreviewPathFromDb(dbPath: string): string | undefined {
   return getCanonicalAssetPath(texturePathFromDb(dbPath))
 }
 
 /** Companion list icon — ItemIcon from ArtifactResourcesConfig.item_icon. */
-export function companionListIconPathFromDb(dbPath: string): string | undefined {
+function companionListIconPathFromDb(dbPath: string): string | undefined {
   return getCanonicalAssetPath(texturePathFromDb(dbPath))
 }
 
 /** Fallback when ArtifactResourcesConfig.preview_icon is missing (skins 82010 → ItemIcon_128010). */
-export function companionPreviewPathFromSkins(skinsId: number): string {
+function companionPreviewPathFromSkins(skinsId: number): string {
   const iconName = `ItemIcon_${String(skinsId).replace(/^82/, '128')}`
   return `/assets/resources/textures/primaryspirit/spirit/${iconName}.png`
 }
@@ -247,14 +180,4 @@ export function resolveCompanionListIcon(
   const iconPath = companionListIconPathFromDb(dbItemIconPath)
   if (!iconPath) return { src: IMAGE_UNAVAILABLE }
   return { src: iconPath, rawSrc: iconPath }
-}
-
-/** Prevents repeated 404 requests when `onError` swaps the src. */
-export function applyImageFallback(
-  img: HTMLImageElement,
-  fallbackSrc: string = IMAGE_UNAVAILABLE
-): void {
-  if (img.dataset.fallbackApplied === 'true') return
-  img.dataset.fallbackApplied = 'true'
-  img.src = fallbackSrc
 }

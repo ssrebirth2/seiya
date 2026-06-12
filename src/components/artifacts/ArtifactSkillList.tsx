@@ -1,5 +1,7 @@
 'use client'
 
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+
 import { useMemo, useState } from 'react'
 import { applySkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import {
@@ -41,6 +43,7 @@ type Props = {
 }
 
 export default function ArtifactSkillList({ stars, skill, getT, valuesMap }: Props) {
+  const { t } = useUiTranslation()
   // === Agrupar por qualidade ===
   const groupedByQuality = useMemo(() => {
     const groups: Record<number, StarRow[]> = {}
@@ -142,7 +145,7 @@ export default function ArtifactSkillList({ stars, skill, getT, valuesMap }: Pro
                   {/* Coluna direita: atributos + custos */}
                   <div className="text-xs text-text-muted space-y-1">
                     {/* Atributos */}
-                    <p className="text-sm font-semibold">Base Attributes:</p>
+                    <p className="text-sm font-semibold">{t(UI_KEYS.common.baseAttribute)}:</p>
                     {attributes.length > 0 && (
                       <ul className="ml-4">
                         {attributes.map((attr: any, i: number) => (

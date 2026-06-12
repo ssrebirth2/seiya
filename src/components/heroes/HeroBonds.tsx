@@ -18,6 +18,8 @@ import {
 import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 import SkillCooldownMeta from './SkillCooldownMeta'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import Link from 'next/link'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
@@ -34,6 +36,7 @@ interface SkillLine {
 
 export default function HeroBonds({ heroId }: HeroBondsProps) {
   const { lang } = useLanguage()
+  const { t } = useUiTranslation()
   const { data: iconMap } = useHeroHeadIconMap()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [relation, setRelation] = useState<any | null>(null)
@@ -238,9 +241,13 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
         </div>
 
         <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
-          {skillType && <p><strong>Tipo:</strong> {skillType}</p>}
+          {skillType && <p>{skillType}</p>}
           <SkillCooldownMeta cd={skill.cd} />
-          {labels && <p><strong>Tags:</strong> {labels}</p>}
+          {labels && (
+            <p>
+              <strong>{SITE_ONLY_LABELS.tags}:</strong> {labels}
+            </p>
+          )}
         </div>
 
         {mainDescription && (
@@ -279,7 +286,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
     <section className="mt-6 space-y-6">
       {/* Attributes */}
       {attributeList.length > 0 && (
-        <Panel title="Support Attributes">
+        <Panel title={t(UI_KEYS.hero.supportAttributes)}>
           <ul className="text-sm space-y-1">
             {attributeList.map((a, i) => (
               <li key={i}>{getT(a)}</li>
@@ -290,7 +297,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
 
       {/* Combine Skills */}
       {combineSkills.length > 0 && (
-        <Panel title="Combine Skills">
+        <Panel title={t(UI_KEYS.hero.combineSkills)}>
           {combineSkills.map((combo) => {
             const comboName = getT(combo.name)
             const heroes = safeParse(combo.hero_list)
@@ -311,7 +318,7 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
 
       {/* Bonds + Passive Bonds */}
       {(fetters.length > 0 || combineStates.length > 0) && (
-        <Panel title="Bonds">
+        <Panel title={t(UI_KEYS.hero.bondSkills)}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[...combineStates, ...fetters].map((entry, idx) => {
               const isState = !!entry.skill_id

@@ -1,10 +1,26 @@
 // lib/translate.ts — cache único para LanguagePackage_* (translateKeys + preloadTranslations + useTranslation)
 import { supabase } from '@/lib/supabase-client'
+import { NO_DATA_LC_KEY } from './ui-keys'
 
 const translationCache: Record<string, Record<string, string>> = {}
 const CHUNK_SIZE = 200
 const FALLBACK_LANG = 'CN'
-export const NOT_AVAILABLE_LABEL = 'Not available'
+const FALLBACK_NOT_AVAILABLE = 'Not available'
+
+/** @deprecated Prefer localized text via createTranslationGetter / useUiTranslation noData */
+export const NOT_AVAILABLE_LABEL = FALLBACK_NOT_AVAILABLE
+
+export function getNoDataLabel(lang: string): string {
+  const primary = translationCache[lang]?.[NO_DATA_LC_KEY]
+  if (primary && !isUnresolvedTranslation(NO_DATA_LC_KEY, primary)) return primary
+
+  if (lang !== FALLBACK_LANG) {
+    const cn = translationCache[FALLBACK_LANG]?.[NO_DATA_LC_KEY]
+    if (cn && !isUnresolvedTranslation(NO_DATA_LC_KEY, cn)) return cn
+  }
+
+  return FALLBACK_NOT_AVAILABLE
+}
 /** @deprecated use NOT_AVAILABLE_LABEL */
 export const NOT_IMPLEMENTED_LABEL = NOT_AVAILABLE_LABEL
 /** @deprecated use NOT_AVAILABLE_LABEL */
@@ -85,17 +101,22 @@ function resolveTranslation(key: string, lang: string): string {
     if (!isUnresolvedTranslation(key, cn)) return cn!
   }
 
-  return NOT_AVAILABLE_LABEL
+  return getNoDataLabel(lang)
 }
 
 /** Safe getter for preloaded translation maps — never surfaces raw LC_ keys. */
 export function createTranslationGetter(translations: Record<string, string>) {
+  const noData =
+    translations[NO_DATA_LC_KEY] && !isMissingLcTranslation(NO_DATA_LC_KEY, translations[NO_DATA_LC_KEY])
+      ? translations[NO_DATA_LC_KEY]
+      : FALLBACK_NOT_AVAILABLE
+
   return (key?: string): string => {
     if (!key?.trim()) return ''
     const resolved = translations[key]
     if (isLcKey(key)) {
       if (resolved == null || isMissingLcTranslation(key, resolved)) {
-        return NOT_AVAILABLE_LABEL
+        return noData
       }
       return resolved
     }
@@ -104,7 +125,7 @@ export function createTranslationGetter(translations: Record<string, string>) {
 }
 
 export async function translateKeys(keys: string[], lang: string = 'EN'): Promise<Record<string, string>> {
-  const normalized = normalizeTranslationKeys(keys)
+  const normalized = normalizeTranslationKeys([...keys, NO_DATA_LC_KEY])
   await ensureTranslationsLoaded(lang, normalized)
 
   if (!translationCache[lang]) translationCache[lang] = {}

@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { ListPagePanel } from '@/components/layout/ListPagePanel'
 import GameImage from '@/components/ui/GameImage'
 import { resolveForceCardListIcon } from '@/lib/assets/game-images'
+import { forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
 
 interface ForceCard {
   id: number
@@ -24,6 +26,7 @@ interface ForceCard {
 
 export default function ForceCardListPage() {
   const { lang } = useLanguage()
+  const { t, site } = useUiTranslation()
   const [cards, setCards] = useState<ForceCard[]>([])
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [loading, setLoading] = useState(true)
@@ -34,9 +37,8 @@ export default function ForceCardListPage() {
   })
   const [sortBy, setSortBy] = useState<'id' | 'name' | 'quality'>('id')
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = useMemo(() => createTranslationGetter(translations), [translations])
 
-  // Load cards and translations
   useEffect(() => {
     const loadData = async () => {
       const { data, error } = await supabase
@@ -56,8 +58,7 @@ export default function ForceCardListPage() {
       adjusted.forEach((c) => {
         if (c.name) keys.add(c.name)
         if (c.desc) keys.add(c.desc)
-        if (c.quality)
-          keys.add(`LC_COMMON_force_card_quality_quality_name_${c.quality}`)
+        if (c.quality) keys.add(forceCardQualityNameKey(c.quality))
       })
 
       const translated = await translateKeys(Array.from(keys), lang)
@@ -91,26 +92,27 @@ export default function ForceCardListPage() {
     })
 
     return result
-  }, [cards, filters, translations, sortBy])
+  }, [cards, filters, translations, sortBy, getT])
 
   const resetFilters = () => setFilters({ quality: '', search: '' })
 
   if (loading) {
     return (
-      <div className="panel text-center py-8">
-        <p className="text-sm text-text-muted">Loading Force Card data...</p>
+      <div className="panel py-8 text-center">
+        <p className="text-sm text-text-muted">{site('loadingForceCard')}</p>
       </div>
     )
   }
 
   return (
     <ListPagePanel>
-      <h2 className="mb-4 text-xl font-bold uppercase tracking-wide">Ultimate Power Cards</h2>
+      <h2 className="mb-4 text-xl font-bold uppercase tracking-wide">
+        {t(UI_KEYS.list.forceCardGallery)}
+      </h2>
 
       <div className="mb-6 flex flex-wrap items-end gap-4">
-        {/* Quality */}
         <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">Quality</label>
+          <label className="field-label">{t(UI_KEYS.common.quality)}</label>
           <select
             value={filters.quality}
             onChange={(e) =>
@@ -121,18 +123,17 @@ export default function ForceCardListPage() {
             }
             className="control-input"
           >
-            <option value="">All</option>
+            <option value="">{t(UI_KEYS.filter.all)}</option>
             {[2, 3, 4, 5].map((q) => (
               <option key={q} value={q}>
-                {getT(`LC_COMMON_force_card_quality_quality_name_${q}`)}
+                {getT(forceCardQualityNameKey(q))}
               </option>
             ))}
           </select>
         </div>
 
-        {/* Sorting */}
         <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">Sort by</label>
+          <label className="field-label">{site('sortBy')}</label>
           <select
             value={sortBy}
             onChange={(e) =>
@@ -140,18 +141,17 @@ export default function ForceCardListPage() {
             }
             className="control-input"
           >
-            <option value="id">ID</option>
-            <option value="name">Name</option>
-            <option value="quality">Quality</option>
+            <option value="id">{site('id')}</option>
+            <option value="name">{site('name')}</option>
+            <option value="quality">{t(UI_KEYS.common.quality)}</option>
           </select>
         </div>
 
-        {/* Search */}
         <div className="flex flex-col text-sm">
-          <label className="field-label">Search by name</label>
+          <label className="field-label">{site('searchByName')}</label>
           <input
             type="text"
-            placeholder="Card name..."
+            placeholder={site('searchPlaceholderCard')}
             className="control-input"
             value={filters.search}
             onChange={(e) =>
@@ -164,29 +164,21 @@ export default function ForceCardListPage() {
         </div>
 
         <button type="button" onClick={resetFilters} className="btn-secondary">
-          Reset Filters
+          {t(UI_KEYS.filter.clearAll)}
         </button>
       </div>
 
-      {/* 🔹 Result */}
       <p className="mb-3 text-sm text-text-muted">
-        {processedCards.length} card
-        {processedCards.length !== 1 && 's'} found
+        {processedCards.length} {site('found')}
       </p>
 
-      {/* 🔹 Grid */}
       {processedCards.length === 0 ? (
-        <p className="py-10 text-center text-text-muted">
-          No cards match the current filters.
-        </p>
+        <p className="py-10 text-center text-text-muted">{site('noCardsMatch')}</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
           {processedCards.map((c) => {
             const hasIconPath = Boolean(c.icon_samll_path || c.icon_path)
             const { src: iconSrc, rawSrc: iconRaw } = resolveForceCardListIcon(c.id, hasIconPath)
-            const qualityText = getT(
-              `LC_COMMON_force_card_quality_quality_name_${c.quality}`
-            )
             return (
               <Link
                 key={c.id}
@@ -197,10 +189,10 @@ export default function ForceCardListPage() {
                   src={iconSrc}
                   rawSrc={iconRaw}
                   alt={getT(c.name)}
-                  className="mx-auto mb-2 h-32 w-32 rounded-md object-contain bg-panel-hover"
+                  className="mx-auto mb-2 h-32 w-32 rounded-md bg-panel-hover object-contain"
                 />
                 <p
-                  className="font-semibold text-sm mb-1"
+                  className="mb-1 text-sm font-semibold"
                   dangerouslySetInnerHTML={{
                     __html: getT(c.name),
                   }}

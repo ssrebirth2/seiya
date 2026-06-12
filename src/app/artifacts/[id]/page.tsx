@@ -6,7 +6,9 @@ import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { qualityNameKey, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { applySkillValues, formatDisplayText, loadSkillValues } from '@/lib/game/apply-skill-values'
 import {
   normalizeDesValueList,
@@ -45,6 +47,7 @@ export default function ArtifactDetailPage() {
   const { id } = useParams()
   const artifactId = parseInt(id as string)
   const { lang } = useLanguage()
+  const { t, site } = useUiTranslation()
 
   const [artifact, setArtifact] = useState<any>(null)
   const [stars, setStars] = useState<StarRow[]>([])
@@ -55,7 +58,7 @@ export default function ArtifactDetailPage() {
   const [limitText, setLimitText] = useState<string>('')
   const [isReady, setIsReady] = useState(false)
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = useMemo(() => createTranslationGetter(translations), [translations])
 
   useEffect(() => {
     const fetchArtifactData = async () => {
@@ -143,9 +146,9 @@ export default function ArtifactDetailPage() {
       }
 
       // Qualidades
-      qualities.forEach(q => keys.add(`LC_COMMON_quality_name_${q}`))
+      qualities.forEach((q) => keys.add(qualityNameKey(q)))
       if (artifact.initial_quality != null)
-        keys.add(`LC_COMMON_quality_name_${artifact.initial_quality}`)
+        keys.add(qualityNameKey(artifact.initial_quality))
 
       // atributos
       starRows.forEach(row =>
@@ -191,39 +194,41 @@ export default function ArtifactDetailPage() {
 
   const translatedTags = Object.values(labelMap).join(', ')
   const qualityLabel =
-    artifact != null ? getT(`LC_COMMON_quality_name_${artifact.initial_quality}`) : ''
+    artifact != null ? getT(qualityNameKey(artifact.initial_quality)) : ''
 
   const statEntries = useMemo(() => {
     if (!artifact) return []
     const entries: { key: string; label: string; value: string; html?: boolean }[] = []
 
-    if (qualityLabel) entries.push({ key: 'quality', label: 'Quality', value: qualityLabel })
+    if (qualityLabel)
+      entries.push({ key: 'quality', label: t(UI_KEYS.common.quality), value: qualityLabel })
     if (artifact.camp) {
       entries.push({
         key: 'camp',
-        label: 'Faction',
+        label: t(UI_KEYS.filter.faction),
         value: formatDisplayText(getT(artifact.camp), 0, {}),
         html: true,
       })
     }
-    if (translatedTags) entries.push({ key: 'tags', label: 'Tags', value: translatedTags })
+    if (translatedTags)
+      entries.push({ key: 'tags', label: SITE_ONLY_LABELS.tags, value: translatedTags })
     if (limitText) {
       entries.push({
         key: 'limit',
-        label: 'Restriction',
+        label: t(UI_KEYS.artifact.restriction),
         value: applySkillValues(limitText, 0, valuesMap),
         html: true,
       })
     }
     return entries
-  }, [artifact, qualityLabel, translatedTags, limitText, valuesMap, translations])
+  }, [artifact, qualityLabel, translatedTags, limitText, valuesMap, getT, t, site])
 
   if (!isReady) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">Loading artifact profile...</p>
+          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
         </div>
       </div>
     )
@@ -232,10 +237,10 @@ export default function ArtifactDetailPage() {
   if (!artifact) {
     return (
       <div className="panel py-12 text-center">
-        <p className="mb-4 text-text-muted">Artifact not found.</p>
+        <p className="mb-4 text-text-muted">{site('artifactNotFound')}</p>
         <Link href="/artifacts" className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
-          Back to Artifacts
+          {site('backToArtifacts')}
         </Link>
       </div>
     )
@@ -249,7 +254,7 @@ export default function ArtifactDetailPage() {
           className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
         >
           <ArrowLeft size={14} className="shrink-0" />
-          Back to Artifacts
+          {site('backToArtifacts')}
         </Link>
 
         <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
@@ -282,7 +287,7 @@ export default function ArtifactDetailPage() {
       {statEntries.length > 0 && (
         <section className="panel">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            Attributes
+            {t(UI_KEYS.common.baseAttribute)}
           </h2>
           <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
             {statEntries.map(({ key, label, value, html }) => (
@@ -312,7 +317,7 @@ export default function ArtifactDetailPage() {
       {skill && (
         <section className="panel">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            Base Skill
+            {t(UI_KEYS.artifact.relicSkills)}
           </h2>
           <div className="flex items-start gap-4">
             <GameImage

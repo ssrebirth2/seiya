@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { applySkillValues, formatDisplayText, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import { getQueryClient } from '@/lib/query/query-client'
 import { fetchHeroTypeDescMap } from '@/lib/game/hero-type-desc'
@@ -26,6 +27,7 @@ interface Hero {
 
 export default function HeroListPage() {
   const { lang } = useLanguage()
+  const { t, site, noData } = useUiTranslation()
   const { data: iconMap } = useHeroHeadIconMap()
   const [heroes, setHeroes] = useState<Hero[]>([])
   const [translations, setTranslations] = useState<Record<string, string>>({})
@@ -41,10 +43,9 @@ export default function HeroListPage() {
     search: '',
   })
 
-  // Novo estado de ordenação
   const [sortBy, setSortBy] = useState<'id' | 'name' | 'quality'>('id')
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = useMemo(() => createTranslationGetter(translations), [translations])
 
   useEffect(() => {
     setupGlobalSkillTooltips()
@@ -99,7 +100,6 @@ export default function HeroListPage() {
     loadData()
   }, [lang])
 
-  // 🔹 Filtragem + Ordenação
   const processedHeroes = useMemo(() => {
     let result = heroes.filter((hero) => {
       const match = (field: keyof typeof filters, value: number) =>
@@ -118,13 +118,11 @@ export default function HeroListPage() {
       return name.includes(search)
     })
 
-    // 🔸 Ordenação
     result = result.sort((a, b) => {
       switch (sortBy) {
         case 'name':
           return getT(roleNameMap[a.id * 10]).localeCompare(getT(roleNameMap[b.id * 10]))
         case 'quality':
-          // Ordenação por "qualidade" — simulação com occupation como exemplo
           return (b.occupation ?? 0) - (a.occupation ?? 0)
         case 'id':
         default:
@@ -133,7 +131,7 @@ export default function HeroListPage() {
     })
 
     return result
-  }, [heroes, filters, translations, sortBy, roleNameMap, typeMap])
+  }, [heroes, filters, translations, sortBy, roleNameMap, getT])
 
   const renderHTML = (text: string) => (
     <span
@@ -152,7 +150,7 @@ export default function HeroListPage() {
         onChange={(e) => setFilters((prev) => ({ ...prev, [field]: e.target.value }))}
         className="control-input"
       >
-        <option value="">All</option>
+        <option value="">{t(UI_KEYS.filter.all)}</option>
         {options.map((val) => {
           const key = `${field}_${val}`
           const raw = typeMap[key]
@@ -169,43 +167,42 @@ export default function HeroListPage() {
 
   if (loading) {
     return (
-      <div className="panel text-center py-8">
-        <p className="text-sm text-text-muted">Loading hero data...</p>
+      <div className="panel py-8 text-center">
+        <p className="text-sm text-text-muted">{site('loadingHero')}</p>
       </div>
     )
   }
 
   return (
     <ListPagePanel>
-      <h2 className="mb-4 text-xl font-bold uppercase tracking-wide">Hero List</h2>
+      <h2 className="mb-4 text-xl font-bold uppercase tracking-wide">
+        {t(UI_KEYS.list.heroGallery)}
+      </h2>
 
-      {/* Filters */}
       <div className="mb-6 flex flex-wrap items-end gap-4">
-        {renderSelect('camp', 'Faction', [1, 2, 3, 4])}
-        {renderSelect('stance', 'Position', [1, 2, 3])}
-        {renderSelect('damagetype', 'Damage Type', [1, 2])}
-        {renderSelect('occupation', 'Class', [1, 2, 3, 4, 5])}
+        {renderSelect('camp', t(UI_KEYS.filter.faction), [1, 2, 3, 4])}
+        {renderSelect('stance', t(UI_KEYS.filter.position), [1, 2, 3])}
+        {renderSelect('damagetype', t(UI_KEYS.filter.damageType), [1, 2])}
+        {renderSelect('occupation', t(UI_KEYS.filter.class), [1, 2, 3, 4, 5])}
 
-        {/* Sort Filter */}
         <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">Sort By</label>
+          <label className="field-label">{site('sortBy')}</label>
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'id' | 'name' | 'quality')}
             className="control-input"
           >
-            <option value="id">ID</option>
-            <option value="name">Name</option>
-            <option value="quality">Quality</option>
+            <option value="id">{site('id')}</option>
+            <option value="name">{site('name')}</option>
+            <option value="quality">{t(UI_KEYS.common.quality)}</option>
           </select>
         </div>
 
-        {/* Search */}
         <div className="flex flex-col text-sm">
-          <label className="field-label">Search by Name</label>
+          <label className="field-label">{site('searchByName')}</label>
           <input
             type="text"
-            placeholder="Hero name..."
+            placeholder={site('searchPlaceholderHero')}
             className="control-input"
             value={filters.search}
             onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
@@ -213,20 +210,18 @@ export default function HeroListPage() {
         </div>
 
         <button type="button" onClick={resetFilters} className="btn-secondary">
-          Clear Filters
+          {t(UI_KEYS.filter.clearAll)}
         </button>
       </div>
 
       <p className="mb-3 text-sm text-text-muted">
-        {processedHeroes.length} hero{processedHeroes.length !== 1 && 'es'} found
+        {processedHeroes.length} {site('found')}
       </p>
 
       {processedHeroes.length === 0 ? (
-        <p className="py-10 text-center text-text-muted">
-          No heroes match your filters.
-        </p>
+        <p className="py-10 text-center text-text-muted">{t(UI_KEYS.filter.emptyHeroes)}</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6">
           {processedHeroes.map((hero) => {
             const id = hero.id
             const resourceId = id * 10
@@ -236,18 +231,14 @@ export default function HeroListPage() {
             const dmg = getT(typeMap[`damagetype_${hero.damagetype}`])
             const occ = getT(typeMap[`occupation_${hero.occupation}`])
             return (
-              <Link
-                key={id}
-                href={`/heroes/${id}`}
-                className="catalog-card-link"
-              >
+              <Link key={id} href={`/heroes/${id}`} className="catalog-card-link">
                 <GameImage
                   src={squareHeroHeadUrl(id, iconMap)}
-                  alt={name}
-                  className="mx-auto w-32 h-32 rounded-md mb-2 object-cover bg-panel-hover"
+                  alt={name === noData ? site('name') : name}
+                  className="mx-auto mb-2 h-32 w-32 rounded-md bg-panel-hover object-cover"
                 />
                 <p
-                  className="font-semibold text-sm mb-1"
+                  className="mb-1 text-sm font-semibold"
                   dangerouslySetInnerHTML={{
                     __html: applySkillValues(name, 0, {}),
                   }}

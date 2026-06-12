@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
-import { translateKeys, createTranslationGetter, NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { NO_DATA_LC_KEY, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { useLanguage } from '@/context/language-context'
 import { applySkillValues, loadSkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import {
@@ -38,6 +39,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
 
   const toId = (v: unknown) => String(v)
   const getT = createTranslationGetter(translations)
+  const noDataLabel = getT(NO_DATA_LC_KEY)
 
   useEffect(() => {
     setupGlobalSkillTooltips()
@@ -107,7 +109,8 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
 
       const translated = await translateKeys(Array.from(translationKeys), lang)
       const lblMap: Record<number, string> = {}
-      labelRecords.forEach((l) => (lblMap[l.id] = translated[l.name] || NOT_AVAILABLE_LABEL))
+      const resolveNoData = createTranslationGetter(translated)
+      labelRecords.forEach((l) => (lblMap[l.id] = translated[l.name] || resolveNoData(NO_DATA_LC_KEY)))
       setLabelMap(lblMap)
 
       return { map: byId, translations: translated }
@@ -129,7 +132,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     const mainDescription = desList.length > 0
       ? (() => {
           const raw = getT(desList[0].des)
-          if (isNotAvailableLabel(raw)) return `<p class="italic">${NOT_AVAILABLE_LABEL}</p>`
+          if (isNotAvailableLabel(raw, noDataLabel)) return `<p class="italic">${noDataLabel}</p>`
           return applySkillValues(raw, desList[0].value ?? 0, valuesMap)
         })()
       : ''
@@ -138,7 +141,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     const sketchTexts = sketches.map((s) => {
       if (!s.des) return ''
       const raw = getT(s.des)
-      if (isNotAvailableLabel(raw)) return NOT_AVAILABLE_LABEL
+      if (isNotAvailableLabel(raw, noDataLabel)) return noDataLabel
       return applySkillValues(raw, s.value ?? 0, valuesMap)
     })
 
@@ -173,16 +176,19 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
         <div className="mb-2 grid grid-cols-1 gap-2 text-sm sm:grid-cols-3 sm:gap-4">
           {skillType && (
             <p>
-              <strong>Tipo:</strong>{' '}
-              {isNotAvailableLabel(skillType) ? (
-                <span className="italic text-text-muted">{NOT_AVAILABLE_LABEL}</span>
+              {isNotAvailableLabel(skillType, noDataLabel) ? (
+                <span className="italic text-text-muted">{noDataLabel}</span>
               ) : (
                 skillType
               )}
             </p>
           )}
           <SkillCooldownMeta cd={skill.cd} />
-          {labels && <p><strong>Tags:</strong> {labels}</p>}
+          {labels && (
+            <p>
+              <strong>{SITE_ONLY_LABELS.tags}:</strong> {labels}
+            </p>
+          )}
         </div>
 
         {mainDescription && (
@@ -199,13 +205,13 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
             {line.text ? (
               <span dangerouslySetInnerHTML={{ __html: line.text }} />
             ) : (
-              <span className="italic">{NOT_AVAILABLE_LABEL}</span>
+              <span className="italic">{noDataLabel}</span>
             )}{' '}
-            {line.condition && !isNotAvailableLabel(line.condition) && (
+            {line.condition && !isNotAvailableLabel(line.condition, noDataLabel) && (
               <span className="italic opacity-70">({line.condition})</span>
             )}
-            {line.condition && isNotAvailableLabel(line.condition) && (
-              <span className="italic opacity-70">({NOT_AVAILABLE_LABEL})</span>
+            {line.condition && isNotAvailableLabel(line.condition, noDataLabel) && (
+              <span className="italic opacity-70">({noDataLabel})</span>
             )}
           </p>
         ))}

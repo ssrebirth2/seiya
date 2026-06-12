@@ -5,7 +5,9 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
-import { translateKeys } from '@/lib/i18n/language-package'
+import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { forceCardQualityNameKey, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { useLanguage } from '@/context/language-context'
 import { applySkillValues, formatDisplayText } from '@/lib/game/apply-skill-values'
 import ForceCardTabsContainer from '@/components/force-cards/ForceCardTabsContainer'
@@ -15,6 +17,7 @@ export default function ForceCardDetailPage() {
   const { id } = useParams()
   const cardId = Number(id)
   const { lang } = useLanguage()
+  const { t, site } = useUiTranslation()
 
   const [item, setItem] = useState<any>(null)
   const [info, setInfo] = useState<any>(null)
@@ -26,7 +29,7 @@ export default function ForceCardDetailPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   const getT = useCallback(
-    (key?: string) => translations[key || ''] || key || '',
+    (key?: string) => createTranslationGetter(translations)(key),
     [translations]
   )
 
@@ -90,7 +93,7 @@ export default function ForceCardDetailPage() {
         if (itemRow?.name) keys.add(itemRow.name)
         if (itemRow?.desc) keys.add(itemRow.desc)
         if (itemRow?.quality)
-          keys.add(`LC_COMMON_force_card_quality_quality_name_${itemRow.quality}`)
+          keys.add(forceCardQualityNameKey(itemRow.quality))
 
         if (infoRow?.condition) {
           try {
@@ -142,32 +145,31 @@ export default function ForceCardDetailPage() {
     }
   }, [info, translations, getT])
 
-  const qualityLabel = item
-    ? getT(`LC_COMMON_force_card_quality_quality_name_${item.quality}`)
-    : ''
+  const qualityLabel = item ? getT(forceCardQualityNameKey(item.quality)) : ''
 
   const statEntries = useMemo(() => {
     if (!item) return []
     const entries: { key: string; label: string; value: string; html?: boolean }[] = []
 
-    if (qualityLabel) entries.push({ key: 'quality', label: 'Quality', value: qualityLabel })
+    if (qualityLabel)
+      entries.push({ key: 'quality', label: t(UI_KEYS.common.quality), value: qualityLabel })
     if (restrictionHtml) {
       entries.push({
         key: 'restriction',
-        label: 'Restriction',
+        label: t(UI_KEYS.forceCard.restriction),
         value: restrictionHtml,
         html: true,
       })
     }
     return entries
-  }, [item, qualityLabel, restrictionHtml])
+  }, [item, qualityLabel, restrictionHtml, t, site])
 
   if (isLoading) {
     return (
       <div className="flex min-h-[50vh] items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">Loading card profile...</p>
+          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
         </div>
       </div>
     )
@@ -176,10 +178,10 @@ export default function ForceCardDetailPage() {
   if (!item) {
     return (
       <div className="panel py-12 text-center">
-        <p className="mb-4 text-text-muted">Force Card not found.</p>
+        <p className="mb-4 text-text-muted">{site('cardNotFound')}</p>
         <Link href="/force-cards" className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
-          Back to Cards
+          {site('backToForceCards')}
         </Link>
       </div>
     )
@@ -193,7 +195,7 @@ export default function ForceCardDetailPage() {
           className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
         >
           <ArrowLeft size={14} className="shrink-0" />
-          Back to Cards
+          {site('backToForceCards')}
         </Link>
 
         <div className="flex flex-col items-start gap-6 md:flex-row">
@@ -228,7 +230,7 @@ export default function ForceCardDetailPage() {
       {statEntries.length > 0 && (
         <section className="panel">
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            Attributes
+            {t(UI_KEYS.common.baseAttribute)}
           </h2>
           <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
             {statEntries.map(({ key, label, value, html }) => (

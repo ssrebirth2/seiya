@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import HeroSkillList from './HeroSkillList'
 import HeroQualitySkill from './HeroQualitySkill'
 import HeroAwakenSkills from './HeroAwakenSkills'
 import HeroBonds from './HeroBonds'
 import HeroTalents from './HeroTalents'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 interface HeroTabsContainerProps {
   heroId: number
@@ -15,26 +16,31 @@ interface HeroTabsContainerProps {
 
 type TabKey = 'skills' | 'quality' | 'awaken' | 'talents' | 'bonds'
 
-const TABS: { key: TabKey; label: string; shortLabel: string }[] = [
-  { key: 'skills', label: 'Skills', shortLabel: 'Skills' },
-  { key: 'quality', label: 'Quality Skill', shortLabel: 'Quality' },
-  { key: 'awaken', label: 'Awaken Skills', shortLabel: 'Awaken' },
-  { key: 'talents', label: 'Talents', shortLabel: 'Talents' },
-  { key: 'bonds', label: 'Bonds', shortLabel: 'Bonds' },
-]
-
 export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContainerProps) {
+  const { t } = useUiTranslation()
   const [activeTab, setActiveTab] = useState<TabKey>('skills')
+
+  const tabs = useMemo(
+    () =>
+      [
+        { key: 'skills' as TabKey, label: t(UI_KEYS.hero.skillsTab) },
+        { key: 'quality' as TabKey, label: t(UI_KEYS.hero.qualitySkillTab) },
+        { key: 'awaken' as TabKey, label: t(UI_KEYS.hero.awakenTab) },
+        { key: 'talents' as TabKey, label: t(UI_KEYS.hero.talentsTab) },
+        { key: 'bonds' as TabKey, label: t(UI_KEYS.hero.bondsTab) },
+      ] as const,
+    [t]
+  )
 
   return (
     <section>
       <div
         className="border-b border-panel-border px-3 sm:px-4"
         role="tablist"
-        aria-label="Hero details"
+        aria-label={t(UI_KEYS.hero.saintInfo)}
       >
         <div className="flex gap-1 overflow-x-auto pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {TABS.map((tab) => {
+          {tabs.map((tab) => {
             const isActive = activeTab === tab.key
             return (
               <button
@@ -45,8 +51,7 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
                 onClick={() => setActiveTab(tab.key)}
                 className={`tab-btn ${isActive ? 'tab-btn-active' : 'tab-btn-inactive'}`}
               >
-                <span className="sm:hidden">{tab.shortLabel}</span>
-                <span className="hidden sm:inline">{tab.label}</span>
+                {tab.label}
               </button>
             )
           })}
@@ -54,7 +59,6 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
       </div>
 
       <div className="min-w-0 p-4 sm:p-6">
-        {/* Keep panels mounted so tab switches don't re-fetch from Supabase */}
         <div
           role="tabpanel"
           aria-hidden={activeTab !== 'skills'}

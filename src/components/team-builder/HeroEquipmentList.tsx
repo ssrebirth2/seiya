@@ -7,8 +7,10 @@ import HeroEquipmentRow from './HeroEquipmentRow'
 import { canEquipCard, type ForceCard } from '@/lib/team-builder/loaders/load-force-cards'
 import { canEquipArtifact, type Artifact } from '@/lib/team-builder/loaders/load-artifacts'
 import { supabase } from '@/lib/supabase-client'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export default function HeroEquipmentList({ readOnly = false }: { readOnly?: boolean }) {
+  const { t } = useUiTranslation()
   const { team } = useTeamStore()
   const {
     equipArtifact,
@@ -54,7 +56,7 @@ export default function HeroEquipmentList({ readOnly = false }: { readOnly?: boo
 
   return (
     <div className="mt-6">
-      <h3 className="text-lg font-semibold mb-3">Hero Equipment</h3>
+      <h3 className="mb-3 text-lg font-semibold">{t(UI_KEYS.common.equip)}</h3>
 
       <div className="space-y-3">
         {mainHeroes.map((hero) => (

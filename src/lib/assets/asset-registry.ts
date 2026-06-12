@@ -92,7 +92,3 @@ export function reportAssetMissing(url: string | undefined): void {
   runtimeMissing.add(key)
   persistSessionMissing()
 }
-
-export function getManifestAssetCount(): number {
-  return manifest.count
-}

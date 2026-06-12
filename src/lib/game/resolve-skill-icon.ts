@@ -22,6 +22,3 @@ export function resolveSkillIconUrl(skill: {
 }): string {
   return convertSkillIconPath(typeof skill.iconpath === 'string' ? skill.iconpath : null)
 }
-
-/** @deprecated use resolveSkillIconUrl */
-export const resolveHeroSkillIconUrl = resolveSkillIconUrl
