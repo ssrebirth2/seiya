@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Users, Shield, Zap, Wrench } from 'lucide-react'
+import { Users, Shield, Sparkles, Zap, Wrench } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -14,10 +14,10 @@ export default function Home() {
         <p className="mx-auto mb-8 max-w-2xl leading-relaxed text-text-muted">
           Welcome to the ultimate database and toolkit for{' '}
           <strong className="text-foreground">Saint Seiya: Rebirth 2 (EX)</strong>. Explore heroes,
-          artifacts, and powers — or build your dream team.
+          artifacts, companions, and powers — or build your dream team.
         </p>
 
-        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Link href="/heroes" className="link-card group">
             <div className="flex flex-col items-center gap-2">
               <Users size={28} className="text-icon-hero transition-transform group-hover:scale-110" />
@@ -34,6 +34,16 @@ export default function Home() {
               <h3 className="text-lg font-semibold text-foreground">Artifacts</h3>
               <p className="text-xs text-text-muted">
                 Discover all legendary artifacts and their unique powers.
+              </p>
+            </div>
+          </Link>
+
+          <Link href="/companions" className="link-card group">
+            <div className="flex flex-col items-center gap-2">
+              <Sparkles size={28} className="text-icon-force transition-transform group-hover:scale-110" />
+              <h3 className="text-lg font-semibold text-foreground">Companions</h3>
+              <p className="text-xs text-text-muted">
+                Browse spirits with stats, star skills, and progression data.
               </p>
             </div>
           </Link>

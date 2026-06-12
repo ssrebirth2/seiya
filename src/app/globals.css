@@ -313,6 +313,20 @@ img[data-unavailable='true'] {
     @apply profile-header-art;
   }
 
+  /* Companion profile — square 1024×1024 showcase */
+  .companion-profile-header {
+    @apply relative overflow-hidden rounded-xl border border-panel-border bg-panel sm:rounded-2xl;
+  }
+
+  .companion-profile-art-frame {
+    @apply relative mx-auto flex max-w-[min(100%,20rem)] items-center justify-center sm:max-w-[22rem] md:max-w-[26rem] lg:max-w-[28rem] xl:max-w-[32rem];
+    aspect-ratio: 1 / 1;
+  }
+
+  .companion-profile-art {
+    @apply h-full w-full object-contain;
+  }
+
   .talent-point-btn {
     background-color: var(--talent-point-bg);
     border-color: var(--talent-point-border);

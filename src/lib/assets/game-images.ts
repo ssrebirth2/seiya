@@ -202,6 +202,53 @@ export function forceCardFrameUrl(quality: number): string {
   return resolveAssetUrl(forceCardFramePath(quality))
 }
 
+/** Normalize Supabase texture path → site-relative path (no extension). */
+export function texturePathFromDb(dbPath: string): string {
+  const relative = dbPath.replace(/^Textures\//i, '').replace(/\\/g, '/').toLowerCase()
+  return `/assets/resources/textures/${relative}.png`
+}
+
+/** Companion gallery preview — preserves PrimarySpirit/Spirit/ path from game. */
+export function companionPreviewPathFromDb(dbPath: string): string | undefined {
+  return getCanonicalAssetPath(texturePathFromDb(dbPath))
+}
+
+/** Companion list icon — ItemIcon from ArtifactResourcesConfig.item_icon. */
+export function companionListIconPathFromDb(dbPath: string): string | undefined {
+  return getCanonicalAssetPath(texturePathFromDb(dbPath))
+}
+
+/** Fallback when ArtifactResourcesConfig.preview_icon is missing (skins 82010 → ItemIcon_128010). */
+export function companionPreviewPathFromSkins(skinsId: number): string {
+  const iconName = `ItemIcon_${String(skinsId).replace(/^82/, '128')}`
+  return `/assets/resources/textures/primaryspirit/spirit/${iconName}.png`
+}
+
+export function resolveCompanionPreviewAsset(
+  dbPreviewPath?: string | null,
+  skinsId?: number | null
+): { src: string; rawSrc?: string } {
+  if (dbPreviewPath) {
+    const previewPath = companionPreviewPathFromDb(dbPreviewPath)
+    if (previewPath) return { src: previewPath, rawSrc: previewPath }
+  }
+  if (skinsId != null) {
+    const fallbackPath = companionPreviewPathFromSkins(skinsId)
+    const canonical = getCanonicalAssetPath(fallbackPath)
+    if (canonical) return { src: canonical, rawSrc: canonical }
+  }
+  return { src: IMAGE_UNAVAILABLE }
+}
+
+export function resolveCompanionListIcon(
+  dbItemIconPath?: string | null
+): { src: string; rawSrc?: string } {
+  if (!dbItemIconPath) return { src: IMAGE_UNAVAILABLE }
+  const iconPath = companionListIconPathFromDb(dbItemIconPath)
+  if (!iconPath) return { src: IMAGE_UNAVAILABLE }
+  return { src: iconPath, rawSrc: iconPath }
+}
+
 /** Prevents repeated 404 requests when `onError` swaps the src. */
 export function applyImageFallback(
   img: HTMLImageElement,

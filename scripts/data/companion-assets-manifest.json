@@ -1,0 +1,439 @@
+{
+  "generatedAt": "2026-06-12T14:08:25.789Z",
+  "companions": [
+    {
+      "spiritId": 8201,
+      "skinsResourceId": 82010,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128010",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128010.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128010.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82010",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82010.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82010.png"
+      }
+    },
+    {
+      "spiritId": 8202,
+      "skinsResourceId": 82020,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128020",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128020.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128020.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82020",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82020.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82020.png"
+      }
+    },
+    {
+      "spiritId": 8203,
+      "skinsResourceId": 82030,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128030",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128030.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128030.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82030",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82030.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82030.png"
+      }
+    },
+    {
+      "spiritId": 8204,
+      "skinsResourceId": 82040,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128040",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128040.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128040.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82040",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82040.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82040.png"
+      }
+    },
+    {
+      "spiritId": 8205,
+      "skinsResourceId": 82050,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128050",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128050.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128050.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82050",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82050.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82050.png"
+      }
+    },
+    {
+      "spiritId": 8206,
+      "skinsResourceId": 82060,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128060",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128060.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128060.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82060",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82060.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82060.png"
+      }
+    },
+    {
+      "spiritId": 8207,
+      "skinsResourceId": 82070,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128070",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128070.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128070.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82070",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82070.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82070.png"
+      }
+    },
+    {
+      "spiritId": 8208,
+      "skinsResourceId": 82080,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128080",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128080.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128080.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82080",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82080.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82080.png"
+      }
+    },
+    {
+      "spiritId": 8209,
+      "skinsResourceId": 82090,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128090",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128090.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128090.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82090",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82090.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82090.png"
+      }
+    },
+    {
+      "spiritId": 8210,
+      "skinsResourceId": 82100,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128100",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128100.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128100.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82100",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82100.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82100.png"
+      }
+    },
+    {
+      "spiritId": 8211,
+      "skinsResourceId": 82110,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128110",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128110.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128110.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82110",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82110.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82110.png"
+      }
+    },
+    {
+      "spiritId": 8212,
+      "skinsResourceId": 82120,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128120",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128120.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128120.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82120",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82120.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82120.png"
+      }
+    },
+    {
+      "spiritId": 8213,
+      "skinsResourceId": 82130,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128130",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128130.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128130.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82130",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82130.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82130.png"
+      }
+    },
+    {
+      "spiritId": 8214,
+      "skinsResourceId": 82140,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128140",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128140.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128140.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82140",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82140.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82140.png"
+      }
+    },
+    {
+      "spiritId": 8215,
+      "skinsResourceId": 82150,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128150",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128150.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128150.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82150",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82150.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82150.png"
+      }
+    },
+    {
+      "spiritId": 8216,
+      "skinsResourceId": 82160,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128160",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128160.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128160.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82160",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82160.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82160.png"
+      }
+    },
+    {
+      "spiritId": 8217,
+      "skinsResourceId": 82170,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128170",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128170.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128170.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82170",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82170.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82170.png"
+      }
+    },
+    {
+      "spiritId": 8218,
+      "skinsResourceId": 82180,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128180",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128180.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128180.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82180",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82180.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82180.png"
+      }
+    },
+    {
+      "spiritId": 8219,
+      "skinsResourceId": 82190,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128190",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128190.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128190.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82190",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82190.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82190.png"
+      }
+    },
+    {
+      "spiritId": 8220,
+      "skinsResourceId": 82200,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128200",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128200.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128200.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82200",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82200.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82200.png"
+      }
+    },
+    {
+      "spiritId": 8221,
+      "skinsResourceId": 82210,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128210",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128210.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128210.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82210",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82210.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82210.png"
+      }
+    },
+    {
+      "spiritId": 8222,
+      "skinsResourceId": 82220,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128220",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128220.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128220.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82220",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82220.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82220.png"
+      }
+    },
+    {
+      "spiritId": 8223,
+      "skinsResourceId": 82230,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128230",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128230.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128230.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82230",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82230.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82230.png"
+      }
+    },
+    {
+      "spiritId": 8224,
+      "skinsResourceId": 82240,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128240",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128240.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128240.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82240",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82240.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82240.png"
+      }
+    },
+    {
+      "spiritId": 8225,
+      "skinsResourceId": 82250,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128250",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128250.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128250.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82250",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82250.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82250.png"
+      }
+    },
+    {
+      "spiritId": 8226,
+      "skinsResourceId": 82260,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128260",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128260.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128260.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82260",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82260.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82260.png"
+      }
+    },
+    {
+      "spiritId": 8227,
+      "skinsResourceId": 82270,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128270",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128270.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128270.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82270",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82270.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82270.png"
+      }
+    },
+    {
+      "spiritId": 8228,
+      "skinsResourceId": 82280,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128280",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128280.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128280.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82280",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82280.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82280.png"
+      }
+    },
+    {
+      "spiritId": 8229,
+      "skinsResourceId": 82290,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128290",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128290.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128290.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82290",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82290.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82290.png"
+      }
+    },
+    {
+      "spiritId": 8230,
+      "skinsResourceId": 82300,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128300",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128300.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128300.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82300",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82300.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82300.png"
+      }
+    },
+    {
+      "spiritId": 8231,
+      "skinsResourceId": 82310,
+      "preview": {
+        "gamePath": "Textures/PrimarySpirit/Spirit/ItemIcon_128310",
+        "publicPath": "public/assets/resources/textures/primaryspirit/spirit/itemicon_128310.png",
+        "sitePath": "/assets/resources/textures/primaryspirit/spirit/itemicon_128310.png"
+      },
+      "listIcon": {
+        "gamePath": "Textures/ItemIcon/ItemIcon_82310",
+        "publicPath": "public/assets/resources/textures/itemicon/itemicon_82310.png",
+        "sitePath": "/assets/resources/textures/itemicon/itemicon_82310.png"
+      }
+    }
+  ]
+}

@@ -20,6 +20,7 @@ const SCAN_DIRS = [
   'assets/resources/textures/artifact/artifactskill/skillicon',
   'assets/resources/textures/artifact/artifactshowview',
   'assets/resources/textures/itemicon',
+  'assets/resources/textures/primaryspirit/spirit',
 ]
 
 function collectPaths(dir) {

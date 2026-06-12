@@ -5,12 +5,13 @@ import { usePathname } from 'next/navigation'
 import { ThemeToggle } from '@/components/layout/ThemeToggle'
 import { useLanguage } from '@/context/language-context'
 import { useState, useEffect } from 'react'
-import { Home, Users, Shield, Zap, Wrench } from 'lucide-react'
+import { Home, Users, Shield, Sparkles, Zap, Wrench } from 'lucide-react'
 
 const navItemsMain = [
   { label: 'Home', href: '/', icon: <Home size={16} /> },
   { label: 'Heroes', href: '/heroes', icon: <Users size={16} /> },
   { label: 'Artifacts', href: '/artifacts', icon: <Shield size={16} /> },
+  { label: 'Companions', href: '/companions', icon: <Sparkles size={16} /> },
   { label: 'Ultimate Power', href: '/force-cards', icon: <Zap size={16} /> },
 //  { label: 'Items', href: '/items', icon: <Database size={16} /> },
 ]
@@ -106,7 +107,8 @@ export function Sidebar() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
-                      pathname === item.href
+                      pathname === item.href ||
+                      (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                         ? 'border border-panel-border bg-panel-hover text-foreground shadow-inner'
                         : 'text-text-muted hover:bg-panel-hover hover:text-foreground'
                     }`}
@@ -129,7 +131,8 @@ export function Sidebar() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={`flex items-center gap-3 px-4 py-2 rounded-md text-sm font-medium transition-all duration-150 ${
-                      pathname === item.href
+                      pathname === item.href ||
+                      (item.href !== '/' && pathname.startsWith(`${item.href}/`))
                         ? 'border border-panel-border bg-panel-hover text-foreground shadow-inner'
                         : 'text-text-muted hover:bg-panel-hover hover:text-foreground'
                     }`}
