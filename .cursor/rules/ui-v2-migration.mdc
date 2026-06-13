@@ -1,0 +1,18 @@
+---
+description: Checklist for migrating pages to UI v2
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+# UI v2 Migration Checklist
+
+When editing a page component:
+
+- [ ] Uses `ListPagePanel` or v2 `Surface` wrapper
+- [ ] Filters use `CatalogFilterBar` (not inline selects)
+- [ ] Cards use `CatalogCard` component
+- [ ] Loading uses `LoadingSkeleton` with correct variant
+- [ ] Empty states use `EmptyState` component
+- [ ] Detail pages use `DetailPageShell` + breadcrumbs
+- [ ] All strings go through `UI_KEYS` / `useUiTranslation()`
+- [ ] No hydration issues (avoid `window` in initial render without guards)

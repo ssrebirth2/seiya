@@ -72,24 +72,64 @@ async function ensureTranslationsLoaded(lang: string, keys: string[]): Promise<v
   const uncached = keys.filter((k) => translationCache[lang][k] == null)
   if (!uncached.length) return
 
-  for (const part of chunk(uncached, CHUNK_SIZE)) {
-    const { data, error } = await supabase.from(table).select('*').in('key', part)
+  await Promise.all(
+    chunk(uncached, CHUNK_SIZE).map(async (part) => {
+      const { data, error } = await supabase.from(table).select('*').in('key', part)
 
-    if (error) {
-      console.error(`[translations] ${table}:`, error)
-      continue
-    }
+      if (error) {
+        console.error(`[translations] ${table}:`, error)
+        return
+      }
 
-    for (const row of (data as { key: string; value?: string; text?: string }[]) || []) {
-      translationCache[lang][row.key] = pickText(row) ?? row.key
-    }
-  }
+      for (const row of (data as { key: string; value?: string; text?: string }[]) || []) {
+        translationCache[lang][row.key] = pickText(row) ?? row.key
+      }
+    })
+  )
 }
 
 /** Preloads keys into the shared cache (same store as translateKeys). */
 export async function preloadTranslations(lang: string, keys: string[]): Promise<void> {
   const normalized = normalizeTranslationKeys(keys)
   await ensureTranslationsLoaded(lang, normalized)
+}
+
+function buildTranslationMapFromCache(lang: string, keys: string[]): Record<string, string> {
+  if (!keys.length) return {}
+
+  const out: Record<string, string> = {}
+  for (const key of keys) {
+    const cached = translationCache[lang]?.[key]
+    if (cached != null) out[key] = cached
+  }
+  return out
+}
+
+/** True when every requested key is already present in the in-memory cache. */
+export function areTranslationsCached(lang: string, keys: string[]): boolean {
+  const normalized = normalizeTranslationKeys(keys)
+  if (!normalized.length) return true
+  if (!translationCache[lang]) return false
+  return normalized.every((key) => translationCache[lang][key] != null)
+}
+
+export function readCachedTranslations(lang: string, keys: string[]): Record<string, string> {
+  return buildTranslationMapFromCache(lang, keys)
+}
+
+export type TranslationGetterOptions = {
+  /** While true, unresolved LC keys return empty string instead of a fallback label. */
+  pending?: boolean
+  /** When set, fall back to the shared in-memory cache for this language. */
+  lang?: string
+}
+
+function isPendingTranslationMap(
+  translations: Record<string, string>,
+  pending?: boolean
+): boolean {
+  if (pending != null) return pending
+  return Object.keys(translations).length === 0
 }
 
 function resolveTranslation(key: string, lang: string): string {
@@ -105,17 +145,29 @@ function resolveTranslation(key: string, lang: string): string {
 }
 
 /** Safe getter for preloaded translation maps — never surfaces raw LC_ keys. */
-export function createTranslationGetter(translations: Record<string, string>) {
+export function createTranslationGetter(
+  translations: Record<string, string>,
+  options?: TranslationGetterOptions
+) {
+  const pending = isPendingTranslationMap(translations, options?.pending)
+  const lang = options?.lang
   const noData =
     translations[NO_DATA_LC_KEY] && !isMissingLcTranslation(NO_DATA_LC_KEY, translations[NO_DATA_LC_KEY])
       ? translations[NO_DATA_LC_KEY]
-      : FALLBACK_NOT_AVAILABLE
+      : lang
+        ? getNoDataLabel(lang)
+        : FALLBACK_NOT_AVAILABLE
 
   return (key?: string): string => {
     if (!key?.trim()) return ''
-    const resolved = translations[key]
+    let resolved = translations[key]
     if (isLcKey(key)) {
       if (resolved == null || isMissingLcTranslation(key, resolved)) {
+        if (lang) {
+          const cached = translationCache[lang]?.[key]
+          if (cached != null && !isMissingLcTranslation(key, cached)) return cached
+        }
+        if (pending) return ''
         return noData
       }
       return resolved

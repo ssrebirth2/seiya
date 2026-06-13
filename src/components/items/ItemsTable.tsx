@@ -256,14 +256,15 @@ export default function ItemsTable({
   // ? quality ? bg path
   const [qualityBgByQuality, setQualityBgByQuality] = useState<Record<number, string | null>>({})
 
-  const translations = useTranslation(translationKeys)
+  const { translations, isReady: detailTranslationsReady } = useTranslation(translationKeys)
 
   const getTLocal = useCallback(
     (key?: string) => {
       if (!key) return ''
+      if (!detailTranslationsReady && key.startsWith('LC_')) return ''
       return translations[key] || key
     },
-    [translations]
+    [translations, detailTranslationsReady]
   )
 
   const finalGetT = useCallback(
@@ -622,7 +623,7 @@ export default function ItemsTable({
 
   return (
     <div className="border border-panel-border rounded-xl overflow-hidden bg-panel">
-      <table className="w-full">
+      <table className="items-table w-full">
         <tbody>
           {visibleItems.map((it) => {
             const icon = resolveTexturePath(it.icon_path) || FALLBACK_ICON
@@ -723,7 +724,7 @@ export default function ItemsTable({
                 {finalGetT('Box') || 'Box'}
               </div>
 
-              <div className="overflow-x-auto scrollbar-thin">
+              <div className="scroll-strip-h">
                 <div className="flex gap-4 min-w-max pb-2">
 
                   {/* SHOW PREVIEW */}

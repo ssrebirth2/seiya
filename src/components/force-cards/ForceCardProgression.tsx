@@ -120,7 +120,7 @@ export default function ForceCardProgression({ info, starUps }: Props) {
     <div className="rounded-2xl p-6 bg-panel shadow-md space-y-4 border border-panel-border">
       
       {/* DESKTOP / TABLET */}
-      <div className="hidden md:block overflow-x-auto">
+      <div className="hidden md:block scroll-strip-h">
         <table className="w-full text-sm border border-panel-border rounded-lg overflow-hidden table-auto">
           <thead className="bg-panel-hover text-xs uppercase tracking-wider">
             <tr>

@@ -51,6 +51,7 @@ export const UI_KEYS = {
     teamBuilder: 'LC_RULE_Activity_super_smash_battle_title_2',
     tools: 'LC_FUNCTION_10057',
     gallery: 'LC_FUNCTION_10011',
+    items: 'LC_COMMON_bag',
   },
   filter: {
     faction: 'LC_COMMON_camp',
@@ -122,6 +123,18 @@ export const UI_KEYS = {
   },
 } as const
 
+/** Site copy localized per language code (SITE_LANGUAGES). */
+export const SITE_LOCALIZED_LABELS = {
+  databaseWelcome: {
+    EN: 'Welcome to the ultimate database and toolkit for Saint Seiya: Rebirth 2 (EX). Explore heroes, artifacts, companions, and powers — or build your dream team.',
+    CN: '欢迎来到《圣斗士星矢：重生2（EX）》终极数据库与工具站。探索斗士、圣衣、精灵与力量，或组建你的理想阵容。',
+    PT: 'Bem-vindo ao banco de dados e kit de ferramentas definitivo de Saint Seiya: Rebirth 2 (EX). Explore heróis, artefatos, companheiros e poderes — ou monte o time dos seus sonhos.',
+    SP: 'Bienvenido a la base de datos y herramientas definitiva de Saint Seiya: Rebirth 2 (EX). Explora héroes, artefactos, compañeros y poderes — o forma tu equipo ideal.',
+    FR: 'Bienvenue sur la base de données et la boîte à outils ultime de Saint Seiya: Rebirth 2 (EX). Explorez les héros, artefacts, compagnons et pouvoirs — ou composez l\'équipe de vos rêves.',
+    ID: 'Selamat datang di database dan toolkit terlengkap untuk Saint Seiya: Rebirth 2 (EX). Jelajahi pahlawan, artefak, companion, dan kekuatan — atau susun tim impianmu.',
+  },
+} as const
+
 /** Labels without a game LC key — stay in English. */
 export const SITE_ONLY_LABELS = {
   sortBy: 'Sort By',
@@ -162,9 +175,7 @@ export const SITE_ONLY_LABELS = {
   noCompanionsMatch: 'No companions match your filters.',
   noCardsMatch: 'No cards match the current filters.',
   openSidebar: 'Open sidebar',
-  databaseTitle: 'Saint Seiya: Rebirth 2 (EX) Database',
-  databaseWelcome:
-    'Welcome to the ultimate database and toolkit for Saint Seiya: Rebirth 2 (EX). Explore heroes, artifacts, companions, and powers — or build your dream team.',
+  databaseTitle: 'Saint Seiya: Rebirth 2 (EX)',
   heroesCardDesc: 'Browse all characters with their stats, skills, and awakenings.',
   artifactsCardDesc: 'Discover all legendary artifacts and their unique powers.',
   companionsCardDesc: 'Browse spirits with stats, star skills, and progression data.',
@@ -176,6 +187,13 @@ export const SITE_ONLY_LABELS = {
   searchPlaceholderArtifact: 'Artifact name...',
   searchPlaceholderCompanion: 'Companion name...',
   searchPlaceholderCard: 'Card name...',
+  itemDatabase: 'Item Database',
+  category: 'Category',
+  searchItemPlaceholder: 'Search item name...',
+  reset: 'Reset',
+  loadingItemDatabase: 'Loading item database...',
+  buildingUsedInIndex: 'Building used-in index...',
+  sharedTeamReadOnly: 'This is a shared team — editing is disabled.',
 } as const
 
 /** Quality display keys used across list/detail pages. */

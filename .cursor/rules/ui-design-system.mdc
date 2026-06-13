@@ -1,0 +1,34 @@
+---
+description: UI design system for Saint Seiya Rebirth 2 Database v2
+alwaysApply: true
+---
+
+# UI Design System (v2)
+
+Saint Seiya Rebirth 2 Database — clean, modern game database. Desktop + mobile first.
+
+## Before changing UI
+
+Read these files first:
+- `src/styles/tokens-v2.css`
+- `src/styles/components-v2.css`
+- This rule file
+
+## Rules
+
+1. Use primitives from `src/components/ui/v2/` — never duplicate filter/card/layout markup
+2. Colors via CSS vars (`var(--accent)`), never hex hardcoded in TSX
+3. Quality badges via `<QualityBadge />`, not ad-hoc classes
+4. Loading via `<LoadingSkeleton />`, not inline spinners
+5. i18n via `UI_KEYS` + `useUiTranslation()` — no hardcoded user-facing strings
+6. Keep data logic intact when refactoring visuals (Supabase, React Query, Zustand)
+7. Test mobile (<1024px) and dark + light before done
+8. Global styles in `tokens-v2.css` + `components-v2.css` (no feature flag)
+9. Typography: `--font-display` for headings, `--font-body` for UI text
+10. Prefer `surface` class / `<Surface />` over raw `.panel` in new v2 code
+
+## Identity
+
+- Primary: professional game database (data legibility first)
+- Visual: cosmic/clean — subtle gradients, glass surfaces, quality color tokens
+- Do not break: team-builder DnD, share links, skill tooltips, asset fallbacks

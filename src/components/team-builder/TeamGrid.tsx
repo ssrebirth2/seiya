@@ -110,77 +110,75 @@ export default function TeamGrid({ initialTeam, readOnly = false, onReady }: Tea
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDrop}>
       <div
-        className={`flex flex-col items-center transition-all duration-200 ${
-          isDragging ? 'overflow-hidden touch-none select-none' : ''
+        className={`team-formation-root transition-all duration-200 ${
+          isDragging ? 'touch-none select-none' : ''
         }`}
       >
-        <h2 className="text-xl font-semibold mb-2 text-center">Team Formation</h2>
+        <div className="team-formation-board scroll-strip-h scroll-fade-x">
+          <div
+            className={`team-formation-layout border border-panel-border rounded bg-panel-hover ${
+              isDragging ? 'overflow-hidden' : ''
+            }`}
+          >
+            <div className="team-formation-support">
+              {[0, 1].map((slot) => {
+                const pos = `support-${slot}`
+                const hero = supportHeroes.find((h: any) => h.position === pos)
+                return (
+                  <DropSlot
+                    key={pos}
+                    id={pos}
+                    stance={0}
+                    getT={getT}
+                    typeMap={typeMap}
+                    translations={translations}
+                    readOnly={readOnly}
+                  >
+                    {hero && (
+                      <HeroAvatar
+                        id={hero.position}
+                        heroId={hero.id}
+                        iconMap={iconMap}
+                        readOnly={readOnly}
+                        onRemove={() => removeHero(pos)}
+                      />
+                    )}
+                  </DropSlot>
+                )
+              })}
+            </div>
 
-        <div
-          className={`flex flex-col sm:flex-row gap-2 sm:gap-4 p-2 border border-panel-border items-center rounded bg-panel-hover max-w-full ${
-            isDragging ? 'overflow-hidden' : 'overflow-x-auto'
-          }`}
-        >
-          {/* 🔹 Suporte (1x2) */}
-          <div className="flex sm:flex-col justify-center gap-2">
-            {[0, 1].map((slot) => {
-              const pos = `support-${slot}`
-              const hero = supportHeroes.find((h: any) => h.position === pos)
-              return (
-                <DropSlot
-                  key={pos}
-                  id={pos}
-                  stance={0}
-                  getT={getT}
-                  typeMap={typeMap}
-                  translations={translations}
-                  readOnly={readOnly}
-                >
-                  {hero && (
-                    <HeroAvatar
-                      id={hero.position}
-                      heroId={hero.id}
-                      iconMap={iconMap}
-                      readOnly={readOnly}
-                      onRemove={() => removeHero(pos)}
-                    />
-                  )}
-                </DropSlot>
-              )
-            })}
-          </div>
-
-          {/* 🔹 Grid principal */}
-          <div className="grid grid-cols-3 gap-1 sm:gap-2">
-            {cols.map(({ key: col, stance }) => (
-              <div key={col} className="flex flex-col items-center justify-center gap-1 sm:gap-2">
-                {[0, 1, 2].map((slot) => {
-                  const pos = `${col}-${slot}`
-                  const hero = mainHeroes.find((h: any) => h.position === pos)
-                  return (
-                    <DropSlot
-                      key={pos}
-                      id={pos}
-                      stance={stance}
-                      typeMap={typeMap}
-                      translations={translations}
-                      getT={getT}
-                      readOnly={readOnly}
-                    >
-                      {hero && (
-                        <HeroAvatar
-                          id={hero.position}
-                          heroId={hero.id}
-                          iconMap={iconMap}
-                          readOnly={readOnly}
-                          onRemove={() => removeHero(pos)}
-                        />
-                      )}
-                    </DropSlot>
-                  )
-                })}
-              </div>
-            ))}
+            <div className="team-formation-main">
+              {cols.map(({ key: col, stance }) => (
+                <div key={col} className="team-formation-col">
+                  {[0, 1, 2].map((slot) => {
+                    const pos = `${col}-${slot}`
+                    const hero = mainHeroes.find((h: any) => h.position === pos)
+                    return (
+                      <DropSlot
+                        key={pos}
+                        id={pos}
+                        stance={stance}
+                        typeMap={typeMap}
+                        translations={translations}
+                        getT={getT}
+                        readOnly={readOnly}
+                      >
+                        {hero && (
+                          <HeroAvatar
+                            id={hero.position}
+                            heroId={hero.id}
+                            iconMap={iconMap}
+                            readOnly={readOnly}
+                            onRemove={() => removeHero(pos)}
+                          />
+                        )}
+                      </DropSlot>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -218,10 +216,9 @@ function DropSlot({
   return (
     <div
       ref={setNodeRef}
-      className={`border border-panel-border rounded flex items-center justify-center transition
-        w-24 h-24 sm:w-26 sm:h-26 lg:w-28 lg:h-28
-        ${isOver && !readOnly ? 'bg-panel-hover border-accent' : 'bg-panel'}
-      `}
+      className={`team-formation-slot flex items-center justify-center rounded border border-panel-border transition w-24 h-24 lg:w-28 lg:h-28 ${
+        isOver && !readOnly ? 'team-formation-slot--over drop-zone-active bg-accent-subtle border-accent' : 'bg-panel'
+      }`}
     >
       {children || (
         <span
@@ -260,7 +257,7 @@ function HeroAvatar({
         <GameImage
           src={squareHeroHeadUrl(heroId, iconMap)}
           alt=""
-          className="w-24 h-24 sm:w-26 sm:h-26 lg:w-28 lg:h-28 rounded border border-panel-border bg-panel-hover object-cover"
+          className="w-24 h-24 lg:w-28 lg:h-28 rounded border border-panel-border bg-panel-hover object-cover"
         />
       </div>
     )
@@ -277,7 +274,7 @@ function HeroAvatar({
         <GameImage
           src={squareHeroHeadUrl(heroId, iconMap)}
           alt=""
-          className="w-24 h-24 sm:w-26 sm:h-26 lg:w-28 lg:h-28 rounded border border-panel-border touch-none select-none bg-panel-hover object-cover"
+          className="w-24 h-24 lg:w-28 lg:h-28 rounded border border-panel-border touch-none select-none bg-panel-hover object-cover"
           {...listeners}
         />
         <button

@@ -1,0 +1,103 @@
+---
+description: UI/layout must follow extracted game assets — StreamingResources bundles + Lua specs
+alwaysApply: true
+---
+
+# Game UI Source of Truth
+
+All site UI layout, structure, and visual presentation **must be derived from the game**:
+
+1. **Lua specs** — `C:\rb2\assets\resources\luascriptwithoutcodecomments\game\ui\`
+2. **Official AssetBundles** — extracted via `scripts/game-assets/` from `StreamingResources_cn` / `StreamingResources_global`
+
+## Workflow
+
+1. **Find the Lua spec first** — read the matching `.lua` (e.g. `UISquareHeroItem.lua`) before implementing React/CSS.
+2. **Create or update a recipe** — `scripts/game-assets/recipes/<feature>.json` declares bundles, sprites, textures, prefabs (closed list only).
+3. **Extract selectively** — `npm run assets:extract -- --recipe <feature>` publishes only what the site uses to `public/assets/resources/`.
+4. **Check extract report** — `scripts/data/extract-report-<feature>.json` lists gaps; no silent fallback.
+5. **Register in manifest** — new public folders must be in `scripts/generate-asset-manifest.mjs` (local; `scripts/` is not committed).
+6. **Reuse game utils** — port logic from `HeroUtil.lua`, `IconConfig`, etc. into `src/lib/game/`.
+
+## Selective publish (mandatory)
+
+| Allowed | Forbidden |
+|---------|-----------|
+| Sprites listed in recipe `names[]` | Full atlas / bundle dump |
+| Portraits for **listed heroes** only (`squareherohead_{skinId}.png`; prune removes monsters/extras) | All `squareherohead_*.assetbundle` |
+| Stance icons for **site languages** (`en`, `id`, `cn`, `sp`) | Entire `languageres/**` tree |
+| Prefab layout JSON for active components | Copying whole prefab folders |
+
+**Never** copy bundle/pasta inteira para `public/`. Use recipes.
+
+## Config import (Supabase)
+
+All site config tables are imported from CN `luaconfig` Lua files:
+
+```bash
+npm run import              # TUDO: configs + language packs → Supabase
+npm run import:dry-run      # validar sem escrever
+npm run sync                # import + assets (portraits/sprites) + manifest
+
+# Parcial (se precisar):
+npm run heroes:import       # só heróis
+npm run langs:import          # só traduções
+npm run configs:import        # só configs (sem langs)
+```
+
+Default Lua root: `C:\rb2\assets\resources\luascriptwithoutcodecomments\luaconfig`
+
+**Language packs** — `src/lib/i18n/site-languages.ts` defines codes, selector labels, and `luaFile` → `LanguagePackage_{code}`. Edit only that file when adding languages. Import reads it via `scripts/site_languages.py`.
+
+**Hidden IDs** (`src/lib/game/hidden-hero-ids.ts`, `hidden-companion-ids.ts`):
+- Import skips hidden heroes/companions
+- After upsert, `configs:import` **purges** them from Supabase
+- Asset extract (`prune_hero_portraits`) and site UI also respect the same lists
+
+## Hero config detail
+
+Hero list/detail data lives in `RoleConfig.lua` (no separate `HeroDetails.lua`):
+
+| Supabase table | Lua source |
+|----------------|------------|
+| `RoleConfig` | `luaconfig/game/role/RoleConfig.lua` |
+| `RoleResourcesConfig` | `luaconfig/game/role/RoleResourcesConfig.lua` |
+| `IconConfig` | `luaconfig/game/setting/IconConfig.lua` |
+| + `HeroConfig`, `HeroRelationConfig`, `HeroAwakenConfig`, … | see `scripts/import-all-configs.py` |
+
+## Asset extraction
+
+```bash
+npm run assets:extract:heroes    # square-hero-item recipe
+npm run assets:manifest
+npm run assets:sync                # extract + manifest
+```
+
+**`scripts/` is gitignored** — extractors, importers, and `generate-asset-manifest.mjs` stay local only. Run `python scripts/game-assets/cli.py extract --recipe <feature>` locally.
+
+## Path mapping
+
+| Lua / game | Public mirror |
+|------------|---------------|
+| `UI/Sprites/Common` | `public/assets/resources/ui/sprites/common/` |
+| `UI/Sprites/LanguageRes/{lang}/Common` | `public/assets/resources/ui/sprites/languageres/{lang}/common/` |
+| `Textures/Hero/SquareHeroHead/...` | `public/assets/resources/textures/hero/squareherohead/...` |
+| Prefab layout | `src/data/ui-layouts/<name>.json` (committed; extract writes here via recipe) |
+
+## Key reference files
+
+| UI element | Lua source |
+|------------|------------|
+| Square hero card | `UISquareHeroItem.lua` |
+| Square hero + name | `IncludeInfoSquareHeroHead.lua` |
+| Sprite paths | `HeroUtil.lua` |
+| Layout JSON | `src/data/ui-layouts/square-hero-head.json` |
+
+**No hardcode / no silent fallback:** see `.cursor/rules/game-ui-no-fallbacks.mdc`.
+
+## Do not
+
+- Invent layouts without Lua/prefab JSON.
+- Hardcode bundle paths in TypeScript.
+- Use `sync-game-ui-sprites.mjs` for new work — add a recipe instead.
+- Add fallbacks when extract report shows gaps (ask user first).

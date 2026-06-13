@@ -1,65 +1,108 @@
 import './globals.css'
+
 import { ReactNode } from 'react'
-import { Sidebar } from '@/components/layout/Sidebar'
+
+import { TopDock } from '@/components/layout/TopDock'
+
+import { MobileDock } from '@/components/layout/MobileDock'
+
 import { LanguageProvider } from '@/context/language-context'
+
 import { QueryProvider } from '@/components/layout/QueryProvider'
 
+import { PageMetaProvider } from '@/lib/ui/usePageMeta'
+
+import { fontInter, fontOutfit } from '@/lib/ui/fonts'
+
+
+
 export const metadata = {
+
   title: 'Saint Seiya: Rebirth 2 (EX)',
+
   description: 'Hero and skill database viewer for Saint Seiya: Rebirth 2 (EX).',
+
 }
 
-const CURRENT_YEAR = new Date().getFullYear()
+
+
+export const viewport = {
+
+  width: 'device-width',
+
+  initialScale: 1,
+
+  viewportFit: 'cover' as const,
+
+}
+
+
+
+const INIT_SCRIPT = `(function(){try{
+
+  var t=localStorage.getItem('theme');
+
+  if(t==='light')document.documentElement.classList.add('light');
+
+}catch(e){}})();`
+
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+
   return (
+
     <html lang="en" suppressHydrationWarning>
+
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.classList.add('light');}catch(e){}})();`,
-          }}
-        />
+
+        <script dangerouslySetInnerHTML={{ __html: INIT_SCRIPT }} />
+
       </head>
-      <body className="bg-background text-foreground antialiased">
+
+      <body
+
+        className={`${fontInter.variable} ${fontOutfit.variable} bg-background text-foreground antialiased`}
+
+      >
+
         <LanguageProvider>
+
           <QueryProvider>
-          <div className="flex min-h-screen overflow-hidden bg-background">
-            {/* 🔹 Sidebar fixa em telas grandes / retrátil em telas pequenas */}
-            <Sidebar />
 
-            {/* 🔹 Conteúdo principal */}
-            <div className="flex h-screen flex-1 flex-col overflow-hidden bg-background lg:ml-[var(--sidebar-width)]">
+            <PageMetaProvider>
 
+              <TopDock />
 
-              {/* Cabeçalho */}
-              <header
-                role="banner"
-                className="sticky top-0 z-30 flex items-center justify-between border-b border-panel-border bg-panel px-6 py-4 shadow-[var(--header-shadow)]"
-              >
-                <p className="text-sm font-medium text-foreground sm:text-base">
-                  Saint Seiya: Rebirth 2 (EX) Database
-                </p>
-              </header>
+              <div className="flex min-h-screen flex-col overflow-hidden bg-background lg:pt-[var(--top-shell-offset)]">
 
-              {/* Conteúdo central */}
-              <main role="main" className="flex-1 overflow-y-auto bg-background p-6">
-                <div className="max-w-6xl mx-auto space-y-8">{children}</div>
-              </main>
+                <main
 
-              {/* Rodapé */}
-              <footer
-                role="contentinfo"
-                className="border-t border-panel-border bg-panel p-4 text-center text-xs text-text-muted"
-              >
-                © {CURRENT_YEAR} Saint Seiya: Rebirth 2 (EX) Database — by{' '}
-                <span className="text-foreground">@digsmartins</span>.
-              </footer>
-            </div>
-          </div>
+                  role="main"
+
+                  className="flex-1 overflow-y-auto p-4 max-lg:pb-[calc(var(--dock-height)+var(--dock-safe-bottom)+1rem)] sm:p-6 lg:px-8 lg:pb-8 lg:pt-4"
+
+                >
+
+                  <div className="mx-auto max-w-7xl space-y-8">{children}</div>
+
+                </main>
+
+                <MobileDock />
+
+              </div>
+
+            </PageMetaProvider>
+
           </QueryProvider>
+
         </LanguageProvider>
+
       </body>
+
     </html>
+
   )
+
 }
+

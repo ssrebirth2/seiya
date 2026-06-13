@@ -1,0 +1,66 @@
+---
+description: No hardcoded UI or silent fallbacks — list requirements and missing assets before implementing
+alwaysApply: true
+---
+
+# Game UI — No Hardcode, No Silent Fallback
+
+When building or changing UI that mirrors the game (`C:\rb2\assets\resources`):
+
+## Prohibited unless the user explicitly asks
+
+- Hardcoded colors, sizes, positions, or layout **not** traceable to a `.lua`, prefab, or config file
+- Substitute assets (CSS badges, Lucide icons, generic placeholders) instead of game sprites
+- Alternate atlas/folder paths because “the file was elsewhere on disk” — use **exact** path from Lua (`HeroUtil`, `LoadSpriteE` second argument, `LoadTextureE` path)
+- Silent fallbacks: `IMAGE_UNAVAILABLE`, empty `div`, guessed defaults, or “close enough” mappings
+- Implementing partial UI while assets or layout specs are missing — **stop and report first**
+
+## Required workflow (every UI task)
+
+Before writing or merging code, deliver a **Requirements & Gaps** block:
+
+### 1. Lua / config sources
+List exact files read (e.g. `UISquareHeroItem.lua`, `HeroUtil.lua`) and which functions/fields drive the UI.
+
+### 2. Layout / data still needed
+Anything not in the dump: prefab name, RectTransform layout, font, animation, config table columns, etc.
+
+### 3. Asset checklist
+For each sprite/texture the Lua loads:
+
+| Sprite | Game atlas (from Lua) | Target in repo |
+|--------|----------------------|----------------|
+| `ck_icon_sr` | `UI/Sprites/Common` | `public/assets/resources/ui/sprites/common/ck_icon_sr.png` |
+
+Mark each: **present** / **missing in dump** / **wrong folder in public**.
+
+### 4. Missing assets — exact placement
+For every missing file, give the **full target path** under `public/assets/resources/` mirroring the game path. If only in a sprite atlas, name the atlas file(s) to extract from (e.g. `ui/sprites/common/sactx-*-CommonSpriteAtlas-*.png`).
+
+Track per-component gaps in `scripts/data/extract-report-*.json` and `scripts/data/missing-ui-assets-*.json`.
+
+### 5. User decision
+If anything is missing, **ask** whether to:
+- wait while the user adds assets manually,
+- extract from atlas,
+- or explicitly allow a temporary fallback (user must say so).
+
+Do **not** proceed with invented UI until they choose.
+
+## Path mapping (strict)
+
+| Lua / game | Public mirror |
+|------------|---------------|
+| `UI/Sprites/Common` | `public/assets/resources/ui/sprites/common/` |
+| `UI/Sprites/CommonHero` | `public/assets/resources/ui/sprites/commonhero/` |
+| `UI/Sprites/LanguageRes/{lang}/Common` | `public/assets/resources/ui/sprites/languageres/{lang}/common/` |
+| `Textures/Hero/SquareHeroHead/...` | `public/assets/resources/textures/hero/squareherohead/...` |
+
+After adding files: `npm run assets:extract -- --recipe <feature>` then `npm run assets:manifest`.
+
+Extract reports: `scripts/data/extract-report-<recipe>.json`.
+
+## Related rules
+
+- `.cursor/rules/game-ui-source.mdc` — game folder is source of truth
+- `scripts/data/missing-ui-assets-square-hero.json` — current gaps for `UISquareHeroItem`

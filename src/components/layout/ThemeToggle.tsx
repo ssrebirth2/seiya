@@ -3,7 +3,11 @@
 import { useEffect, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  variant?: 'sidebar' | 'dock'
+}
+
+export function ThemeToggle({ variant = 'sidebar' }: ThemeToggleProps) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark')
 
   useEffect(() => {
@@ -18,6 +22,23 @@ export function ThemeToggle() {
     setTheme(newTheme)
     document.documentElement.classList.toggle('light', newTheme === 'light')
     localStorage.setItem('theme', newTheme)
+  }
+
+  if (variant === 'dock') {
+    return (
+      <button
+        type="button"
+        onClick={toggleTheme}
+        className="dock-bar-btn"
+        aria-label="Toggle theme"
+      >
+        {theme === 'dark' ? (
+          <Sun size={22} className="text-icon-artifact" aria-hidden="true" />
+        ) : (
+          <Moon size={22} className="text-accent" aria-hidden="true" />
+        )}
+      </button>
+    )
   }
 
   return (

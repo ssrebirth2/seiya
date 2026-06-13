@@ -6,6 +6,8 @@ import { useLanguage } from '@/context/language-context'
 import { preloadTranslations, useTranslation } from '@/lib/i18n/use-translation'
 import ItemsTable from '@/components/items/ItemsTable'
 import { ListPagePanel } from '@/components/layout/ListPagePanel'
+import { CatalogFilterBar, Input, LoadingSkeleton, Select } from '@/components/ui/v2'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type ItemRow = {
   id: number
@@ -216,6 +218,7 @@ async function loadAllItemsBuffer(): Promise<ItemRow[]> {
 
 export default function ItemsPage() {
   const { lang } = useLanguage()
+  const { site, t } = useUiTranslation()
 
   const [allItemsBuffer, setAllItemsBuffer] = useState<ItemRow[]>([])
   const [types, setTypes] = useState<ItemTypeRow[]>([])
@@ -240,7 +243,7 @@ export default function ItemsPage() {
   const [usedInLoading, setUsedInLoading] = useState(false)
 
   // Traduções (UI + buffer)
-  const translations = useTranslation(translationKeys)
+  const { translations, isReady: translationsReady } = useTranslation(translationKeys)
 
   const getT = useCallback(
     (key?: string) => {
@@ -403,107 +406,79 @@ export default function ItemsPage() {
 
   return (
     <ListPagePanel>
-      <h2 className="mb-4 text-xl font-bold uppercase tracking-wide">{getT('Item Database')}</h2>
+      <h2 className="mb-4 text-xl font-bold tracking-wide text-foreground sm:text-2xl">
+        {t(UI_KEYS.nav.items)}
+      </h2>
 
-      <div className="mb-4 flex flex-wrap items-end gap-4">
-        <div className="flex min-w-[180px] flex-col text-sm">
-          <label className="field-label">{getT('Category')}</label>
-          <select
-            value={filters.itemType}
-            onChange={(e) => setFilters((prev) => ({ ...prev, itemType: e.target.value }))}
-            className="control-input"
-            disabled={bufferLoading}
-          >
-            <option value="">{getT('All')}</option>
-            {typeOptions.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">{getT('Quality')}</label>
-          <select
-            value={filters.quality}
-            onChange={(e) => setFilters((prev) => ({ ...prev, quality: e.target.value }))}
-            className="control-input"
-            disabled={bufferLoading}
-          >
-            <option value="">{getT('All')}</option>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((q) => (
-              <option key={q} value={q}>
-                {getT(`LC_COMMON_quality_name_${q}`)}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">{getT('Rarity')}</label>
-          <select
-            value={filters.rarity}
-            onChange={(e) => setFilters((prev) => ({ ...prev, rarity: e.target.value }))}
-            className="control-input"
-            disabled={bufferLoading}
-          >
-            <option value="">{getT('All')}</option>
-            <option value="rare">{getT('Rare')}</option>
-            <option value="normal">{getT('Normal')}</option>
-          </select>
-        </div>
-
-        <div className="flex min-w-[140px] flex-col text-sm">
-          <label className="field-label">{getT('Sort by')}</label>
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as any)}
-            className="control-input"
-            disabled={bufferLoading}
-          >
-            <option value="id">{getT('ID')}</option>
-            <option value="name">{getT('Name')}</option>
-            <option value="quality">{getT('Quality')}</option>
-            <option value="type">{getT('Type')}</option>
-          </select>
-        </div>
-
-        <div className="flex min-w-[200px] flex-1 flex-col text-sm">
-          <label className="field-label">{getT('Search')}</label>
-          <input
-            type="text"
-            placeholder={getT('Search item name...')}
-            className="control-input w-full"
-            value={filters.search}
-            onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
-            disabled={bufferLoading}
-          />
-        </div>
-
-        <button
-          type="button"
-          onClick={resetFilters}
-          className="btn-secondary"
+      <CatalogFilterBar onClear={resetFilters} resultCount={processed.length} resultLabel={site('found')}>
+        <Select
+          label={site('category')}
+          value={filters.itemType}
+          onChange={(e) => setFilters((prev) => ({ ...prev, itemType: e.target.value }))}
           disabled={bufferLoading}
         >
-          {getT('Reset')}
-        </button>
-      </div>
+          <option value="">{t(UI_KEYS.filter.all)}</option>
+          {typeOptions.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </Select>
 
-      <div className="flex items-center justify-between gap-3 mb-3">
-        <div className="flex flex-col">
+        <Select
+          label={t(UI_KEYS.common.quality)}
+          value={filters.quality}
+          onChange={(e) => setFilters((prev) => ({ ...prev, quality: e.target.value }))}
+          disabled={bufferLoading}
+        >
+          <option value="">{t(UI_KEYS.filter.all)}</option>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((q) => (
+            <option key={q} value={q}>
+              {getT(`LC_COMMON_quality_name_${q}`)}
+            </option>
+          ))}
+        </Select>
 
-          {usedInLoading && (
-            <p className="text-xs text-text-muted">{getT('Building used-in index...')}</p>
-          )}
-        </div>
-      </div>
+        <Select
+          label={site('rarity')}
+          value={filters.rarity}
+          onChange={(e) => setFilters((prev) => ({ ...prev, rarity: e.target.value }))}
+          disabled={bufferLoading}
+        >
+          <option value="">{t(UI_KEYS.filter.all)}</option>
+          <option value="rare">{site('rare')}</option>
+          <option value="normal">{site('normal')}</option>
+        </Select>
 
-      {bufferLoading || !i18nReady ? (
-        <div className="panel text-center py-10">
-          <p className="text-sm text-text-muted">{getT('Loading item database...')}</p>
-        </div>
+        <Select
+          label={site('sortBy')}
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value as 'id' | 'name' | 'quality' | 'type')}
+          disabled={bufferLoading}
+        >
+          <option value="id">{site('id')}</option>
+          <option value="name">{site('name')}</option>
+          <option value="quality">{t(UI_KEYS.common.quality)}</option>
+          <option value="type">{site('category')}</option>
+        </Select>
+
+        <Input
+          label={t(UI_KEYS.filter.search)}
+          type="text"
+          placeholder={site('searchItemPlaceholder')}
+          value={filters.search}
+          onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+          disabled={bufferLoading}
+          className="min-w-[200px] flex-1"
+        />
+      </CatalogFilterBar>
+
+      {usedInLoading ? (
+        <p className="mb-3 text-xs text-text-muted">{site('buildingUsedInIndex')}</p>
+      ) : null}
+
+      {bufferLoading || !i18nReady || !translationsReady ? (
+        <LoadingSkeleton variant="grid" count={6} />
       ) : (
         <ItemsTable
           items={processed}

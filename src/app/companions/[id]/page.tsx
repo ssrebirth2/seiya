@@ -7,6 +7,8 @@ import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
 import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { LoadingSkeleton, DetailPageShell } from '@/components/ui/v2'
+import { SetPageMeta } from '@/lib/ui/usePageMeta'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { qualityNameKey } from '@/lib/i18n/ui-keys'
 import { applySkillValues } from '@/lib/game/apply-skill-values'
@@ -100,14 +102,7 @@ export default function CompanionDetailPage() {
   )
 
   if (!isReady) {
-    return (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
-        </div>
-      </div>
-    )
+    return <LoadingSkeleton variant="detail" />
   }
 
   if (!companion) {
@@ -123,24 +118,32 @@ export default function CompanionDetailPage() {
   }
 
   return (
-    <div className="page-stack -mx-2 sm:mx-0">
-      <CompanionProfileShowcase
-        companionId={companion.id}
-        name={nameHtml}
-        qualityLabel={qualityLabel}
-        descriptionHtml={descriptionHtml}
-        dbPreviewPath={resource?.preview_icon}
-        skinsId={companion.skins}
-      />
-
-      {companion.skill_id && (
-        <section className="panel">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            {t(UI_KEYS.companion.starSkill)}
-          </h2>
-          <CompanionStarSkill skillId={companion.skill_id} />
-        </section>
-      )}
-    </div>
+    <>
+      <SetPageMeta title={getT(companion?.name)} />
+      <DetailPageShell
+        backHref="/companions"
+        backLabel={site('backToCompanions')}
+        title={getT(companion.name)}
+        header={
+          <CompanionProfileShowcase
+            companionId={companion.id}
+            name={nameHtml}
+            qualityLabel={qualityLabel}
+            descriptionHtml={descriptionHtml}
+            dbPreviewPath={resource?.preview_icon}
+            skinsId={companion.skins}
+          />
+        }
+      >
+        {companion.skill_id && (
+          <section className="panel">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
+              {t(UI_KEYS.companion.starSkill)}
+            </h2>
+            <CompanionStarSkill skillId={companion.skill_id} />
+          </section>
+        )}
+      </DetailPageShell>
+    </>
   )
 }

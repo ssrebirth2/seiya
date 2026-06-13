@@ -1,0 +1,7061 @@
+{
+  "root": "SquareHeroHead",
+  "layout": {
+    "root": "SquareHeroHead",
+    "size": {
+      "width": 160.0,
+      "height": 160.0
+    },
+    "nodes": [
+      {
+        "pathId": -7572810174771631066,
+        "name": "SquareHeroHead",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 160.0,
+          "y": 160.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -8915659262970250178,
+            "name": "@_obj_namemask",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -51.0,
+              "y": -33.0
+            },
+            "sizeDelta": {
+              "x": 40.0,
+              "y": 21.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -8785951824354383978,
+                "name": "@_aortext_lv",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -18.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 0.0,
+                  "y": 21.0
+                },
+                "pivot": {
+                  "x": 0.0,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 1718793484334807580,
+                    "name": "tip",
+                    "anchorMin": {
+                      "x": 1.0,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 1.0,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 1.0,
+                      "y": -4.0
+                    },
+                    "sizeDelta": {
+                      "x": 15.800000190734863,
+                      "y": 30.0
+                    },
+                    "pivot": {
+                      "x": 0.0,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 12.0,
+                      "top": 102.0,
+                      "width": 15.8,
+                      "height": 30.0
+                    },
+                    "parentName": "@_aortext_lv",
+                    "siblingIndex": 0
+                  }
+                ],
+                "absolute": {
+                  "left": 11.0,
+                  "top": 102.5,
+                  "width": 0.0,
+                  "height": 21.0
+                },
+                "parentName": "@_obj_namemask",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 9.0,
+              "top": 102.5,
+              "width": 40.0,
+              "height": 21.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -6902302111747229410,
+            "name": "@_aorimage_pos",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 60.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 8.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -6835096380837268814,
+            "name": "@_obj_suggest",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 37.0,
+              "y": 41.0
+            },
+            "sizeDelta": {
+              "x": 80.0,
+              "y": 80.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 5598764291683963423,
+                "name": "txt",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 9.199999809265137,
+                  "y": 8.399999618530273
+                },
+                "sizeDelta": {
+                  "x": 62.88999938964844,
+                  "y": 30.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 94.755,
+                  "top": 15.6,
+                  "width": 62.89,
+                  "height": 30.0
+                },
+                "parentName": "@_obj_suggest",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 77.0,
+              "top": -1.0,
+              "width": 80.0,
+              "height": 80.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": -5600591351934705450,
+            "name": "@_obj_boss",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 60.0
+            },
+            "sizeDelta": {
+              "x": 136.0,
+              "y": 133.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.800000011920929,
+              "y": 0.800000011920929,
+              "z": 0.800000011920929
+            },
+            "children": [],
+            "absolute": {
+              "left": 79.6,
+              "top": -33.2,
+              "width": 108.8,
+              "height": 106.4
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 3
+          },
+          {
+            "pathId": -4407895884539321565,
+            "name": "Image",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 4.0,
+              "y": -17.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 4.0,
+              "top": 17.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 4
+          },
+          {
+            "pathId": -2387488788348622355,
+            "name": "@_obj_qualitybg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -5110219061092416543,
+                "name": "1",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -4543629953658916273,
+                "name": "5",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -472947895590145169,
+                "name": "2",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": 3454423084976238112,
+                "name": "3",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": 5117228155651545728,
+                "name": "4",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 4
+              }
+            ],
+            "absolute": {
+              "left": 30.0,
+              "top": 30.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 5
+          },
+          {
+            "pathId": -2203722916830917962,
+            "name": "@_obj_select",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -2.4800033569335938,
+              "y": 3.6100006103515625
+            },
+            "sizeDelta": {
+              "x": 154.0487060546875,
+              "y": 154.47479248046875
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 4237178020801169947,
+                "name": "select_icon",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 102.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 26.52,
+                  "top": 26.39,
+                  "width": 102.0,
+                  "height": 100.0
+                },
+                "parentName": "@_obj_select",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 0.496,
+              "top": -0.847,
+              "width": 154.049,
+              "height": 154.475
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 6
+          },
+          {
+            "pathId": -1025615900752506221,
+            "name": "@_aorimage_camp",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 36.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 32.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 7
+          },
+          {
+            "pathId": 1075871497852847388,
+            "name": "@_aortext_name",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": -90.0
+            },
+            "sizeDelta": {
+              "x": 200.0,
+              "y": 40.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -20.0,
+              "top": 150.0,
+              "width": 200.0,
+              "height": 40.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 8
+          },
+          {
+            "pathId": 1552616619740039760,
+            "name": "@_aorrawimage_icon",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 8.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 9
+          },
+          {
+            "pathId": 1943804027410587315,
+            "name": "@_obj_starRoot",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -2.0,
+              "y": -56.0
+            },
+            "sizeDelta": {
+              "x": 140.0,
+              "y": 20.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -6686114512514925505,
+                "name": "star4",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 68.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 285591131188277510,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 65.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star4",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 8500386264241561227,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 65.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star4",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 68.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -6277462351721774048,
+                "name": "star2",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 30.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -8896587863520217337,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 27.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star2",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 6590258634727493323,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 27.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star2",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 30.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -5921481477211694177,
+                "name": "star3",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 49.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 3590518563568201230,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 46.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star3",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 9070866870334313681,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 46.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star3",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 49.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": -5576683273082906672,
+                "name": "star5",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 87.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -6856382942980730614,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 84.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star5",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 267982910592965692,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 84.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star5",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 87.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": 673639969896980038,
+                "name": "star1",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 11.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 3301377963021659520,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 8.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star1",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 5808106188544627758,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 8.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star1",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 11.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 4
+              },
+              {
+                "pathId": 8734900222862750491,
+                "name": "star7",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 125.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 7420345310841953585,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 122.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star7",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 8309828724691607236,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 122.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star7",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 125.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 5
+              },
+              {
+                "pathId": 8851454666841215808,
+                "name": "star6",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 106.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -6566006432999937494,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 103.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star6",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 4782009808221281958,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 103.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star6",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 106.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 6
+              }
+            ],
+            "absolute": {
+              "left": 8.0,
+              "top": 126.0,
+              "width": 140.0,
+              "height": 20.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 10
+          },
+          {
+            "pathId": 2180192723623833769,
+            "name": "@_aorimage_defensetype",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": -11.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 79.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 11
+          },
+          {
+            "pathId": 3350424249637272143,
+            "name": "@_aorimage_bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 0.0,
+              "top": 0.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 12
+          },
+          {
+            "pathId": 4590079105840267771,
+            "name": "@_aorimage_damagetype",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 12.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 56.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 13
+          },
+          {
+            "pathId": 4629283220612854488,
+            "name": "@_rect_partner",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -3383494607240188283,
+                "name": "icon",
+                "anchorMin": {
+                  "x": 1.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 1.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": -13.0,
+                  "y": -13.0
+                },
+                "sizeDelta": {
+                  "x": 120.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.47999998927116394,
+                  "y": 0.47999998927116394,
+                  "z": 0.47999998927116394
+                },
+                "children": [],
+                "absolute": {
+                  "left": 118.2,
+                  "top": -11.0,
+                  "width": 57.6,
+                  "height": 48.0
+                },
+                "parentName": "@_rect_partner",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 0.0,
+              "top": 0.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 14
+          },
+          {
+            "pathId": 4806449118352080821,
+            "name": "@_obj_qualitymask",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 6.0,
+              "y": -6.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 8069183334180669033,
+                "name": "@_aorimage_quality",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 3.0,
+                  "y": -1.0
+                },
+                "sizeDelta": {
+                  "x": 112.0,
+                  "y": 84.0
+                },
+                "pivot": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "localScale": {
+                  "x": 0.550000011920929,
+                  "y": 0.550000011920929,
+                  "z": 0.550000011920929
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 7.0,
+                  "width": 61.6,
+                  "height": 46.2
+                },
+                "parentName": "@_obj_qualitymask",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 6.0,
+              "top": 6.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 15
+          },
+          {
+            "pathId": 6068335480533028683,
+            "name": "mvp",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 42.0,
+              "y": 58.0
+            },
+            "sizeDelta": {
+              "x": 84.0,
+              "y": 25.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 80.0,
+              "top": 9.5,
+              "width": 84.0,
+              "height": 25.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 16
+          }
+        ],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 160.0,
+          "height": 160.0
+        },
+        "parentName": null,
+        "siblingIndex": 0
+      }
+    ],
+    "nodesByName": {
+      "@_obj_namemask": {
+        "pathId": -8915659262970250178,
+        "name": "@_obj_namemask",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -51.0,
+          "y": -33.0
+        },
+        "sizeDelta": {
+          "x": 40.0,
+          "y": 21.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -8785951824354383978,
+            "name": "@_aortext_lv",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -18.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 0.0,
+              "y": 21.0
+            },
+            "pivot": {
+              "x": 0.0,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 1718793484334807580,
+                "name": "tip",
+                "anchorMin": {
+                  "x": 1.0,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 1.0,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 1.0,
+                  "y": -4.0
+                },
+                "sizeDelta": {
+                  "x": 15.800000190734863,
+                  "y": 30.0
+                },
+                "pivot": {
+                  "x": 0.0,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 12.0,
+                  "top": 102.0,
+                  "width": 15.8,
+                  "height": 30.0
+                },
+                "parentName": "@_aortext_lv",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 11.0,
+              "top": 102.5,
+              "width": 0.0,
+              "height": 21.0
+            },
+            "parentName": "@_obj_namemask",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 9.0,
+          "top": 102.5,
+          "width": 40.0,
+          "height": 21.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 0
+      },
+      "bg": {
+        "pathId": -8896587863520217337,
+        "name": "bg",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 103.0,
+          "y": 103.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.20999999344348907,
+          "y": 0.20999999344348907,
+          "z": 0.20999999344348907
+        },
+        "children": [],
+        "absolute": {
+          "left": 27.185,
+          "top": 125.185,
+          "width": 21.63,
+          "height": 21.63
+        },
+        "parentName": "star2",
+        "siblingIndex": 0
+      },
+      "@_aortext_lv": {
+        "pathId": -8785951824354383978,
+        "name": "@_aortext_lv",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -18.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 0.0,
+          "y": 21.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 1718793484334807580,
+            "name": "tip",
+            "anchorMin": {
+              "x": 1.0,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 1.0,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 1.0,
+              "y": -4.0
+            },
+            "sizeDelta": {
+              "x": 15.800000190734863,
+              "y": 30.0
+            },
+            "pivot": {
+              "x": 0.0,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 12.0,
+              "top": 102.0,
+              "width": 15.8,
+              "height": 30.0
+            },
+            "parentName": "@_aortext_lv",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 11.0,
+          "top": 102.5,
+          "width": 0.0,
+          "height": 21.0
+        },
+        "parentName": "@_obj_namemask",
+        "siblingIndex": 0
+      },
+      "SquareHeroHead": {
+        "pathId": -7572810174771631066,
+        "name": "SquareHeroHead",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 160.0,
+          "y": 160.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -8915659262970250178,
+            "name": "@_obj_namemask",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -51.0,
+              "y": -33.0
+            },
+            "sizeDelta": {
+              "x": 40.0,
+              "y": 21.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -8785951824354383978,
+                "name": "@_aortext_lv",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -18.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 0.0,
+                  "y": 21.0
+                },
+                "pivot": {
+                  "x": 0.0,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 1718793484334807580,
+                    "name": "tip",
+                    "anchorMin": {
+                      "x": 1.0,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 1.0,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 1.0,
+                      "y": -4.0
+                    },
+                    "sizeDelta": {
+                      "x": 15.800000190734863,
+                      "y": 30.0
+                    },
+                    "pivot": {
+                      "x": 0.0,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 1.0,
+                      "y": 1.0,
+                      "z": 1.0
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 12.0,
+                      "top": 102.0,
+                      "width": 15.8,
+                      "height": 30.0
+                    },
+                    "parentName": "@_aortext_lv",
+                    "siblingIndex": 0
+                  }
+                ],
+                "absolute": {
+                  "left": 11.0,
+                  "top": 102.5,
+                  "width": 0.0,
+                  "height": 21.0
+                },
+                "parentName": "@_obj_namemask",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 9.0,
+              "top": 102.5,
+              "width": 40.0,
+              "height": 21.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -6902302111747229410,
+            "name": "@_aorimage_pos",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 60.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 8.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -6835096380837268814,
+            "name": "@_obj_suggest",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 37.0,
+              "y": 41.0
+            },
+            "sizeDelta": {
+              "x": 80.0,
+              "y": 80.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 5598764291683963423,
+                "name": "txt",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 9.199999809265137,
+                  "y": 8.399999618530273
+                },
+                "sizeDelta": {
+                  "x": 62.88999938964844,
+                  "y": 30.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 94.755,
+                  "top": 15.6,
+                  "width": 62.89,
+                  "height": 30.0
+                },
+                "parentName": "@_obj_suggest",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 77.0,
+              "top": -1.0,
+              "width": 80.0,
+              "height": 80.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": -5600591351934705450,
+            "name": "@_obj_boss",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 60.0
+            },
+            "sizeDelta": {
+              "x": 136.0,
+              "y": 133.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.800000011920929,
+              "y": 0.800000011920929,
+              "z": 0.800000011920929
+            },
+            "children": [],
+            "absolute": {
+              "left": 79.6,
+              "top": -33.2,
+              "width": 108.8,
+              "height": 106.4
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 3
+          },
+          {
+            "pathId": -4407895884539321565,
+            "name": "Image",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 4.0,
+              "y": -17.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 4.0,
+              "top": 17.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 4
+          },
+          {
+            "pathId": -2387488788348622355,
+            "name": "@_obj_qualitybg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -5110219061092416543,
+                "name": "1",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -4543629953658916273,
+                "name": "5",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -472947895590145169,
+                "name": "2",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": 3454423084976238112,
+                "name": "3",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": 5117228155651545728,
+                "name": "4",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 142.0,
+                  "y": 142.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 9.0,
+                  "width": 142.0,
+                  "height": 142.0
+                },
+                "parentName": "@_obj_qualitybg",
+                "siblingIndex": 4
+              }
+            ],
+            "absolute": {
+              "left": 30.0,
+              "top": 30.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 5
+          },
+          {
+            "pathId": -2203722916830917962,
+            "name": "@_obj_select",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -2.4800033569335938,
+              "y": 3.6100006103515625
+            },
+            "sizeDelta": {
+              "x": 154.0487060546875,
+              "y": 154.47479248046875
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 4237178020801169947,
+                "name": "select_icon",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 102.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 26.52,
+                  "top": 26.39,
+                  "width": 102.0,
+                  "height": 100.0
+                },
+                "parentName": "@_obj_select",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 0.496,
+              "top": -0.847,
+              "width": 154.049,
+              "height": 154.475
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 6
+          },
+          {
+            "pathId": -1025615900752506221,
+            "name": "@_aorimage_camp",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 36.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 32.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 7
+          },
+          {
+            "pathId": 1075871497852847388,
+            "name": "@_aortext_name",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": -90.0
+            },
+            "sizeDelta": {
+              "x": 200.0,
+              "y": 40.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -20.0,
+              "top": 150.0,
+              "width": 200.0,
+              "height": 40.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 8
+          },
+          {
+            "pathId": 1552616619740039760,
+            "name": "@_aorrawimage_icon",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 8.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 9
+          },
+          {
+            "pathId": 1943804027410587315,
+            "name": "@_obj_starRoot",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -2.0,
+              "y": -56.0
+            },
+            "sizeDelta": {
+              "x": 140.0,
+              "y": 20.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -6686114512514925505,
+                "name": "star4",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 68.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 285591131188277510,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 65.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star4",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 8500386264241561227,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 65.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star4",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 68.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -6277462351721774048,
+                "name": "star2",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 30.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -8896587863520217337,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 27.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star2",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 6590258634727493323,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 27.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star2",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 30.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -5921481477211694177,
+                "name": "star3",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 49.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 3590518563568201230,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 46.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star3",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 9070866870334313681,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 46.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star3",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 49.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": -5576683273082906672,
+                "name": "star5",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 87.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -6856382942980730614,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 84.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star5",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 267982910592965692,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 84.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star5",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 87.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": 673639969896980038,
+                "name": "star1",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 11.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 3301377963021659520,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 8.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star1",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 5808106188544627758,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 8.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star1",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 11.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 4
+              },
+              {
+                "pathId": 8734900222862750491,
+                "name": "star7",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 125.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": 7420345310841953585,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 122.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star7",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 8309828724691607236,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 122.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star7",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 125.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 5
+              },
+              {
+                "pathId": 8851454666841215808,
+                "name": "star6",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 106.0,
+                  "y": -10.0
+                },
+                "sizeDelta": {
+                  "x": 16.0,
+                  "y": 16.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [
+                  {
+                    "pathId": -6566006432999937494,
+                    "name": "bg",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 103.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star6",
+                    "siblingIndex": 0
+                  },
+                  {
+                    "pathId": 4782009808221281958,
+                    "name": "star",
+                    "anchorMin": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchorMax": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "anchoredPosition": {
+                      "x": 0.0,
+                      "y": 0.0
+                    },
+                    "sizeDelta": {
+                      "x": 103.0,
+                      "y": 103.0
+                    },
+                    "pivot": {
+                      "x": 0.5,
+                      "y": 0.5
+                    },
+                    "localScale": {
+                      "x": 0.20999999344348907,
+                      "y": 0.20999999344348907,
+                      "z": 0.20999999344348907
+                    },
+                    "children": [],
+                    "absolute": {
+                      "left": 103.185,
+                      "top": 125.185,
+                      "width": 21.63,
+                      "height": 21.63
+                    },
+                    "parentName": "star6",
+                    "siblingIndex": 1
+                  }
+                ],
+                "absolute": {
+                  "left": 106.0,
+                  "top": 128.0,
+                  "width": 16.0,
+                  "height": 16.0
+                },
+                "parentName": "@_obj_starRoot",
+                "siblingIndex": 6
+              }
+            ],
+            "absolute": {
+              "left": 8.0,
+              "top": 126.0,
+              "width": 140.0,
+              "height": 20.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 10
+          },
+          {
+            "pathId": 2180192723623833769,
+            "name": "@_aorimage_defensetype",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": -11.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 79.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 11
+          },
+          {
+            "pathId": 3350424249637272143,
+            "name": "@_aorimage_bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 0.0,
+              "top": 0.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 12
+          },
+          {
+            "pathId": 4590079105840267771,
+            "name": "@_aorimage_damagetype",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 54.0,
+              "y": 12.0
+            },
+            "sizeDelta": {
+              "x": 45.0,
+              "y": 45.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.49000000953674316,
+              "y": 0.49000000953674316,
+              "z": 0.49000000953674316
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.975,
+              "top": 56.975,
+              "width": 22.05,
+              "height": 22.05
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 13
+          },
+          {
+            "pathId": 4629283220612854488,
+            "name": "@_rect_partner",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 160.0,
+              "y": 160.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -3383494607240188283,
+                "name": "icon",
+                "anchorMin": {
+                  "x": 1.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 1.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": -13.0,
+                  "y": -13.0
+                },
+                "sizeDelta": {
+                  "x": 120.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.47999998927116394,
+                  "y": 0.47999998927116394,
+                  "z": 0.47999998927116394
+                },
+                "children": [],
+                "absolute": {
+                  "left": 118.2,
+                  "top": -11.0,
+                  "width": 57.6,
+                  "height": 48.0
+                },
+                "parentName": "@_rect_partner",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 0.0,
+              "top": 0.0,
+              "width": 160.0,
+              "height": 160.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 14
+          },
+          {
+            "pathId": 4806449118352080821,
+            "name": "@_obj_qualitymask",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 6.0,
+              "y": -6.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 8069183334180669033,
+                "name": "@_aorimage_quality",
+                "anchorMin": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchorMax": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "anchoredPosition": {
+                  "x": 3.0,
+                  "y": -1.0
+                },
+                "sizeDelta": {
+                  "x": 112.0,
+                  "y": 84.0
+                },
+                "pivot": {
+                  "x": 0.0,
+                  "y": 1.0
+                },
+                "localScale": {
+                  "x": 0.550000011920929,
+                  "y": 0.550000011920929,
+                  "z": 0.550000011920929
+                },
+                "children": [],
+                "absolute": {
+                  "left": 9.0,
+                  "top": 7.0,
+                  "width": 61.6,
+                  "height": 46.2
+                },
+                "parentName": "@_obj_qualitymask",
+                "siblingIndex": 0
+              }
+            ],
+            "absolute": {
+              "left": 6.0,
+              "top": 6.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 15
+          },
+          {
+            "pathId": 6068335480533028683,
+            "name": "mvp",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 42.0,
+              "y": 58.0
+            },
+            "sizeDelta": {
+              "x": 84.0,
+              "y": 25.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 80.0,
+              "top": 9.5,
+              "width": 84.0,
+              "height": 25.0
+            },
+            "parentName": "SquareHeroHead",
+            "siblingIndex": 16
+          }
+        ],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 160.0,
+          "height": 160.0
+        },
+        "parentName": null,
+        "siblingIndex": 0
+      },
+      "@_aorimage_pos": {
+        "pathId": -6902302111747229410,
+        "name": "@_aorimage_pos",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 54.0,
+          "y": 60.0
+        },
+        "sizeDelta": {
+          "x": 45.0,
+          "y": 45.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.49000000953674316,
+          "y": 0.49000000953674316,
+          "z": 0.49000000953674316
+        },
+        "children": [],
+        "absolute": {
+          "left": 122.975,
+          "top": 8.975,
+          "width": 22.05,
+          "height": 22.05
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 1
+      },
+      "star": {
+        "pathId": -6856382942980730614,
+        "name": "star",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 103.0,
+          "y": 103.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.20999999344348907,
+          "y": 0.20999999344348907,
+          "z": 0.20999999344348907
+        },
+        "children": [],
+        "absolute": {
+          "left": 84.185,
+          "top": 125.185,
+          "width": 21.63,
+          "height": 21.63
+        },
+        "parentName": "star5",
+        "siblingIndex": 0
+      },
+      "@_obj_suggest": {
+        "pathId": -6835096380837268814,
+        "name": "@_obj_suggest",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 37.0,
+          "y": 41.0
+        },
+        "sizeDelta": {
+          "x": 80.0,
+          "y": 80.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 5598764291683963423,
+            "name": "txt",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 9.199999809265137,
+              "y": 8.399999618530273
+            },
+            "sizeDelta": {
+              "x": 62.88999938964844,
+              "y": 30.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 94.755,
+              "top": 15.6,
+              "width": 62.89,
+              "height": 30.0
+            },
+            "parentName": "@_obj_suggest",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 77.0,
+          "top": -1.0,
+          "width": 80.0,
+          "height": 80.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 2
+      },
+      "star4": {
+        "pathId": -6686114512514925505,
+        "name": "star4",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 68.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 285591131188277510,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 65.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star4",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 8500386264241561227,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 65.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star4",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 68.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 0
+      },
+      "star2": {
+        "pathId": -6277462351721774048,
+        "name": "star2",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 30.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -8896587863520217337,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 27.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star2",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 6590258634727493323,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 27.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star2",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 30.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 1
+      },
+      "star3": {
+        "pathId": -5921481477211694177,
+        "name": "star3",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 49.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 3590518563568201230,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 46.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star3",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 9070866870334313681,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 46.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star3",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 49.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 2
+      },
+      "@_obj_boss": {
+        "pathId": -5600591351934705450,
+        "name": "@_obj_boss",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 54.0,
+          "y": 60.0
+        },
+        "sizeDelta": {
+          "x": 136.0,
+          "y": 133.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.800000011920929,
+          "y": 0.800000011920929,
+          "z": 0.800000011920929
+        },
+        "children": [],
+        "absolute": {
+          "left": 79.6,
+          "top": -33.2,
+          "width": 108.8,
+          "height": 106.4
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 3
+      },
+      "star5": {
+        "pathId": -5576683273082906672,
+        "name": "star5",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 87.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -6856382942980730614,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 84.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star5",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 267982910592965692,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 84.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star5",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 87.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 3
+      },
+      "1": {
+        "pathId": -5110219061092416543,
+        "name": "1",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 9.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "@_obj_qualitybg",
+        "siblingIndex": 0
+      },
+      "5": {
+        "pathId": -4543629953658916273,
+        "name": "5",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 9.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "@_obj_qualitybg",
+        "siblingIndex": 1
+      },
+      "Image": {
+        "pathId": -4407895884539321565,
+        "name": "Image",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 4.0,
+          "y": -17.0
+        },
+        "sizeDelta": {
+          "x": 160.0,
+          "y": 160.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 4.0,
+          "top": 17.0,
+          "width": 160.0,
+          "height": 160.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 4
+      },
+      "icon": {
+        "pathId": -3383494607240188283,
+        "name": "icon",
+        "anchorMin": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 1.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": -13.0,
+          "y": -13.0
+        },
+        "sizeDelta": {
+          "x": 120.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.47999998927116394,
+          "y": 0.47999998927116394,
+          "z": 0.47999998927116394
+        },
+        "children": [],
+        "absolute": {
+          "left": 118.2,
+          "top": -11.0,
+          "width": 57.6,
+          "height": 48.0
+        },
+        "parentName": "@_rect_partner",
+        "siblingIndex": 0
+      },
+      "@_obj_qualitybg": {
+        "pathId": -2387488788348622355,
+        "name": "@_obj_qualitybg",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -5110219061092416543,
+            "name": "1",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 9.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "@_obj_qualitybg",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -4543629953658916273,
+            "name": "5",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 9.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "@_obj_qualitybg",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -472947895590145169,
+            "name": "2",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 9.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "@_obj_qualitybg",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": 3454423084976238112,
+            "name": "3",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 9.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "@_obj_qualitybg",
+            "siblingIndex": 3
+          },
+          {
+            "pathId": 5117228155651545728,
+            "name": "4",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 142.0,
+              "y": 142.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 9.0,
+              "width": 142.0,
+              "height": 142.0
+            },
+            "parentName": "@_obj_qualitybg",
+            "siblingIndex": 4
+          }
+        ],
+        "absolute": {
+          "left": 30.0,
+          "top": 30.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 5
+      },
+      "@_obj_select": {
+        "pathId": -2203722916830917962,
+        "name": "@_obj_select",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -2.4800033569335938,
+          "y": 3.6100006103515625
+        },
+        "sizeDelta": {
+          "x": 154.0487060546875,
+          "y": 154.47479248046875
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 4237178020801169947,
+            "name": "select_icon",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 102.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 26.52,
+              "top": 26.39,
+              "width": 102.0,
+              "height": 100.0
+            },
+            "parentName": "@_obj_select",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 0.496,
+          "top": -0.847,
+          "width": 154.049,
+          "height": 154.475
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 6
+      },
+      "@_aorimage_camp": {
+        "pathId": -1025615900752506221,
+        "name": "@_aorimage_camp",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 54.0,
+          "y": 36.0
+        },
+        "sizeDelta": {
+          "x": 45.0,
+          "y": 45.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.49000000953674316,
+          "y": 0.49000000953674316,
+          "z": 0.49000000953674316
+        },
+        "children": [],
+        "absolute": {
+          "left": 122.975,
+          "top": 32.975,
+          "width": 22.05,
+          "height": 22.05
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 7
+      },
+      "2": {
+        "pathId": -472947895590145169,
+        "name": "2",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 9.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "@_obj_qualitybg",
+        "siblingIndex": 2
+      },
+      "star1": {
+        "pathId": 673639969896980038,
+        "name": "star1",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 11.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 3301377963021659520,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 8.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star1",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 5808106188544627758,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 8.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star1",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 11.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 4
+      },
+      "@_aortext_name": {
+        "pathId": 1075871497852847388,
+        "name": "@_aortext_name",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": -90.0
+        },
+        "sizeDelta": {
+          "x": 200.0,
+          "y": 40.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -20.0,
+          "top": 150.0,
+          "width": 200.0,
+          "height": 40.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 8
+      },
+      "@_aorrawimage_icon": {
+        "pathId": 1552616619740039760,
+        "name": "@_aorrawimage_icon",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 8.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 9
+      },
+      "tip": {
+        "pathId": 1718793484334807580,
+        "name": "tip",
+        "anchorMin": {
+          "x": 1.0,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 1.0,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 1.0,
+          "y": -4.0
+        },
+        "sizeDelta": {
+          "x": 15.800000190734863,
+          "y": 30.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 12.0,
+          "top": 102.0,
+          "width": 15.8,
+          "height": 30.0
+        },
+        "parentName": "@_aortext_lv",
+        "siblingIndex": 0
+      },
+      "@_obj_starRoot": {
+        "pathId": 1943804027410587315,
+        "name": "@_obj_starRoot",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -2.0,
+          "y": -56.0
+        },
+        "sizeDelta": {
+          "x": 140.0,
+          "y": 20.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -6686114512514925505,
+            "name": "star4",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 68.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 285591131188277510,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 65.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star4",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 8500386264241561227,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 65.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star4",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 68.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -6277462351721774048,
+            "name": "star2",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 30.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -8896587863520217337,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 27.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star2",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 6590258634727493323,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 27.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star2",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 30.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -5921481477211694177,
+            "name": "star3",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 49.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 3590518563568201230,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 46.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star3",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 9070866870334313681,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 46.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star3",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 49.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": -5576683273082906672,
+            "name": "star5",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 87.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -6856382942980730614,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 84.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star5",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 267982910592965692,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 84.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star5",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 87.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 3
+          },
+          {
+            "pathId": 673639969896980038,
+            "name": "star1",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 11.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 3301377963021659520,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 8.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star1",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 5808106188544627758,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 8.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star1",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 11.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 4
+          },
+          {
+            "pathId": 8734900222862750491,
+            "name": "star7",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 125.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": 7420345310841953585,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 122.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star7",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 8309828724691607236,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 122.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star7",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 125.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 5
+          },
+          {
+            "pathId": 8851454666841215808,
+            "name": "star6",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 106.0,
+              "y": -10.0
+            },
+            "sizeDelta": {
+              "x": 16.0,
+              "y": 16.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -6566006432999937494,
+                "name": "bg",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 103.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star6",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": 4782009808221281958,
+                "name": "star",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 0.0,
+                  "y": 0.0
+                },
+                "sizeDelta": {
+                  "x": 103.0,
+                  "y": 103.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 0.20999999344348907,
+                  "y": 0.20999999344348907,
+                  "z": 0.20999999344348907
+                },
+                "children": [],
+                "absolute": {
+                  "left": 103.185,
+                  "top": 125.185,
+                  "width": 21.63,
+                  "height": 21.63
+                },
+                "parentName": "star6",
+                "siblingIndex": 1
+              }
+            ],
+            "absolute": {
+              "left": 106.0,
+              "top": 128.0,
+              "width": 16.0,
+              "height": 16.0
+            },
+            "parentName": "@_obj_starRoot",
+            "siblingIndex": 6
+          }
+        ],
+        "absolute": {
+          "left": 8.0,
+          "top": 126.0,
+          "width": 140.0,
+          "height": 20.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 10
+      },
+      "@_aorimage_defensetype": {
+        "pathId": 2180192723623833769,
+        "name": "@_aorimage_defensetype",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 54.0,
+          "y": -11.0
+        },
+        "sizeDelta": {
+          "x": 45.0,
+          "y": 45.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.49000000953674316,
+          "y": 0.49000000953674316,
+          "z": 0.49000000953674316
+        },
+        "children": [],
+        "absolute": {
+          "left": 122.975,
+          "top": 79.975,
+          "width": 22.05,
+          "height": 22.05
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 11
+      },
+      "@_aorimage_bg": {
+        "pathId": 3350424249637272143,
+        "name": "@_aorimage_bg",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 160.0,
+          "y": 160.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 160.0,
+          "height": 160.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 12
+      },
+      "3": {
+        "pathId": 3454423084976238112,
+        "name": "3",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 9.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "@_obj_qualitybg",
+        "siblingIndex": 3
+      },
+      "select_icon": {
+        "pathId": 4237178020801169947,
+        "name": "select_icon",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 102.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 26.52,
+          "top": 26.39,
+          "width": 102.0,
+          "height": 100.0
+        },
+        "parentName": "@_obj_select",
+        "siblingIndex": 0
+      },
+      "@_aorimage_damagetype": {
+        "pathId": 4590079105840267771,
+        "name": "@_aorimage_damagetype",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 54.0,
+          "y": 12.0
+        },
+        "sizeDelta": {
+          "x": 45.0,
+          "y": 45.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 0.49000000953674316,
+          "y": 0.49000000953674316,
+          "z": 0.49000000953674316
+        },
+        "children": [],
+        "absolute": {
+          "left": 122.975,
+          "top": 56.975,
+          "width": 22.05,
+          "height": 22.05
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 13
+      },
+      "@_rect_partner": {
+        "pathId": 4629283220612854488,
+        "name": "@_rect_partner",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 160.0,
+          "y": 160.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -3383494607240188283,
+            "name": "icon",
+            "anchorMin": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 1.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": -13.0,
+              "y": -13.0
+            },
+            "sizeDelta": {
+              "x": 120.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.47999998927116394,
+              "y": 0.47999998927116394,
+              "z": 0.47999998927116394
+            },
+            "children": [],
+            "absolute": {
+              "left": 118.2,
+              "top": -11.0,
+              "width": 57.6,
+              "height": 48.0
+            },
+            "parentName": "@_rect_partner",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 160.0,
+          "height": 160.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 14
+      },
+      "@_obj_qualitymask": {
+        "pathId": 4806449118352080821,
+        "name": "@_obj_qualitymask",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 6.0,
+          "y": -6.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 8069183334180669033,
+            "name": "@_aorimage_quality",
+            "anchorMin": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchorMax": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "anchoredPosition": {
+              "x": 3.0,
+              "y": -1.0
+            },
+            "sizeDelta": {
+              "x": 112.0,
+              "y": 84.0
+            },
+            "pivot": {
+              "x": 0.0,
+              "y": 1.0
+            },
+            "localScale": {
+              "x": 0.550000011920929,
+              "y": 0.550000011920929,
+              "z": 0.550000011920929
+            },
+            "children": [],
+            "absolute": {
+              "left": 9.0,
+              "top": 7.0,
+              "width": 61.6,
+              "height": 46.2
+            },
+            "parentName": "@_obj_qualitymask",
+            "siblingIndex": 0
+          }
+        ],
+        "absolute": {
+          "left": 6.0,
+          "top": 6.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 15
+      },
+      "4": {
+        "pathId": 5117228155651545728,
+        "name": "4",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 142.0,
+          "y": 142.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 9.0,
+          "width": 142.0,
+          "height": 142.0
+        },
+        "parentName": "@_obj_qualitybg",
+        "siblingIndex": 4
+      },
+      "txt": {
+        "pathId": 5598764291683963423,
+        "name": "txt",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 9.199999809265137,
+          "y": 8.399999618530273
+        },
+        "sizeDelta": {
+          "x": 62.88999938964844,
+          "y": 30.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 94.755,
+          "top": 15.6,
+          "width": 62.89,
+          "height": 30.0
+        },
+        "parentName": "@_obj_suggest",
+        "siblingIndex": 0
+      },
+      "mvp": {
+        "pathId": 6068335480533028683,
+        "name": "mvp",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 42.0,
+          "y": 58.0
+        },
+        "sizeDelta": {
+          "x": 84.0,
+          "y": 25.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 80.0,
+          "top": 9.5,
+          "width": 84.0,
+          "height": 25.0
+        },
+        "parentName": "SquareHeroHead",
+        "siblingIndex": 16
+      },
+      "@_aorimage_quality": {
+        "pathId": 8069183334180669033,
+        "name": "@_aorimage_quality",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 3.0,
+          "y": -1.0
+        },
+        "sizeDelta": {
+          "x": 112.0,
+          "y": 84.0
+        },
+        "pivot": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "localScale": {
+          "x": 0.550000011920929,
+          "y": 0.550000011920929,
+          "z": 0.550000011920929
+        },
+        "children": [],
+        "absolute": {
+          "left": 9.0,
+          "top": 7.0,
+          "width": 61.6,
+          "height": 46.2
+        },
+        "parentName": "@_obj_qualitymask",
+        "siblingIndex": 0
+      },
+      "star7": {
+        "pathId": 8734900222862750491,
+        "name": "star7",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 125.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": 7420345310841953585,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star7",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 8309828724691607236,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 122.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star7",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 125.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 5
+      },
+      "star6": {
+        "pathId": 8851454666841215808,
+        "name": "star6",
+        "anchorMin": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchorMax": {
+          "x": 0.0,
+          "y": 1.0
+        },
+        "anchoredPosition": {
+          "x": 106.0,
+          "y": -10.0
+        },
+        "sizeDelta": {
+          "x": 16.0,
+          "y": 16.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -6566006432999937494,
+            "name": "bg",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 103.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star6",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": 4782009808221281958,
+            "name": "star",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 103.0,
+              "y": 103.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 0.20999999344348907,
+              "y": 0.20999999344348907,
+              "z": 0.20999999344348907
+            },
+            "children": [],
+            "absolute": {
+              "left": 103.185,
+              "top": 125.185,
+              "width": 21.63,
+              "height": 21.63
+            },
+            "parentName": "star6",
+            "siblingIndex": 1
+          }
+        ],
+        "absolute": {
+          "left": 106.0,
+          "top": 128.0,
+          "width": 16.0,
+          "height": 16.0
+        },
+        "parentName": "@_obj_starRoot",
+        "siblingIndex": 6
+      }
+    }
+  }
+}

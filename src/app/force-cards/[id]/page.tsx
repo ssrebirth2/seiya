@@ -12,6 +12,8 @@ import { useLanguage } from '@/context/language-context'
 import { applySkillValues, formatDisplayText } from '@/lib/game/apply-skill-values'
 import ForceCardTabsContainer from '@/components/force-cards/ForceCardTabsContainer'
 import ForceCardImage from '@/components/ui/ForceCardImage'
+import { LoadingSkeleton, QualityBadge, StatGrid, DetailPageShell } from '@/components/ui/v2'
+import { SetPageMeta } from '@/lib/ui/usePageMeta'
 
 export default function ForceCardDetailPage() {
   const { id } = useParams()
@@ -165,14 +167,7 @@ export default function ForceCardDetailPage() {
   }, [item, qualityLabel, restrictionHtml, t, site])
 
   if (isLoading) {
-    return (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
-        </div>
-      </div>
-    )
+    return <LoadingSkeleton variant="detail" />
   }
 
   if (!item) {
@@ -188,77 +183,51 @@ export default function ForceCardDetailPage() {
   }
 
   return (
-    <div className="page-stack -mx-2 sm:mx-0">
-      <section className="panel">
-        <Link
-          href="/force-cards"
-          className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
-        >
-          <ArrowLeft size={14} className="shrink-0" />
-          {site('backToForceCards')}
-        </Link>
-
-        <div className="flex flex-col items-start gap-6 md:flex-row">
-          <ForceCardImage
-            cardId={item.id}
-            quality={item.quality}
-            alt={getT(item.name)}
-            className="mx-auto w-48 shrink-0 sm:w-56 md:mx-0"
-          />
-
-          <div className="min-w-0 flex-1 space-y-2 text-center md:text-left">
-            <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
-              {qualityLabel && <span className="badge-accent">{qualityLabel}</span>}
-              <span className="text-xs text-text-muted">ID {item.id}</span>
-            </div>
-            <h1 className="text-2xl font-bold leading-tight sm:text-3xl">{getT(item.name)}</h1>
-          </div>
-        </div>
-      </section>
-
-      {item.desc && (
-        <section className="panel">
-          <div
-            className="text-sm leading-relaxed text-text-muted"
-            dangerouslySetInnerHTML={{
-              __html: applySkillValues(getT(item.desc), 0, {}),
-            }}
-          />
-        </section>
-      )}
-
-      {statEntries.length > 0 && (
-        <section className="panel">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            {t(UI_KEYS.common.baseAttribute)}
-          </h2>
-          <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-            {statEntries.map(({ key, label, value, html }) => (
-              <div
-                key={key}
-                className="rounded-lg border border-panel-border bg-panel-hover/50 px-3 py-2.5"
-              >
-                <dt className="mb-0.5 text-[11px] font-medium uppercase tracking-wide text-text-muted">
-                  {label}
-                </dt>
-                {html ? (
-                  <dd
-                    className="text-sm font-semibold leading-snug break-words text-foreground"
-                    dangerouslySetInnerHTML={{ __html: value }}
-                  />
-                ) : (
-                  <dd className="text-sm font-semibold leading-snug break-words text-foreground">
-                    {value}
-                  </dd>
-                )}
+    <>
+      <SetPageMeta title={getT(item.name)} />
+      <DetailPageShell
+        backHref="/force-cards"
+        backLabel={site('backToForceCards')}
+        title={getT(item.name)}
+        header={
+          <section className="panel">
+            <div className="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] md:items-center">
+              <ForceCardImage
+                cardId={item.id}
+                quality={item.quality}
+                alt={getT(item.name)}
+                className="mx-auto w-48 sm:w-56 md:w-full"
+              />
+              <div className="text-center md:text-left">
+                <div className="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start">
+                  {item.quality != null ? <QualityBadge quality={item.quality} /> : null}
+                  <span className="text-xs text-text-muted">ID {item.id}</span>
+                </div>
+                <h1 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
+                  {getT(item.name)}
+                </h1>
               </div>
-            ))}
-          </dl>
-        </section>
-      )}
+            </div>
+          </section>
+        }
+        stats={
+          statEntries.length > 0 ? (
+            <StatGrid title={t(UI_KEYS.common.baseAttribute)} entries={statEntries} />
+          ) : null
+        }
+      >
+        {item.desc && (
+          <section className="panel">
+            <div
+              className="text-sm leading-relaxed text-text-muted"
+              dangerouslySetInnerHTML={{
+                __html: applySkillValues(getT(item.desc), 0, {}),
+              }}
+            />
+          </section>
+        )}
 
-      {info ? (
-        <section className="panel !p-0 sm:!p-0 overflow-hidden">
+        {info ? (
           <ForceCardTabsContainer
             info={info}
             starUps={starUps}
@@ -266,12 +235,12 @@ export default function ForceCardDetailPage() {
             awakens={awakens}
             reborns={reborns}
           />
-        </section>
-      ) : (
-        <section className="panel text-center text-sm text-text-muted">
-          No progression data available for this card.
-        </section>
-      )}
-    </div>
+        ) : (
+          <section className="panel text-center text-sm text-text-muted">
+            No progression data available for this card.
+          </section>
+        )}
+      </DetailPageShell>
+    </>
   )
 }

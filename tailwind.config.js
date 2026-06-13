@@ -27,15 +27,33 @@ module.exports = {
         'icon-artifact': 'var(--icon-artifact)',
         'icon-force': 'var(--icon-force)',
         'icon-tool': 'var(--icon-tool)',
+        'accent-gold': 'var(--accent-gold)',
+        'quality-r': 'var(--quality-r)',
+        'quality-sr': 'var(--quality-sr)',
+        'quality-ssr': 'var(--quality-ssr)',
+        'quality-ur': 'var(--quality-ur)',
+      },
+      borderRadius: {
+        panel: 'var(--radius-panel)',
+        card: 'var(--radius-card)',
+      },
+      fontFamily: {
+        display: ['var(--font-display)'],
+        body: ['var(--font-body)'],
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(8px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn 0.2s ease-out forwards',
+        slideUp: 'slideUp 0.25s ease-out forwards',
       },
     }
   },

@@ -1,0 +1,148 @@
+/* Cosmic Database design tokens — default theme */
+
+:root {
+  --font-display: var(--font-outfit), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+
+  --background: #0a0a0f;
+  --foreground: #ececf1;
+  --panel: rgba(18, 18, 28, 0.72);
+  --panel-solid: #12121c;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-hover: rgba(255, 255, 255, 0.06);
+  --text-muted: #9ca3af;
+  --border: var(--panel-border);
+
+  --accent: #4f8cff;
+  --accent-hover: #3b7aef;
+  --accent-fg: #ffffff;
+  --accent-subtle: rgba(79, 140, 255, 0.14);
+  --accent-border: rgba(79, 140, 255, 0.4);
+
+  --accent-gold: #c9a227;
+  --accent-gold-subtle: rgba(201, 162, 39, 0.14);
+  --accent-gold-border: rgba(201, 162, 39, 0.4);
+
+  --quality-r: #6b7280;
+  --quality-sr: #3b82f6;
+  --quality-ssr: #a855f7;
+  --quality-ur: #c9a227;
+
+  --destructive: #dc2626;
+  --destructive-hover: #b91c1c;
+  --destructive-fg: #ffffff;
+
+  --overlay: rgba(0, 0, 0, 0.55);
+  --overlay-strong: rgba(0, 0, 0, 0.65);
+
+  --icon-hero: #6ba3ff;
+  --icon-artifact: #f5b942;
+  --icon-force: #4ade80;
+  --icon-tool: #b794f6;
+  --icon-discord: #5865f2;
+
+  --scrollbar-size: 0.375rem;
+  --scrollbar-size-thin: 0.25rem;
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: color-mix(in srgb, var(--foreground) 14%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent) 55%, var(--foreground) 12%);
+  --scrollbar-thumb-active: var(--accent);
+  --scrollbar-radius: 999px;
+
+  --top-dock-height: 4rem;
+  --top-shell-offset: var(--top-dock-height);
+  --dock-height: 3.5rem;
+  --dock-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --radius-panel: 8px;
+  --radius-card: 12px;
+  --tooltip-bg: rgba(0, 0, 0, 0.85);
+  --tooltip-fg: #ffffff;
+  --header-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --highlight-row: rgba(79, 140, 255, 0.1);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease-out;
+
+  --talent-point-bg: var(--panel);
+  --talent-point-bg-hover: var(--panel-hover);
+  --talent-point-bg-active: var(--accent-subtle);
+  --talent-point-border: var(--panel-border);
+  --talent-point-shadow: none;
+}
+
+html.light {
+  color-scheme: light;
+
+  --background: #f4f4f8;
+  --foreground: #111118;
+  --panel: rgba(255, 255, 255, 0.85);
+  --panel-solid: #ffffff;
+  --panel-border: rgba(0, 0, 0, 0.08);
+  --panel-hover: rgba(0, 0, 0, 0.04);
+  --text-muted: #5b6472;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: rgba(37, 99, 235, 0.1);
+  --accent-border: rgba(37, 99, 235, 0.35);
+
+  --accent-gold: #b8860b;
+  --accent-gold-subtle: rgba(184, 134, 11, 0.12);
+  --accent-gold-border: rgba(184, 134, 11, 0.35);
+
+  --quality-r: #6b7280;
+  --quality-sr: #2563eb;
+  --quality-ssr: #9333ea;
+  --quality-ur: #b8860b;
+
+  --icon-hero: #2563eb;
+  --icon-artifact: #d97706;
+  --icon-force: #16a34a;
+  --icon-tool: #7c3aed;
+  --icon-discord: #5865f2;
+
+  --scrollbar-thumb: color-mix(in srgb, var(--foreground) 22%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--accent) 45%, var(--foreground) 18%);
+  --scrollbar-thumb-active: var(--accent-hover);
+
+  --tooltip-bg: rgba(30, 30, 30, 0.92);
+  --tooltip-fg: #f5f5f5;
+  --header-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --highlight-row: rgba(37, 99, 235, 0.08);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.1);
+
+  --talent-point-bg: #262a33;
+  --talent-point-bg-hover: #323845;
+  --talent-point-bg-active: #1e2a42;
+  --talent-point-border: #1c1f26;
+  --talent-point-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(79, 140, 255, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(201, 162, 39, 0.04), transparent);
+  background-attachment: fixed;
+}
+
+html.light body {
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(37, 99, 235, 0.06), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(184, 134, 11, 0.04), transparent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}

@@ -1,6 +1,6 @@
 /**
- * Hero IDs to exclude from the hero list page.
- * Add numeric IDs here to hide heroes from loading and display.
+ * Hero IDs excluded from the site and from Supabase imports.
+ * `npm run configs:import` skips these IDs and purges them from the database.
  *
  * @example
  * export const HIDDEN_HERO_IDS: number[] = [101, 205, 999]

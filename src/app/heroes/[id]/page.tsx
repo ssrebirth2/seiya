@@ -26,9 +26,12 @@ import {
   type HeroHeadIconEntry,
 } from '@/lib/game/fetch-hero-head-icons'
 import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
+import { LoadingSkeleton, QualityBadge, StatGrid, DetailPageShell } from '@/components/ui/v2'
+import { SetPageMeta } from '@/lib/ui/usePageMeta'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { qualityNameKey } from '@/lib/i18n/ui-keys'
 import { applySkillValues, formatDisplayText, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
+import { isHeroListed } from '@/lib/game/hidden-hero-ids'
 
 const SPECIAL_FIELDS = ['camp', 'stance', 'damagetype', 'occupation'] as const
 
@@ -76,6 +79,11 @@ export default function HeroProfilePage() {
 
   useEffect(() => {
     const loadHeroData = async () => {
+      if (!isHeroListed(heroId)) {
+        setIsReady(true)
+        return
+      }
+
       try {
         const resourceId = heroId * 10
         const qc = getQueryClient()
@@ -220,14 +228,7 @@ export default function HeroProfilePage() {
   }, [hero, translations, labelMap, typeMap, t, site, getT])
 
   if (!isReady) {
-    return (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">{site('loadingHeroProfile')}</p>
-        </div>
-      </div>
-    )
+    return <LoadingSkeleton variant="detail" />
   }
 
   if (!hero) {
@@ -246,124 +247,105 @@ export default function HeroProfilePage() {
     hero.quality != null ? getT(qualityNameKey(hero.quality)) : null
 
   return (
-    <div className="page-stack -mx-2 sm:mx-0">
-      <section className="profile-header">
-        {hasBannerArt && (
-          <>
-            <div
-              className="pointer-events-none absolute -right-6 top-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl sm:h-56 sm:w-56"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[min(72%,17.5rem)] sm:w-[min(58%,22rem)] md:w-[min(50%,26rem)]"
-              aria-hidden
-            >
-              <GameImage
-                src={bannerUrl}
-                rawSrc={bannerPath}
-                alt=""
-                aria-hidden
-                className="profile-header-art absolute bottom-0 right-0 h-[118%] w-auto max-w-[135%] object-contain object-right-bottom"
-              />
-            </div>
-            <div
-              className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-panel from-45% via-panel/90 to-transparent sm:from-40% sm:via-panel/75"
-              aria-hidden
-            />
-          </>
-        )}
-
-        <div className="relative z-10 px-4 py-4 sm:px-6 sm:py-5">
-          <Link
-            href="/heroes"
-            className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
-          >
-            <ArrowLeft size={14} className="shrink-0" />
-            {site('backToHeroes')}
-          </Link>
-
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-5">
-            {hasHeadIcon && (
-              <GameImage
-                src={headIconUrl}
-                alt={getT(roleName)}
-                className="hero-profile-head"
-              />
+    <>
+      <SetPageMeta title={getT(roleName)} />
+      <DetailPageShell
+        backHref="/heroes"
+        backLabel={site('backToHeroes')}
+        title={getT(roleName)}
+        header={
+          <section className="profile-header -mx-2 sm:mx-0">
+            {hasBannerArt && (
+              <>
+                <div
+                  className="pointer-events-none absolute -right-6 top-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl sm:h-56 sm:w-56"
+                  aria-hidden
+                />
+                <div
+                  className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[min(72%,17.5rem)] sm:w-[min(58%,22rem)] md:w-[min(50%,26rem)]"
+                  aria-hidden
+                >
+                  <GameImage
+                    src={bannerUrl}
+                    rawSrc={bannerPath}
+                    alt=""
+                    aria-hidden
+                    className="profile-header-art absolute bottom-0 right-0 h-[118%] w-auto max-w-[135%] object-contain object-right-bottom"
+                  />
+                </div>
+                <div
+                  className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-panel from-35% via-panel/85 to-transparent"
+                  aria-hidden
+                />
+              </>
             )}
 
-            <div className="min-w-0 flex-1 space-y-2 pr-0 sm:max-w-[58%] md:max-w-[52%]">
-              <div className="flex flex-wrap items-center gap-2">
-                {qualityLabel && <span className="badge-accent">{qualityLabel}</span>}
-                <span className="text-xs text-text-muted">ID {hero.id}</span>
+            <div className="relative z-10 px-4 py-5 sm:px-8 sm:py-7">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:gap-6">
+                {hasHeadIcon && (
+                  <GameImage
+                    src={headIconUrl}
+                    alt={getT(roleName)}
+                    className="hero-profile-head h-28 w-28 sm:h-32 sm:w-32"
+                  />
+                )}
+
+                <div className="min-w-0 flex-1 space-y-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {qualityLabel && hero.quality != null ? (
+                      <QualityBadge quality={hero.quality} className="text-sm" />
+                    ) : null}
+                    <span className="text-xs text-text-muted">ID {hero.id}</span>
+                  </div>
+                  <h1
+                    className="font-display text-3xl font-bold leading-tight sm:text-4xl"
+                    dangerouslySetInnerHTML={{ __html: heroNameHtml }}
+                  />
+                </div>
               </div>
-              <h1
-                className="text-2xl font-bold leading-tight sm:text-3xl"
-                dangerouslySetInnerHTML={{ __html: heroNameHtml }}
-              />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lore */}
-      {(hero.role_introduction || hero.role_features) && (
-        <section className="panel space-y-3">
-          {hero.role_introduction && (
-            <p
-              className="text-sm leading-relaxed text-text-muted"
-              dangerouslySetInnerHTML={{
-                __html: applySkillValues(getT(hero.role_introduction), 0, {}),
-              }}
+          </section>
+        }
+        stats={
+          statEntries.length > 0 ? (
+            <StatGrid
+              title={t(UI_KEYS.common.baseAttribute)}
+              entries={statEntries.map((e) => ({
+                ...e,
+                html: true,
+                value: formatDisplayText(e.value, 0, {}),
+              }))}
             />
-          )}
-          {hero.role_features && (
-            <p
-              className="text-sm leading-relaxed text-text-muted"
-              dangerouslySetInnerHTML={{
-                __html: applySkillValues(getT(hero.role_features), 0, {}),
-              }}
-            />
-          )}
-        </section>
-      )}
+          ) : null
+        }
+      >
+        {(hero.role_introduction || hero.role_features) && (
+          <section className="panel space-y-3">
+            {hero.role_introduction && (
+              <p
+                className="text-sm leading-relaxed text-text-muted"
+                dangerouslySetInnerHTML={{
+                  __html: applySkillValues(getT(hero.role_introduction), 0, {}),
+                }}
+              />
+            )}
+            {hero.role_features && (
+              <p
+                className="text-sm leading-relaxed text-text-muted"
+                dangerouslySetInnerHTML={{
+                  __html: applySkillValues(getT(hero.role_features), 0, {}),
+                }}
+              />
+            )}
+          </section>
+        )}
 
-      {/* Stats */}
-      {statEntries.length > 0 && (
-        <section className="panel">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            {t(UI_KEYS.common.baseAttribute)}
-          </h2>
-          <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-            {statEntries.map(({ key, label, value }) => (
-              <div
-                key={key}
-                className="rounded-lg border border-panel-border bg-panel-hover/50 px-3 py-2.5"
-              >
-                <dt className="mb-0.5 text-[11px] font-medium uppercase tracking-wide text-text-muted">
-                  {label}
-                </dt>
-                <dd
-                  className="text-sm font-semibold leading-snug break-words text-foreground"
-                  dangerouslySetInnerHTML={{
-                    __html: formatDisplayText(value, 0, {}),
-                  }}
-                />
-              </div>
-            ))}
-          </dl>
-        </section>
-      )}
-
-      {/* Skills tabs */}
-      {skillIds.length > 0 ? (
-        <section className="panel !p-0 sm:!p-0 overflow-hidden">
+        {skillIds.length > 0 ? (
           <HeroTabsContainer heroId={heroId} skillIds={skillIds} />
-        </section>
-      ) : (
-        <section className="panel text-center text-sm text-text-muted">
-          {site('noSkills')}
-        </section>
-      )}
-    </div>
+        ) : (
+          <section className="panel text-center text-sm text-text-muted">{site('noSkills')}</section>
+        )}
+      </DetailPageShell>
+    </>
   )
 }

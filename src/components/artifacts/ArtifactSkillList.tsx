@@ -105,7 +105,7 @@ export default function ArtifactSkillList({ stars, skill, getT, valuesMap }: Pro
         role="tablist"
         aria-label="Artifact progression by quality"
       >
-        <div className="flex gap-1 overflow-x-auto pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex scroll-strip-h scroll-fade-x gap-1 pb-px">
           {allQualities.map((q) => (
             <button
               key={`q-${q}`}
@@ -133,7 +133,7 @@ export default function ArtifactSkillList({ stars, skill, getT, valuesMap }: Pro
             return (
               <div
                 key={row.id}
-                className="rounded-lg border border-panel-border bg-panel p-3 transition-all hover:border-accent/40"
+                className="timeline-item ml-2 rounded-lg border border-panel-border bg-panel p-3 transition-all hover:border-accent/40"
               >
                 <p className="font-semibold mb-1">★ {row.star}</p>
 

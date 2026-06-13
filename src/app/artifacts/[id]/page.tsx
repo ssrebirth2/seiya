@@ -7,6 +7,8 @@ import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
 import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
+import { LoadingSkeleton, QualityBadge, StatGrid, DetailPageShell } from '@/components/ui/v2'
+import { SetPageMeta } from '@/lib/ui/usePageMeta'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { qualityNameKey, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { applySkillValues, formatDisplayText, loadSkillValues } from '@/lib/game/apply-skill-values'
@@ -224,14 +226,7 @@ export default function ArtifactDetailPage() {
   }, [artifact, qualityLabel, translatedTags, limitText, valuesMap, getT, t, site])
 
   if (!isReady) {
-    return (
-      <div className="flex min-h-[50vh] items-center justify-center">
-        <div className="flex flex-col items-center gap-4">
-          <div className="spinner h-10 w-10" />
-          <p className="text-sm text-text-muted">{t(UI_KEYS.common.loading)}</p>
-        </div>
-      </div>
-    )
+    return <LoadingSkeleton variant="detail" />
   }
 
   if (!artifact) {
@@ -247,107 +242,81 @@ export default function ArtifactDetailPage() {
   }
 
   return (
-    <div className="page-stack -mx-2 sm:mx-0">
-      <section className="panel">
-        <Link
-          href="/artifacts"
-          className="mb-4 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:text-sm"
-        >
-          <ArrowLeft size={14} className="shrink-0" />
-          {site('backToArtifacts')}
-        </Link>
-
-        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-          <ArtifactPreviewImage
-            artifactId={artifactId}
-            dbPreviewPath={artifact.preview_icon_raw}
-            alt={getT(artifact.name)}
-            className="h-48 w-48 shrink-0 rounded-xl border border-panel-border bg-panel p-5 object-contain sm:h-64 sm:w-64 md:h-80 md:w-80"
-          />
-
-          <div className="min-w-0 flex-1 text-center sm:text-left">
-            <div className="mb-2 flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-              {qualityLabel && <span className="badge-accent">{qualityLabel}</span>}
-              <span className="text-xs text-text-muted">ID {artifact.id}</span>
+    <>
+      <SetPageMeta title={getT(artifact.name)} />
+      <DetailPageShell
+        backHref="/artifacts"
+        backLabel={site('backToArtifacts')}
+        title={getT(artifact.name)}
+        header={
+          <section className="panel overflow-hidden">
+            <div className="grid gap-6 md:grid-cols-[minmax(0,280px)_1fr] md:items-center">
+              <ArtifactPreviewImage
+                artifactId={artifactId}
+                dbPreviewPath={artifact.preview_icon_raw}
+                alt={getT(artifact.name)}
+                className="mx-auto h-56 w-56 rounded-xl border border-panel-border bg-panel-hover/50 p-6 object-contain md:h-72 md:w-full"
+              />
+              <div className="text-center md:text-left">
+                <div className="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start">
+                  {artifact.initial_quality != null ? (
+                    <QualityBadge quality={artifact.initial_quality} className="text-sm" />
+                  ) : null}
+                  <span className="text-xs text-text-muted">ID {artifact.id}</span>
+                </div>
+                <h1 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
+                  {getT(artifact.name)}
+                </h1>
+              </div>
             </div>
-            <h1 className="text-2xl font-bold leading-tight sm:text-3xl">{getT(artifact.name)}</h1>
-          </div>
-        </div>
-      </section>
+          </section>
+        }
+        stats={statEntries.length > 0 ? <StatGrid title={t(UI_KEYS.common.baseAttribute)} entries={statEntries} /> : null}
+      >
+        {artifact.desc && (
+          <section className="panel">
+            <p
+              className="text-sm leading-relaxed text-text-muted whitespace-pre-wrap"
+              dangerouslySetInnerHTML={{ __html: applySkillValues(getT(artifact.desc), 0, {}) }}
+            />
+          </section>
+        )}
 
-      {artifact.desc && (
-        <section className="panel">
-          <p
-            className="text-sm leading-relaxed text-text-muted whitespace-pre-wrap"
-            dangerouslySetInnerHTML={{ __html: applySkillValues(getT(artifact.desc), 0, {}) }}
-          />
-        </section>
-      )}
-
-      {statEntries.length > 0 && (
-        <section className="panel">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            {t(UI_KEYS.common.baseAttribute)}
-          </h2>
-          <dl className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4">
-            {statEntries.map(({ key, label, value, html }) => (
-              <div
-                key={key}
-                className="rounded-lg border border-panel-border bg-panel-hover/50 px-3 py-2.5"
-              >
-                <dt className="mb-0.5 text-[11px] font-medium uppercase tracking-wide text-text-muted">
-                  {label}
-                </dt>
-                {html ? (
-                  <dd
-                    className="text-sm font-semibold leading-snug break-words text-foreground"
-                    dangerouslySetInnerHTML={{ __html: value }}
+        {skill && (
+          <section className="panel">
+            <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
+              {t(UI_KEYS.artifact.relicSkills)}
+            </h2>
+            <div className="flex items-start gap-4">
+              <GameImage
+                src={resolveAssetUrl(resolveSkillIconUrl(skill), IMAGE_UNAVAILABLE)}
+                rawSrc={resolveSkillIconUrl(skill) || undefined}
+                alt={getT(skill.name)}
+                className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20"
+              />
+              <div className="min-w-0 flex-1 space-y-2">
+                <p className="text-lg font-semibold">{getT(skill.name)}</p>
+                {skillMainDescription && (
+                  <div
+                    className="text-sm leading-relaxed text-text-muted whitespace-pre-wrap"
+                    dangerouslySetInnerHTML={{ __html: skillMainDescription }}
                   />
-                ) : (
-                  <dd className="text-sm font-semibold leading-snug break-words text-foreground">
-                    {value}
-                  </dd>
                 )}
               </div>
-            ))}
-          </dl>
-        </section>
-      )}
-
-      {skill && (
-        <section className="panel">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-text-muted">
-            {t(UI_KEYS.artifact.relicSkills)}
-          </h2>
-          <div className="flex items-start gap-4">
-            <GameImage
-              src={resolveAssetUrl(resolveSkillIconUrl(skill), IMAGE_UNAVAILABLE)}
-              rawSrc={resolveSkillIconUrl(skill) || undefined}
-              alt={getT(skill.name)}
-              className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20"
-            />
-            <div className="min-w-0 flex-1 space-y-2">
-              <p className="text-lg font-semibold">{getT(skill.name)}</p>
-              {skillMainDescription && (
-                <div
-                  className="text-sm leading-relaxed text-text-muted whitespace-pre-wrap"
-                  dangerouslySetInnerHTML={{ __html: skillMainDescription }}
-                />
-              )}
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
 
-      {stars.length > 0 ? (
-        <section className="panel !p-0 sm:!p-0 overflow-hidden">
-          <ArtifactSkillList stars={stars} skill={skill} getT={getT} valuesMap={valuesMap} />
-        </section>
-      ) : (
-        <section className="panel text-center text-sm text-text-muted">
-          No progression data available for this artifact.
-        </section>
-      )}
-    </div>
+        {stars.length > 0 ? (
+          <section className="panel !p-0 overflow-hidden">
+            <ArtifactSkillList stars={stars} skill={skill} getT={getT} valuesMap={valuesMap} />
+          </section>
+        ) : (
+          <section className="panel text-center text-sm text-text-muted">
+            No progression data available for this artifact.
+          </section>
+        )}
+      </DetailPageShell>
+    </>
   )
 }

@@ -116,11 +116,11 @@ export default function ForceCardTabsContainer({
   return (
     <section>
       <nav
-        className="border-b border-panel-border px-3 sm:px-4"
+        className="detail-tabs-sticky border-b border-panel-border px-3 sm:px-4"
         role="tablist"
         aria-label={t(UI_KEYS.forceCard.cardDetail)}
       >
-        <div className="flex gap-1 overflow-x-auto pb-px [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex scroll-strip-h scroll-fade-x gap-1 pb-px">
           {tabs.map(({ key, label }) => (
             <button
               key={key}

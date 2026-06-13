@@ -20,6 +20,15 @@ import {
 } from '@/lib/game/format-skill-labels'
 import SkillCooldownMeta from './SkillCooldownMeta'
 
+function getSkillCardClass(skillType: unknown): string {
+  const t = Number(skillType)
+  if (t === 1) return 'skill-card-passive'
+  if (t === 2) return 'skill-card-active'
+  if (t === 3) return 'skill-card-cycle'
+  if (t === 4 || t === 5) return 'skill-card-ultimate'
+  return 'skill-card-active'
+}
+
 interface HeroSkillListProps {
   skillIds: (number | string)[]
 }
@@ -46,6 +55,12 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
   }, [])
 
   useEffect(() => {
+    setSkills(new Map())
+    setTranslations({})
+    setValuesMap({})
+    setLabelMap({})
+    setActiveSkillId(null)
+
     const loadData = async () => {
       const { map, translations } = await loadSkills()
       const usedValueIds = new Set<number>()
@@ -166,7 +181,7 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     return (
       <div
         key={`skill-${skill.skillid}`}
-        className="mt-4 sm:mt-6 rounded-xl border border-panel-border bg-panel p-4 shadow-sm sm:p-5"
+        className={`mt-4 sm:mt-6 rounded-xl border border-panel-border bg-panel p-4 shadow-sm sm:p-5 ${getSkillCardClass(skill.skill_type)}`}
       >
         <div className="mb-3 flex items-center gap-3 sm:gap-4">
           {iconPath && <img src={iconPath} alt={name} className="h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20" />}
@@ -233,7 +248,22 @@ export default function HeroSkillList({ skillIds }: HeroSkillListProps) {
     skillIds.map(String).includes(String(s.skillid))
   )
 
-  if (!skills.size) return null
+  if (!skills.size) {
+    if (!skillIds.length) return null
+    return (
+      <section className="mt-2 flex justify-center py-8 sm:mt-4">
+        <div className="spinner h-8 w-8" />
+      </section>
+    )
+  }
+
+  if (!Object.keys(translations).length) {
+    return (
+      <section className="mt-2 flex justify-center py-8 sm:mt-4">
+        <div className="spinner h-8 w-8" />
+      </section>
+    )
+  }
 
   return (
     <section className="mt-2 sm:mt-4">

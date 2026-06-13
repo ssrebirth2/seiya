@@ -245,7 +245,7 @@ function AttributeTable({
 }) {
   const { t } = useUiTranslation()
   return (
-    <div className="flex-1 overflow-x-auto">
+    <div className="flex-1 scroll-strip-h">
       <h3 className="mb-3 text-lg font-bold">{t(UI_KEYS.common.baseAttribute)}</h3>
       <table className="w-full text-sm border border-panel-border rounded-lg overflow-hidden table-auto">
         <thead className="bg-panel-hover text-xs uppercase tracking-wider">
@@ -286,7 +286,7 @@ function XpTable({
   maxLevel: number
 }) {
   return (
-    <div className="flex-1 overflow-x-auto">
+    <div className="flex-1 scroll-strip-h">
       <h3 className="text-lg font-bold mb-3">Experience</h3>
       <table className="w-full text-sm border border-panel-border rounded-lg overflow-hidden table-auto">
         <thead className="bg-panel-hover text-xs uppercase tracking-wider">

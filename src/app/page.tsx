@@ -1,85 +1,57 @@
-'use client'
-
-import Link from 'next/link'
-import { Users, Shield, Sparkles, Zap, Wrench } from 'lucide-react'
-import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
-
-export default function Home() {
-  const { t, site } = useUiTranslation()
-
-  return (
-    <div className="page-stack w-full animate-fadeIn items-center px-4 py-8 text-center">
-      <div className="panel w-full max-w-4xl rounded-xl p-8 shadow-lg sm:p-10">
-        <h1 className="mb-4 text-3xl font-extrabold tracking-wide text-foreground sm:text-4xl">
-          {site('databaseTitle')}
-        </h1>
-
-        <p className="mx-auto mb-8 max-w-2xl leading-relaxed text-text-muted">
-          {site('databaseWelcome')}
-        </p>
-
-        <section className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Link href="/heroes" className="link-card group">
-            <div className="flex flex-col items-center gap-2">
-              <Users size={28} className="text-icon-hero transition-transform group-hover:scale-110" />
-              <h3 className="text-lg font-semibold text-foreground">{t(UI_KEYS.nav.heroes)}</h3>
-              <p className="text-xs text-text-muted">{site('heroesCardDesc')}</p>
-            </div>
-          </Link>
-
-          <Link href="/artifacts" className="link-card group">
-            <div className="flex flex-col items-center gap-2">
-              <Shield size={28} className="text-icon-artifact transition-transform group-hover:scale-110" />
-              <h3 className="text-lg font-semibold text-foreground">{t(UI_KEYS.nav.artifacts)}</h3>
-              <p className="text-xs text-text-muted">{site('artifactsCardDesc')}</p>
-            </div>
-          </Link>
-
-          <Link href="/companions" className="link-card group">
-            <div className="flex flex-col items-center gap-2">
-              <Sparkles size={28} className="text-icon-force transition-transform group-hover:scale-110" />
-              <h3 className="text-lg font-semibold text-foreground">{t(UI_KEYS.nav.companions)}</h3>
-              <p className="text-xs text-text-muted">{site('companionsCardDesc')}</p>
-            </div>
-          </Link>
-
-          <Link href="/force-cards" className="link-card group">
-            <div className="flex flex-col items-center gap-2">
-              <Zap size={28} className="text-icon-force transition-transform group-hover:scale-110" />
-              <h3 className="text-lg font-semibold text-foreground">{t(UI_KEYS.nav.forceCards)}</h3>
-              <p className="text-xs text-text-muted">{site('forceCardsCardDesc')}</p>
-            </div>
-          </Link>
-        </section>
-
-        <section className="mt-8">
-          <h2 className="mb-3 border-b border-panel-border pb-2 text-lg font-semibold text-foreground">
-            {t(UI_KEYS.nav.tools)}
-          </h2>
-
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="/team-builder" className="btn-tool">
-              <Wrench size={18} className="text-icon-tool" />
-              <span>{t(UI_KEYS.nav.teamBuilder)}</span>
-            </Link>
-          </div>
-        </section>
-
-        <div className="mt-10 border-t border-panel-border pt-4">
-          <p className="text-sm text-text-muted">
-            {site('discordJoin')}{' '}
-            <a
-              href="https://discord.gg/JYSHChN5VM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:underline"
-            >
-              {site('discordLink')}
-            </a>{' '}
-            {site('discordAfter')}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+'use client'
+
+import Link from 'next/link'
+import { FunctionShortcutGrid } from '@/components/ui/v2/FunctionShortcutGrid'
+import { useLanguage } from '@/context/language-context'
+import { getSiteLogoSpec } from '@/lib/i18n/site-logo'
+import { HOME_SHORTCUTS } from '@/lib/navigation/function-shortcuts'
+import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
+
+export default function Home() {
+  const { lang } = useLanguage()
+  const { site } = useUiTranslation()
+  const siteLogoSpec = getSiteLogoSpec(lang)
+  const siteLogoHeight = Math.round(
+    siteLogoSpec.displayWidth * (siteLogoSpec.height / siteLogoSpec.width)
+  )
+
+  return (
+    <div className="home-page -mx-4 -mt-4 animate-slideUp sm:-mx-6 sm:-mt-6 lg:-mx-8 lg:-mt-6">
+      <section className="home-page__hero home-hero-bg relative overflow-hidden px-4 pt-2 pb-2 sm:px-8 sm:pt-8 sm:pb-14 lg:px-12 lg:pt-4 lg:pb-16">
+        <Link
+          href="/"
+          className={`home-hero-logo lg:hidden ${lang === 'CN' ? 'home-hero-logo--cn' : ''}`}
+          aria-label="SSRB2 Database home"
+          aria-current="page"
+        >
+          <img
+            src={siteLogoSpec.src}
+            alt=""
+            className="home-hero-logo__img"
+            width={siteLogoSpec.width}
+            height={siteLogoSpec.height}
+            style={{ width: siteLogoSpec.displayWidth, height: siteLogoHeight }}
+            decoding="async"
+          />
+        </Link>
+
+        <div className="home-page__copy relative mx-auto max-w-4xl text-center sm:mt-10 lg:mt-10">
+          <p className="home-page__eyebrow mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent sm:mb-3">
+            DATABASE
+          </p>
+          <h1 className="home-page__title mb-4 font-display text-4xl font-bold tracking-tight text-foreground sm:mb-4 sm:text-6xl">
+            {site('databaseTitle')}
+          </h1>
+          <p className="home-page__welcome mx-auto max-w-2xl text-base leading-relaxed text-text-muted sm:text-lg">
+            {site('databaseWelcome')}
+          </p>
+        </div>
+      </section>
+
+      <section className="home-page__shortcuts mx-auto max-w-7xl px-4 pb-2 sm:px-8 sm:py-10 lg:px-12 lg:py-10">
+        <FunctionShortcutGrid items={HOME_SHORTCUTS} variant="home" />
+      </section>
+    </div>
+  )
+}
+

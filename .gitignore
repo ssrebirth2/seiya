@@ -40,8 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# generated talent seed data (regenerate with npm run talents:export)
-/scripts/data/talents/
-
-# generated spirit seed data (regenerate with npm run spirits:export)
-/scripts/data/spirits/
+# Local tooling — not published (extractors, importers, manifests)
+/scripts/

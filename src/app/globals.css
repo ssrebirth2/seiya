@@ -1,100 +1,12 @@
+@import '../styles/tokens-v2.css';
+@import '../styles/components-v2.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ==========================================================
-   Theme tokens (dark = default, html.light overrides)
-   ========================================================== */
 :root {
   color-scheme: dark;
-
-  --background: #111111;
-  --foreground: #e8e8e8;
-  --panel: rgba(26, 26, 26, 0.72);
-  --panel-solid: #1a1a1a;
-  --panel-border: #2a2a2a;
-  --panel-hover: #242424;
-  --text-muted: #b0b0b0;
-  --border: var(--panel-border);
-
-  --accent: #3b82f6;
-  --accent-hover: #2563eb;
-  --accent-fg: #ffffff;
-  --accent-subtle: rgba(59, 130, 246, 0.15);
-  --accent-border: rgba(59, 130, 246, 0.45);
-
-  --destructive: #dc2626;
-  --destructive-hover: #b91c1c;
-  --destructive-fg: #ffffff;
-
-  --overlay: rgba(0, 0, 0, 0.5);
-  --overlay-strong: rgba(0, 0, 0, 0.6);
-
-  --icon-hero: #60a5fa;
-  --icon-artifact: #fbbf24;
-  --icon-force: #4ade80;
-  --icon-tool: #a78bfa;
-
-  --scrollbar-thumb: #555555;
-  --scrollbar-thumb-hover: #777777;
-
-  --sidebar-width: 16rem;
-  --radius-panel: 4px;
-  --tooltip-bg: rgba(0, 0, 0, 0.85);
-  --tooltip-fg: #ffffff;
-  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  --highlight-row: rgba(59, 130, 246, 0.12);
-
-  /* Talent point icons are pale/yellow — designed for dark in-game UI */
-  --talent-point-bg: var(--panel);
-  --talent-point-bg-hover: var(--panel-hover);
-  --talent-point-bg-active: var(--accent-subtle);
-  --talent-point-border: var(--panel-border);
-  --talent-point-shadow: none;
-}
-
-html.light {
-  color-scheme: light;
-
-  --background: #f5f5f5;
-  --foreground: #1a1a1a;
-  --panel: rgba(255, 255, 255, 0.88);
-  --panel-solid: #ffffff;
-  --panel-border: #d4d4d4;
-  --panel-hover: #ebebeb;
-  --text-muted: #555555;
-
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-fg: #ffffff;
-  --accent-subtle: rgba(37, 99, 235, 0.12);
-  --accent-border: rgba(37, 99, 235, 0.35);
-
-  --destructive: #dc2626;
-  --destructive-hover: #b91c1c;
-  --destructive-fg: #ffffff;
-
-  --overlay: rgba(0, 0, 0, 0.35);
-  --overlay-strong: rgba(0, 0, 0, 0.45);
-
-  --icon-hero: #2563eb;
-  --icon-artifact: #d97706;
-  --icon-force: #16a34a;
-  --icon-tool: #7c3aed;
-
-  --scrollbar-thumb: #c4c4c4;
-  --scrollbar-thumb-hover: #a3a3a3;
-
-  --tooltip-bg: rgba(30, 30, 30, 0.92);
-  --tooltip-fg: #f5f5f5;
-  --header-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --highlight-row: rgba(37, 99, 235, 0.1);
-
-  --talent-point-bg: #262a33;
-  --talent-point-bg-hover: #323845;
-  --talent-point-bg-active: #1e2a42;
-  --talent-point-border: #1c1f26;
-  --talent-point-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 html,
@@ -103,27 +15,47 @@ body {
   margin: 0;
   background-color: var(--background);
   color: var(--foreground);
-  font-family: 'Arial Narrow', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
 html {
   scroll-padding-top: 80px;
+  scrollbar-gutter: stable;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--panel);
+  background: var(--scrollbar-track);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-thumb);
-  border-radius: 6px;
+  background-color: var(--scrollbar-thumb);
+  border: 2px solid transparent;
+  border-radius: var(--scrollbar-radius);
+  background-clip: padding-box;
+  transition: background-color var(--transition-fast);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--scrollbar-thumb-hover);
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .panel {
@@ -138,8 +70,6 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
   color: var(--foreground);
 }
 
@@ -178,9 +108,6 @@ select option {
   transition: opacity 0.12s ease;
 }
 
-main {
-  border-left: 1px solid var(--panel-border);
-}
 
 /* Unavailable asset placeholder — neutral icon, works in light & dark */
 img[data-unavailable='true'] {
@@ -227,6 +154,10 @@ img[data-unavailable='true'] {
 
   .spinner {
     @apply animate-spin rounded-full border-4 border-accent border-t-transparent;
+  }
+
+  .i18n-skeleton {
+    @apply animate-pulse rounded bg-panel-hover;
   }
 
   .tab-btn {

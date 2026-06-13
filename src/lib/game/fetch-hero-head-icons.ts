@@ -6,6 +6,7 @@ import {
 } from '@/lib/game/icon-config-payload'
 import { convertHeroHeadIconPath } from '@/lib/game/resolve-hero-head-icon'
 import { supabase } from '@/lib/supabase-client'
+import { isHeroListed } from '@/lib/game/hidden-hero-ids'
 
 type RoleResourcesRow = {
   role_icon_all_path?: string | null
@@ -91,6 +92,8 @@ export function getHeroCircleHeadUrl(map: HeroHeadIconMap | undefined, heroId: n
 
 /** Single hero: RoleConfig → IconConfig + RoleResourcesConfig. */
 export async function fetchHeroHeadIconEntry(heroId: number): Promise<HeroHeadIconEntry> {
+  if (!isHeroListed(heroId)) return EMPTY_HERO_HEAD_ICON_ENTRY
+
   const { data: role, error: roleError } = await supabase
     .from('RoleConfig')
     .select('role_initial_skins')
@@ -188,6 +191,7 @@ export async function fetchHeroHeadIconMap(): Promise<HeroHeadIconMap> {
   for (const role of roles ?? []) {
     const heroId = Number(role.id)
     if (!Number.isFinite(heroId)) continue
+    if (!isHeroListed(heroId)) continue
     const skinId = parseInitialSkinId(role.role_initial_skins)
     if (skinId == null) continue
     skinByHero.set(heroId, skinId)
