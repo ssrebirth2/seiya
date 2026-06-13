@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "assets:manifest": "node scripts/generate-asset-manifest.mjs",
+  "assets:manifest": "node tools/generate-asset-manifest.mjs",
   "assets:extract": "python scripts/game-assets/cli.py extract",
     "assets:extract:heroes": "python scripts/game-assets/cli.py extract --recipe square-hero-item",
     "assets:extract:nav": "python scripts/game-assets/cli.py extract --recipe nav-icons",
