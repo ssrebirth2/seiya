@@ -56,10 +56,6 @@
     "react-dom": "19.2.0",
     "zustand": "^5.0.8"
   },
-  "optionalDependencies": {
-    "@emnapi/core": "1.11.0",
-    "@emnapi/runtime": "1.11.0"
-  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
