@@ -4,7 +4,15 @@ export function hasSkillCooldown(cd: unknown): boolean {
   return true
 }
 
-export function formatSkillCooldown(cd: unknown): string {
+const DATA_SECONDS_KEY = 'LC_COMMON_data_seconds'
+
+/** e.g. 15 + LC_COMMON_data_seconds → "15s" (or "15detik" in ID). */
+export function formatSkillCooldown(
+  cd: unknown,
+  getT?: (key?: string) => string
+): string {
   if (!hasSkillCooldown(cd)) return ''
-  return String(cd)
+  const value = String(cd)
+  if (!getT) return value
+  return `${value}${getT(DATA_SECONDS_KEY)}`
 }

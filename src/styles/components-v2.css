@@ -714,20 +714,396 @@ input:focus-visible {
   outline-offset: 2px;
 }
 
-.skill-card-passive {
-  border-left: 3px solid var(--text-muted);
+/* UISkillItem — 148px design canvas; --skill-display set fluidly by .skill-icon-row */
+.skill-icon-btn {
+  --skill-slot: 148px;
+  position: relative;
+  width: var(--skill-display);
+  height: var(--skill-display);
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: visible;
+  transition: opacity var(--transition-fast);
 }
 
-.skill-card-active {
-  border-left: 3px solid var(--accent);
+.skill-icon-btn:hover {
+  opacity: 0.9;
 }
 
-.skill-card-cycle {
-  border-left: 3px solid var(--accent-gold);
+.skill-icon-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 50%;
 }
 
-.skill-card-ultimate {
-  border-left: 3px solid var(--quality-ssr);
+/* Tailwind preflight sets img { max-width: 100% } — breaks 180×180 select glow */
+.skill-icon-btn img {
+  max-width: none;
+  max-height: none;
+}
+
+.skill-icon-btn__canvas {
+  position: relative;
+  width: var(--skill-slot);
+  height: var(--skill-slot);
+  overflow: visible;
+  transform: scale(calc(var(--skill-display) / var(--skill-slot)));
+  transform-origin: top left;
+}
+
+/* select 180×180 @ (-15.5, -17.4) */
+.skill-icon-btn__select {
+  position: absolute;
+  left: -15px;
+  top: -19px;
+  width: 180px;
+  height: 180px;
+  z-index: 1;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+/* skill icon RawImage 128×128 @ (10, 8) */
+.skill-icon-btn__icon {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 128px;
+  height: 128px;
+  z-index: 2;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* borda normal — ty_box_jinengdikuang_1 @ 148×148 */
+.skill-icon-btn__border {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+/* borda despertar — native 176×152, centered; icon size unchanged */
+.skill-icon-btn--awaken .skill-icon-btn__border {
+  inset: auto;
+  left: calc((var(--skill-slot) - 176px) / 2);
+  top: calc((var(--skill-slot) - 152px) / 2);
+  width: 176px;
+  height: 152px;
+  object-fit: contain;
+}
+
+/* Skills tab — fluid grid: 8×1 desktop, 4×2 tablet/mobile, icons scale with width */
+.skill-profile-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-icon-row-wrap {
+  container-type: inline-size;
+  width: 100%;
+}
+
+.skill-icon-row {
+  --skill-display-max: 118.4px; /* 148 × 0.8 — HeroDetailInfoView */
+  --skill-display-min: 4.5rem;
+  --skill-row-gap: clamp(0.625rem, 2.5cqw, 1.3125rem);
+  --skill-row-cols: 4;
+  --skill-display: clamp(
+    var(--skill-display-min),
+    calc(
+      (100cqw - (var(--skill-row-cols) - 1) * var(--skill-row-gap))
+      / var(--skill-row-cols)
+    ),
+    var(--skill-display-max)
+  );
+  width: 100%;
+  padding: clamp(0.875rem, 3cqw, 1.375rem) clamp(0.5rem, 2cqw, 1rem)
+    clamp(0.625rem, 2cqw, 1rem);
+  overflow: visible;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.skill-icon-row__track {
+  display: grid;
+  grid-template-columns: repeat(var(--skill-row-cols), var(--skill-display));
+  column-gap: var(--skill-row-gap);
+  row-gap: clamp(0.75rem, 2.5cqw, 1.125rem);
+  justify-content: center;
+  width: 100%;
+  margin-inline: auto;
+}
+
+/* ≥640px panel width → 8 cols; below → 4×2. Icons scale via --skill-display. */
+@container (min-width: 640px) {
+  .skill-icon-row {
+    --skill-row-cols: 8;
+  }
+}
+
+.skill-detail-panel {
+  padding-top: clamp(0.875rem, 2.5cqw, 1.25rem);
+}
+
+/* Primary skill detail — flush inside tab panel (no card-in-card) */
+.skill-detail-panel > .skill-detail-card:not(.skill-detail-card--nested) {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
+}
+
+.skill-detail-panel > .skill-detail-card:not(.skill-detail-card--nested) > .skill-detail-card__inner {
+  padding: 0;
+}
+
+/* Language switch — keep layout, soften content while new LC strings load */
+.i18n-content--pending {
+  opacity: 0.82;
+  transition: opacity 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .i18n-content--pending {
+    transition: none;
+  }
+}
+
+.skill-detail-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-detail-card--nested {
+  box-shadow: var(--shadow-sm);
+  background: color-mix(in srgb, var(--panel-solid) 88%, transparent);
+}
+
+.skill-detail-card--nested .skill-detail-card__inner {
+  padding: 1.25rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .skill-detail-card--nested .skill-detail-card__inner {
+    padding: 1.5rem 1.75rem;
+  }
+}
+
+.skill-detail-card--nested .skill-detail-card__level {
+  padding: 1rem 1.25rem;
+}
+
+.skill-detail-card--nested .skill-detail-card__levels {
+  gap: 0.75rem;
+}
+
+.skill-detail-card__inner {
+  padding: clamp(1rem, 3cqw, 1.375rem);
+}
+
+.skill-detail-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(0.75rem, 2.5cqw, 1rem);
+}
+
+/* ty_box_jinengdikuang_1 — circular ring only (no top-left notch); 128 icon in 148 slot */
+.skill-detail-card__icon-frame {
+  --skill-detail-icon-size: clamp(4.625rem, 12.5cqw, 5.75rem);
+  --skill-detail-ring: calc(var(--skill-detail-icon-size) * 6 / 148);
+  position: relative;
+  flex-shrink: 0;
+  width: var(--skill-detail-icon-size);
+  height: var(--skill-detail-icon-size);
+  padding: var(--skill-detail-ring);
+  border-radius: 50%;
+  box-sizing: border-box;
+  background: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #eef0f4 38%,
+    #c9ccd6 72%,
+    #8f93a3 100%
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.skill-detail-card__icon-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.skill-detail-card__icon-frame::after {
+  content: '';
+  position: absolute;
+  inset: var(--skill-detail-ring);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.24);
+  pointer-events: none;
+}
+
+.skill-detail-card__icon-frame img {
+  max-width: none;
+  max-height: none;
+}
+
+.skill-detail-card__icon {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.skill-detail-card__head {
+  min-width: 0;
+  flex: 1;
+  padding-top: 0.125rem;
+}
+
+.skill-detail-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 2.8cqw, 1.375rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--foreground);
+}
+
+.skill-detail-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-top: 0.625rem;
+}
+
+.skill-detail-card__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 9999px;
+  padding: 0.2rem 0.625rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--panel-border);
+  background: var(--panel-hover);
+  color: var(--foreground);
+}
+
+.skill-detail-card__chip-label {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.skill-detail-card__section {
+  margin-top: 1.25rem;
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--panel-border);
+}
+
+.skill-detail-card__section-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.skill-detail-card__prose,
+.skill-detail-card__level-body {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: color-mix(in srgb, var(--foreground) 88%, var(--text-muted));
+  word-break: break-word;
+}
+
+.skill-detail-card__prose {
+  white-space: pre-wrap;
+}
+
+.skill-detail-card__levels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.skill-detail-card__level {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.875rem;
+  align-items: start;
+  padding: 1rem 1.125rem;
+  border-radius: var(--radius-panel);
+  border: 1px solid var(--panel-border);
+  background: color-mix(in srgb, var(--panel-hover) 85%, transparent);
+}
+
+.skill-detail-card__level-badge {
+  flex-shrink: 0;
+  min-width: 2.5rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  background: var(--panel-hover);
+  border: 1px solid var(--panel-border);
+  color: var(--text-muted);
+}
+
+.skill-detail-card__condition {
+  display: block;
+  margin-top: 0.375rem;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.skill-detail-card__subskills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+}
+
+@media (max-width: 639px) {
+  .skill-detail-card__level {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .skill-detail-card__level-badge {
+    justify-self: start;
+  }
 }
 
 .home-hero-bg {

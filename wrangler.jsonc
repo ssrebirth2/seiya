@@ -1,0 +1,35 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	// Cloudflare Workers Builds (dashboard → Settings → Builds):
+	//   Build command:  npx opennextjs-cloudflare build
+	//   Deploy command: npx opennextjs-cloudflare deploy
+	//   Non-prod deploy: npx opennextjs-cloudflare upload
+	// Build env vars: see .dev.vars.example (NEXT_PUBLIC_SUPABASE_*, NEXT_PUBLIC_SITE_URL, NEXT_TELEMETRY_DISABLED)
+	"main": ".open-next/worker.js",
+	"name": "seiya",
+	"compatibility_date": "2026-06-13",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference service binding, the service name must match the worker name
+			// see https://opennext.js.org/cloudflare/caching
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "seiya"
+		}
+	],
+	"images": {
+		// Enable image optimization
+		// see https://opennext.js.org/cloudflare/howtos/image
+		"binding": "IMAGES"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

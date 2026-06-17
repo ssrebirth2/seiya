@@ -1,6 +1,7 @@
 import './globals.css'
 
 import { ReactNode } from 'react'
+import type { Metadata } from 'next'
 
 import { TopDock } from '@/components/layout/TopDock'
 
@@ -14,14 +15,38 @@ import { PageMetaProvider } from '@/lib/ui/usePageMeta'
 
 import { fontInter, fontOutfit } from '@/lib/ui/fonts'
 
+import { SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
+
+import { OG_DEFAULT_IMAGE, getSiteUrl } from '@/lib/metadata/site-url'
 
 
-export const metadata = {
 
-  title: 'Saint Seiya: Rebirth 2 (EX)',
-
+export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
+  title: {
+    default: SITE_ONLY_LABELS.databaseTitle,
+    template: `%s | ${SITE_ONLY_LABELS.databaseTitle}`,
+  },
   description: 'Hero and skill database viewer for Saint Seiya: Rebirth 2 (EX).',
-
+  openGraph: {
+    siteName: SITE_ONLY_LABELS.databaseTitle,
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: OG_DEFAULT_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: SITE_ONLY_LABELS.databaseTitle,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_ONLY_LABELS.databaseTitle,
+    description: 'Hero and skill database viewer for Saint Seiya: Rebirth 2 (EX).',
+    images: [OG_DEFAULT_IMAGE],
+  },
 }
 
 

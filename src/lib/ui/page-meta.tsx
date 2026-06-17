@@ -3,7 +3,7 @@
 import { createContext, useContext, useMemo, useState, useCallback, useEffect, type ReactNode } from 'react'
 import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/context/language-context'
-import { UI_KEYS } from '@/lib/i18n/ui-keys'
+import { UI_KEYS, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export type BreadcrumbItem = {
@@ -155,6 +155,11 @@ export function SetPageMeta({
   useEffect(() => {
     setPageMeta({ title, breadcrumbs })
   }, [title, breadcrumbs, setPageMeta])
+
+  useEffect(() => {
+    if (!title?.trim()) return
+    document.title = `${title} | ${SITE_ONLY_LABELS.databaseTitle}`
+  }, [title])
 
   return null
 }

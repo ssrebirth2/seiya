@@ -1,6 +1,6 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import { useLanguage } from '@/context/language-context'
 import { loadHeroTalentsBundle } from '@/lib/game/load-hero-talents-bundle'
 import { GAME_CONFIG_STALE_MS } from '@/lib/query/query-config'
@@ -14,5 +14,6 @@ export function useHeroTalents(heroId: number) {
     queryFn: () => loadHeroTalentsBundle(heroId, lang),
     staleTime: GAME_CONFIG_STALE_MS,
     gcTime: GAME_CONFIG_STALE_MS * 2,
+    placeholderData: keepPreviousData,
   })
 }

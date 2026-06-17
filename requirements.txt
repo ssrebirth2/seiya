@@ -1,3 +1,0 @@
-slpp
-supabase
-python-dotenv

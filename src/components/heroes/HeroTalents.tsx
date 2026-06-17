@@ -12,8 +12,9 @@ interface HeroTalentsProps {
 }
 
 export default function HeroTalents({ heroId }: HeroTalentsProps) {
-  const { data: bundle, isLoading, isError } = useHeroTalents(heroId)
+  const { data: bundle, isLoading, isFetching, isError } = useHeroTalents(heroId)
   const [activeLayer, setActiveLayer] = useState(0)
+  const isRetranslating = isFetching && !isLoading
 
   useEffect(() => {
     setupGlobalSkillTooltips()
@@ -24,7 +25,11 @@ export default function HeroTalents({ heroId }: HeroTalentsProps) {
   }, [heroId])
 
   if (isLoading) {
-    return <p className="text-sm text-text-muted">Loading talents...</p>
+    return (
+      <section className="mt-2 flex justify-center py-8 sm:mt-4">
+        <div className="spinner h-8 w-8" />
+      </section>
+    )
   }
 
   if (isError || !bundle?.data.layers.length) {
@@ -40,7 +45,7 @@ export default function HeroTalents({ heroId }: HeroTalentsProps) {
   }
 
   return (
-    <section>
+    <section className={isRetranslating ? 'i18n-content--pending' : undefined}>
       <div
         className="mb-4 flex flex-wrap gap-2"
         role="tablist"

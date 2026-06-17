@@ -14,11 +14,22 @@ type TabsProps = {
   onChange: (id: string) => void
   sticky?: boolean
   ariaLabel?: string
+  /** Allow tab content (e.g. skill row glow) to extend outside the panel clip. */
+  panelOverflow?: 'hidden' | 'visible'
 }
 
-export function Tabs({ tabs, activeId, onChange, sticky = false, ariaLabel }: TabsProps) {
+export function Tabs({
+  tabs,
+  activeId,
+  onChange,
+  sticky = false,
+  ariaLabel,
+  panelOverflow = 'hidden',
+}: TabsProps) {
   return (
-    <div className="surface panel overflow-hidden !p-0">
+    <div
+      className={`surface panel ${panelOverflow === 'visible' ? 'overflow-visible' : 'overflow-hidden'} !p-0`}
+    >
       <div
         role="tablist"
         aria-label={ariaLabel}

@@ -49,7 +49,7 @@ Default Lua root: `C:\rb2\assets\resources\luascriptwithoutcodecomments\luaconfi
 
 **Language packs** — `src/lib/i18n/site-languages.ts` defines codes, selector labels, and `luaFile` → `LanguagePackage_{code}`. Edit only that file when adding languages. Import reads it via `scripts/site_languages.py`.
 
-**Hidden IDs** (`src/lib/game/hidden-hero-ids.ts`, `hidden-companion-ids.ts`):
+**Hidden IDs** (`src/lib/game/hidden-hero-ids.ts`, `hidden-companion-ids.ts`, `hidden-force-card-ids.ts`):
 - Import skips hidden heroes/companions
 - After upsert, `configs:import` **purges** them from Supabase
 - Asset extract (`prune_hero_portraits`) and site UI also respect the same lists

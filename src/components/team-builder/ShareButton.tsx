@@ -4,10 +4,13 @@ import { useTeamStore } from '@/lib/team-builder/stores/use-team-store'
 import { useEquipmentStore } from '@/lib/team-builder/stores/use-equipment-store'
 import { encodeTeam } from '@/lib/team-builder/team-share-codec'
 import { useState } from 'react'
+import { useLanguage } from '@/context/language-context'
+import { buildAbsoluteShareUrl } from '@/lib/metadata/share-url'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export default function ShareButton() {
   const { t, site } = useUiTranslation()
+  const { lang } = useLanguage()
   const { team } = useTeamStore()
   const [copied, setCopied] = useState(false)
 
@@ -43,7 +46,7 @@ export default function ShareButton() {
 
     try {
       const code = encodeTeam(payload)
-      url = `${window.location.origin}/team-builder#${code}`
+      url = buildAbsoluteShareUrl(`/team-builder#${code}`, lang)
 
       await navigator.clipboard.writeText(url)
       setCopied(true)

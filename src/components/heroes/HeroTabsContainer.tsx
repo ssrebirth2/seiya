@@ -1,9 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import HeroSkillList from './HeroSkillList'
-import HeroQualitySkill from './HeroQualitySkill'
-import HeroAwakenSkills from './HeroAwakenSkills'
 import HeroBonds from './HeroBonds'
 import HeroTalents from './HeroTalents'
 import { Tabs, type TabItem } from '@/components/ui/v2/Tabs'
@@ -15,11 +13,18 @@ interface HeroTabsContainerProps {
   onTabsReady?: () => void
 }
 
-type TabKey = 'skills' | 'quality' | 'awaken' | 'talents' | 'bonds'
+type TabKey = 'skills' | 'talents' | 'bonds'
 
 export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContainerProps) {
   const { t } = useUiTranslation()
   const [activeTab, setActiveTab] = useState<TabKey>('skills')
+
+  const skillsPanel = useMemo(
+    () => <HeroSkillList heroId={heroId} skillIds={skillIds} />,
+    [heroId, skillIds]
+  )
+  const talentsPanel = useMemo(() => <HeroTalents heroId={heroId} />, [heroId])
+  const bondsPanel = useMemo(() => <HeroBonds heroId={heroId} />, [heroId])
 
   const tabs = useMemo(
     () =>
@@ -27,30 +32,20 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
         {
           id: 'skills' as TabKey,
           label: t(UI_KEYS.hero.skillsTab),
-          panel: <HeroSkillList skillIds={skillIds} />,
-        },
-        {
-          id: 'quality' as TabKey,
-          label: t(UI_KEYS.hero.qualitySkillTab),
-          panel: <HeroQualitySkill heroId={heroId} />,
-        },
-        {
-          id: 'awaken' as TabKey,
-          label: t(UI_KEYS.hero.awakenTab),
-          panel: <HeroAwakenSkills heroId={heroId} />,
+          panel: skillsPanel,
         },
         {
           id: 'talents' as TabKey,
           label: t(UI_KEYS.hero.talentsTab),
-          panel: <HeroTalents heroId={heroId} />,
+          panel: talentsPanel,
         },
         {
           id: 'bonds' as TabKey,
           label: t(UI_KEYS.hero.bondsTab),
-          panel: <HeroBonds heroId={heroId} />,
+          panel: bondsPanel,
         },
       ] as TabItem[],
-    [t, heroId, skillIds]
+    [t, skillsPanel, talentsPanel, bondsPanel]
   )
 
   return (
@@ -59,6 +54,7 @@ export default function HeroTabsContainer({ heroId, skillIds }: HeroTabsContaine
       activeId={activeTab}
       onChange={(id) => setActiveTab(id as TabKey)}
       sticky
+      panelOverflow="visible"
       ariaLabel={t(UI_KEYS.hero.saintInfo)}
     />
   )

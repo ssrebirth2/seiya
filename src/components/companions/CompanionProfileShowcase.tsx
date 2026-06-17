@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import CompanionPreviewImage from '@/components/ui/CompanionPreviewImage'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type CompanionProfileShowcaseProps = {
   companionId: number
@@ -21,6 +22,8 @@ export default function CompanionProfileShowcase({
   dbPreviewPath,
   skinsId,
 }: CompanionProfileShowcaseProps) {
+  const { t } = useUiTranslation()
+
   return (
     <section className="companion-profile-header">
       <div className="px-4 py-4 sm:px-6 sm:py-6">
@@ -29,7 +32,7 @@ export default function CompanionProfileShowcase({
           className="mb-5 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:mb-6 sm:text-sm"
         >
           <ArrowLeft size={14} className="shrink-0" />
-          Back to Companions
+          {t(UI_KEYS.common.loginBack)}
         </Link>
 
         <div className="flex flex-col items-center gap-6 lg:flex-row lg:items-start lg:gap-10">

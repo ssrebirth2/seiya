@@ -1,0 +1,8 @@
+# Copy to .dev.vars for local `opennextjs-cloudflare preview` / build.
+# In Cloudflare Workers Builds (dashboard → Settings → Builds → Variables),
+# set the same keys for Production and Preview build environments.
+
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+NEXT_PUBLIC_SITE_URL=https://seiya.rb2ex.workers.dev
+NEXT_TELEMETRY_DISABLED=1

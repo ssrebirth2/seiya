@@ -6,7 +6,7 @@ import { useLanguage } from '@/context/language-context'
 import { DEFAULT_SITE_LANGUAGE, SITE_LANGUAGES } from '@/lib/i18n/site-languages'
 
 export function LanguageSelector() {
-  const { lang, setLang } = useLanguage()
+  const { lang, setLang, prefetchLang, isSwitchingLang } = useLanguage()
   const [open, setOpen] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -28,7 +28,8 @@ export function LanguageSelector() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between gap-2 rounded-lg border border-panel-border bg-panel px-3 py-2 text-xs text-foreground transition hover:bg-panel-hover"
+        disabled={isSwitchingLang}
+        className="flex w-full items-center justify-between gap-2 rounded-lg border border-panel-border bg-panel px-3 py-2 text-xs text-foreground transition hover:bg-panel-hover disabled:cursor-wait disabled:opacity-70"
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label="Language"
@@ -48,11 +49,14 @@ export function LanguageSelector() {
                 type="button"
                 role="option"
                 aria-selected={lang === l.code}
+                disabled={isSwitchingLang}
+                onMouseEnter={() => prefetchLang(l.code)}
+                onFocus={() => prefetchLang(l.code)}
                 onClick={() => {
                   setLang(l.code)
                   setOpen(false)
                 }}
-                className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-xs transition hover:bg-panel-hover"
+                className="flex w-full items-center justify-between gap-2 px-3 py-2 text-left text-xs transition hover:bg-panel-hover disabled:cursor-wait disabled:opacity-60"
               >
                 {l.label}
                 {lang === l.code ? <Check size={14} className="text-accent" /> : null}

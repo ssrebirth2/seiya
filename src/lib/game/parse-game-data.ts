@@ -145,3 +145,55 @@ export function parsePrimitiveList(val: unknown): (string | number)[] {
     return []
   })
 }
+
+export type ForceCardEquipCondition = {
+  type: string
+  object_id: number[]
+}
+
+/** `[null, ids, type]`, `[type, ids]`, or `{ type, object_id }` → normalized equip rule. */
+export function normalizeForceCardConditionEntry(
+  entry: unknown
+): ForceCardEquipCondition | null {
+  if (entry == null) return null
+
+  if (typeof entry === 'object' && !Array.isArray(entry)) {
+    const o = entry as Record<string, unknown>
+    const type = o.type != null ? String(o.type) : ''
+    const rawIds = Array.isArray(o.object_id)
+      ? o.object_id
+      : Array.isArray(o.value)
+        ? o.value
+        : []
+    const object_id = rawIds.map(Number).filter((n) => !Number.isNaN(n))
+    if (!type || !object_id.length) return null
+    return { type, object_id }
+  }
+
+  if (Array.isArray(entry)) {
+    if (entry.length >= 3 && typeof entry[2] === 'string') {
+      const object_id = Array.isArray(entry[1])
+        ? entry[1].map(Number).filter((n) => !Number.isNaN(n))
+        : []
+      const type = String(entry[2])
+      if (!type || !object_id.length) return null
+      return { type, object_id }
+    }
+    if (entry.length >= 2 && typeof entry[0] === 'string') {
+      const type = String(entry[0])
+      const object_id = Array.isArray(entry[1])
+        ? entry[1].map(Number).filter((n) => !Number.isNaN(n))
+        : []
+      if (!type || !object_id.length) return null
+      return { type, object_id }
+    }
+  }
+
+  return null
+}
+
+export function normalizeForceCardConditionList(val: unknown): ForceCardEquipCondition[] {
+  return parseGameData(val)
+    .map(normalizeForceCardConditionEntry)
+    .filter((e): e is ForceCardEquipCondition => e != null)
+}

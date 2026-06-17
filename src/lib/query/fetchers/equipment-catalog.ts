@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase-client'
+import { isForceCardListed } from '@/lib/game/hidden-force-card-ids'
 
 type RawEquipmentCatalog = {
   forceCards: Array<{
@@ -25,7 +26,9 @@ export async function fetchRawEquipmentCatalog(): Promise<RawEquipmentCatalog> {
   const infoMap: Record<number, { condition?: string }> = {}
   infoRes.data?.forEach((r) => (infoMap[r.id] = r))
 
-  const forceCards = (cardsRes.data || []).map((c) => ({
+  const forceCards = (cardsRes.data || [])
+    .filter((c) => isForceCardListed(c.id))
+    .map((c) => ({
     ...c,
     condition: infoMap[c.id]?.condition ?? null,
   }))
