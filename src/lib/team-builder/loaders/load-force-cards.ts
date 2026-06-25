@@ -1,4 +1,4 @@
-import { normalizeForceCardConditionList } from '@/lib/game/parse-game-data'
+import { canEquipForceCard } from '@/lib/game/force-card-equip'
 
 export type ForceCard = {
   id: number
@@ -7,21 +7,9 @@ export type ForceCard = {
   condition?: string
 }
 
+/** @deprecated use canEquipForceCard from force-card-equip */
 export function canEquipCard(hero: any, card: ForceCard): boolean {
-  const conds = normalizeForceCardConditionList(card?.condition)
-  if (!conds.length) return true
-
-  return conds.every((c) => {
-    const val =
-      c.type === 'stance'
-        ? hero.stance
-        : c.type === 'occupation'
-          ? hero.occupation
-          : c.type === 'damagetype'
-            ? hero.damagetype
-            : c.type === 'camp'
-              ? hero.camp
-              : null
-    return !c.object_id.length || c.object_id.includes(Number(val))
-  })
+  return canEquipForceCard(hero, card?.condition)
 }
+
+export { canEquipForceCard }

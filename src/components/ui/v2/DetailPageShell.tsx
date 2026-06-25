@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { ArrowLeft } from 'lucide-react'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
 type BreadcrumbItem = {
   label: string
@@ -34,11 +35,12 @@ export function DetailPageShell({
   children,
 }: DetailPageShellProps) {
   const { t } = useUiTranslation()
+  const localized = useLocalizedHref()
 
   return (
     <div className="page-stack animate-fadeIn">
       <Link
-        href={backHref}
+        href={localized(backHref)}
         className="inline-flex w-fit items-center gap-2 text-sm text-text-muted transition hover:text-foreground"
       >
         <ArrowLeft size={16} aria-hidden="true" />
@@ -51,7 +53,7 @@ export function DetailPageShell({
             <span key={`${crumb.label}-${i}`} className="flex items-center gap-1">
               {i > 0 ? <span aria-hidden="true">/</span> : null}
               {crumb.href ? (
-                <Link href={crumb.href} className="transition-colors hover:text-accent">
+                <Link href={localized(crumb.href)} className="transition-colors hover:text-accent">
                   {crumb.label}
                 </Link>
               ) : (

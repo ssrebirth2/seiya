@@ -7,6 +7,7 @@
     "assets:manifest": "node tools/generate-asset-manifest.mjs",
     "assets:extract": "python scripts/game-assets/cli.py extract",
     "assets:extract:heroes": "python scripts/game-assets/cli.py extract --recipe square-hero-item",
+    "assets:extract:items": "python scripts/game-assets/cli.py extract --recipe square-item",
     "assets:extract:nav": "python scripts/game-assets/cli.py extract --recipe nav-icons",
     "assets:extract:check": "python scripts/game-assets/cli.py check",
     "spine:export": "python scripts/game-assets/extractors/spine_export/cli.py export",

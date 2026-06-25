@@ -108,6 +108,22 @@ function forceCardFramePath(quality: number): string {
   return `/assets/resources/textures/dynamis/jjzl_box_kapaikuang_${quality}.png`
 }
 
+function dynamisLevelBadgePath(spriteName: string): string {
+  return `/assets/resources/ui/sprites/dynamis/${spriteName}.png`
+}
+
+/** Level badge sprite jjzl_box_djk_{quality} — manifest only. */
+export function resolveForceCardLevelBadge(quality?: number): {
+  src: string
+  rawSrc?: string
+} {
+  if (quality == null) return { src: IMAGE_UNAVAILABLE }
+  const spriteName = `jjzl_box_djk_${quality}`
+  const path = dynamisLevelBadgePath(spriteName)
+  if (isAssetAvailable(path)) return { src: path, rawSrc: path }
+  return { src: IMAGE_UNAVAILABLE }
+}
+
 /** Detail view: card art and optional frame, manifest-only. */
 export function resolveForceCardDisplayAsset(
   cardId: number,
@@ -133,6 +149,14 @@ export function resolveForceCardDisplayAsset(
     frameSrc,
     frameRaw,
   }
+}
+
+/** Item list icon from sid — manifest only. */
+export function resolveItemIconBySid(sid?: number | null): { src: string; rawSrc?: string } {
+  if (sid == null) return { src: IMAGE_UNAVAILABLE }
+  const path = `/assets/resources/textures/itemicon/ItemIcon_${sid}.png`
+  if (isAssetAvailable(path)) return { src: path, rawSrc: path }
+  return { src: IMAGE_UNAVAILABLE }
 }
 
 /** Normalize Supabase texture path → site-relative path (no extension). */

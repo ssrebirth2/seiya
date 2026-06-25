@@ -2,7 +2,7 @@
 
 import GameImage from '@/components/ui/GameImage'
 import { Input } from '@/components/ui/v2'
-import { formatDisplayText } from '@/lib/game/apply-skill-values'
+import { formatPlainLabel } from '@/lib/game/apply-skill-values'
 import {
   getAttackTypeIconPath,
   getCampIconPath,
@@ -31,7 +31,7 @@ type HeroIconFilterBarProps = {
   typeMap: Record<string, string>
   getT: (key: string | undefined) => string
   resultCount: number
-  variant?: 'catalog' | 'toolbar'
+  className?: string
 }
 
 type FilterField = 'camp' | 'stance' | 'damagetype' | 'occupation' | 'quality'
@@ -47,10 +47,6 @@ type FilterGroup = {
   field: FilterField
   title: string
   options: FilterOption[]
-}
-
-function plainLabel(html: string): string {
-  return html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim()
 }
 
 function FilterIconButton({
@@ -93,7 +89,7 @@ export function HeroIconFilterBar({
   typeMap,
   getT,
   resultCount,
-  variant = 'catalog',
+  className = '',
 }: HeroIconFilterBarProps) {
   const { lang } = useLanguage()
   const { t, site } = useUiTranslation()
@@ -103,7 +99,7 @@ export function HeroIconFilterBar({
 
   const typeLabel = (field: Exclude<FilterField, 'quality'>, value: number) => {
     const raw = typeMap[`${field}_${value}`]
-    return plainLabel(formatDisplayText(getT(raw), 0, {}))
+    return formatPlainLabel(getT(raw), 0, {})
   }
 
   const select = (field: FilterField, value: number | 'all') => {
@@ -159,8 +155,6 @@ export function HeroIconFilterBar({
     },
   ]
 
-  const isToolbar = variant === 'toolbar'
-
   const renderGroup = (group: FilterGroup) => (
     <div key={group.field} className="hero-icon-filter-bar__group">
       <span className="hero-icon-filter-bar__group-label">{group.title}</span>
@@ -188,57 +182,29 @@ export function HeroIconFilterBar({
   )
 
   return (
-    <div className={`hero-icon-filter-bar${isToolbar ? ' hero-icon-filter-bar--toolbar' : ''}`}>
+    <div className={`hero-icon-filter-bar${className ? ` ${className}` : ''}`}>
       <div className="hero-icon-filter-bar__groups">
-        {isToolbar ? (
-          <>
-            <div className="hero-icon-filter-bar__toolbar-top">
-              <div className="hero-icon-filter-bar__header">
-                <h2 className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</h2>
-                <span
-                  className="hero-icon-filter-bar__count-badge"
-                  aria-label={`${resultCount} ${site('found')}`}
-                >
-                  {resultCount}
-                </span>
-              </div>
-              <div className="hero-icon-filter-bar__search">
-                <Input
-                  type="text"
-                  value={filters.search}
-                  onChange={(e) => onChange('search', e.target.value)}
-                  aria-label={site('searchByName')}
-                  className="hero-icon-filter-bar__search-input"
-                />
-              </div>
-            </div>
-            <div className="hero-icon-filter-bar__filter-grid">{groups.map(renderGroup)}</div>
-          </>
-        ) : (
-          <>
-            <div className="hero-icon-filter-bar__header">
-              <h2 className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</h2>
-              <span
-                className="hero-icon-filter-bar__count-badge"
-                aria-label={`${resultCount} ${site('found')}`}
-              >
-                {resultCount}
-              </span>
-            </div>
+        <div className="hero-icon-filter-bar__header">
+          <h2 className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</h2>
+          <span
+            className="hero-icon-filter-bar__count-badge"
+            aria-label={`${resultCount} ${site('found')}`}
+          >
+            {resultCount}
+          </span>
+        </div>
 
-            <div className="hero-icon-filter-bar__search">
-              <Input
-                type="text"
-                value={filters.search}
-                onChange={(e) => onChange('search', e.target.value)}
-                aria-label={site('searchByName')}
-                className="hero-icon-filter-bar__search-input"
-              />
-            </div>
+        <div className="hero-icon-filter-bar__search">
+          <Input
+            type="text"
+            value={filters.search}
+            onChange={(e) => onChange('search', e.target.value)}
+            aria-label={site('searchByName')}
+            className="hero-icon-filter-bar__search-input"
+          />
+        </div>
 
-            <div className="hero-icon-filter-bar__filter-grid">{groups.map(renderGroup)}</div>
-          </>
-        )}
+        <div className="hero-icon-filter-bar__filter-grid">{groups.map(renderGroup)}</div>
       </div>
     </div>
   )

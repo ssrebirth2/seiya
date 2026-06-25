@@ -1,4 +1,4 @@
-type Variant = 'page' | 'grid' | 'detail' | 'filters'
+type Variant = 'page' | 'grid' | 'force-card-grid' | 'detail' | 'filters'
 
 type LoadingSkeletonProps = {
   variant?: Variant
@@ -40,6 +40,19 @@ export function LoadingSkeleton({ variant = 'page', count = 12 }: LoadingSkeleto
       <div className="mb-6 flex flex-wrap gap-4" role="status" aria-live="polite">
         {Array.from({ length: 5 }).map((_, i) => (
           <SkeletonBlock key={i} className="h-14 w-36" />
+        ))}
+      </div>
+    )
+  }
+
+  if (variant === 'force-card-grid') {
+    return (
+      <div className="force-card-catalog-skeleton" role="status" aria-live="polite">
+        {Array.from({ length: count }).map((_, i) => (
+          <div key={i} className="force-card-catalog-skeleton__card">
+            <SkeletonBlock className="force-card-catalog-skeleton__art" />
+            <SkeletonBlock className="h-4 w-full" />
+          </div>
         ))}
       </div>
     )

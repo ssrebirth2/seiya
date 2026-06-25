@@ -111,6 +111,19 @@ export function formatDisplayText(
   return stripGameLabelMarkup(applySkillValues(cleaned, valueId, valuesMap))
 }
 
+/** Plain text for icon tooltips / aria-labels (no HTML, no trailing ":"). */
+export function formatPlainLabel(
+  text: string | number,
+  valueId: number | string = 0,
+  valuesMap: Record<number, (string | number)[]> = {}
+): string {
+  return formatDisplayText(text, valueId, valuesMap)
+    .replace(/<br\s*\/?>/gi, ' ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
 /**
  * Carrega valores de SkillValueConfig: { valueId => valores[] }
  */

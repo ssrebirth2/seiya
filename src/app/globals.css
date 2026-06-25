@@ -210,7 +210,7 @@ img[data-unavailable='true'] {
   }
 
   .profile-header-art {
-    transform: scaleX(-1) translateX(6%);
+    transform: scaleX(-1) translateX(0);
     -webkit-mask-image:
       linear-gradient(to left, transparent 0%, rgb(0 0 0 / 0.35) 22%, black 42%),
       linear-gradient(to top, transparent 0%, black 28%);

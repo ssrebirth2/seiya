@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { getSiteUrl } from '@/lib/metadata/site-url'
+import { ITEMS_SECTION_ENABLED } from '@/lib/site/site-sections'
 
 const STATIC_ROUTES = [
   '/',
@@ -9,7 +10,7 @@ const STATIC_ROUTES = [
   '/artifacts',
   '/force-cards',
   '/team-builder',
-  '/items',
+  ...(ITEMS_SECTION_ENABLED ? ['/items'] : []),
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

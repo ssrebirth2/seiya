@@ -27,6 +27,7 @@ import {
   type FunctionShortcutItem,
 } from '@/lib/navigation/function-shortcuts'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { DISCORD_INVITE_URL } from '@/lib/site-links'
 
 type TopDockPanel = 'catalog' | 'tools' | 'lang' | null
@@ -255,6 +256,7 @@ export function TopDock() {
   const pathname = usePathname()
   const { lang } = useLanguage()
   const { t } = useUiTranslation()
+  const localized = useLocalizedHref()
   const mounted = useDockMounted()
   const navPillRef = useRef<HTMLDivElement>(null)
   const [panel, setPanel] = useState<TopDockPanel>(null)
@@ -289,7 +291,7 @@ export function TopDock() {
         </div>
 
         <Link
-          href="/"
+          href={localized('/')}
           className={`top-dock__hero-brand ${lang === 'CN' ? 'top-dock__hero-brand--cn' : ''} ${homeActive ? 'top-dock__hero-brand--active' : ''}`}
           aria-label="SSRB2 Database home"
           aria-current={homeActive ? 'page' : undefined}

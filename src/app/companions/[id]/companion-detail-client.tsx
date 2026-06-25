@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import { LoadingSkeleton, DetailPageShell } from '@/components/ui/v2'
 import { SetPageMeta } from '@/lib/ui/usePageMeta'
@@ -20,6 +21,7 @@ export default function CompanionDetailClient() {
   const { id } = useParams()
   const companionId = parseInt(id as string, 10)
   const { lang } = useLanguage()
+  const localized = useLocalizedHref()
   const { t, site } = useUiTranslation()
 
   const [companion, setCompanion] = useState<any>(null)
@@ -109,7 +111,7 @@ export default function CompanionDetailClient() {
     return (
       <div className="panel py-12 text-center">
         <p className="mb-4 text-text-muted">{site('companionNotFound')}</p>
-        <Link href="/companions" className="btn-secondary inline-flex items-center gap-2">
+        <Link href={localized('/companions')} className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
           {t(UI_KEYS.common.loginBack)}
         </Link>

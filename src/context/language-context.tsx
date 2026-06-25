@@ -20,6 +20,12 @@ const LanguageContext = createContext<LanguageContextType>({
   isSwitchingLang: false,
 })
 
+function readStoredLang(): string | null {
+  if (typeof window === 'undefined') return null
+  const stored = localStorage.getItem('lang')?.toUpperCase()
+  return stored && SITE_LANGUAGE_CODES.includes(stored) ? stored : null
+}
+
 function LanguageProviderInner({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState(DEFAULT_SITE_LANGUAGE)
   const [isSwitchingLang, setIsSwitchingLang] = useState(false)
@@ -29,42 +35,37 @@ function LanguageProviderInner({ children }: { children: React.ReactNode }) {
   const searchParams = useSearchParams()
   const [hydrated, setHydrated] = useState(false)
 
+  // Keep ?lang= on every route (including EN) and sync URL ↔ state
   useEffect(() => {
     const urlLang = searchParams.get('lang')?.toUpperCase()
-    if (urlLang && SITE_LANGUAGE_CODES.includes(urlLang)) {
-      setLangState(urlLang)
-      localStorage.setItem('lang', urlLang)
-      setHydrated(true)
-      return
+    const storedLang = readStoredLang()
+
+    const effective =
+      urlLang && SITE_LANGUAGE_CODES.includes(urlLang)
+        ? urlLang
+        : storedLang ?? DEFAULT_SITE_LANGUAGE
+
+    setLangState(effective)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('lang', effective)
     }
 
-    const stored = localStorage.getItem('lang')
-    const effective =
-      stored && SITE_LANGUAGE_CODES.includes(stored) ? stored : DEFAULT_SITE_LANGUAGE
-    setLangState(effective)
-
-    const params = new URLSearchParams(searchParams.toString())
-    params.set('lang', effective)
-    const qs = params.toString()
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
+    if (!urlLang || !SITE_LANGUAGE_CODES.includes(urlLang)) {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set('lang', effective)
+      const qs = params.toString()
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false })
+    }
 
     setHydrated(true)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps -- init once
+  }, [pathname, searchParams, router])
 
   useEffect(() => {
     if (!hydrated) return
-    const urlLang = searchParams.get('lang')?.toUpperCase()
-    if (urlLang && SITE_LANGUAGE_CODES.includes(urlLang) && urlLang !== lang) {
-      setLangState(urlLang)
-      localStorage.setItem('lang', urlLang)
-    }
-  }, [searchParams, hydrated, lang])
-
-  useEffect(() => {
     preloadTranslations(lang, ALL_UI_LC_KEYS).catch((error) => {
       console.error('[i18n] Failed to preload UI translations:', error)
     })
-  }, [lang])
+  }, [lang, hydrated])
 
   const prefetchLang = useCallback((targetLang: string) => {
     if (!SITE_LANGUAGE_CODES.includes(targetLang)) return

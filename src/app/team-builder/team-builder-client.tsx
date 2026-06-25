@@ -221,7 +221,7 @@ export default function TeamBuilderClient() {
               Hero Pool
             </div>
             <HeroIconFilterBar
-              variant="toolbar"
+              className="hero-icon-filter-bar--embedded"
               filters={filters}
               onChange={handleFilterChange}
               typeMap={typeMap}

@@ -22,6 +22,7 @@ import {
   type FunctionShortcutItem,
 } from '@/lib/navigation/function-shortcuts'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { DISCORD_INVITE_URL } from '@/lib/site-links'
 
 type DockPanel = 'catalog' | 'tools' | 'lang' | null
@@ -246,6 +247,7 @@ function DockLanguageButton({
 export function MobileDock() {
   const pathname = usePathname()
   const { t } = useUiTranslation()
+  const localized = useLocalizedHref()
   const mounted = useDockMounted()
   const [panel, setPanel] = useState<DockPanel>(null)
   const homeActive = isDockActive(pathname, '/')
@@ -261,7 +263,7 @@ export function MobileDock() {
     <nav className={`mobile-dock ${panel ? 'mobile-dock--elevated' : ''}`} aria-label="Main navigation">
         <div className="mobile-dock__bar">
           <Link
-            href="/"
+            href={localized('/')}
             className={`dock-bar-home ${homeActive ? 'dock-bar-home--active' : ''}`}
             aria-label={homeLabel}
             aria-current={homeActive ? 'page' : undefined}

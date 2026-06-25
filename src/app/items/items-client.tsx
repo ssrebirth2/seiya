@@ -1,67 +1,32 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
-import { preloadTranslations, useTranslation } from '@/lib/i18n/use-translation'
-import ItemsTable from '@/components/items/ItemsTable'
-import { ListPagePanel } from '@/components/layout/ListPagePanel'
-import { CatalogFilterBar, Input, LoadingSkeleton, Select } from '@/components/ui/v2'
+import {
+  createTranslationGetter,
+  preloadTranslations,
+  translateKeys,
+} from '@/lib/i18n/language-package'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
-
-type ItemRow = {
-  id: number
-  name: string
-  desc: string
-  type: number | string | null
-  child_type: number | string | null
-  quality: number | string | null
-  icon_path?: string | null
-  max_num?: number | string | null
-  isRare?: boolean | number | string | null
-  sort_weight?: number | string | null
-  compose?: number | string | null
-}
-
-type ItemTypeRow = {
-  id: number
-  itemType: number | string
-  name?: string
-  normal_tag_name?: string
-  select_tag_name?: string
-}
-
-type UsedInCraft = { targetId: number; qty: number }
-type UsedInIndex = Record<number, UsedInCraft[]>
-
-const ITEM_BATCH_SIZE = 1000
-const USED_IN_BATCH_SIZE = 1000
-
-const UI_STATIC_KEYS = [
-  'Item Database',
-  'Category',
-  'Quality',
-  'Rarity',
-  'Sort by',
-  'Search',
-  'Search item name...',
-  'All',
-  'Rare',
-  'Normal',
-  'ID',
-  'Name',
-  'Type',
-  'Reset',
-  'Loading initial data...',
-  'Loading item database...',
-  'items loaded so far',
-  'Showing',
-  'of',
-  'items',
-  'Building used-in index...',
-] as const
-
-const QUALITY_KEYS = Array.from({ length: 10 }, (_, i) => `LC_COMMON_quality_name_${i + 1}`)
+import { qualityNameKey } from '@/lib/i18n/ui-keys'
+import {
+  filterCatalogIndex,
+  getItemQualityTiers,
+  isItemCatalogListed,
+  ITEM_BAG_TABS,
+  ITEM_CATALOG_PAGE_SIZE,
+  type ItemCatalogIndexRow,
+  type ItemCatalogSortKey,
+} from '@/lib/game/item-catalog'
+import {
+  collectItemLcKeys,
+  resolveItemNameFromRow,
+} from '@/lib/game/item-i18n'
+import ItemCatalogGrid from '@/components/items/ItemCatalogGrid'
+import { ItemFilterBar, type ItemListFilters } from '@/components/items/ItemFilterBar'
+import { ListPagePanel } from '@/components/layout/ListPagePanel'
+import { Button, EmptyState, LoadingSkeleton, PageHeader } from '@/components/ui/v2'
 
 const toNum = (v: unknown, fallback = 0) => {
   if (v === null || v === undefined) return fallback
@@ -69,226 +34,114 @@ const toNum = (v: unknown, fallback = 0) => {
   return Number.isFinite(n) ? n : fallback
 }
 
-const toBool = (v: unknown) => {
-  if (typeof v === 'boolean') return v
-  if (typeof v === 'number') return v !== 0
-  if (typeof v === 'string') return v === '1' || v.toLowerCase() === 'true'
-  return false
-}
-
-const normalizeList = (v: unknown): any[] => {
-  if (!v) return []
-  if (Array.isArray(v)) return v
-  if (typeof v !== 'string') return []
-  try {
-    const parsed = JSON.parse(v)
-    return Array.isArray(parsed) ? parsed : []
-  } catch {
-    return []
-  }
-}
-
-const pickSid = (x: any) => toNum(x?.sid, 0)
-const pickQty = (x: any) => toNum(x?.num ?? x?.amount ?? x?.count ?? 0, 0)
-
-const resolveTexturePath = (raw?: string | null): string | null => {
-  if (!raw) return null
-  const cleaned = raw.replace(/^Textures\//i, '').replace(/\.png$/i, '')
-  return `/assets/resources/textures/${cleaned.toLowerCase()}.png`
-}
-
-async function buildUsedInIndex(): Promise<UsedInIndex> {
-  const index: UsedInIndex = {}
-  let from = 0
-
-  console.log('Building used-in index...')
-
-  while (true) {
-    const to = from + USED_IN_BATCH_SIZE - 1
-    const { data, error } = await supabase
-      .from('CompositeConfig')
-      .select('id,consume')
-      .order('id', { ascending: true })
-      .range(from, to)
-
-    if (error) {
-      console.error('Error building used-in index:', error)
-      break
-    }
-
-    const rows = (data ?? []) as any[]
-    if (!rows.length) break
-
-    for (const r of rows) {
-      const targetId = toNum(r.id)
-      const consume = normalizeList(r.consume)
-
-      for (const ing of consume) {
-        const sid = pickSid(ing)
-        if (!sid) continue
-        const qty = pickQty(ing)
-
-        if (!index[sid]) index[sid] = []
-        index[sid].push({ targetId, qty })
-      }
-    }
-
-    if (rows.length < USED_IN_BATCH_SIZE) break
-    from += USED_IN_BATCH_SIZE
-  }
-
-  console.log('Used-in index built with', Object.keys(index).length, 'items')
-  return index
-}
-
-async function loadAllItemsBuffer(): Promise<ItemRow[]> {
-  const allItems: ItemRow[] = []
-
-  // limite seguro por request (compatível com teto do Supabase/PostgREST)
-  const BATCH = 1000
-
+async function loadItemCatalogIndex(): Promise<ItemCatalogIndexRow[]> {
+  const rows: ItemCatalogIndexRow[] = []
   let lastId = 0
   let guard = 0
 
-  console.log('Loading all items buffer (cursor pagination)...')
-
   while (true) {
-    // "guard" evita loop infinito se algo muito errado acontecer
     guard++
-    if (guard > 10000) {
-      console.warn('Guard stop: too many iterations. Check pagination / RLS / ordering.')
-      break
-    }
+    if (guard > 100) break
 
     const { data, error } = await supabase
       .from('ItemConfig')
-      .select('id,name,desc,type,child_type,quality,icon_path,max_num,isRare,sort_weight,compose')
+      .select('id,name,type,quality,icon_path,sort_weight,des_value')
       .gt('id', lastId)
       .order('id', { ascending: true })
-      .limit(BATCH)
+      .limit(1000)
 
-    if (error) {
-      console.error('Error loading items buffer:', error)
-      break
-    }
+    if (error) break
+    const batch = (data ?? []) as Record<string, unknown>[]
+    if (!batch.length) break
 
-    const rows = (data ?? []) as any[]
-    if (!rows.length) break
-
-    for (const r of rows) {
-      allItems.push({
+    for (const r of batch) {
+      const row: ItemCatalogIndexRow = {
         id: toNum(r.id),
-        name: r.name,
-        desc: r.desc,
-        type: r.type ?? null,
-        child_type: r.child_type ?? null,
+        name: String(r.name ?? ''),
+        type: toNum(r.type, 0),
         quality: toNum(r.quality, 0),
-        icon_path: r.icon_path ?? null,
-        max_num: r.max_num ?? null,
-        isRare: toBool(r.isRare),
+        icon_path: (r.icon_path as string | null) ?? null,
         sort_weight: toNum(r.sort_weight, 0),
-        compose: r.compose ?? null,
-      })
+        des_value: r.des_value ?? null,
+      }
+      if (isItemCatalogListed(row)) rows.push(row)
     }
 
-    const newLastId = toNum(rows[rows.length - 1]?.id, lastId)
-
-    console.log(
-      `Loaded ${allItems.length} items... (batch=${rows.length}, lastId=${newLastId})`
-    )
-
-    // se não avançou, para (evita repetir o mesmo batch)
-    if (newLastId <= lastId) {
-      console.warn('Pagination did not advance. lastId=', lastId, 'newLastId=', newLastId)
-      break
-    }
-
+    const newLastId = toNum(batch[batch.length - 1]?.id, lastId)
+    if (newLastId <= lastId) break
     lastId = newLastId
-
-    // fim natural
-    if (rows.length < BATCH) break
+    if (batch.length < 1000) break
   }
 
-  console.log(`Total items loaded: ${allItems.length}`)
-  return allItems
+  return rows
 }
 
+function collectFilterTranslationKeys(qualityTiers: number[]): string[] {
+  const keys = new Set<string>()
+  for (const tab of ITEM_BAG_TABS) keys.add(tab.nameKey)
+  for (const q of qualityTiers) keys.add(qualityNameKey(q))
+  return [...keys]
+}
 
+/** Stable empty map — avoids re-filtering catalog when sort does not use translated names. */
+const EMPTY_TRANSLATIONS: Record<string, string> = {}
 
+function translationSignature(lang: string, rows: ItemCatalogIndexRow[]): string {
+  const keys = collectItemLcKeys(rows)
+  keys.sort()
+  return `${lang}\0${keys.join('\0')}`
+}
 
 export default function ItemsClient() {
   const { lang } = useLanguage()
-  const { site, t } = useUiTranslation()
+  const { t, site } = useUiTranslation()
 
-  const [allItemsBuffer, setAllItemsBuffer] = useState<ItemRow[]>([])
-  const [types, setTypes] = useState<ItemTypeRow[]>([])
-  const [translationKeys, setTranslationKeys] = useState<string[]>([])
-
+  const [catalog, setCatalog] = useState<ItemCatalogIndexRow[]>([])
+  const [catalogReady, setCatalogReady] = useState(false)
+  const [filterTranslations, setFilterTranslations] = useState<Record<string, string>>({})
+  const [pageTranslations, setPageTranslations] = useState<Record<string, string>>({})
+  const [pageReady, setPageReady] = useState(false)
+  const [searchReady, setSearchReady] = useState(true)
   const [loading, setLoading] = useState(true)
-  const [bufferLoading, setBufferLoading] = useState(false)
 
-  // gate: só renderiza lista quando preload do buffer terminou
-  const [i18nReady, setI18nReady] = useState(false)
-
-  const [filters, setFilters] = useState({
-    itemType: '',
+  const [filters, setFilters] = useState<ItemListFilters>({
+    tab: '0',
     quality: '',
-    rarity: '',
     search: '',
   })
+  const [sortBy, setSortBy] = useState<ItemCatalogSortKey>('id')
+  const [page, setPage] = useState(1)
 
-  const [sortBy, setSortBy] = useState<'id' | 'name' | 'quality' | 'type'>('id')
+  const qualityTiers = useMemo(() => getItemQualityTiers(catalog), [catalog])
 
-  const [usedInIndex, setUsedInIndex] = useState<UsedInIndex>({})
-  const [usedInLoading, setUsedInLoading] = useState(false)
-
-  // Traduções (UI + buffer)
-  const { translations, isReady: translationsReady } = useTranslation(translationKeys)
-
-  const getT = useCallback(
-    (key?: string) => {
-      if (!key) return ''
-      return translations[key] || key
-    },
-    [translations]
+  const getFilterT = useMemo(
+    () => createTranslationGetter(filterTranslations, { lang }),
+    [filterTranslations, lang]
   )
 
-  // Buffer de itens + índice used-in + tipos em paralelo
+  const mergedTranslations = useMemo(
+    () => ({ ...filterTranslations, ...pageTranslations }),
+    [filterTranslations, pageTranslations]
+  )
+
+  const translationsForSort = sortBy === 'name' ? mergedTranslations : EMPTY_TRANSLATIONS
+  const translationsForSearch = filters.search.trim() ? mergedTranslations : EMPTY_TRANSLATIONS
+
   useEffect(() => {
     let cancelled = false
 
     const run = async () => {
-      setBufferLoading(true)
-      setUsedInLoading(true)
       setLoading(true)
       try {
-        const [buffer, idx, typesResult] = await Promise.all([
-          loadAllItemsBuffer(),
-          buildUsedInIndex(),
-          supabase
-            .from('ItemTypeConfig')
-            .select('id,itemType,name,normal_tag_name,select_tag_name')
-            .order('id'),
-        ])
-
-        const safeTypes = ((typesResult.data || []) as any[]).map((t) => ({
-          ...t,
-          id: toNum(t.id),
-        })) as ItemTypeRow[]
-
+        const index = await loadItemCatalogIndex()
         if (!cancelled) {
-          setAllItemsBuffer(buffer)
-          setUsedInIndex(idx)
-          setTypes(safeTypes)
+          setCatalog(index)
+          setCatalogReady(true)
         }
       } catch (error) {
-        console.error('Failed to load items page data:', error)
+        console.error('Failed to load item catalog:', error)
       } finally {
-        if (!cancelled) {
-          setBufferLoading(false)
-          setUsedInLoading(false)
-          setLoading(false)
-        }
+        if (!cancelled) setLoading(false)
       }
     }
 
@@ -298,198 +151,190 @@ export default function ItemsClient() {
     }
   }, [])
 
-  // ✅ Pré-calcula as chaves LC_ do buffer (evita varrer o buffer repetidamente em effects diferentes)
-  const bufferI18nKeys = useMemo(() => {
-    if (!allItemsBuffer.length) return [] as string[]
-    const keys: string[] = []
-    for (const it of allItemsBuffer) {
-      if (it.name?.startsWith('LC_')) keys.push(it.name)
-      if (it.desc?.startsWith('LC_')) keys.push(it.desc)
-    }
-    return keys
-  }, [allItemsBuffer])
-
-  // ✅ Coletar chaves de tradução (UI + tipos + qualidades + NOME + DESC do buffer inteiro)
   useEffect(() => {
-    const keys = new Set<string>()
+    if (!catalogReady) return
+    let cancelled = false
 
-    for (const k of UI_STATIC_KEYS) keys.add(k)
+    translateKeys(collectFilterTranslationKeys(qualityTiers), lang).then((map) => {
+      if (!cancelled) setFilterTranslations(map)
+    })
 
-    for (const t of types) {
-      if (t.name) keys.add(t.name)
-      if (t.normal_tag_name) keys.add(t.normal_tag_name)
-      if (t.select_tag_name) keys.add(t.select_tag_name)
+    return () => {
+      cancelled = true
+    }
+  }, [lang, catalogReady, qualityTiers])
+
+  const getItemName = useCallback(
+    (row: ItemCatalogIndexRow) => resolveItemNameFromRow(row, mergedTranslations),
+    [mergedTranslations]
+  )
+
+  const nameOfForCatalog = useCallback(
+    (row: ItemCatalogIndexRow) => resolveItemNameFromRow(row, translationsForSort),
+    [translationsForSort]
+  )
+
+  const nameOfForSearch = useCallback(
+    (row: ItemCatalogIndexRow) => resolveItemNameFromRow(row, translationsForSearch),
+    [translationsForSearch]
+  )
+
+  const filtered = useMemo(() => {
+    if (!catalogReady) return []
+    return filterCatalogIndex(catalog, {
+      tab: filters.tab,
+      quality: filters.quality,
+      search: '',
+      sortBy,
+      nameOf: nameOfForCatalog,
+    })
+  }, [catalog, catalogReady, filters.tab, filters.quality, sortBy, nameOfForCatalog])
+
+  const searchFiltered = useMemo(() => {
+    if (!catalogReady) return []
+    const search = filters.search.trim()
+    if (!search) return filtered
+    return filterCatalogIndex(catalog, {
+      tab: filters.tab,
+      quality: filters.quality,
+      search,
+      sortBy,
+      nameOf: nameOfForSearch,
+    })
+  }, [catalog, catalogReady, filtered, filters.search, filters.tab, filters.quality, sortBy, nameOfForSearch])
+
+  const visibleItems = useMemo(
+    () => searchFiltered.slice(0, page * ITEM_CATALOG_PAGE_SIZE),
+    [searchFiltered, page]
+  )
+
+  const visibleTranslationSig = useMemo(
+    () => translationSignature(lang, visibleItems),
+    [lang, visibleItems]
+  )
+
+  const visibleItemsRef = useRef(visibleItems)
+  visibleItemsRef.current = visibleItems
+
+  const hasMore = visibleItems.length < searchFiltered.length
+
+  useEffect(() => {
+    setPage(1)
+  }, [filters.tab, filters.quality, filters.search, sortBy])
+
+  useEffect(() => {
+    if (!catalogReady) return
+    let cancelled = false
+
+    const search = filters.search.trim()
+    if (!search) {
+      setSearchReady(true)
+      return () => {
+        cancelled = true
+      }
     }
 
-    for (const q of QUALITY_KEYS) keys.add(q)
+    setSearchReady(false)
+    const timer = window.setTimeout(async () => {
+      const candidates = filterCatalogIndex(catalog, {
+        tab: filters.tab,
+        quality: filters.quality,
+        search: '',
+        sortBy,
+        nameOf: (row) => row.name,
+      })
+      const keys = collectItemLcKeys(candidates)
+      if (keys.length) await preloadTranslations(lang, keys)
+      if (!cancelled) setSearchReady(true)
+    }, 350)
 
-    for (const k of bufferI18nKeys) keys.add(k)
+    return () => {
+      cancelled = true
+      window.clearTimeout(timer)
+    }
+  }, [catalog, catalogReady, filters.search, filters.tab, filters.quality, sortBy, lang])
 
-    setTranslationKeys(Array.from(keys))
-  }, [types, bufferI18nKeys])
-
-  // ✅ PRELOAD: antes de renderizar a lista, popula cache do idioma com NOME + DESC do buffer inteiro
   useEffect(() => {
+    setPageTranslations({})
+    setPageReady(false)
+  }, [lang])
+
+  useEffect(() => {
+    if (!catalogReady || !searchReady) return
     let cancelled = false
 
     const run = async () => {
-      if (!bufferI18nKeys.length) return
+      const keys = collectItemLcKeys(visibleItemsRef.current)
+      if (!keys.length) {
+        if (!cancelled) setPageReady(true)
+        return
+      }
 
-      setI18nReady(false)
-      await preloadTranslations(lang, bufferI18nKeys)
-
-      if (!cancelled) setI18nReady(true)
+      const map = await translateKeys(keys, lang)
+      if (!cancelled) {
+        setPageTranslations((prev) => ({ ...prev, ...map }))
+        setPageReady(true)
+      }
     }
 
     run()
     return () => {
       cancelled = true
     }
-  }, [lang, bufferI18nKeys])
+  }, [catalogReady, lang, searchReady, visibleTranslationSig])
 
-  const typeOptions = useMemo(() => {
-    return types.map((t) => ({
-      value: String(t.itemType),
-      label:
-        getT(t.name) ||
-        getT(t.select_tag_name) ||
-        getT(t.normal_tag_name) ||
-        String(t.itemType),
-    }))
-  }, [types, getT])
+  const handleFilterChange = useCallback((field: keyof ItemListFilters, value: string) => {
+    setFilters((prev) => ({ ...prev, [field]: value }))
+  }, [])
 
-  // ✅ Aplicar filtros/ordenação em todo o buffer
-  const processed = useMemo(() => {
-    if (!allItemsBuffer.length) return []
-
-    const search = filters.search.toLowerCase()
-
-    let result = allItemsBuffer.filter((it) => {
-      const matchesType = !filters.itemType || String(it.type ?? '') === filters.itemType
-      const matchesQuality = !filters.quality || String(it.quality ?? '') === filters.quality
-      const matchesRarity =
-        !filters.rarity ||
-        (filters.rarity === 'rare' ? toBool(it.isRare) : !toBool(it.isRare))
-
-      const name = getT(it.name).toLowerCase()
-      const matchesSearch = !search || name.includes(search)
-
-      return matchesType && matchesQuality && matchesRarity && matchesSearch
-    })
-
-    result.sort((a, b) => {
-      switch (sortBy) {
-        case 'name':
-          return getT(a.name).localeCompare(getT(b.name))
-        case 'quality':
-          return toNum(b.quality) - toNum(a.quality)
-        case 'type':
-          return String(a.type ?? '').localeCompare(String(b.type ?? ''))
-        case 'id':
-        default:
-          return a.id - b.id
-      }
-    })
-
-    return result
-  }, [allItemsBuffer, filters, getT, sortBy])
-
-  const resetFilters = () => setFilters({ itemType: '', quality: '', rarity: '', search: '' })
+  const resetFilters = useCallback(() => {
+    setFilters({ tab: '0', quality: '', search: '' })
+    setSortBy('id')
+  }, [])
 
   if (loading) {
     return (
-      <div className="panel text-center py-8">
-        <p className="text-sm text-text-muted">{getT('Loading initial data...')}</p>
-      </div>
+      <ListPagePanel>
+        <LoadingSkeleton variant="filters" />
+        <LoadingSkeleton variant="grid" count={12} />
+      </ListPagePanel>
     )
   }
 
+  const showGrid = pageReady && searchReady && visibleItems.length > 0
+  const showEmpty = pageReady && searchReady && searchFiltered.length === 0
+
   return (
     <ListPagePanel>
-      <h2 className="mb-4 text-xl font-bold tracking-wide text-foreground sm:text-2xl">
-        {t(UI_KEYS.nav.items)}
-      </h2>
+      <PageHeader title={t(UI_KEYS.item.gallery)} />
 
-      <CatalogFilterBar onClear={resetFilters} resultCount={processed.length} resultLabel={site('found')}>
-        <Select
-          label={site('category')}
-          value={filters.itemType}
-          onChange={(e) => setFilters((prev) => ({ ...prev, itemType: e.target.value }))}
-          disabled={bufferLoading}
-        >
-          <option value="">{t(UI_KEYS.filter.all)}</option>
-          {typeOptions.map((opt) => (
-            <option key={opt.value} value={opt.value}>
-              {opt.label}
-            </option>
-          ))}
-        </Select>
+      <ItemFilterBar
+        filters={filters}
+        sortBy={sortBy}
+        qualityTiers={qualityTiers}
+        onFilterChange={handleFilterChange}
+        onSortChange={setSortBy}
+        onClear={resetFilters}
+        getT={getFilterT}
+        resultCount={searchFiltered.length}
+      />
 
-        <Select
-          label={t(UI_KEYS.common.quality)}
-          value={filters.quality}
-          onChange={(e) => setFilters((prev) => ({ ...prev, quality: e.target.value }))}
-          disabled={bufferLoading}
-        >
-          <option value="">{t(UI_KEYS.filter.all)}</option>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((q) => (
-            <option key={q} value={q}>
-              {getT(`LC_COMMON_quality_name_${q}`)}
-            </option>
-          ))}
-        </Select>
-
-        <Select
-          label={site('rarity')}
-          value={filters.rarity}
-          onChange={(e) => setFilters((prev) => ({ ...prev, rarity: e.target.value }))}
-          disabled={bufferLoading}
-        >
-          <option value="">{t(UI_KEYS.filter.all)}</option>
-          <option value="rare">{site('rare')}</option>
-          <option value="normal">{site('normal')}</option>
-        </Select>
-
-        <Select
-          label={site('sortBy')}
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as 'id' | 'name' | 'quality' | 'type')}
-          disabled={bufferLoading}
-        >
-          <option value="id">{site('id')}</option>
-          <option value="name">{site('name')}</option>
-          <option value="quality">{t(UI_KEYS.common.quality)}</option>
-          <option value="type">{site('category')}</option>
-        </Select>
-
-        <Input
-          label={t(UI_KEYS.filter.search)}
-          type="text"
-          placeholder={site('searchItemPlaceholder')}
-          value={filters.search}
-          onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
-          disabled={bufferLoading}
-          className="min-w-[200px] flex-1"
-        />
-      </CatalogFilterBar>
-
-      {usedInLoading ? (
-        <p className="mb-3 text-xs text-text-muted">{site('buildingUsedInIndex')}</p>
+      {!pageReady || !searchReady ? (
+        <LoadingSkeleton variant="grid" count={12} />
+      ) : showEmpty ? (
+        <EmptyState message={t(UI_KEYS.item.notFound)} />
+      ) : showGrid ? (
+        <>
+          <ItemCatalogGrid items={visibleItems} getItemName={getItemName} />
+          {hasMore ? (
+            <div className="mt-6 flex justify-center">
+              <Button type="button" variant="secondary" onClick={() => setPage((p) => p + 1)}>
+                {site('loadMore')}
+              </Button>
+            </div>
+          ) : null}
+        </>
       ) : null}
-
-      {bufferLoading || !i18nReady || !translationsReady ? (
-        <LoadingSkeleton variant="grid" count={6} />
-      ) : (
-        <ItemsTable
-          items={processed}
-          getT={getT}
-          resolveTexturePath={resolveTexturePath}
-          lang={lang}
-          usedInIndex={usedInIndex}
-          bufferLoaded={!bufferLoading}
-          totalItems={allItemsBuffer.length}
-        />
-      )}
     </ListPagePanel>
   )
 }

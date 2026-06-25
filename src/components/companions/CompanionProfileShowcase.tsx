@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import CompanionPreviewImage from '@/components/ui/CompanionPreviewImage'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
 type CompanionProfileShowcaseProps = {
   companionId: number
@@ -23,12 +24,13 @@ export default function CompanionProfileShowcase({
   skinsId,
 }: CompanionProfileShowcaseProps) {
   const { t } = useUiTranslation()
+  const localized = useLocalizedHref()
 
   return (
     <section className="companion-profile-header">
       <div className="px-4 py-4 sm:px-6 sm:py-6">
         <Link
-          href="/companions"
+          href={localized('/companions')}
           className="mb-5 inline-flex items-center gap-1.5 text-xs font-medium text-text-muted transition hover:text-foreground sm:mb-6 sm:text-sm"
         >
           <ArrowLeft size={14} className="shrink-0" />

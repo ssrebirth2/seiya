@@ -1,5 +1,6 @@
 import { UI_KEYS } from '@/lib/i18n/ui-keys'
 import type { FunOpenIconKey } from '@/lib/game/fun-open-icons'
+import { ITEMS_SECTION_ENABLED } from '@/lib/site/site-sections'
 
 export type FunctionShortcutIcon = FunOpenIconKey | 'lucide-home'
 
@@ -14,8 +15,9 @@ export const CATALOG_SHORTCUTS: FunctionShortcutItem[] = [
   { href: '/artifacts', lcKey: UI_KEYS.nav.artifacts, icon: 'artifacts' },
   { href: '/companions', lcKey: UI_KEYS.nav.companions, icon: 'companions' },
   { href: '/force-cards', lcKey: UI_KEYS.nav.forceCards, icon: 'forceCards' },
-  // Items page incomplete — re-enable when ready:
-  // { href: '/items', lcKey: UI_KEYS.nav.items, icon: 'bag' },
+  ...(ITEMS_SECTION_ENABLED
+    ? [{ href: '/items', lcKey: UI_KEYS.nav.items, icon: 'bag' as const }]
+    : []),
 ]
 
 export const TOOLS_SHORTCUTS: FunctionShortcutItem[] = [

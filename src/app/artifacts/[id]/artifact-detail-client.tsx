@@ -6,6 +6,7 @@ import { useParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { useLanguage } from '@/context/language-context'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import { LoadingSkeleton, QualityBadge, StatGrid, DetailPageShell } from '@/components/ui/v2'
 import { SetPageMeta } from '@/lib/ui/usePageMeta'
@@ -49,6 +50,7 @@ export default function ArtifactDetailClient() {
   const { id } = useParams()
   const artifactId = parseInt(id as string)
   const { lang } = useLanguage()
+  const localized = useLocalizedHref()
   const { t, site } = useUiTranslation()
 
   const [artifact, setArtifact] = useState<any>(null)
@@ -233,7 +235,7 @@ export default function ArtifactDetailClient() {
     return (
       <div className="panel py-12 text-center">
         <p className="mb-4 text-text-muted">{site('artifactNotFound')}</p>
-        <Link href="/artifacts" className="btn-secondary inline-flex items-center gap-2">
+        <Link href={localized('/artifacts')} className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
           {t(UI_KEYS.common.loginBack)}
         </Link>

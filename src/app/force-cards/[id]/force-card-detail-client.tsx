@@ -7,20 +7,26 @@ import { ArrowLeft } from 'lucide-react'
 import { supabase } from '@/lib/supabase-client'
 import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-package'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
-import { forceCardQualityNameKey, SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
+import { forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
 import { useLanguage } from '@/context/language-context'
-import { applySkillValues, formatDisplayText } from '@/lib/game/apply-skill-values'
-import { normalizeForceCardConditionList } from '@/lib/game/parse-game-data'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { isForceCardListed } from '@/lib/game/hidden-force-card-ids'
+import {
+  buildForceCardRestrictionChips,
+  collectRestrictionTranslationKeys,
+} from '@/lib/game/force-card-equip'
+import { applySkillValues } from '@/lib/game/apply-skill-values'
 import ForceCardTabsContainer from '@/components/force-cards/ForceCardTabsContainer'
-import ForceCardImage from '@/components/ui/ForceCardImage'
-import { LoadingSkeleton, QualityBadge, StatGrid, DetailPageShell } from '@/components/ui/v2'
+import ForceCardOverview from '@/components/force-cards/ForceCardOverview'
+import { ForceCardDetailHeader } from '@/components/force-cards/ForceCardDetailHeader'
+import { LoadingSkeleton, DetailPageShell } from '@/components/ui/v2'
 import { SetPageMeta } from '@/lib/ui/usePageMeta'
 
 export default function ForceCardDetailClient() {
   const { id } = useParams()
   const cardId = Number(id)
   const { lang } = useLanguage()
+  const localized = useLocalizedHref()
   const { t, site } = useUiTranslation()
 
   const [item, setItem] = useState<any>(null)
@@ -102,12 +108,8 @@ export default function ForceCardDetailClient() {
         const keys = new Set<string>()
         if (itemRow?.name) keys.add(itemRow.name)
         if (itemRow?.desc) keys.add(itemRow.desc)
-        if (itemRow?.quality)
-          keys.add(forceCardQualityNameKey(itemRow.quality))
-
-        normalizeForceCardConditionList(infoRow?.condition).forEach(({ type, object_id }) => {
-          object_id.forEach((oid) => keys.add(`LC_HERO_${type}_${oid}`))
-        })
+        if (itemRow?.quality) keys.add(forceCardQualityNameKey(itemRow.quality))
+        collectRestrictionTranslationKeys(infoRow?.condition).forEach((key) => keys.add(key))
 
         const translated = await translateKeys(Array.from(keys), lang)
         setTranslations(translated)
@@ -121,40 +123,15 @@ export default function ForceCardDetailClient() {
     loadForceCardData()
   }, [cardId, lang, parseIds])
 
-  const restrictionHtml = useMemo(() => {
-    const specialFields = ['occupation', 'stance', 'damagetype', 'camp']
-    const rendered: string[] = []
+  const restrictionChips = useMemo(
+    () => buildForceCardRestrictionChips(info?.condition, lang),
+    [info?.condition, lang]
+  )
 
-    normalizeForceCardConditionList(info?.condition).forEach(({ type, object_id }) => {
-      if (!specialFields.includes(type)) return
-      object_id.forEach((oid) => {
-        const labelKey = `LC_HERO_${type}_${oid}`
-        const text = formatDisplayText(getT(labelKey), 0, {})
-        if (text) rendered.push(text)
-      })
-    })
+  const storyHtml = item?.desc ? applySkillValues(getT(item.desc), 0, {}) : undefined
 
-    return rendered.join(', ')
-  }, [info, translations, getT])
-
-  const qualityLabel = item ? getT(forceCardQualityNameKey(item.quality)) : ''
-
-  const statEntries = useMemo(() => {
-    if (!item) return []
-    const entries: { key: string; label: string; value: string; html?: boolean }[] = []
-
-    if (qualityLabel)
-      entries.push({ key: 'quality', label: t(UI_KEYS.common.quality), value: qualityLabel })
-    if (restrictionHtml) {
-      entries.push({
-        key: 'restriction',
-        label: t(UI_KEYS.forceCard.restriction),
-        value: restrictionHtml,
-        html: true,
-      })
-    }
-    return entries
-  }, [item, qualityLabel, restrictionHtml, t, site])
+  const hasProgressionTabs =
+    starUps.length > 0 || levels.length > 0 || awakens.length > 0 || reborns.length > 0
 
   if (isLoading) {
     return <LoadingSkeleton variant="detail" />
@@ -164,7 +141,7 @@ export default function ForceCardDetailClient() {
     return (
       <div className="panel py-12 text-center">
         <p className="mb-4 text-text-muted">{site('cardNotFound')}</p>
-        <Link href="/force-cards" className="btn-secondary inline-flex items-center gap-2">
+        <Link href={localized('/force-cards')} className="btn-secondary inline-flex items-center gap-2">
           <ArrowLeft size={16} />
           {t(UI_KEYS.common.loginBack)}
         </Link>
@@ -180,56 +157,29 @@ export default function ForceCardDetailClient() {
         backLabel={t(UI_KEYS.common.loginBack)}
         title={getT(item.name)}
         header={
-          <section className="panel">
-            <div className="grid gap-6 md:grid-cols-[minmax(0,220px)_1fr] md:items-center">
-              <ForceCardImage
-                cardId={item.id}
-                quality={item.quality}
-                alt={getT(item.name)}
-                className="mx-auto w-48 sm:w-56 md:w-full"
-              />
-              <div className="text-center md:text-left">
-                <div className="mb-3 flex flex-wrap items-center justify-center gap-2 md:justify-start">
-                  {item.quality != null ? <QualityBadge quality={item.quality} /> : null}
-                  <span className="text-xs text-text-muted">ID {item.id}</span>
-                </div>
-                <h1 className="font-display text-3xl font-bold leading-tight sm:text-4xl">
-                  {getT(item.name)}
-                </h1>
-              </div>
-            </div>
-          </section>
-        }
-        stats={
-          statEntries.length > 0 ? (
-            <StatGrid title={t(UI_KEYS.common.baseAttribute)} entries={statEntries} />
-          ) : null
+          <ForceCardDetailHeader
+            cardId={item.id}
+            quality={item.quality}
+            name={getT(item.name)}
+            storyHtml={storyHtml}
+            restrictionChips={restrictionChips}
+            getT={getT}
+          />
         }
       >
-        {item.desc && (
-          <section className="panel">
-            <div
-              className="text-sm leading-relaxed text-text-muted"
-              dangerouslySetInnerHTML={{
-                __html: applySkillValues(getT(item.desc), 0, {}),
-              }}
-            />
-          </section>
-        )}
-
-        {info ? (
+        {info?.card_star ? (
+          <ForceCardOverview info={info} getT={getT} />
+        ) : null}
+        {hasProgressionTabs ? (
           <ForceCardTabsContainer
             info={info}
             starUps={starUps}
             levels={levels}
             awakens={awakens}
             reborns={reborns}
+            cardQuality={item.quality != null ? Number(item.quality) : undefined}
           />
-        ) : (
-          <section className="panel text-center text-sm text-text-muted">
-            No progression data available for this card.
-          </section>
-        )}
+        ) : null}
       </DetailPageShell>
     </>
   )

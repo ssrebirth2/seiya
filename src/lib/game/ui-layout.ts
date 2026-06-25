@@ -4,6 +4,7 @@
 import type { CSSProperties } from 'react'
 import squareHeroHeadLayout from '../../data/ui-layouts/square-hero-head.json'
 import includeInfoLayout from '../../data/ui-layouts/include-info-square-hero-head.json'
+import squareDynamisLayout from '../../data/ui-layouts/square-dynamis-item.json'
 
 export type AbsoluteRect = {
   left: number
@@ -31,6 +32,19 @@ export type PrefabLayoutFile = {
 
 export const SQUARE_HERO_HEAD = squareHeroHeadLayout as PrefabLayoutFile
 export const INCLUDE_INFO_SQUARE_HERO_HEAD = includeInfoLayout as PrefabLayoutFile
+export const SQUARE_DYNAMIS_ITEM = squareDynamisLayout as PrefabLayoutFile
+
+/** goTable keys — UISquareDynamisItem.lua Init() */
+export const SQUARE_DYNAMIS_GO = {
+  cardIcon: '@_aorimage_cardIcon',
+  qualityBg: '@_aorimage_qualityBg',
+  levelBg: '@_aorimage_levelBg',
+  starGroup: '@_aorimage_StarGroupItem',
+  limitBtn: '@_aorimage_limitBtn',
+} as const
+
+const DYNAMIS_W = 145
+const DYNAMIS_H = 145
 
 /** goTable keys — UISquareHeroItem.lua Init() */
 export const SQUARE_HERO_GO = {
@@ -199,4 +213,57 @@ export function squareHeroHeadSlotStyle(options?: { headOnly?: boolean }): CSSPr
 
 export function squareHeroHeadDesignSize(): number {
   return HEAD_W
+}
+
+function dynamisPaintIndex(nodeName: string): number {
+  const node = getNode(SQUARE_DYNAMIS_ITEM, nodeName)
+  if (!node) return 0
+  if (node.parentName) {
+    return dynamisPaintIndex(node.parentName) + 1 + (node.siblingIndex ?? 0)
+  }
+  return node.siblingIndex ?? 0
+}
+
+/** Visual back-to-front — Unity sibling index does not match browser stacking for qualityBg vs cardIcon. */
+export const SQUARE_DYNAMIS_LAYER_Z = {
+  qualityBg: 1,
+  cardIcon: 2,
+  levelBg: 3,
+} as const
+
+export function squareDynamisGoStyle(goKey: keyof typeof SQUARE_DYNAMIS_GO): CSSProperties {
+  const nodeName = SQUARE_DYNAMIS_GO[goKey]
+  const rect = getAbsolute(SQUARE_DYNAMIS_ITEM, nodeName)
+  if (!rect) return { display: 'none' }
+  return {
+    ...absoluteToCss(rect, DYNAMIS_W, DYNAMIS_H),
+    zIndex: dynamisPaintIndex(nodeName),
+  }
+}
+
+export function squareDynamisLayerStyle(
+  goKey: keyof typeof SQUARE_DYNAMIS_GO,
+  layerZ: number
+): CSSProperties {
+  const base = squareDynamisGoStyle(goKey)
+  if (base.display === 'none') return base
+  return { ...base, zIndex: layerZ }
+}
+
+export function squareDynamisArtStyle(): CSSProperties {
+  return {
+    position: 'relative',
+    width: '100%',
+    aspectRatio: `${DYNAMIS_W} / ${DYNAMIS_H}`,
+    flexShrink: 0,
+  }
+}
+
+/** @deprecated use squareDynamisArtStyle — art slot only */
+export function squareDynamisRootStyle(): CSSProperties {
+  return squareDynamisArtStyle()
+}
+
+export function squareDynamisDesignSize(): number {
+  return DYNAMIS_W
 }

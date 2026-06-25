@@ -10,6 +10,7 @@ type Props = { info: any }
 
 export default function ForceCardStats({ info }: Props) {
   const { lang } = useLanguage()
+  const { t } = useUiTranslation()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [developData, setDevelopData] = useState<Record<number, any[]>>({})
   const [levelTable, setLevelTable] = useState<any[]>([])
@@ -169,9 +170,7 @@ export default function ForceCardStats({ info }: Props) {
         </div>
       ) : (
         <p className="text-sm opacity-70 text-center py-6">
-          {computedStats.length === 0
-            ? 'No attribute data available.'
-            : 'No experience data available.'}
+          {t(UI_KEYS.forceCard.noProgressionData)}
         </p>
       )}
     </div>
@@ -197,22 +196,23 @@ function Controls({
   setLevel: (n: number) => void
   maxLevel: number
 }) {
+  const { t } = useUiTranslation()
   const clamp = (v: number, min: number, max: number) => Math.min(Math.max(v, min), max)
   return (
     <div className="flex flex-wrap gap-6 items-end rounded-xl p-4 bg-panel-hover">
       <div>
         <label className="block text-xs mb-1 opacity-80 font-semibold uppercase tracking-wide">
-          Star Level
+          {t(UI_KEYS.forceCard.starLevel)}
         </label>
         <select
-          aria-label="Select star level"
+          aria-label={t(UI_KEYS.forceCard.starLevel)}
           value={star}
           onChange={(e) => setStar(Number(e.target.value))}
           className="w-24 h-10 rounded-xl px-3 bg-panel border border-panel-border font-semibold"
         >
           {Array.from({ length: Math.max(1, starCount || 1) }, (_, i) => (
             <option key={i + 1} value={i + 1}>
-              {i + 1} ?
+              {i + 1}
             </option>
           ))}
         </select>
@@ -220,7 +220,7 @@ function Controls({
 
       <div>
         <label className="block text-xs mb-1 opacity-80 font-semibold uppercase tracking-wide">
-          Level (Max: {maxLevel})
+          {t(UI_KEYS.common.heroLv).replace('{0}', String(maxLevel))}
         </label>
         <input
           aria-label="Set level"
@@ -250,7 +250,7 @@ function AttributeTable({
       <table className="w-full text-sm border border-panel-border rounded-lg overflow-hidden table-auto">
         <thead className="bg-panel-hover text-xs uppercase tracking-wider">
           <tr>
-            <th className="px-2 py-2 text-left font-semibold w-[35%]">Attribute</th>
+            <th className="px-2 py-2 text-left font-semibold w-[35%]">{t(UI_KEYS.common.baseAttribute)}</th>
             <th className="px-2 py-2 text-right font-semibold w-[20%]">Base</th>
             <th className="px-2 py-2 text-right font-semibold w-[20%]">+ per Lv</th>
             <th className="px-2 py-2 text-right font-semibold w-[25%]">Total</th>

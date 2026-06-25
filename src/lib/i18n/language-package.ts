@@ -4,7 +4,10 @@ import { NO_DATA_LC_KEY } from './ui-keys'
 
 const translationCache: Record<string, Record<string, string>> = {}
 const CHUNK_SIZE = 200
+/** Browsers cap ~6 concurrent connections per host; unbounded chunk fan-out causes Failed to fetch. */
+const MAX_CONCURRENT_CHUNKS = 4
 const FALLBACK_LANG = 'CN'
+const inflightChunks = new Map<string, Promise<void>>()
 const FALLBACK_NOT_AVAILABLE = 'Not available'
 
 /** @deprecated Prefer localized text via createTranslationGetter / useUiTranslation noData */
@@ -46,6 +49,52 @@ function chunk<T>(arr: T[], size: number): T[][] {
   return out
 }
 
+async function mapPool<T>(
+  items: T[],
+  limit: number,
+  worker: (item: T) => Promise<void>
+): Promise<void> {
+  if (!items.length) return
+  const queue = [...items]
+  const runners = Array.from({ length: Math.min(limit, queue.length) }, async () => {
+    while (queue.length) {
+      const item = queue.shift()
+      if (item != null) await worker(item)
+    }
+  })
+  await Promise.all(runners)
+}
+
+async function fetchTranslationChunk(lang: string, part: string[]): Promise<void> {
+  const table = `LanguagePackage_${lang}`
+  if (!translationCache[lang]) translationCache[lang] = {}
+
+  const needed = part.filter((k) => translationCache[lang][k] == null)
+  if (!needed.length) return
+
+  const sig = `${table}\0${needed.join('\0')}`
+  const inflight = inflightChunks.get(sig)
+  if (inflight) return inflight
+
+  const promise = (async () => {
+    const { data, error } = await supabase.from(table).select('*').in('key', needed)
+
+    if (error) {
+      console.error(`[translations] ${table}:`, error)
+      return
+    }
+
+    for (const row of (data as { key: string; value?: string; text?: string }[]) || []) {
+      translationCache[lang][row.key] = pickText(row) ?? row.key
+    }
+  })().finally(() => {
+    inflightChunks.delete(sig)
+  })
+
+  inflightChunks.set(sig, promise)
+  return promise
+}
+
 function pickText(row: { key?: string; value?: string; text?: string }): string | null {
   if (!row) return null
   if (typeof row.value === 'string' && row.value.length) return row.value
@@ -66,25 +115,13 @@ export function normalizeTranslationKeys(keys: string[]) {
 async function ensureTranslationsLoaded(lang: string, keys: string[]): Promise<void> {
   if (!keys.length) return
 
-  const table = `LanguagePackage_${lang}`
   if (!translationCache[lang]) translationCache[lang] = {}
 
   const uncached = keys.filter((k) => translationCache[lang][k] == null)
   if (!uncached.length) return
 
-  await Promise.all(
-    chunk(uncached, CHUNK_SIZE).map(async (part) => {
-      const { data, error } = await supabase.from(table).select('*').in('key', part)
-
-      if (error) {
-        console.error(`[translations] ${table}:`, error)
-        return
-      }
-
-      for (const row of (data as { key: string; value?: string; text?: string }[]) || []) {
-        translationCache[lang][row.key] = pickText(row) ?? row.key
-      }
-    })
+  await mapPool(chunk(uncached, CHUNK_SIZE), MAX_CONCURRENT_CHUNKS, (part) =>
+    fetchTranslationChunk(lang, part)
   )
 }
 

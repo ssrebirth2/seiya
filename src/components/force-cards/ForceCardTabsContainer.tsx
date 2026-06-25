@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 interface ForceCardProgressionProps {
-  info: any
   starUps: any[]
-  reborns?: any[]
+  awakens?: any[]
+  cardQuality?: number
 }
 
 interface ForceCardStatsProps {
@@ -15,22 +15,21 @@ interface ForceCardStatsProps {
   levels: any[]
 }
 
-interface ForceCardAwakenProps {
-  awakens: any[]
+interface ForceCardRebornProps {
+  reborns: any[]
+  cardQuality?: number
 }
 
-const ForceCardStats = dynamic<ForceCardStatsProps>(
-  () => import('./ForceCardStats'),
-  { ssr: false }
-)
+const ForceCardStats = dynamic<ForceCardStatsProps>(() => import('./ForceCardStats'), {
+  ssr: false,
+})
 const ForceCardProgression = dynamic<ForceCardProgressionProps>(
   () => import('./ForceCardProgression'),
   { ssr: false }
 )
-const ForceCardAwaken = dynamic<ForceCardAwakenProps>(
-  () => import('./ForceCardAwaken'),
-  { ssr: false }
-)
+const ForceCardReborn = dynamic<ForceCardRebornProps>(() => import('./ForceCardReborn'), {
+  ssr: false,
+})
 
 interface ForceCardTabsContainerProps {
   info: any
@@ -38,85 +37,65 @@ interface ForceCardTabsContainerProps {
   levels: any[]
   awakens: any[]
   reborns?: any[]
+  cardQuality?: number
 }
 
-type TabKey = 'progression' | 'stats' | 'awaken'
-
-function useForceCardDataReady(
-  info: any,
-  starUps: any[],
-  levels: any[],
-  awakens: any[],
-  reborns?: any[]
-) {
-  const [ready, setReady] = useState(false)
-
-  useEffect(() => {
-    const isValid = (arr: any[]) => Array.isArray(arr) && arr.length > 0
-    const hasData =
-      info &&
-      Object.keys(info).length > 0 &&
-      (isValid(starUps) ||
-        isValid(levels) ||
-        isValid(awakens) ||
-        isValid(reborns ?? []))
-    setReady(hasData)
-  }, [info, starUps, levels, awakens, reborns])
-
-  return ready
-}
+type TabKey = 'progression' | 'stats' | 'reborn'
 
 export default function ForceCardTabsContainer({
   info,
   starUps,
   levels,
   awakens,
-  reborns,
+  reborns = [],
+  cardQuality,
 }: ForceCardTabsContainerProps) {
-  const { t, site } = useUiTranslation()
+  const { t } = useUiTranslation()
   const [activeTab, setActiveTab] = useState<TabKey>('progression')
-  const isReady = useForceCardDataReady(info, starUps, levels, awakens, reborns)
+
+  const hasStarUps = Array.isArray(starUps) && starUps.length > 0
+  const hasLevels = Array.isArray(levels) && levels.length > 0
+  const hasAwakens = Array.isArray(awakens) && awakens.length > 0
+  const hasReborns = Array.isArray(reborns) && reborns.length > 0
+  const hasProgression = hasStarUps || hasAwakens
+
+  const tabs = useMemo(() => {
+    const list: { key: TabKey; label: string }[] = []
+    if (hasProgression) list.push({ key: 'progression', label: t(UI_KEYS.forceCard.progressionTab) })
+    if (hasLevels) list.push({ key: 'stats', label: t(UI_KEYS.forceCard.attributesTab) })
+    if (hasReborns) list.push({ key: 'reborn', label: t(UI_KEYS.forceCard.rebornTab) })
+    return list
+  }, [hasProgression, hasLevels, hasReborns, t])
+
+  useEffect(() => {
+    if (!tabs.some((tab) => tab.key === activeTab)) {
+      setActiveTab(tabs[0]?.key ?? 'progression')
+    }
+  }, [tabs, activeTab])
 
   useEffect(() => {
     const storedTab = localStorage.getItem('forceCardActiveTab') as TabKey | null
-    if (storedTab && ['progression', 'stats', 'awaken'].includes(storedTab)) {
+    if (storedTab && tabs.some((tab) => tab.key === storedTab)) {
       setActiveTab(storedTab)
     }
-  }, [])
+  }, [tabs])
 
   useEffect(() => {
     localStorage.setItem('forceCardActiveTab', activeTab)
   }, [activeTab])
 
-  const tabs = useMemo(
-    () => [
-      { key: 'progression' as TabKey, label: t(UI_KEYS.forceCard.progressionTab) },
-      { key: 'stats' as TabKey, label: t(UI_KEYS.forceCard.attributesTab) },
-      { key: 'awaken' as TabKey, label: t(UI_KEYS.forceCard.awakenTab) },
-    ],
-    [t]
-  )
-
-  const handleTabClick = (key: TabKey) => {
-    if (activeTab === key) return
-    setActiveTab(key)
-  }
-
-  if (!isReady) {
+  if (!tabs.length) {
     return (
-      <div className="flex justify-center py-10">
-        <div className="flex flex-col items-center gap-3">
-          <div className="spinner h-6 w-6" />
-          <p className="text-xs text-text-muted">{site('loadingForceCard')}</p>
-        </div>
-      </div>
+      <section className="panel text-center text-sm text-text-muted">
+        {t(UI_KEYS.forceCard.noProgressionData)}
+      </section>
     )
   }
 
   return (
-    <section>
+    <section className="surface panel overflow-hidden !p-0">
       <nav
-        className="detail-tabs-sticky border-b border-panel-border px-3 sm:px-4"
+        className="detail-tabs-sticky border-b border-panel-border px-4"
         role="tablist"
         aria-label={t(UI_KEYS.forceCard.cardDetail)}
       >
@@ -127,7 +106,7 @@ export default function ForceCardTabsContainer({
               type="button"
               role="tab"
               aria-selected={activeTab === key}
-              onClick={() => handleTabClick(key)}
+              onClick={() => setActiveTab(key)}
               className={`tab-btn shrink-0 whitespace-nowrap ${
                 activeTab === key ? 'tab-btn-active' : 'tab-btn-inactive'
               }`}
@@ -138,17 +117,17 @@ export default function ForceCardTabsContainer({
         </div>
       </nav>
 
-      <div className="relative min-h-[240px] p-4 sm:p-6">
+      <div className="relative min-h-[240px] p-4">
         <div className={activeTab === 'progression' ? 'block' : 'hidden'}>
-          <ForceCardProgression info={info} starUps={starUps} reborns={reborns} />
+          <ForceCardProgression starUps={starUps} awakens={awakens} cardQuality={cardQuality} />
         </div>
 
         <div className={activeTab === 'stats' ? 'block' : 'hidden'}>
           <ForceCardStats info={info} levels={levels} />
         </div>
 
-        <div className={activeTab === 'awaken' ? 'block' : 'hidden'}>
-          <ForceCardAwaken awakens={awakens} />
+        <div className={activeTab === 'reborn' ? 'block' : 'hidden'}>
+          <ForceCardReborn reborns={reborns} cardQuality={cardQuality} />
         </div>
       </div>
     </section>

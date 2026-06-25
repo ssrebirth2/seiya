@@ -28,6 +28,13 @@
   --quality-ssr: #a855f7;
   --quality-ur: #c9a227;
 
+  /* GameDefine.DynamisNameColor — force card tiers (Green/Blue/Purple/Orange/Red) */
+  --dynamis-quality-green: #83e496;
+  --dynamis-quality-blue: #7caaff;
+  --dynamis-quality-purple: #bf9af7;
+  --dynamis-quality-orange: #f59f3a;
+  --dynamis-quality-red: #ff655b;
+
   --destructive: #dc2626;
   --destructive-hover: #b91c1c;
   --destructive-fg: #ffffff;
@@ -40,6 +47,14 @@
   --icon-force: #4ade80;
   --icon-tool: #b794f6;
   --icon-discord: #5865f2;
+
+  /* SquareItem reference context (consume/materials) — 50% of native game px */
+  --item-ui-display-scale: 0.5;
+  --item-frame-native-sm: 160;
+  --item-frame-native-lg-w: 212;
+  --item-frame-native-lg-h: 284;
+  --item-qty-color: #ffffff;
+  --item-qty-stroke: rgba(0, 0, 0, 0.88);
 
   --scrollbar-size: 0.375rem;
   --scrollbar-size-thin: 0.25rem;

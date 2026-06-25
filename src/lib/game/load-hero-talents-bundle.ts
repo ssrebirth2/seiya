@@ -2,6 +2,7 @@ import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import { itemIconUrl } from '@/lib/game/resolve-item-icon'
 import { supabase } from '@/lib/supabase-client'
 import { translateKeys, NOT_AVAILABLE_LABEL, isMissingLcTranslation } from '@/lib/i18n/language-package'
+import { translateItemConfigNames } from '@/lib/game/item-i18n'
 import type { HeroTalentsData } from '@/lib/game/talent-types'
 import { loadHeroTalents } from '@/lib/game/load-hero-talents'
 import { skillTypeLcKey } from '@/lib/game/format-skill-labels'
@@ -13,7 +14,10 @@ import { loadSkillValues } from '@/lib/game/apply-skill-values'
 
 export interface ConsumeRefEntity {
   name: string
+  nameKey: string
   iconUrl: string
+  iconPath?: string | null
+  quality?: number
 }
 
 export type ConsumeRefMap = Record<string, ConsumeRefEntity>
@@ -58,28 +62,55 @@ async function loadConsumeRefMap(
     ...new Set(items.filter((i) => i.type && i.type !== 'prop').map((i) => i.type!)),
   ]
 
-  const itemById = new Map<number, { name: string; icon_path?: string | null }>()
+  const itemById = new Map<
+    number,
+    { name: string; nameKey: string; icon_path?: string | null; quality?: number | null }
+  >()
   if (numericIds.length) {
     const { data } = await supabase
       .from('ItemConfig')
-      .select('id, name, icon_path')
+      .select('id, name, icon_path, quality, des_value')
       .in('id', numericIds)
     const rows = data || []
-    const tmap = await translateKeys(rows.map((r) => String((r as { name: string }).name)), lang)
+    const itemNames = await translateItemConfigNames(
+      rows.map((r) => ({
+        id: (r as { id: number }).id,
+        name: String((r as { name: string }).name),
+        des_value: (r as { des_value?: unknown }).des_value,
+      })),
+      lang
+    )
     for (const row of rows) {
-      const r = row as { id: number; name: string; icon_path?: string | null }
-      itemById.set(r.id, { name: tmap[r.name] || r.name, icon_path: r.icon_path })
+      const r = row as { id: number; name: string; icon_path?: string | null; quality?: number | null }
+      const resolved = itemNames.get(r.id)
+      itemById.set(r.id, {
+        name: resolved?.name ?? r.name,
+        nameKey: resolved?.nameKey ?? r.name,
+        icon_path: r.icon_path,
+        quality: r.quality != null ? Number(r.quality) : undefined,
+      })
     }
   }
 
-  const moneyById = new Map<string, { name: string; icon_path?: string | null }>()
+  const moneyById = new Map<
+    string,
+    { name: string; nameKey: string; icon_path?: string | null; quality?: number | null }
+  >()
   if (moneyTypes.length) {
-    const { data } = await supabase.from('MoneyConfig').select('id, name, icon_path').in('id', moneyTypes)
+    const { data } = await supabase
+      .from('MoneyConfig')
+      .select('id, name, icon_path, quality')
+      .in('id', moneyTypes)
     const rows = data || []
     const tmap = await translateKeys(rows.map((r) => String((r as { name: string }).name)), lang)
     for (const row of rows) {
-      const r = row as { id: string; name: string; icon_path?: string | null }
-      moneyById.set(r.id, { name: tmap[r.name] || r.name, icon_path: r.icon_path })
+      const r = row as { id: string; name: string; icon_path?: string | null; quality?: number | null }
+      moneyById.set(r.id, {
+        name: tmap[r.name] || r.name,
+        nameKey: r.name,
+        icon_path: r.icon_path,
+        quality: r.quality != null ? Number(r.quality) : undefined,
+      })
     }
   }
 
@@ -90,21 +121,32 @@ async function loadConsumeRefMap(
     if (item.type === 'prop' && item.sid) {
       const ref = itemById.get(item.sid)
       map[key] = {
-        name: ref?.name ?? `Item #${item.sid}`,
+        name: ref?.name ?? `#${item.sid}`,
+        nameKey: ref?.nameKey ?? String(item.sid),
         iconUrl: itemIconUrl(ref?.icon_path),
+        iconPath: ref?.icon_path,
+        quality: ref?.quality ?? undefined,
       }
       continue
     }
 
     if (item.type && moneyById.has(item.type)) {
       const ref = moneyById.get(item.type)!
-      map[key] = { name: ref.name, iconUrl: itemIconUrl(ref.icon_path) }
+      map[key] = {
+        name: ref.name,
+        nameKey: ref.nameKey,
+        iconUrl: itemIconUrl(ref.icon_path),
+        iconPath: ref.icon_path,
+        quality: ref?.quality ?? undefined,
+      }
       continue
     }
 
     map[key] = {
       name: item.sid ? `#${item.sid}` : item.type || 'Unknown',
+      nameKey: item.type ?? String(item.sid ?? 'unknown'),
       iconUrl: itemIconUrl(null),
+      quality: undefined,
     }
   }
 

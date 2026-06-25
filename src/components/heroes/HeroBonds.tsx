@@ -7,14 +7,18 @@ import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-pack
 import {
   applySkillValues,
   loadSkillValues,
-  setupGlobalSkillTooltips
+  setupGlobalSkillTooltips,
 } from '@/lib/game/apply-skill-values'
 import {
   normalizeConditionList,
   normalizeDesValueList,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
-import { resolveSkillTypeLabel, skillTypeLcKey, isNotAvailableLabel } from '@/lib/game/format-skill-labels'
+import {
+  resolveSkillTypeLabel,
+  skillTypeLcKey,
+  isNotAvailableLabel,
+} from '@/lib/game/format-skill-labels'
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 import { NO_DATA_LC_KEY, UI_KEYS } from '@/lib/i18n/ui-keys'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
@@ -22,22 +26,76 @@ import Link from 'next/link'
 import GameImage from '@/components/ui/GameImage'
 import { circleHeroHeadUrl } from '@/lib/assets/game-images'
 import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { SkillDetailCard, type SkillDetailLine } from './SkillDetailCard'
+import { HeroBondsSection } from './bonds/HeroBondsSection'
+import { HeroBondsComboCard, type ComboParticipation } from './bonds/HeroBondsComboCard'
+import { HeroBondsBondCard } from './bonds/HeroBondsBondCard'
+import {
+  fetchPartnerComboSkillsForHero,
+  parseHeroRelationHeroIds,
+  type HeroRelationComboRow,
+} from '@/lib/game/hero-relation-combos'
 
 interface HeroBondsProps {
   heroId: number
+}
+
+type ComboDisplay = {
+  row: HeroRelationComboRow
+  participation: ComboParticipation
+  launcherId: number
+  partnerIds: number[]
+}
+
+function safeParse(v: unknown): unknown[] {
+  if (!v) return []
+  try {
+    if (typeof v === 'string') return JSON.parse(v)
+    if (Array.isArray(v)) return v
+    if (typeof v === 'object' && v !== null && ('des' in v || 'value' in v)) return [v]
+  } catch {
+    return []
+  }
+  return []
+}
+
+function collectSkillTranslationKeys(
+  skills: Record<string, unknown>[],
+  tkeys: Set<string>,
+  usedValueIds: Set<number>,
+  labelIds: Set<number>
+) {
+  for (const s of skills) {
+    if (typeof s.name === 'string' && s.name.startsWith('LC_')) tkeys.add(s.name)
+    if (s.skill_type) {
+      const typeKey = skillTypeLcKey(s.skill_type)
+      if (typeKey) tkeys.add(typeKey)
+    }
+    parsePrimitiveList(s.label_list).forEach((l) => labelIds.add(Number(l)))
+    for (const f of ['skill_des', 'skill_sketch'] as const) {
+      normalizeDesValueList(s[f]).forEach((it) => {
+        if (it.des) tkeys.add(it.des)
+        if (it.value != null) usedValueIds.add(Number(it.value))
+      })
+    }
+    normalizeConditionList(s.skill_condition).forEach((c) => tkeys.add(c))
+  }
 }
 
 export default function HeroBonds({ heroId }: HeroBondsProps) {
   const { lang } = useLanguage()
   const { t } = useUiTranslation()
   const { data: iconMap } = useHeroHeadIconMap()
+  const localized = useLocalizedHref()
   const [translations, setTranslations] = useState<Record<string, string>>({})
-  const [relation, setRelation] = useState<any | null>(null)
-  const [fetters, setFetters] = useState<any[]>([])
-  const [combineSkills, setCombineSkills] = useState<any[]>([])
-  const [combineStates, setCombineStates] = useState<any[]>([])
-  const [combineSkillData, setCombineSkillData] = useState<Map<string, any>>(new Map())
+  const [relation, setRelation] = useState<Record<string, unknown> | null>(null)
+  const [fetters, setFetters] = useState<Record<string, unknown>[]>([])
+  const [comboDisplays, setComboDisplays] = useState<ComboDisplay[]>([])
+  const [combineStates, setCombineStates] = useState<HeroRelationComboRow[]>([])
+  const [combineSkillData, setCombineSkillData] = useState<Map<string, Record<string, unknown>>>(
+    new Map()
+  )
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
   const [labelMap, setLabelMap] = useState<Record<number, string>>({})
   const [attributeList, setAttributeList] = useState<string[]>([])
@@ -46,44 +104,31 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
 
   const lcKeysRef = useRef<string[]>([])
   const labelRecordsRef = useRef<{ id: number; name: string }[]>([])
-  const usedValueIdsRef = useRef<number[]>([])
-
-  // -------------------------------
-  // Helpers
-  // -------------------------------
-  const safeParse = (v: any): any[] => {
-    if (!v) return []
-    try {
-      if (typeof v === 'string') return JSON.parse(v)
-      if (Array.isArray(v)) return v
-      if (typeof v === 'object' && (v.des || v.value)) return [v]
-    } catch {
-      return []
-    }
-    return []
-  }
 
   const getT = createTranslationGetter(translations, { lang })
   const noDataLabel = getT(NO_DATA_LC_KEY)
 
-  const renderHeroIcons = (ids: number[], size = 48) => (
-    <div className="flex justify-center gap-2 mb-2">
+  const renderBondPortraits = (ids: number[]) => (
+    <div className="hero-bonds-portraits hero-bonds-portraits--sm">
       {ids.map((id) => (
-          <Link key={id} href={`/heroes/${id}`}>
-            <GameImage
-              src={circleHeroHeadUrl(id, iconMap)}
-              alt={`Hero ${id}`}
-              className="rounded-md border border-panel-border hover:scale-110 transition-transform bg-panel-hover object-cover"
-              style={{ width: size, height: size }}
-            />
-          </Link>
-        ))}
+        <Link
+          key={id}
+          href={localized(`/heroes/${id}`)}
+          className="hero-bonds-portrait hero-bonds-portrait--bond"
+          title={`Hero ${id}`}
+        >
+          <GameImage
+            src={circleHeroHeadUrl(id, iconMap)}
+            alt=""
+            aria-hidden
+            className="hero-bonds-portrait__img"
+            rawSrc={circleHeroHeadUrl(id, iconMap)}
+          />
+        </Link>
+      ))}
     </div>
   )
 
-  // -------------------------------
-  // Data loading
-  // -------------------------------
   useEffect(() => setupGlobalSkillTooltips(), [])
 
   useEffect(() => {
@@ -98,85 +143,97 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
         .maybeSingle()
 
       if (cancelled) return
-      if (!rel) {
-        setRelation(null)
-        lcKeysRef.current = []
-        setIsDataLoading(false)
-        return
-      }
-      setRelation(rel)
 
       const tkeys = new Set<string>()
       tkeys.add(UI_KEYS.common.heroLv)
-      const attrList = safeParse(rel.attribute_list)
+      tkeys.add(UI_KEYS.hero.comboRoleCaster)
+      tkeys.add(UI_KEYS.hero.comboRolePartner)
+      tkeys.add(UI_KEYS.hero.comboPartnerHint)
+
+      setRelation(rel)
+
+      const attrList = rel
+        ? safeParse(rel.attribute_list).filter((a): a is string => typeof a === 'string')
+        : []
       attrList.forEach((a) => tkeys.add(a))
       setAttributeList(attrList)
 
-      // Fetters
-      const bondIds = safeParse(rel.bond)
+      const bondIds = rel ? parseHeroRelationHeroIds(rel.bond) : []
       const { data: frowsRaw } =
         bondIds.length > 0
           ? await supabase.from('HeroFettersConfig').select('*').in('id', bondIds)
-          : { data: [] as any[] }
+          : { data: [] as Record<string, unknown>[] }
       const frows = frowsRaw ?? []
       frows.forEach((f) => {
-        if (f?.name) tkeys.add(f.name)
-        safeParse(f.attribute).forEach((a: any) => tkeys.add(a[0]))
+        if (typeof f?.name === 'string') tkeys.add(f.name)
+        safeParse(f.attribute).forEach((a) => {
+          if (Array.isArray(a) && typeof a[0] === 'string') tkeys.add(a[0])
+        })
       })
 
-      // Combine skills / states
-      const skillIdsRaw = [
-        ...safeParse(rel.combine_skill_list),
-        ...safeParse(rel.combine_state_list)
-      ]
+      const ownedComboIds = rel ? parseHeroRelationHeroIds(rel.combine_skill_list) : []
+      const combineStateIds = rel ? parseHeroRelationHeroIds(rel.combine_state_list) : []
+
+      const partnerRows = await fetchPartnerComboSkillsForHero(heroId)
+
+      const partnerIds = partnerRows.map((row) => row.id)
+      const allComboConfigIds = [...new Set([...ownedComboIds, ...partnerIds])]
+
+      const skillIdsRaw = [...allComboConfigIds, ...combineStateIds]
       const { data: combineRowsRaw } =
         skillIdsRaw.length > 0
           ? await supabase.from('HeroRelationSkillConfig').select('*').in('id', skillIdsRaw)
-          : { data: [] as any[] }
+          : { data: [] as HeroRelationComboRow[] }
 
       const combineRows = combineRowsRaw ?? []
-      const combineSkillIds = safeParse(rel.combine_skill_list)
-      const combineStateIds = safeParse(rel.combine_state_list)
+      combineRows.forEach((r) => {
+        if (typeof r?.name === 'string') tkeys.add(r.name)
+      })
 
-      combineRows.forEach((r) => r?.name && tkeys.add(r.name))
+      const ownedSet = new Set(ownedComboIds)
+      const displays: ComboDisplay[] = []
 
-      // Load skills and subs
-      const skillIds = combineRows.map((r) => r.skill_id).filter(Boolean)
+      for (const id of ownedComboIds) {
+        const row = combineRows.find((r) => r.id === id)
+        if (!row) continue
+        displays.push({
+          row,
+          participation: 'caster',
+          launcherId: Number(row.hero_id) || heroId,
+          partnerIds: parseHeroRelationHeroIds(row.hero_list),
+        })
+      }
+
+      for (const row of partnerRows) {
+        if (ownedSet.has(row.id)) continue
+        displays.push({
+          row,
+          participation: 'partner',
+          launcherId: Number(row.hero_id),
+          partnerIds: parseHeroRelationHeroIds(row.hero_list),
+        })
+      }
+
+      const skillIds = combineRows.map((r) => r.skill_id).filter(Boolean) as number[]
       const { data: skillRootsRaw } =
         skillIds.length > 0
           ? await supabase.from('SkillConfig').select('*').in('skillid', skillIds)
-          : { data: [] as any[] }
+          : { data: [] as Record<string, unknown>[] }
 
       const roots = skillRootsRaw ?? []
       const subIds = roots.flatMap((r) => parsePrimitiveList(r.sub_skills).map(String))
       const { data: subsRaw } =
         subIds.length > 0
           ? await supabase.from('SkillConfig').select('*').in('skillid', subIds)
-          : { data: [] as any[] }
+          : { data: [] as Record<string, unknown>[] }
 
       const allSkills = [...roots, ...(subsRaw ?? [])]
-      const map = new Map<string, any>()
+      const map = new Map<string, Record<string, unknown>>()
       const usedValueIds = new Set<number>()
       const labelIds = new Set<number>()
 
-      allSkills.forEach((s) => {
-        map.set(String(s.skillid), s)
-        if (s.name?.startsWith('LC_')) tkeys.add(s.name)
-        if (s.skill_type) {
-          const typeKey = skillTypeLcKey(s.skill_type)
-          if (typeKey) tkeys.add(typeKey)
-        }
-        parsePrimitiveList(s.label_list).forEach((l) => labelIds.add(Number(l)))
-        for (const f of ['skill_des', 'skill_sketch'] as const) {
-          normalizeDesValueList(s[f]).forEach((it) => {
-            if (it.des) tkeys.add(it.des)
-            if (it.value != null) usedValueIds.add(Number(it.value))
-          })
-        }
-        normalizeConditionList(s.skill_condition).forEach((c) => tkeys.add(c))
-      })
+      collectSkillTranslationKeys(allSkills, tkeys, usedValueIds, labelIds)
 
-      // Labels
       let labelRecords: { id: number; name: string }[] = []
       if (labelIds.size > 0) {
         const { data: labels } = await supabase
@@ -190,16 +247,16 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
       if (cancelled) return
 
       const vals = await loadSkillValues(Array.from(usedValueIds))
-
       if (cancelled) return
+
+      allSkills.forEach((s) => map.set(String(s.skillid), s))
 
       lcKeysRef.current = Array.from(tkeys)
       labelRecordsRef.current = labelRecords
-      usedValueIdsRef.current = Array.from(usedValueIds)
 
       setValuesMap(vals)
       setFetters(frows)
-      setCombineSkills(combineRows.filter((r) => combineSkillIds.includes(r.id)))
+      setComboDisplays(displays)
       setCombineStates(combineRows.filter((r) => combineStateIds.includes(r.id)))
       setCombineSkillData(map)
       setIsDataLoading(false)
@@ -235,9 +292,6 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
     }
   }, [lang, isDataLoading])
 
-  // -------------------------------
-  // Render skill details
-  // -------------------------------
   const renderSkillDetails = (
     skill: Record<string, unknown>,
     options?: { nested?: boolean }
@@ -303,107 +357,136 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
     )
   }
 
-  // -------------------------------
-  // Render layout
-  // -------------------------------
   if (isDataLoading) {
     return (
-      <section className="mt-2 flex justify-center py-8 sm:mt-4">
+      <section className="hero-bonds-root hero-bonds-root--loading">
         <div className="spinner h-8 w-8" />
       </section>
     )
   }
 
-  if (!relation)
-    return <p className="text-sm text-text-muted">No bond information found.</p>
+  const hasBondContent =
+    attributeList.length > 0 ||
+    comboDisplays.length > 0 ||
+    fetters.length > 0 ||
+    combineStates.length > 0
+
+  if (!relation && !hasBondContent) {
+    return <p className="hero-bonds-empty">{t(UI_KEYS.common.noData)}</p>
+  }
+
+  const casterLabel = getT(UI_KEYS.hero.comboRoleCaster)
+  const partnerLabel = getT(UI_KEYS.hero.comboRolePartner)
+  const partnerHint = getT(UI_KEYS.hero.comboPartnerHint)
 
   return (
-    <section className={`mt-6 space-y-6${isRetranslating ? ' i18n-content--pending' : ''}`}>
-      {attributeList.length > 0 && (
-        <Panel title={t(UI_KEYS.hero.supportAttributes)}>
-          <ul className="text-sm space-y-1">
+    <section className={`hero-bonds-root${isRetranslating ? ' i18n-content--pending' : ''}`}>
+      {attributeList.length > 0 ? (
+        <HeroBondsSection title={t(UI_KEYS.hero.supportAttributes)}>
+          <ul className="hero-bonds-stat-chips">
             {attributeList.map((a, i) => (
-              <li key={i}>{getT(a)}</li>
+              <li key={i} className="hero-bonds-stat-chip">
+                {getT(a)}
+              </li>
             ))}
           </ul>
-        </Panel>
-      )}
+        </HeroBondsSection>
+      ) : null}
 
-      {combineSkills.length > 0 && (
-        <Panel title={t(UI_KEYS.hero.combineSkills)}>
-          {combineSkills.map((combo) => {
-            const comboName = getT(combo.name)
-            const heroes = safeParse(combo.hero_list)
-            const skill = combineSkillData.get(String(combo.skill_id))
-            return (
-              <div
-                key={combo.id}
-                className="mb-8 border-b border-panel-border pb-4 last:border-0"
-              >
-                <p className="font-semibold text-lg mb-2">{comboName}</p>
-                {renderHeroIcons(heroes, 80)}
-                {skill ? (
-                  <div className="mt-4">{renderSkillDetails(skill)}</div>
-                ) : null}
-              </div>
-            )
-          })}
-        </Panel>
-      )}
-
-      {(fetters.length > 0 || combineStates.length > 0) && (
-        <Panel title={t(UI_KEYS.hero.bondSkills)}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[...combineStates, ...fetters].map((entry, idx) => {
-              const isState = !!entry.skill_id
-              const name = getT(entry.name)
-              const heroes = safeParse(isState ? entry.hero_list : entry.condition)
-              const skill = isState ? combineSkillData.get(String(entry.skill_id)) : null
-              const attrs = !isState ? safeParse(entry.attribute) : []
-              const skillDes = normalizeDesValueList(skill?.skill_des)
-              const description = isState
-                ? applySkillValues(
-                    getT(skillDes[0]?.des),
-                    skillDes[0]?.value ?? 0,
-                    valuesMap
-                  )
-                : ''
+      {comboDisplays.length > 0 ? (
+        <HeroBondsSection title={t(UI_KEYS.hero.combineSkills)}>
+          <div className="hero-bonds-combo-list">
+            {comboDisplays.map(({ row, participation, launcherId, partnerIds }) => {
+              const skill = combineSkillData.get(String(row.skill_id))
               return (
-                <div
-                  key={idx}
-                  className="border border-panel-border rounded-lg p-3 hover:shadow-md transition-all"
-                >
-                  <p className="font-medium text-base mb-2 text-center">{name}</p>
-                  {renderHeroIcons(heroes, 48)}
-                  {isState ? (
-                    <div
-                      className="text-xs text-text-muted whitespace-pre-wrap text-center"
-                      dangerouslySetInnerHTML={{ __html: description }}
-                    />
-                  ) : (
-                    <ul className="text-xs text-text-muted space-y-1 text-center">
-                      {attrs.map((a: any, i: number) => (
-                        <li key={i}>
-                          <strong>{getT(a[0])}</strong>: +{a[2]}%
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+                <HeroBondsComboCard
+                  key={row.id}
+                  comboName={getT(String(row.name ?? ''))}
+                  launcherId={launcherId}
+                  partnerIds={partnerIds}
+                  profileHeroId={heroId}
+                  participation={participation}
+                  partnerHint={partnerHint}
+                  casterLabel={casterLabel}
+                  partnerLabel={partnerLabel}
+                  iconMap={iconMap}
+                  localized={localized}
+                  skillPanel={
+                    skill ? (
+                      <div className="skill-detail-panel">{renderSkillDetails(skill)}</div>
+                    ) : null
+                  }
+                />
               )
             })}
           </div>
-        </Panel>
-      )}
-    </section>
-  )
-}
+        </HeroBondsSection>
+      ) : null}
 
-function Panel({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="rounded-xl border border-panel-border bg-panel p-5 shadow-md backdrop-blur-md">
-      <h2 className="text-xl font-semibold mb-3">{title}</h2>
-      {children}
-    </div>
+      {combineStates.length > 0 ? (
+        <HeroBondsSection title={t(UI_KEYS.hero.bondSkills)}>
+          <div className="hero-bonds-grid hero-bonds-grid--skills">
+            {combineStates.map((entry, idx) => {
+              const name = getT(String(entry.name ?? ''))
+              const heroes = parseHeroRelationHeroIds(entry.hero_list)
+              const skill = combineSkillData.get(String(entry.skill_id))
+              const skillDes = normalizeDesValueList(skill?.skill_des)
+              const description = applySkillValues(
+                getT(skillDes[0]?.des),
+                skillDes[0]?.value ?? 0,
+                valuesMap
+              )
+
+              return (
+                <HeroBondsBondCard
+                  key={`state-${entry.id ?? idx}`}
+                  name={name}
+                  portraits={renderBondPortraits(heroes)}
+                  variant="state"
+                >
+                  <div
+                    className="hero-bonds-bond__desc"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                  />
+                </HeroBondsBondCard>
+              )
+            })}
+          </div>
+        </HeroBondsSection>
+      ) : null}
+
+      {fetters.length > 0 ? (
+        <HeroBondsSection>
+          <div className="hero-bonds-grid hero-bonds-grid--stats">
+            {fetters.map((entry, idx) => {
+              const name = getT(String(entry.name ?? ''))
+              const heroes = parseHeroRelationHeroIds(entry.condition)
+              const attrs = safeParse(entry.attribute)
+
+              return (
+                <HeroBondsBondCard
+                  key={`fetter-${entry.id ?? idx}`}
+                  name={name}
+                  portraits={renderBondPortraits(heroes)}
+                  variant="fetter"
+                >
+                  <ul className="hero-bonds-bond__attrs">
+                    {attrs.map((a, i) => {
+                      if (!Array.isArray(a)) return null
+                      return (
+                        <li key={i} className="hero-bonds-bond__attr">
+                          <span className="hero-bonds-bond__attr-label">{getT(String(a[0]))}</span>
+                          <span className="hero-bonds-bond__attr-value">+{a[2]}%</span>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </HeroBondsBondCard>
+              )
+            })}
+          </div>
+        </HeroBondsSection>
+      ) : null}
+    </section>
   )
 }

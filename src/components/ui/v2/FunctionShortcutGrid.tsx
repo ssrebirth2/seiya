@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Home } from 'lucide-react'
 import { GameFunctionIcon } from '@/components/ui/GameFunctionIcon'
 import { I18nLabel } from '@/components/ui/I18nLabel'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import type { FunctionShortcutIcon, FunctionShortcutItem } from '@/lib/navigation/function-shortcuts'
 import type { FunOpenIconKey } from '@/lib/game/fun-open-icons'
@@ -63,6 +64,7 @@ export function FunctionShortcutGrid({
 }: FunctionShortcutGridProps) {
   const pathname = usePathname()
   const router = useRouter()
+  const localized = useLocalizedHref()
   const { t } = useUiTranslation()
   const iconSize =
     variant === 'dock'
@@ -72,7 +74,7 @@ export function FunctionShortcutGrid({
 
   const handleDockNavigate = (href: string) => {
     onNavigate?.()
-    router.push(href)
+    router.push(localized(href))
   }
 
   return (
@@ -114,7 +116,7 @@ export function FunctionShortcutGrid({
               </button>
             ) : (
               <Link
-                href={item.href}
+                href={localized(item.href)}
                 className={shortcutClass}
                 aria-current={active ? 'page' : undefined}
               >

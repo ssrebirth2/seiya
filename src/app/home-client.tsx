@@ -3,12 +3,14 @@
 import Link from 'next/link'
 import { FunctionShortcutGrid } from '@/components/ui/v2/FunctionShortcutGrid'
 import { useLanguage } from '@/context/language-context'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { getSiteLogoSpec } from '@/lib/i18n/site-logo'
 import { HOME_SHORTCUTS } from '@/lib/navigation/function-shortcuts'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export default function HomeClient() {
   const { lang } = useLanguage()
+  const localized = useLocalizedHref()
   const { site } = useUiTranslation()
   const siteLogoSpec = getSiteLogoSpec(lang)
   const siteLogoHeight = Math.round(
@@ -19,7 +21,7 @@ export default function HomeClient() {
     <div className="home-page -mx-4 -mt-4 animate-slideUp sm:-mx-6 sm:-mt-6 lg:-mx-8 lg:-mt-6">
       <section className="home-page__hero home-hero-bg relative overflow-hidden px-4 pt-2 pb-2 sm:px-8 sm:pt-8 sm:pb-14 lg:px-12 lg:pt-4 lg:pb-16">
         <Link
-          href="/"
+          href={localized('/')}
           className={`home-hero-logo lg:hidden ${lang === 'CN' ? 'home-hero-logo--cn' : ''}`}
           aria-label="SSRB2 Database home"
           aria-current="page"
@@ -54,4 +56,4 @@ export default function HomeClient() {
     </div>
   )
 }
-
+

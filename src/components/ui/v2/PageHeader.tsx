@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
 type BreadcrumbItem = {
   label: string
@@ -16,6 +17,8 @@ type PageHeaderProps = {
 }
 
 export function PageHeader({ title, breadcrumbs = [], actions, subtitle }: PageHeaderProps) {
+  const localized = useLocalizedHref()
+
   return (
     <div className="mb-6">
       {breadcrumbs.length > 0 ? (
@@ -24,7 +27,7 @@ export function PageHeader({ title, breadcrumbs = [], actions, subtitle }: PageH
             <span key={`${crumb.label}-${i}`} className="flex items-center gap-1">
               {i > 0 ? <span aria-hidden="true">/</span> : null}
               {crumb.href ? (
-                <Link href={crumb.href} className="transition-colors hover:text-accent">
+                <Link href={localized(crumb.href)} className="transition-colors hover:text-accent">
                   {crumb.label}
                 </Link>
               ) : (

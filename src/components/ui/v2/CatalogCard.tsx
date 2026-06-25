@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
 type CatalogCardProps = {
   href: string
@@ -29,11 +32,12 @@ export function CatalogCard({
   qualityGlow,
   className = '',
 }: CatalogCardProps) {
+  const localized = useLocalizedHref()
   const glowClass = qualityGlow ? (QUALITY_GLOW[qualityGlow] ?? '') : ''
 
   return (
     <Link
-      href={href}
+      href={localized(href)}
       className={`catalog-card-link group flex aspect-[3/4] flex-col ${glowClass} ${className}`.trim()}
     >
       <div className="relative flex-1 overflow-hidden rounded-lg bg-panel-hover/50">

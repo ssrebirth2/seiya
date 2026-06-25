@@ -1,4 +1,4 @@
-const FALLBACK_ITEM_ICON = '/assets/resources/textures/itemicon/itemicon_10000.png'
+const FALLBACK_ITEM_ICON = '/assets/resources/textures/itemicon/ItemIcon_10000.png'
 
 /** Supabase icon_path → public asset URL (itemicon directory). */
 export function resolveItemIconPath(raw?: string | null): string | null {
