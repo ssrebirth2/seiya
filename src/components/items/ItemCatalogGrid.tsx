@@ -2,21 +2,14 @@
 
 import Link from 'next/link'
 import { SquareItem } from '@/components/game/SquareItem'
+import type { ItemCatalogIndexRow } from '@/lib/game/item-catalog'
 import { ITEM_QUALITY_SHOW_TYPE, resolveItemQualityFramePath } from '@/lib/game/item-quality-ui'
 import { itemIconUrl } from '@/lib/game/resolve-item-icon'
 import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
-export type ItemCatalogRow = {
-  id: number
-  name: string
-  quality: number
-  icon_path?: string | null
-  des_value?: unknown
-}
-
 type ItemCatalogGridProps = {
-  items: ItemCatalogRow[]
-  getItemName: (item: ItemCatalogRow) => string
+  items: ItemCatalogIndexRow[]
+  getItemName: (item: ItemCatalogIndexRow) => string
 }
 
 export function ItemCatalogGrid({ items, getItemName }: ItemCatalogGridProps) {
