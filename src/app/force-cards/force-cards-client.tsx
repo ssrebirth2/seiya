@@ -13,6 +13,10 @@ import {
 } from '@/components/force-cards/ForceCardFilterBar'
 import { isForceCardListed } from '@/lib/game/hidden-force-card-ids'
 import {
+  buildForceCardEffectSearchIndex,
+  normalizeSearchText,
+} from '@/lib/game/force-card-effect-search'
+import {
   buildCardRestrictionTypeMap,
   buildForceCardRestrictionChips,
   cardMatchesRestrictionFilter,
@@ -43,13 +47,17 @@ export default function ForceCardsClient() {
   const { lang } = useLanguage()
   const { t, site } = useUiTranslation()
   const [cards, setCards] = useState<ForceCard[]>([])
-  const [infoById, setInfoById] = useState<Record<number, { condition?: unknown }>>({})
+  const [infoById, setInfoById] = useState<
+    Record<number, { condition?: unknown; card_star?: unknown; card_awaken?: unknown }>
+  >({})
   const [translations, setTranslations] = useState<Record<string, string>>({})
+  const [effectSearchByCardId, setEffectSearchByCardId] = useState<Map<number, string>>(new Map())
+  const [effectSearchReady, setEffectSearchReady] = useState(false)
   const [loading, setLoading] = useState(true)
   const [catalogReady, setCatalogReady] = useState(false)
   const [translationKeys, setTranslationKeys] = useState<string[]>([])
 
-  const [filters, setFilters] = useState({ quality: '', search: '', restriction: '' })
+  const [filters, setFilters] = useState({ quality: '', search: '', searchDesc: '', restriction: '' })
   const [sortBy, setSortBy] = useState<ForceCardSortKey>('id')
 
   const getT = useMemo(() => createTranslationGetter(translations, { lang }), [translations, lang])
@@ -77,7 +85,7 @@ export default function ForceCardsClient() {
           .from('ForceCardItemConfig')
           .select('id,name,desc,icon_path,icon_samll_path,quality,star,type,child_type,sort_weight')
           .order('id', { ascending: true }),
-        supabase.from('ForceCardInfoConfig').select('id,condition'),
+        supabase.from('ForceCardInfoConfig').select('id,condition,card_star,card_awaken'),
       ])
 
       if (cancelled || !data || error) return
@@ -90,9 +98,13 @@ export default function ForceCardsClient() {
           sort_weight: typeof c.sort_weight === 'number' ? c.sort_weight : Number(c.sort_weight) || 0,
         }))
 
-      const infoMap: Record<number, { condition?: unknown }> = {}
-      ;(infoRows || []).forEach((row: { id: number; condition?: unknown }) => {
-        infoMap[row.id] = { condition: row.condition }
+      const infoMap: Record<number, { condition?: unknown; card_star?: unknown; card_awaken?: unknown }> = {}
+      ;(infoRows || []).forEach((row: { id: number; condition?: unknown; card_star?: unknown; card_awaken?: unknown }) => {
+        infoMap[row.id] = {
+          condition: row.condition,
+          card_star: row.card_star,
+          card_awaken: row.card_awaken,
+        }
       })
 
       const keys = new Set<string>()
@@ -119,28 +131,53 @@ export default function ForceCardsClient() {
   }, [])
 
   useEffect(() => {
-    if (!catalogReady || !translationKeys.length) return
+    if (!catalogReady || !cards.length) return
     let cancelled = false
 
-    translateKeys(translationKeys, lang).then((translated) => {
-      if (!cancelled) setTranslations(translated)
+    const infoRows = cards
+      .map((card) => {
+        const info = infoById[card.id]
+        if (!info) return null
+        return { id: card.id, card_star: info.card_star, card_awaken: info.card_awaken }
+      })
+      .filter((row): row is { id: number; card_star?: unknown; card_awaken?: unknown } => row != null)
+
+    Promise.all([
+      translationKeys.length ? translateKeys(translationKeys, lang) : Promise.resolve({}),
+      buildForceCardEffectSearchIndex(cards, infoRows, lang),
+    ]).then(([translated, effectIndex]) => {
+      if (!cancelled) {
+        setTranslations(translated)
+        setEffectSearchByCardId(effectIndex)
+        setEffectSearchReady(true)
+      }
     })
+
+    setEffectSearchReady(false)
 
     return () => {
       cancelled = true
     }
-  }, [lang, catalogReady, translationKeys])
+  }, [lang, catalogReady, cards, infoById, translationKeys])
 
   const processedCards = useMemo(() => {
     let result = cards.filter((c) => {
       const matchesQuality = !filters.quality || filters.quality === String(c.quality)
-      const matchesSearch = getT(c.name).toLowerCase().includes(filters.search.toLowerCase())
+      const searchName = normalizeSearchText(filters.search)
+      const searchDesc = normalizeSearchText(filters.searchDesc)
+      const matchesSearch =
+        !searchName || normalizeSearchText(getT(c.name)).includes(searchName)
+      const effectText = effectSearchByCardId.get(c.id) ?? ''
+      const matchesDesc =
+        !searchDesc ||
+        !effectSearchReady ||
+        normalizeSearchText(effectText).includes(searchDesc)
       const matchesRestriction = cardMatchesRestrictionFilter(
         c.id,
         filters.restriction,
         restrictionMap
       )
-      return matchesQuality && matchesSearch && matchesRestriction
+      return matchesQuality && matchesSearch && matchesDesc && matchesRestriction
     })
 
     result = result.sort((a, b) => {
@@ -156,11 +193,11 @@ export default function ForceCardsClient() {
     })
 
     return result
-  }, [cards, filters, restrictionMap, translations, sortBy, getT])
+  }, [cards, filters, restrictionMap, translations, effectSearchByCardId, effectSearchReady, sortBy, getT])
 
-  const resetFilters = () => setFilters({ quality: '', search: '', restriction: '' })
+  const resetFilters = () => setFilters({ quality: '', search: '', searchDesc: '', restriction: '' })
 
-  const handleFilterChange = (field: 'quality' | 'search' | 'restriction', value: string) => {
+  const handleFilterChange = (field: 'quality' | 'search' | 'searchDesc' | 'restriction', value: string) => {
     setFilters((prev) => ({ ...prev, [field]: value }))
   }
 

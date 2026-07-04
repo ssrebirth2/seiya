@@ -43,6 +43,53 @@ export function pickAwardQty(x: Record<string, unknown>): number {
   return toNum(x.num ?? x.amount ?? x.count, 0)
 }
 
+/** BoxAwardShowConfig tuple: `[?, num, ?, sid?, ?, type]` (see BagItemInfoView). */
+export function normalizeBoxAwardEntry(raw: unknown): (ConsumeEntry & { quality?: number }) | null {
+  if (raw == null) return null
+
+  if (Array.isArray(raw)) {
+    if (raw.length >= 6) {
+      const num = toNum(raw[1], 0)
+      const sidRaw = raw[3]
+      const typeRaw = raw[5]
+      const type = typeRaw != null ? String(typeRaw) : 'prop'
+      const sid = typeof sidRaw === 'number' && sidRaw > 0 ? sidRaw : undefined
+      if (num <= 0 && !sid && type === 'prop') return null
+      return {
+        num,
+        sid,
+        type,
+        quality: typeof raw[4] === 'number' ? toNum(raw[4], 0) : undefined,
+      }
+    }
+
+    const viaConsume = normalizeConsumeList([raw])[0]
+    if (viaConsume) return viaConsume
+  }
+
+  if (typeof raw === 'object') {
+    const o = raw as Record<string, unknown>
+    const sid = pickAwardSid(o)
+    const num = pickAwardQty(o)
+    if (num <= 0 && sid == null) return null
+    const type = o.type != null ? String(o.type) : sid != null ? 'prop' : undefined
+    return {
+      num,
+      sid: typeof sid === 'number' ? sid : undefined,
+      type: typeof sid === 'string' && type !== 'prop' ? sid : type,
+      quality: awardQuality(o) || undefined,
+    }
+  }
+
+  return null
+}
+
+export function normalizeBoxAwardList(val: unknown): (ConsumeEntry & { quality?: number })[] {
+  return normalizeAwardList(val)
+    .map(normalizeBoxAwardEntry)
+    .filter((e): e is ConsumeEntry & { quality?: number } => e != null)
+}
+
 /** BagItemInfoView — rate stored as percentage × 100 (500 → 5.00%). */
 export function formatBoxAwardRate(rate: number): string {
   const pct = rate / 100 + 0.0001
@@ -95,21 +142,12 @@ export function buildBoxShowAwards(
   rateListRaw: unknown,
   showRates: boolean
 ): BoxAwardEntry[] {
-  const awards = normalizeAwardList(awardsRaw)
+  const awards = normalizeBoxAwardList(awardsRaw)
   const rates = parseRateList(rateListRaw)
-  const entries: BoxAwardEntry[] = awards.map((raw, idx) => {
-    const o = raw as Record<string, unknown>
-    const sid = pickAwardSid(o)
-    const num = pickAwardQty(o)
-    const type = o.type != null ? String(o.type) : sid != null ? 'prop' : undefined
+  const entries: BoxAwardEntry[] = awards.map((award, idx) => {
     const rate = rates[idx]
     return {
-      award: {
-        num,
-        sid: typeof sid === 'number' ? sid : undefined,
-        type: typeof sid === 'string' && type !== 'prop' ? String(sid) : type,
-        quality: awardQuality(o) || undefined,
-      },
+      award,
       rate,
       rateLabel: showRates && rate != null && rate > 0 ? formatBoxAwardRate(rate) : null,
     }
@@ -157,6 +195,42 @@ export type ExchangeBlock = {
   labelKey: string
   consume: ConsumeEntry[]
   get: ConsumeEntry[]
+}
+
+export type ItemCraftRecipe = {
+  composeId: number
+  consume: ConsumeEntry[]
+  output: ConsumeEntry
+}
+
+/** CompositeConfig.id is the synthesized item; output qty defaults to 1 unless exchange compose defines get_item. */
+export function resolveItemCraftRecipe(
+  composeId: number,
+  consume: ConsumeEntry[],
+  exchanges: {
+    compose?: { consume_item?: unknown; get_item?: unknown } | null
+  }[]
+): ItemCraftRecipe | null {
+  if (composeId <= 0 || !consume.length) return null
+
+  let output: ConsumeEntry = { sid: composeId, num: 1, type: 'prop' }
+  for (const ex of exchanges) {
+    if (!ex.compose) continue
+    const getItems = normalizeConsumeList(ex.compose.get_item)
+    const primary = getItems.find((entry) => pickRefId(entry))
+    if (primary) {
+      output = primary
+      break
+    }
+  }
+
+  return { composeId, consume, output }
+}
+
+function pickRefId(entry: ConsumeEntry): string | null {
+  if (entry.sid) return String(entry.sid)
+  if (entry.type && entry.type !== 'prop') return String(entry.type)
+  return null
 }
 
 export function resolveExchangeBlocks(

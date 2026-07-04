@@ -10,6 +10,7 @@ import { forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
 export type ForceCardListFilters = {
   quality: string
   search: string
+  searchDesc: string
   restriction: string
 }
 
@@ -116,7 +117,10 @@ export function ForceCardFilterBar({
 
   const allLabel = t(UI_KEYS.filter.all)
   const hasActiveFilters = Boolean(
-    filters.quality || filters.search.trim() || filters.restriction
+    filters.quality ||
+      filters.search.trim() ||
+      filters.searchDesc.trim() ||
+      filters.restriction
   )
 
   const restrictionTypes = RESTRICTION_FILTER_TYPES.filter((type) =>
@@ -154,16 +158,30 @@ export function ForceCardFilterBar({
           </div>
         </div>
 
-        <div className="hero-icon-filter-bar__search force-card-filter-bar__search">
-          <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
-          <Input
-            type="search"
-            value={filters.search}
-            onChange={(e) => onFilterChange('search', e.target.value)}
-            placeholder={site('searchPlaceholderCard')}
-            aria-label={site('searchByName')}
-            className="force-card-filter-bar__search-input"
-          />
+        <div className="force-card-filter-bar__search-fields">
+          <div className="force-card-filter-bar__search">
+            <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
+            <Input
+              type="search"
+              value={filters.search}
+              onChange={(e) => onFilterChange('search', e.target.value)}
+              placeholder={t(UI_KEYS.forceCard.searchName)}
+              aria-label={t(UI_KEYS.forceCard.searchName)}
+              className="force-card-filter-bar__search-input"
+            />
+          </div>
+
+          <div className="force-card-filter-bar__search">
+            <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
+            <Input
+              type="search"
+              value={filters.searchDesc}
+              onChange={(e) => onFilterChange('searchDesc', e.target.value)}
+              placeholder={t(UI_KEYS.forceCard.searchEffect)}
+              aria-label={t(UI_KEYS.forceCard.searchEffect)}
+              className="force-card-filter-bar__search-input"
+            />
+          </div>
         </div>
 
         <div className="force-card-filter-bar__controls">

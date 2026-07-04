@@ -5,7 +5,8 @@ import { SquareItem } from '@/components/game/SquareItem'
 import { resolveForceCardListIcon } from '@/lib/assets/game-images'
 import { normalizeConsumeList } from '@/lib/game/parse-game-data'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
-import { useConsumeRefMap } from '@/hooks/use-consume-ref-map'
+import { useConsumeRefMap, EMPTY_CONSUME_ENTRIES } from '@/hooks/use-consume-ref-map'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import { ITEM_QUALITY_SHOW_TYPE, resolveItemQualityFramePath } from '@/lib/game/item-quality-ui'
 import { resolveConsumeEntry } from '@/lib/game/resolve-consume-item'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
@@ -22,6 +23,8 @@ export type ForceCardMaterialPanelProps = {
   sections?: 'both' | 'consume' | 'recycle'
   /** `inline` = flat row for table cells; `panel` = stacked sections with labels */
   layout?: 'inline' | 'panel'
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 function resolveCardId(rowCardId: unknown, configId?: number): number | undefined {
@@ -166,6 +169,8 @@ export function ForceCardMaterialPanel({
   showSectionLabels = true,
   sections = 'both',
   layout = 'panel',
+  consumeRefMap: externalConsumeRefMap,
+  consumeRefReady,
 }: ForceCardMaterialPanelProps) {
   const { t } = useUiTranslation()
   const resolvedCardId = resolveCardId(cardId, configId)
@@ -173,7 +178,9 @@ export function ForceCardMaterialPanel({
   const consumeItems = useMemo(() => normalizeConsumeList(consume), [consume])
   const recycleItems = useMemo(() => normalizeConsumeList(decomposeReturn), [decomposeReturn])
   const allEntries = useMemo(() => [...consumeItems, ...recycleItems], [consumeItems, recycleItems])
-  const { consumeRefMap, ready } = useConsumeRefMap(allEntries)
+  const internalRef = useConsumeRefMap(externalConsumeRefMap ? EMPTY_CONSUME_ENTRIES : allEntries)
+  const consumeRefMap = externalConsumeRefMap ?? internalRef.consumeRefMap
+  const ready = consumeRefReady ?? internalRef.ready
 
   const copies = consumeCurrency != null && consumeCurrency !== '' ? Number(consumeCurrency) : NaN
   const hasCopies = !Number.isNaN(copies) && copies > 0

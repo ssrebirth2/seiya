@@ -11,15 +11,21 @@ import {
 } from '@/lib/game/apply-skill-values'
 import {
   normalizeDesValueList,
+  normalizeConsumeList,
   normalizeSkillRefList,
 } from '@/lib/game/parse-game-data'
 import { ForceCardMaterialPanel } from '@/components/force-cards/ForceCardMaterialPanel'
 import { ForceCardSkillTableHeader } from '@/components/force-cards/ForceCardSkillTableHeader'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useConsumeRefMap, EMPTY_CONSUME_ENTRIES } from '@/hooks/use-consume-ref-map'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 
 type Props = {
   reborns: any[]
   cardQuality?: number
+  getT?: (key?: string) => string
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 type SkillConfig = {
@@ -29,14 +35,24 @@ type SkillConfig = {
   skill_sketch?: unknown
 }
 
-export default function ForceCardReborn({ reborns, cardQuality }: Props) {
+export default function ForceCardReborn({
+  reborns,
+  cardQuality,
+  getT: externalGetT,
+  consumeRefMap: externalConsumeRefMap,
+  consumeRefReady: externalConsumeRefReady,
+}: Props) {
   const { lang } = useLanguage()
   const { t } = useUiTranslation()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [skillsById, setSkillsById] = useState<Map<string, SkillConfig>>(new Map())
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
+  const [skillsReady, setSkillsReady] = useState(false)
 
-  const getT = (key?: string) => (key ? translations[key] || key : '')
+  const getT = useMemo(() => {
+    if (externalGetT) return externalGetT
+    return (key?: string) => (key ? translations[key] || '' : '')
+  }, [externalGetT, translations])
 
   useEffect(() => setupGlobalSkillTooltips(), [])
 
@@ -44,6 +60,20 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
     () => (Array.isArray(reborns) ? [...reborns].sort((a, b) => a.id - b.id) : []),
     [reborns]
   )
+
+  const allConsumeEntries = useMemo(() => {
+    const entries = []
+    for (const row of validReborns) {
+      entries.push(...normalizeConsumeList(row.consume))
+    }
+    return entries
+  }, [validReborns])
+
+  const internalConsumeRef = useConsumeRefMap(
+    externalConsumeRefMap ? EMPTY_CONSUME_ENTRIES : allConsumeEntries
+  )
+  const consumeRefMap = externalConsumeRefMap ?? internalConsumeRef.consumeRefMap
+  const consumeRefReady = externalConsumeRefReady ?? internalConsumeRef.ready
 
   const targetSkillIds = useMemo(() => {
     const ids = new Set<string>()
@@ -57,10 +87,12 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
 
   useEffect(() => {
     const load = async () => {
+      setSkillsReady(false)
       if (!targetSkillIds.length) {
         setSkillsById(new Map())
         setValuesMap({})
         setTranslations({})
+        setSkillsReady(true)
         return
       }
 
@@ -70,13 +102,15 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
         .in('skillid', targetSkillIds)
 
       const all: SkillConfig[] = skills || []
-      const tKeys = new Set<string>()
-      all.forEach((s) => {
-        if (s.name?.startsWith?.('LC_')) tKeys.add(s.name)
-        normalizeDesValueList(s.skill_des).forEach((d) => d.des && tKeys.add(d.des))
-        normalizeDesValueList(s.skill_sketch).forEach((d) => d.des && tKeys.add(d.des))
-      })
-      setTranslations(await translateKeys(Array.from(tKeys), lang))
+      if (!externalGetT) {
+        const tKeys = new Set<string>()
+        all.forEach((s) => {
+          if (s.name?.startsWith?.('LC_')) tKeys.add(s.name)
+          normalizeDesValueList(s.skill_des).forEach((d) => d.des && tKeys.add(d.des))
+          normalizeDesValueList(s.skill_sketch).forEach((d) => d.des && tKeys.add(d.des))
+        })
+        setTranslations(await translateKeys(Array.from(tKeys), lang))
+      }
 
       const valueIds = new Set<number>()
       all.forEach((s) => {
@@ -89,9 +123,10 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
       })
       setValuesMap(await loadSkillValues(Array.from(valueIds)))
       setSkillsById(new Map(all.map((s) => [String(s.skillid), s])))
+      setSkillsReady(true)
     }
     load()
-  }, [targetSkillIds, lang])
+  }, [targetSkillIds, lang, externalGetT])
 
   const renderSkillSketch = (skill: SkillConfig | undefined, lv: number) => {
     if (!skill) return '-'
@@ -100,6 +135,14 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
     if (!entry?.des) return '-'
     const html = applySkillValues(getT(entry.des), entry.value ?? 0, valuesMap)
     return <span dangerouslySetInnerHTML={{ __html: html }} />
+  }
+
+  if (!skillsReady) {
+    return (
+      <div role="status" aria-live="polite" className="py-4">
+        <div className="skeleton-block h-40 w-full rounded-xl" aria-hidden />
+      </div>
+    )
   }
 
   if (!validReborns.length) {
@@ -141,6 +184,8 @@ export default function ForceCardReborn({ reborns, cardQuality }: Props) {
                     sections="consume"
                     showSectionLabels={false}
                     layout="inline"
+                    consumeRefMap={consumeRefMap}
+                    consumeRefReady={consumeRefReady}
                   />
                 </td>
               </tr>

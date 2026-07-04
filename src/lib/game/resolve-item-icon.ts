@@ -1,4 +1,4 @@
-const FALLBACK_ITEM_ICON = '/assets/resources/textures/itemicon/ItemIcon_10000.png'
+import { IMAGE_UNAVAILABLE } from '@/lib/assets/asset-registry'
 
 /** Supabase icon_path → public asset URL (itemicon directory). */
 export function resolveItemIconPath(raw?: string | null): string | null {
@@ -8,7 +8,5 @@ export function resolveItemIconPath(raw?: string | null): string | null {
 }
 
 export function itemIconUrl(raw?: string | null): string {
-  return resolveItemIconPath(raw) ?? FALLBACK_ITEM_ICON
+  return resolveItemIconPath(raw) ?? IMAGE_UNAVAILABLE
 }
-
-export { FALLBACK_ITEM_ICON }

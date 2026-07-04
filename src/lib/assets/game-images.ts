@@ -79,6 +79,16 @@ export function resolveArtifactPreviewAsset(
   return { src: previewPath, rawSrc: previewPath }
 }
 
+/** Square bag/consume icon from ArtifactResourcesConfig.item_icon (ItemIcon_*). */
+export function resolveArtifactListIcon(
+  dbItemIconPath?: string | null
+): { src: string; rawSrc?: string } {
+  if (!dbItemIconPath) return { src: IMAGE_UNAVAILABLE }
+  const iconPath = getCanonicalAssetPath(texturePathFromDb(dbItemIconPath))
+  if (!iconPath) return { src: IMAGE_UNAVAILABLE }
+  return { src: iconPath, rawSrc: iconPath }
+}
+
 function forceCardSmallPath(cardId: number): string {
   return `/assets/resources/textures/dynamis/card/Card_small_${cardId}.png`
 }

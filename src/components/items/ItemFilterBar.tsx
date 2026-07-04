@@ -1,6 +1,6 @@
 'use client'
 
-import { Search } from 'lucide-react'
+import { Search, X } from 'lucide-react'
 import { ITEM_BAG_TABS } from '@/lib/game/item-catalog'
 import type { ItemCatalogSortKey } from '@/lib/game/item-catalog'
 import {
@@ -8,13 +8,15 @@ import {
   resolveItemQualityFramePath,
 } from '@/lib/game/item-quality-ui'
 import GameImage from '@/components/ui/GameImage'
-import { Input } from '@/components/ui/v2'
+import { Input, Select } from '@/components/ui/v2'
+import { formatChildType } from '@/lib/game/item-metadata'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { qualityNameKey } from '@/lib/i18n/ui-keys'
 
 export type ItemListFilters = {
   tab: string
   quality: string
+  childType: string
   search: string
 }
 
@@ -22,6 +24,7 @@ type ItemFilterBarProps = {
   filters: ItemListFilters
   sortBy: ItemCatalogSortKey
   qualityTiers: number[]
+  childTypes: string[]
   onFilterChange: (field: keyof ItemListFilters, value: string) => void
   onSortChange: (value: ItemCatalogSortKey) => void
   onClear: () => void
@@ -88,6 +91,7 @@ export function ItemFilterBar({
   filters,
   sortBy,
   qualityTiers,
+  childTypes,
   onFilterChange,
   onSortChange,
   onClear,
@@ -97,6 +101,10 @@ export function ItemFilterBar({
   const { t, site } = useUiTranslation()
   const allLabel = t(UI_KEYS.filter.all)
 
+  const hasActiveFilters = Boolean(
+    filters.tab !== '0' || filters.quality || filters.childType || filters.search.trim()
+  )
+
   const sortOptions: { value: ItemCatalogSortKey; label: string }[] = [
     { value: 'id', label: site('id') },
     { value: 'sort_weight', label: t(UI_KEYS.filter.advanceSort) },
@@ -105,86 +113,118 @@ export function ItemFilterBar({
   ]
 
   return (
-    <div className="hero-icon-filter-bar item-filter-bar">
-      <div className="hero-icon-filter-bar__header">
-        <div className="hero-icon-filter-bar__title-row">
-          <span className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</span>
-          <button type="button" className="catalog-filter-clear" onClick={onClear}>
-            {t(UI_KEYS.filter.clearAll)}
-          </button>
-          <span className="catalog-filter-count" aria-label={`${resultCount} ${site('found')}`}>
-            {resultCount}
-          </span>
-        </div>
-      </div>
-
-      <div className="hero-icon-filter-bar__search force-card-filter-bar__search">
-        <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
-        <Input
-          type="search"
-          value={filters.search}
-          onChange={(e) => onFilterChange('search', e.target.value)}
-          placeholder={site('searchItemPlaceholder')}
-          aria-label={t(UI_KEYS.filter.search)}
-          className="force-card-filter-bar__search-input"
-        />
-      </div>
-
-      <div className="force-card-filter-bar__controls">
-        <div className="hero-icon-filter-bar__group">
-          <span className="hero-icon-filter-bar__group-label">{site('category')}</span>
-          <div className="catalog-sort-pills" role="group" aria-label={site('category')}>
-            {ITEM_BAG_TABS.map((tab) => (
-              <SortPill
-                key={tab.itemType}
-                active={filters.tab === tab.itemType}
-                label={getT(tab.nameKey)}
-                onClick={() => onFilterChange('tab', tab.itemType)}
-              />
-            ))}
+    <div className="force-card-filter-bar hero-icon-filter-bar item-filter-bar">
+      <div className="hero-icon-filter-bar__groups force-card-filter-bar__groups">
+        <div className="hero-icon-filter-bar__header">
+          <h2 className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</h2>
+          <div className="force-card-filter-bar__header-actions">
+            {hasActiveFilters ? (
+              <button type="button" onClick={onClear} className="force-card-filter-bar__clear">
+                <X size={14} aria-hidden />
+                {t(UI_KEYS.filter.clearAll)}
+              </button>
+            ) : null}
+            <span
+              className="hero-icon-filter-bar__count-badge"
+              aria-label={`${resultCount} ${site('found')}`}
+            >
+              {resultCount}
+            </span>
           </div>
         </div>
 
-        {qualityTiers.length > 0 ? (
+        <div className="force-card-filter-bar__search-fields">
+          <div className="force-card-filter-bar__search">
+            <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
+            <Input
+              type="search"
+              value={filters.search}
+              onChange={(e) => onFilterChange('search', e.target.value)}
+              placeholder={site('searchItemPlaceholder')}
+              aria-label={t(UI_KEYS.filter.search)}
+              className="force-card-filter-bar__search-input"
+            />
+          </div>
+        </div>
+
+        <div className="force-card-filter-bar__controls">
           <div className="hero-icon-filter-bar__group">
-            <span className="hero-icon-filter-bar__group-label">{t(UI_KEYS.common.quality)}</span>
-            <div className="hero-icon-filter-bar__options" role="group" aria-label={t(UI_KEYS.common.quality)}>
-              <button
-                type="button"
-                className={`hero-icon-filter__option${filters.quality === '' ? ' hero-icon-filter__option--active' : ''}`}
-                onClick={() => onFilterChange('quality', '')}
-                title={allLabel}
-                aria-label={allLabel}
-                aria-pressed={filters.quality === ''}
-              >
-                <span className="hero-icon-filter__all-label">{allLabel}</span>
-              </button>
-              {qualityTiers.map((q) => (
-                <ItemQualityFramePill
-                  key={q}
-                  active={filters.quality === String(q)}
-                  quality={q}
-                  label={getT(qualityNameKey(q))}
-                  onClick={() =>
-                    onFilterChange('quality', filters.quality === String(q) ? '' : String(q))
-                  }
+            <span className="hero-icon-filter-bar__group-label">{site('category')}</span>
+            <div className="catalog-sort-pills" role="group" aria-label={site('category')}>
+              {ITEM_BAG_TABS.map((tab) => (
+                <SortPill
+                  key={tab.itemType}
+                  active={filters.tab === tab.itemType}
+                  label={getT(tab.nameKey)}
+                  onClick={() => onFilterChange('tab', tab.itemType)}
                 />
               ))}
             </div>
           </div>
-        ) : null}
 
-        <div className="hero-icon-filter-bar__group">
-          <span className="hero-icon-filter-bar__group-label">{site('sortBy')}</span>
-          <div className="catalog-sort-pills" role="group" aria-label={site('sortBy')}>
-            {sortOptions.map((option) => (
-              <SortPill
-                key={option.value}
-                active={sortBy === option.value}
-                label={option.label}
-                onClick={() => onSortChange(option.value)}
-              />
-            ))}
+          {childTypes.length > 0 ? (
+            <div className="hero-icon-filter-bar__group item-filter-bar__type-group">
+              <span className="hero-icon-filter-bar__group-label">{site('type')}</span>
+              <Select
+                value={filters.childType}
+                onChange={(e) => onFilterChange('childType', e.target.value)}
+                aria-label={site('type')}
+                className="item-filter-bar__type-select"
+              >
+                <option value="">{allLabel}</option>
+                {childTypes.map((childType) => (
+                  <option key={childType} value={childType}>
+                    {formatChildType(childType)}
+                  </option>
+                ))}
+              </Select>
+            </div>
+          ) : null}
+
+          {qualityTiers.length > 0 ? (
+            <div className="hero-icon-filter-bar__group">
+              <span className="hero-icon-filter-bar__group-label">{t(UI_KEYS.common.quality)}</span>
+              <div
+                className="item-filter-quality__controls"
+                role="group"
+                aria-label={t(UI_KEYS.common.quality)}
+              >
+                <div className="catalog-sort-pills">
+                  <SortPill
+                    active={filters.quality === ''}
+                    label={allLabel}
+                    onClick={() => onFilterChange('quality', '')}
+                  />
+                </div>
+                <div className="hero-icon-filter-bar__options item-filter-quality__frames">
+                  {qualityTiers.map((q) => (
+                    <ItemQualityFramePill
+                      key={q}
+                      active={filters.quality === String(q)}
+                      quality={q}
+                      label={getT(qualityNameKey(q))}
+                      onClick={() =>
+                        onFilterChange('quality', filters.quality === String(q) ? '' : String(q))
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          <div className="hero-icon-filter-bar__group">
+            <span className="hero-icon-filter-bar__group-label">{site('sortBy')}</span>
+            <div className="catalog-sort-pills" role="group" aria-label={site('sortBy')}>
+              {sortOptions.map((option) => (
+                <SortPill
+                  key={option.value}
+                  active={sortBy === option.value}
+                  label={option.label}
+                  onClick={() => onSortChange(option.value)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

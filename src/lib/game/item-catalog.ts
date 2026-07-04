@@ -1,11 +1,14 @@
 /** Item catalog rules — default sort by id; other sorts tie-break on id. */
 
+import { isItemListed } from '@/lib/game/hidden-item-ids'
+
 export const ITEM_CATALOG_PAGE_SIZE = 48
 
 export type ItemCatalogIndexRow = {
   id: number
   name: string
   type: number
+  child_type?: string | null
   quality: number
   icon_path?: string | null
   sort_weight: number
@@ -28,10 +31,14 @@ export const ITEM_BAG_TABS: ItemBagTab[] = [
   { itemType: '4', nameKey: 'LC_COMMON_bag_tab_resource' },
 ]
 
-export function isItemCatalogListed(row: { type: number | string | null | undefined }): boolean {
+export function isItemCatalogListed(row: {
+  id?: number
+  type: number | string | null | undefined
+}): boolean {
   const type = Number(row.type)
-  if (!Number.isFinite(type)) return true
-  return type !== 5
+  if (Number.isFinite(type) && type === 5) return false
+  if (row.id != null && !isItemListed(row.id)) return false
+  return true
 }
 
 export function matchesBagTab(row: ItemCatalogIndexRow, tabItemType: string): boolean {
@@ -45,6 +52,20 @@ export function getItemQualityTiers(rows: ItemCatalogIndexRow[]): number[] {
     if (row.quality > 0) set.add(row.quality)
   }
   return [...set].sort((a, b) => a - b)
+}
+
+export function getItemChildTypes(rows: ItemCatalogIndexRow[]): string[] {
+  const set = new Set<string>()
+  for (const row of rows) {
+    const childType = row.child_type != null ? String(row.child_type).trim() : ''
+    if (childType) set.add(childType)
+  }
+  return [...set].sort((a, b) => a.localeCompare(b))
+}
+
+export function matchesChildType(row: ItemCatalogIndexRow, childType: string): boolean {
+  if (!childType) return true
+  return String(row.child_type ?? '') === childType
 }
 
 export function compareCatalogItems(
@@ -77,6 +98,7 @@ export function filterCatalogIndex(
   opts: {
     tab: string
     quality: string
+    childType: string
     search: string
     sortBy: ItemCatalogSortKey
     nameOf: (row: ItemCatalogIndexRow) => string
@@ -88,6 +110,7 @@ export function filterCatalogIndex(
   let result = rows.filter((row) => {
     if (!matchesBagTab(row, opts.tab)) return false
     if (opts.quality && String(row.quality) !== opts.quality) return false
+    if (!matchesChildType(row, opts.childType)) return false
     if (!search) return true
     if (idSearch != null && row.id === idSearch) return true
     const label = opts.nameOf(row).toLowerCase()

@@ -23,6 +23,7 @@ export default function ForceCardOverview({ info, getT }: Props) {
   const { site } = useUiTranslation()
   const [skill, setSkill] = useState<any>(null)
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
+  const [skillReady, setSkillReady] = useState(false)
 
   useEffect(() => setupGlobalSkillTooltips(), [])
 
@@ -33,9 +34,11 @@ export default function ForceCardOverview({ info, getT }: Props) {
 
   useEffect(() => {
     const loadSkill = async () => {
+      setSkillReady(false)
       if (!starSkillRef?.skill_id) {
         setSkill(null)
         setValuesMap({})
+        setSkillReady(true)
         return
       }
 
@@ -47,6 +50,7 @@ export default function ForceCardOverview({ info, getT }: Props) {
 
       if (!data) {
         setSkill(null)
+        setSkillReady(true)
         return
       }
 
@@ -58,6 +62,7 @@ export default function ForceCardOverview({ info, getT }: Props) {
       const vMap = await loadSkillValues(Array.from(valueIds))
       setValuesMap(vMap)
       setSkill(data)
+      setSkillReady(true)
     }
 
     loadSkill()
@@ -79,6 +84,14 @@ export default function ForceCardOverview({ info, getT }: Props) {
     if (!entry?.des) return ''
     return applySkillValues(getT(entry.des), entry.value ?? 0, valuesMap)
   }, [skill, skillLv, valuesMap, getT])
+
+  if (!skillReady) {
+    return (
+      <div role="status" aria-live="polite" className="py-4">
+        <div className="skeleton-block h-32 w-full rounded-xl" aria-hidden />
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">

@@ -8,6 +8,8 @@ import { getCanonicalAssetPath } from '@/lib/assets/asset-registry'
 export const ITEM_QUALITY_SHOW_TYPE = {
   large: 1,
   small: 2,
+  /** UISquareFigureItem — ItemQualityTypeConfig type 8. */
+  figure: 8,
 } as const
 
 export type ItemQualityShowType =
@@ -29,6 +31,10 @@ const ITEM_QUALITY_BG_BY_CONFIG_ID: Record<number, string> = {
   15: 'ty_box_xiaodaojukuangcheng_1',
   16: 'ty_box_xiaodaojukuanghong_1',
   17: 'ty_box_xiaodaojukuanghong_1',
+  63: 'ty_box_xiaodaojukuanglan_1',
+  64: 'ty_box_xiaodaojukuangzi_1',
+  65: 'ty_box_xiaodaojukuangcheng_1',
+  66: 'ty_box_xiaodaojukuanghong_1',
 }
 
 /** ItemQualityTypeConfig type 1 — large frames. */
@@ -53,9 +59,18 @@ const TYPE2_QUALITY_TO_CONFIG: Record<number, number> = {
   7: 17,
 }
 
+/** ItemQualityTypeConfig type 8 — UISquareFigureItem frames. */
+const TYPE8_QUALITY_TO_CONFIG: Record<number, number> = {
+  2: 63,
+  3: 64,
+  4: 65,
+  5: 65,
+}
+
 function qualityToConfigId(showType: ItemQualityShowType, quality: number): number | null {
   const q = Math.floor(quality)
   if (q <= 0) return null
+  if (showType === ITEM_QUALITY_SHOW_TYPE.figure) return TYPE8_QUALITY_TO_CONFIG[q] ?? null
   const map = showType === ITEM_QUALITY_SHOW_TYPE.large ? TYPE1_QUALITY_TO_CONFIG : TYPE2_QUALITY_TO_CONFIG
   return map[q] ?? null
 }

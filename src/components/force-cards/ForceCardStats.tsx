@@ -6,9 +6,13 @@ import { translateKeys, createTranslationGetter } from '@/lib/i18n/language-pack
 import { useLanguage } from '@/context/language-context'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
-type Props = { info: any }
+type Props = {
+  info: any
+  levels?: any[]
+  getT?: (key?: string) => string
+}
 
-export default function ForceCardStats({ info }: Props) {
+export default function ForceCardStats({ info, getT: externalGetT }: Props) {
   const { lang } = useLanguage()
   const { t } = useUiTranslation()
   const [translations, setTranslations] = useState<Record<string, string>>({})
@@ -18,10 +22,14 @@ export default function ForceCardStats({ info }: Props) {
   const [maxLevel, setMaxLevel] = useState(1)
   const [star, setStar] = useState(1)
   const [level, setLevel] = useState(1)
+  const [statsReady, setStatsReady] = useState(false)
 
   const translationCache = useRef<Record<string, Record<string, string>>>({})
 
-  const getT = (key?: string) => translations[key || ''] || key || ''
+  const getT = useMemo(() => {
+    if (externalGetT) return externalGetT
+    return (key?: string) => translations[key || ''] || ''
+  }, [externalGetT, translations])
   const toNum = (v: any, def = NaN) => {
     const n = Number(v)
     return Number.isNaN(n) ? def : n
@@ -67,6 +75,7 @@ export default function ForceCardStats({ info }: Props) {
   useEffect(() => {
     if (!info || !quality) return
     ;(async () => {
+      setStatsReady(false)
       try {
         // ?? Dados de desenvolvimento por estrela
         if (starIdList.length > 0) {
@@ -98,22 +107,26 @@ export default function ForceCardStats({ info }: Props) {
         setMaxLevel(computedMax)
 
         // ?? Traduções (cache)
-        const keys = new Set<string>()
-        baseAttrs.forEach((a: any) => a?.[0] && keys.add(a[0]))
-        const kArr = Array.from(keys)
-        if (!translationCache.current[lang]) {
-          const result = await translateKeys(kArr, lang)
-          translationCache.current[lang] = result
+        if (!externalGetT) {
+          const keys = new Set<string>()
+          baseAttrs.forEach((a: any) => a?.[0] && keys.add(a[0]))
+          const kArr = Array.from(keys)
+          if (!translationCache.current[lang]) {
+            const result = await translateKeys(kArr, lang)
+            translationCache.current[lang] = result
+          }
+          setTranslations(translationCache.current[lang])
         }
-        setTranslations(translationCache.current[lang])
 
         setStar((prev) => clamp(prev, 1, starIdList.length || 1))
         setLevel((prev) => clamp(prev || 1, 1, computedMax))
       } catch (err) {
         console.error('Error loading ForceCardStats:', err)
+      } finally {
+        setStatsReady(true)
       }
     })()
-  }, [info, lang, starIdList, baseAttrs, quality])
+  }, [info, lang, starIdList, baseAttrs, quality, externalGetT])
 
   // ?? Calcula atributos
   const computedStats = useMemo(() => {
@@ -151,6 +164,14 @@ export default function ForceCardStats({ info }: Props) {
       }))
       .sort((a, b) => b.id - a.id)
   }, [levelTable, level, maxLevel, quality])
+
+  if (!statsReady) {
+    return (
+      <div role="status" aria-live="polite" className="py-4">
+        <div className="skeleton-block h-40 w-full rounded-xl" aria-hidden />
+      </div>
+    )
+  }
 
   return (
     <div className="rounded-2xl p-6 bg-panel shadow-md space-y-6 border border-panel-border">

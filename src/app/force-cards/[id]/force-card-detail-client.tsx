@@ -16,18 +16,82 @@ import {
   collectRestrictionTranslationKeys,
 } from '@/lib/game/force-card-equip'
 import { applySkillValues } from '@/lib/game/apply-skill-values'
+import {
+  normalizeConsumeList,
+  normalizeDesValueList,
+  normalizeSkillRefList,
+  parseGameData,
+} from '@/lib/game/parse-game-data'
+import type { ConsumeEntry } from '@/lib/game/parse-game-data'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
+import { preloadConsumeRefMap } from '@/hooks/use-consume-ref-map'
 import ForceCardTabsContainer from '@/components/force-cards/ForceCardTabsContainer'
 import ForceCardOverview from '@/components/force-cards/ForceCardOverview'
 import { ForceCardDetailHeader } from '@/components/force-cards/ForceCardDetailHeader'
 import { LoadingSkeleton, DetailPageShell } from '@/components/ui/v2'
 import { SetPageMeta } from '@/lib/ui/usePageMeta'
 
+type SkillConfig = {
+  skillid: number | string
+  name?: string
+  skill_des?: unknown
+  skill_sketch?: unknown
+}
+
+function parseAttributeKeys(input: unknown): string[] {
+  const keys: string[] = []
+  for (const row of parseGameData(input)) {
+    if (Array.isArray(row) && typeof row[0] === 'string' && row[0].startsWith('LC_')) {
+      keys.push(row[0])
+    }
+  }
+  return keys
+}
+
+function parseStarIdList(input: unknown): number[] {
+  try {
+    const parsed = typeof input === 'string' ? JSON.parse(input) : input
+    return Array.isArray(parsed) ? parsed.map(Number).filter((n) => !Number.isNaN(n)) : []
+  } catch {
+    return []
+  }
+}
+
+function collectSkillTranslationKeys(skills: SkillConfig[]): string[] {
+  const keys = new Set<string>()
+  for (const skill of skills) {
+    if (skill.name?.startsWith?.('LC_')) keys.add(skill.name)
+    normalizeDesValueList(skill.skill_des).forEach((entry) => entry.des && keys.add(entry.des))
+    normalizeDesValueList(skill.skill_sketch).forEach((entry) => entry.des && keys.add(entry.des))
+  }
+  return Array.from(keys)
+}
+
+function collectSkillIdsFromRows(rows: unknown[]): string[] {
+  const ids = new Set<string>()
+  for (const row of rows) {
+    const ref = normalizeSkillRefList((row as { skill_up?: unknown })?.skill_up)[0]?.skill_id
+    if (ref != null) ids.add(String(ref))
+  }
+  return Array.from(ids)
+}
+
+function collectForceCardConsumeEntries(rows: unknown[]): ConsumeEntry[] {
+  const entries: ConsumeEntry[] = []
+  for (const row of rows) {
+    const record = row as { consume?: unknown; decompose_return?: unknown }
+    entries.push(...normalizeConsumeList(record.consume))
+    entries.push(...normalizeConsumeList(record.decompose_return))
+  }
+  return entries
+}
+
 export default function ForceCardDetailClient() {
   const { id } = useParams()
   const cardId = Number(id)
   const { lang } = useLanguage()
   const localized = useLocalizedHref()
-  const { t, site } = useUiTranslation()
+  const { t, site, isReady: isUiReady } = useUiTranslation()
 
   const [item, setItem] = useState<any>(null)
   const [info, setInfo] = useState<any>(null)
@@ -36,11 +100,12 @@ export default function ForceCardDetailClient() {
   const [awakens, setAwakens] = useState<any[]>([])
   const [reborns, setReborns] = useState<any[]>([])
   const [translations, setTranslations] = useState<Record<string, string>>({})
-  const [isLoading, setIsLoading] = useState(true)
+  const [consumeRefMap, setConsumeRefMap] = useState<ConsumeRefMap>({})
+  const [isReady, setIsReady] = useState(false)
 
   const getT = useCallback(
-    (key?: string) => createTranslationGetter(translations)(key),
-    [translations]
+    (key?: string) => createTranslationGetter(translations, { lang })(key),
+    [translations, lang]
   )
 
   const parseIds = useCallback((input: any): any[] => {
@@ -61,12 +126,14 @@ export default function ForceCardDetailClient() {
 
     if (!isForceCardListed(cardId)) {
       setItem(null)
-      setIsLoading(false)
+      setIsReady(true)
       return
     }
 
+    let cancelled = false
+
     const loadForceCardData = async () => {
-      setIsLoading(true)
+      setIsReady(false)
       try {
         const [{ data: itemRow }, { data: infoRow }, { data: lvRows }] = await Promise.all([
           supabase.from('ForceCardItemConfig').select('*').eq('id', cardId).maybeSingle(),
@@ -74,14 +141,18 @@ export default function ForceCardDetailClient() {
           supabase.from('ForceCardLevelConfig').select('*').order('id', { ascending: true }),
         ])
 
+        if (cancelled) return
+
         if (!itemRow) {
           setItem(null)
+          setInfo(null)
+          setLevels([])
+          setStarUps([])
+          setAwakens([])
+          setReborns([])
+          setTranslations({})
           return
         }
-
-        setItem(itemRow)
-        setInfo(infoRow || null)
-        setLevels(lvRows || [])
 
         const [starIds, awakenIds, rebornIds] = [
           parseIds(infoRow?.card_star),
@@ -101,26 +172,77 @@ export default function ForceCardDetailClient() {
             : { data: [] },
         ])
 
-        setStarUps((suRes.data || []).sort((a, b) => a.id - b.id))
-        setAwakens((akRes.data || []).sort((a, b) => a.id - b.id))
-        setReborns((rbRes.data || []).sort((a, b) => a.id - b.id))
+        if (cancelled) return
+
+        const nextStarUps = (suRes.data || []).sort((a, b) => a.id - b.id)
+        const nextAwakens = (akRes.data || []).sort((a, b) => a.id - b.id)
+        const nextReborns = (rbRes.data || []).sort((a, b) => a.id - b.id)
+
+        const skillIds = new Set<string>([
+          ...collectSkillIdsFromRows(nextStarUps),
+          ...collectSkillIdsFromRows(nextAwakens),
+          ...collectSkillIdsFromRows(nextReborns),
+        ])
+        const overviewSkillId = normalizeSkillRefList(infoRow?.card_star)[0]?.skill_id
+        if (overviewSkillId != null) skillIds.add(String(overviewSkillId))
+
+        const starIdList = parseStarIdList(infoRow?.attribute_develop)
+        const [{ data: skills }, { data: developRows }] = await Promise.all([
+          skillIds.size
+            ? supabase.from('SkillConfig').select('*').in('skillid', Array.from(skillIds))
+            : Promise.resolve({ data: [] as SkillConfig[] }),
+          starIdList.length
+            ? supabase
+                .from('ForceCardAttributeDevelopConfig')
+                .select('id, attribute')
+                .in('id', starIdList)
+            : Promise.resolve({ data: [] as { id: number; attribute: unknown }[] }),
+        ])
+
+        if (cancelled) return
 
         const keys = new Set<string>()
         if (itemRow?.name) keys.add(itemRow.name)
         if (itemRow?.desc) keys.add(itemRow.desc)
         if (itemRow?.quality) keys.add(forceCardQualityNameKey(itemRow.quality))
         collectRestrictionTranslationKeys(infoRow?.condition).forEach((key) => keys.add(key))
+        parseAttributeKeys(infoRow?.attribute_initial).forEach((key) => keys.add(key))
+        ;(developRows || []).forEach((row) => {
+          parseAttributeKeys(row.attribute).forEach((key) => keys.add(key))
+        })
+        collectSkillTranslationKeys(skills || []).forEach((key) => keys.add(key))
 
-        const translated = await translateKeys(Array.from(keys), lang)
+        const consumeEntries = collectForceCardConsumeEntries([
+          ...nextStarUps,
+          ...nextAwakens,
+          ...nextReborns,
+        ])
+
+        const [translated, preloadedConsumeRefs] = await Promise.all([
+          translateKeys(Array.from(keys), lang),
+          preloadConsumeRefMap(consumeEntries, lang),
+        ])
+        if (cancelled) return
+
+        setItem(itemRow)
+        setInfo(infoRow || null)
+        setLevels(lvRows || [])
+        setStarUps(nextStarUps)
+        setAwakens(nextAwakens)
+        setReborns(nextReborns)
         setTranslations(translated)
+        setConsumeRefMap(preloadedConsumeRefs)
       } catch (err) {
         console.error('Error loading ForceCard:', err)
       } finally {
-        setIsLoading(false)
+        if (!cancelled) setIsReady(true)
       }
     }
 
     loadForceCardData()
+    return () => {
+      cancelled = true
+    }
   }, [cardId, lang, parseIds])
 
   const restrictionChips = useMemo(
@@ -133,7 +255,7 @@ export default function ForceCardDetailClient() {
   const hasProgressionTabs =
     starUps.length > 0 || levels.length > 0 || awakens.length > 0 || reborns.length > 0
 
-  if (isLoading) {
+  if (!isReady || !isUiReady) {
     return <LoadingSkeleton variant="detail" />
   }
 
@@ -178,6 +300,9 @@ export default function ForceCardDetailClient() {
             awakens={awakens}
             reborns={reborns}
             cardQuality={item.quality != null ? Number(item.quality) : undefined}
+            getT={getT}
+            consumeRefMap={consumeRefMap}
+            consumeRefReady
           />
         ) : null}
       </DetailPageShell>

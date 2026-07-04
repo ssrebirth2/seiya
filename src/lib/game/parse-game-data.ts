@@ -1,6 +1,6 @@
 export type DesValueEntry = { des?: string; value?: number }
 export type SkillRef = { skill_id: number; skill_lv?: number }
-export type ConsumeEntry = { num: number; type?: string; sid?: number }
+export type ConsumeEntry = { num: number; type?: string; sid?: number; quality?: number }
 
 /** Parse JSON string, array, or single object into a flat array. */
 export function parseGameData(val: unknown): unknown[] {

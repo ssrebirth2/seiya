@@ -9,17 +9,22 @@ import {
   loadSkillValues,
   setupGlobalSkillTooltips,
 } from '@/lib/game/apply-skill-values'
-import { normalizeDesValueList, normalizeSkillRefList } from '@/lib/game/parse-game-data'
+import { normalizeConsumeList, normalizeDesValueList, normalizeSkillRefList } from '@/lib/game/parse-game-data'
 import { ForceCardMaterialPanel } from '@/components/force-cards/ForceCardMaterialPanel'
 import { ForceCardSkillTableHeader } from '@/components/force-cards/ForceCardSkillTableHeader'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { getAwakenStarIconPath, getStarIconPath } from '@/lib/game/hero-ui-sprites'
 import GameImage from '@/components/ui/GameImage'
+import { useConsumeRefMap, EMPTY_CONSUME_ENTRIES } from '@/hooks/use-consume-ref-map'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 
 type Props = {
   starUps: any[]
   awakens?: any[]
   cardQuality?: number
+  getT?: (key?: string) => string
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 type SkillConfig = {
@@ -74,12 +79,16 @@ function ProgressionSkillRow({
   cardQuality = 1,
   skillsById,
   renderSkillEffect,
+  consumeRefMap,
+  consumeRefReady,
 }: {
   row: ProgressionRow
   starVariant: StarVariant
   cardQuality?: number
   skillsById: Map<string, SkillConfig>
   renderSkillEffect: (skill: SkillConfig | undefined, lv: number) => ReactNode
+  consumeRefMap: ConsumeRefMap
+  consumeRefReady: boolean
 }) {
   const { t } = useUiTranslation()
   const skillData = normalizeSkillRefList(row.skill_up)
@@ -106,6 +115,8 @@ function ProgressionSkillRow({
           sections="consume"
           showSectionLabels={false}
           layout="inline"
+          consumeRefMap={consumeRefMap}
+          consumeRefReady={consumeRefReady}
         />
       </td>
       <td data-label={t(UI_KEYS.forceCard.recycleGain)}>
@@ -117,6 +128,8 @@ function ProgressionSkillRow({
           sections="recycle"
           showSectionLabels={false}
           layout="inline"
+          consumeRefMap={consumeRefMap}
+          consumeRefReady={consumeRefReady}
         />
       </td>
     </tr>
@@ -129,12 +142,16 @@ function ProgressionList({
   cardQuality = 1,
   skillsById,
   renderSkillEffect,
+  consumeRefMap,
+  consumeRefReady,
 }: {
   rows: ProgressionRow[]
   starVariant: StarVariant
   cardQuality?: number
   skillsById: Map<string, SkillConfig>
   renderSkillEffect: (skill: SkillConfig | undefined, lv: number) => ReactNode
+  consumeRefMap: ConsumeRefMap
+  consumeRefReady: boolean
 }) {
   return (
     <div className="force-card-progression-table">
@@ -149,6 +166,8 @@ function ProgressionList({
               cardQuality={cardQuality}
               skillsById={skillsById}
               renderSkillEffect={renderSkillEffect}
+              consumeRefMap={consumeRefMap}
+              consumeRefReady={consumeRefReady}
             />
           ))}
         </tbody>
@@ -157,14 +176,25 @@ function ProgressionList({
   )
 }
 
-export default function ForceCardProgression({ starUps, awakens = [], cardQuality = 1 }: Props) {
+export default function ForceCardProgression({
+  starUps,
+  awakens = [],
+  cardQuality = 1,
+  getT: externalGetT,
+  consumeRefMap: externalConsumeRefMap,
+  consumeRefReady: externalConsumeRefReady,
+}: Props) {
   const { lang } = useLanguage()
   const { t } = useUiTranslation()
   const [translations, setTranslations] = useState<Record<string, string>>({})
   const [skillsById, setSkillsById] = useState<Map<string, SkillConfig>>(new Map())
   const [valuesMap, setValuesMap] = useState<Record<number, (string | number)[]>>({})
+  const [skillsReady, setSkillsReady] = useState(false)
 
-  const getT = (key?: string) => (key ? translations[key] || key : '')
+  const getT = useMemo(() => {
+    if (externalGetT) return externalGetT
+    return (key?: string) => (key ? translations[key] || '' : '')
+  }, [externalGetT, translations])
 
   useEffect(() => setupGlobalSkillTooltips(), [])
 
@@ -178,6 +208,21 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
     [awakens]
   )
 
+  const allConsumeEntries = useMemo(() => {
+    const entries = []
+    for (const row of [...validStarUps, ...validAwakens]) {
+      entries.push(...normalizeConsumeList(row.consume))
+      entries.push(...normalizeConsumeList(row.decompose_return))
+    }
+    return entries
+  }, [validStarUps, validAwakens])
+
+  const internalConsumeRef = useConsumeRefMap(
+    externalConsumeRefMap ? EMPTY_CONSUME_ENTRIES : allConsumeEntries
+  )
+  const consumeRefMap = externalConsumeRefMap ?? internalConsumeRef.consumeRefMap
+  const consumeRefReady = externalConsumeRefReady ?? internalConsumeRef.ready
+
   const targetSkillIds = useMemo(() => {
     const ids = new Set<string>()
     for (const row of [...validStarUps, ...validAwakens]) {
@@ -190,10 +235,12 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
 
   useEffect(() => {
     const load = async () => {
+      setSkillsReady(false)
       if (!targetSkillIds.length) {
         setSkillsById(new Map())
         setValuesMap({})
         setTranslations({})
+        setSkillsReady(true)
         return
       }
 
@@ -203,13 +250,15 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
         .in('skillid', targetSkillIds)
 
       const all: SkillConfig[] = skills || []
-      const tKeys = new Set<string>()
-      all.forEach((s) => {
-        if (s.name?.startsWith?.('LC_')) tKeys.add(s.name)
-        normalizeDesValueList(s.skill_des).forEach((d) => d.des && tKeys.add(d.des))
-        normalizeDesValueList(s.skill_sketch).forEach((d) => d.des && tKeys.add(d.des))
-      })
-      setTranslations(await translateKeys(Array.from(tKeys), lang))
+      if (!externalGetT) {
+        const tKeys = new Set<string>()
+        all.forEach((s) => {
+          if (s.name?.startsWith?.('LC_')) tKeys.add(s.name)
+          normalizeDesValueList(s.skill_des).forEach((d) => d.des && tKeys.add(d.des))
+          normalizeDesValueList(s.skill_sketch).forEach((d) => d.des && tKeys.add(d.des))
+        })
+        setTranslations(await translateKeys(Array.from(tKeys), lang))
+      }
 
       const valueIds = new Set<number>()
       all.forEach((s) => {
@@ -222,9 +271,10 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
       })
       setValuesMap(await loadSkillValues(Array.from(valueIds)))
       setSkillsById(new Map(all.map((s) => [String(s.skillid), s])))
+      setSkillsReady(true)
     }
     load()
-  }, [targetSkillIds, lang])
+  }, [targetSkillIds, lang, externalGetT])
 
   const renderSkillEffect = (skill: SkillConfig | undefined, lv: number) => {
     if (!skill) return <span className="force-card-material-empty">—</span>
@@ -241,6 +291,14 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
     return <span dangerouslySetInnerHTML={{ __html: html }} />
   }
 
+  if (!skillsReady) {
+    return (
+      <div role="status" aria-live="polite" className="py-4">
+        <div className="skeleton-block h-40 w-full rounded-xl" aria-hidden />
+      </div>
+    )
+  }
+
   if (!validStarUps.length && !validAwakens.length) {
     return (
       <div className="force-card-progression-empty">
@@ -253,6 +311,8 @@ export default function ForceCardProgression({ starUps, awakens = [], cardQualit
     skillsById,
     renderSkillEffect,
     cardQuality,
+    consumeRefMap,
+    consumeRefReady,
   }
 
   return (

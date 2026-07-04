@@ -4,4 +4,7 @@ export const queryKeys = {
   equipmentCatalogRaw: ['catalog', 'equipment', 'raw'] as const,
   catalogCounts: ['catalog', 'counts'] as const,
   heroTalents: (heroId: number, lang: string) => ['hero', heroId, 'talents', lang] as const,
+  itemCatalog: ['catalog', 'items'] as const,
+  itemDetail: (itemId: number, lang: string) => ['item', itemId, 'detail', lang] as const,
+  itemUsage: (itemId: number) => ['item', itemId, 'usage'] as const,
 }

@@ -3,11 +3,15 @@
 import { useEffect, useMemo, useState } from 'react'
 import dynamic from 'next/dynamic'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 
 interface ForceCardProgressionProps {
   starUps: any[]
   awakens?: any[]
   cardQuality?: number
+  getT?: (key?: string) => string
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 interface ForceCardStatsProps {
@@ -18,6 +22,9 @@ interface ForceCardStatsProps {
 interface ForceCardRebornProps {
   reborns: any[]
   cardQuality?: number
+  getT?: (key?: string) => string
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 const ForceCardStats = dynamic<ForceCardStatsProps>(() => import('./ForceCardStats'), {
@@ -38,6 +45,9 @@ interface ForceCardTabsContainerProps {
   awakens: any[]
   reborns?: any[]
   cardQuality?: number
+  getT?: (key?: string) => string
+  consumeRefMap?: ConsumeRefMap
+  consumeRefReady?: boolean
 }
 
 type TabKey = 'progression' | 'stats' | 'reborn'
@@ -49,6 +59,9 @@ export default function ForceCardTabsContainer({
   awakens,
   reborns = [],
   cardQuality,
+  getT,
+  consumeRefMap,
+  consumeRefReady,
 }: ForceCardTabsContainerProps) {
   const { t } = useUiTranslation()
   const [activeTab, setActiveTab] = useState<TabKey>('progression')
@@ -119,15 +132,28 @@ export default function ForceCardTabsContainer({
 
       <div className="relative min-h-[240px] p-4">
         <div className={activeTab === 'progression' ? 'block' : 'hidden'}>
-          <ForceCardProgression starUps={starUps} awakens={awakens} cardQuality={cardQuality} />
+          <ForceCardProgression
+            starUps={starUps}
+            awakens={awakens}
+            cardQuality={cardQuality}
+            getT={getT}
+            consumeRefMap={consumeRefMap}
+            consumeRefReady={consumeRefReady}
+          />
         </div>
 
         <div className={activeTab === 'stats' ? 'block' : 'hidden'}>
-          <ForceCardStats info={info} levels={levels} />
+          <ForceCardStats info={info} levels={levels} getT={getT} />
         </div>
 
         <div className={activeTab === 'reborn' ? 'block' : 'hidden'}>
-          <ForceCardReborn reborns={reborns} cardQuality={cardQuality} />
+          <ForceCardReborn
+            reborns={reborns}
+            cardQuality={cardQuality}
+            getT={getT}
+            consumeRefMap={consumeRefMap}
+            consumeRefReady={consumeRefReady}
+          />
         </div>
       </div>
     </section>

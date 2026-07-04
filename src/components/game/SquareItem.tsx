@@ -76,6 +76,7 @@ export function SquareItem({
           src={iconSrc}
           rawSrc={iconRawSrc ?? iconSrc}
           alt={alt}
+          loading={size === 'sm' ? 'eager' : 'lazy'}
           className="square-item__icon"
         />
       </div>

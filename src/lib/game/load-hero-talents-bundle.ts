@@ -1,10 +1,9 @@
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
-import { itemIconUrl } from '@/lib/game/resolve-item-icon'
-import { supabase } from '@/lib/supabase-client'
-import { translateKeys, NOT_AVAILABLE_LABEL, isMissingLcTranslation } from '@/lib/i18n/language-package'
-import { translateItemConfigNames } from '@/lib/game/item-i18n'
 import type { HeroTalentsData } from '@/lib/game/talent-types'
 import { loadHeroTalents } from '@/lib/game/load-hero-talents'
+import { loadConsumeRefMap as loadConsumeRefMapCore } from '@/lib/game/load-consume-ref-map'
+import { translateKeys, NOT_AVAILABLE_LABEL, isMissingLcTranslation } from '@/lib/i18n/language-package'
+import { supabase } from '@/lib/supabase-client'
 import { skillTypeLcKey } from '@/lib/game/format-skill-labels'
 import {
   normalizeDesValueList,
@@ -52,105 +51,7 @@ async function loadConsumeRefMap(
   items: ConsumeEntry[],
   lang: string
 ): Promise<ConsumeRefMap> {
-  const map: ConsumeRefMap = {}
-  if (!items.length) return map
-
-  const numericIds = [
-    ...new Set(items.map((i) => i.sid).filter((id): id is number => id != null && id > 0)),
-  ]
-  const moneyTypes = [
-    ...new Set(items.filter((i) => i.type && i.type !== 'prop').map((i) => i.type!)),
-  ]
-
-  const itemById = new Map<
-    number,
-    { name: string; nameKey: string; icon_path?: string | null; quality?: number | null }
-  >()
-  if (numericIds.length) {
-    const { data } = await supabase
-      .from('ItemConfig')
-      .select('id, name, icon_path, quality, des_value')
-      .in('id', numericIds)
-    const rows = data || []
-    const itemNames = await translateItemConfigNames(
-      rows.map((r) => ({
-        id: (r as { id: number }).id,
-        name: String((r as { name: string }).name),
-        des_value: (r as { des_value?: unknown }).des_value,
-      })),
-      lang
-    )
-    for (const row of rows) {
-      const r = row as { id: number; name: string; icon_path?: string | null; quality?: number | null }
-      const resolved = itemNames.get(r.id)
-      itemById.set(r.id, {
-        name: resolved?.name ?? r.name,
-        nameKey: resolved?.nameKey ?? r.name,
-        icon_path: r.icon_path,
-        quality: r.quality != null ? Number(r.quality) : undefined,
-      })
-    }
-  }
-
-  const moneyById = new Map<
-    string,
-    { name: string; nameKey: string; icon_path?: string | null; quality?: number | null }
-  >()
-  if (moneyTypes.length) {
-    const { data } = await supabase
-      .from('MoneyConfig')
-      .select('id, name, icon_path, quality')
-      .in('id', moneyTypes)
-    const rows = data || []
-    const tmap = await translateKeys(rows.map((r) => String((r as { name: string }).name)), lang)
-    for (const row of rows) {
-      const r = row as { id: string; name: string; icon_path?: string | null; quality?: number | null }
-      moneyById.set(r.id, {
-        name: tmap[r.name] || r.name,
-        nameKey: r.name,
-        icon_path: r.icon_path,
-        quality: r.quality != null ? Number(r.quality) : undefined,
-      })
-    }
-  }
-
-  for (const item of items) {
-    const key = consumeRefKey(item)
-    if (map[key]) continue
-
-    if (item.type === 'prop' && item.sid) {
-      const ref = itemById.get(item.sid)
-      map[key] = {
-        name: ref?.name ?? `#${item.sid}`,
-        nameKey: ref?.nameKey ?? String(item.sid),
-        iconUrl: itemIconUrl(ref?.icon_path),
-        iconPath: ref?.icon_path,
-        quality: ref?.quality ?? undefined,
-      }
-      continue
-    }
-
-    if (item.type && moneyById.has(item.type)) {
-      const ref = moneyById.get(item.type)!
-      map[key] = {
-        name: ref.name,
-        nameKey: ref.nameKey,
-        iconUrl: itemIconUrl(ref.icon_path),
-        iconPath: ref.icon_path,
-        quality: ref?.quality ?? undefined,
-      }
-      continue
-    }
-
-    map[key] = {
-      name: item.sid ? `#${item.sid}` : item.type || 'Unknown',
-      nameKey: item.type ?? String(item.sid ?? 'unknown'),
-      iconUrl: itemIconUrl(null),
-      quality: undefined,
-    }
-  }
-
-  return map
+  return loadConsumeRefMapCore(items, lang)
 }
 
 export async function loadHeroTalentsBundle(

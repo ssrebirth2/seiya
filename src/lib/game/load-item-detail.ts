@@ -1,24 +1,30 @@
 import { supabase } from '@/lib/supabase-client'
 import { translateKeys } from '@/lib/i18n/language-package'
+import { bagTabNameKey } from '@/lib/game/item-metadata'
+import { resolveLinkedEntity, type LinkedEntity } from '@/lib/game/item-args-resolver'
 import {
   buildBoxShowAwards,
-  hasCraftRecipe,
-  normalizeAwardList,
+  normalizeBoxAwardList,
   resolveExchangeBlocks,
+  resolveItemCraftRecipe,
   type ExchangeBlock,
-  type UsedInCraft,
+  type ItemCraftRecipe,
 } from '@/lib/game/item-business'
+import { collectItemLcKeys, resolveItemTexts } from '@/lib/game/item-i18n'
+import { resolveItemGetPathByRegion, type ItemGetPathRegionGroup } from '@/lib/game/item-get-path'
+import { loadRelatedItems, type RelatedItemEntry } from '@/lib/game/load-item-related'
 import {
-  collectGetPathLcKeys,
-  collectItemLcKeys,
-  resolveItemTexts,
-  translateItemConfigNames,
-} from '@/lib/game/item-i18n'
-import type { ConsumeRefMap, ConsumeRefEntity } from '@/lib/game/load-hero-talents-bundle'
-import { consumeRefKey } from '@/lib/game/load-hero-talents-bundle'
+  buildItemRewardSources,
+  groupItemUsageRows,
+  loadItemUsageRows,
+  type GroupedItemUsage,
+  type ItemRewardSourceEntry,
+  type ItemUsageRow,
+} from '@/lib/game/load-item-usage'
+import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
+import { loadConsumeRefMap } from '@/lib/game/load-consume-ref-map'
 import { normalizeConsumeList } from '@/lib/game/parse-game-data'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
-import { itemIconUrl } from '@/lib/game/resolve-item-icon'
 
 export type ItemConfigRow = {
   id: number
@@ -31,8 +37,14 @@ export type ItemConfigRow = {
   max_num?: number | string | null
   isRare?: boolean | number | string | null
   compose?: number | string | null
+  args?: number | string | null
   get_path?: unknown
   des_value?: unknown
+}
+
+export type ExchangeConditionRow = {
+  id: number
+  unlock: unknown
 }
 
 export type ItemDetailBundle = {
@@ -40,12 +52,17 @@ export type ItemDetailBundle = {
   translations: Record<string, string>
   resolvedName: string
   resolvedDescHtml?: string
-  craftConsume: ConsumeEntry[]
+  craftRecipe: ItemCraftRecipe | null
   exchangeBlocks: ExchangeBlock[]
+  exchangeConditions: ExchangeConditionRow[]
   boxShowAwards: ReturnType<typeof buildBoxShowAwards>
   boxConsumeAwards: ConsumeEntry[]
-  usedInCraft: UsedInCraft[]
-  getPathLines: string[]
+  usageRows: ItemUsageRow[]
+  groupedUsage: GroupedItemUsage[]
+  rewardSources: ItemRewardSourceEntry[]
+  relatedItems: RelatedItemEntry[]
+  linkedEntity: LinkedEntity | null
+  getPathByRegion: ItemGetPathRegionGroup[]
   consumeRefMap: ConsumeRefMap
 }
 
@@ -55,94 +72,75 @@ const toNum = (v: unknown, fallback = 0) => {
   return Number.isFinite(n) ? n : fallback
 }
 
-function pickRefId(entry: ConsumeEntry): string | null {
-  if (entry.sid) return String(entry.sid)
-  if (entry.type && entry.type !== 'prop') return String(entry.type)
-  return null
+function pushConsumeEntry(out: ConsumeEntry[], entry: ConsumeEntry | null | undefined) {
+  if (!entry) return
+  if (entry.sid || entry.type) out.push(entry)
 }
 
-async function loadRefEntities(ids: string[], lang: string): Promise<ConsumeRefMap> {
-  const map: ConsumeRefMap = {}
-  if (!ids.length) return map
+function collectDetailConsumeEntries(input: {
+  craftRecipe: ItemCraftRecipe | null
+  exchangeBlocks: ExchangeBlock[]
+  boxShowAwards: ReturnType<typeof buildBoxShowAwards>
+  boxConsumeAwards: ConsumeEntry[]
+  usageRows: ItemUsageRow[]
+  relatedItems: RelatedItemEntry[]
+  rewardSources: ItemRewardSourceEntry[]
+}): ConsumeEntry[] {
+  const entries: ConsumeEntry[] = []
 
-  const numericIds = ids.filter((id) => /^\d+$/.test(id)).map(Number)
-  const moneyTypes = ids.filter((id) => !/^\d+$/.test(id))
+  if (input.craftRecipe) {
+    for (const c of input.craftRecipe.consume) pushConsumeEntry(entries, c)
+    pushConsumeEntry(entries, input.craftRecipe.output)
+  }
 
-  const itemRows: {
-    id: number
-    name: string
-    icon_path?: string | null
-    quality?: number | null
-    des_value?: unknown
-  }[] = []
-  if (numericIds.length) {
-    const { data } = await supabase
+  for (const block of input.exchangeBlocks) {
+    for (const c of [...block.consume, ...block.get]) pushConsumeEntry(entries, c)
+  }
+
+  for (const b of input.boxShowAwards) pushConsumeEntry(entries, b.award)
+  for (const c of input.boxConsumeAwards) pushConsumeEntry(entries, c)
+
+  for (const u of input.usageRows) {
+    if (u.meta?.craft_target_id) {
+      pushConsumeEntry(entries, { type: 'prop', sid: toNum(u.meta.craft_target_id), num: 0 })
+    }
+    if (u.meta?.box_item_id) {
+      pushConsumeEntry(entries, { type: 'prop', sid: toNum(u.meta.box_item_id), num: 0 })
+    }
+    if (u.meta?.host_item_id) {
+      pushConsumeEntry(entries, { type: 'prop', sid: toNum(u.meta.host_item_id), num: 0 })
+    }
+  }
+
+  for (const rel of input.relatedItems) {
+    pushConsumeEntry(entries, { type: 'prop', sid: rel.id, num: 0 })
+  }
+
+  for (const src of input.rewardSources) {
+    pushConsumeEntry(entries, { type: 'prop', sid: src.sourceItemId, num: 0 })
+  }
+
+  return entries
+}
+
+import { isItemListed } from '@/lib/game/hidden-item-ids'
+
+export async function loadItemDetail(itemId: number, lang: string): Promise<ItemDetailBundle | null> {
+  if (!isItemListed(itemId)) return null
+
+  const [itemRes, usageRows] = await Promise.all([
+    supabase
       .from('ItemConfig')
-      .select('id, name, icon_path, quality, des_value')
-      .in('id', numericIds)
-    itemRows.push(...((data ?? []) as typeof itemRows))
-  }
-
-  const moneyRows: { id: string; name: string; icon_path?: string | null; quality?: number | null }[] = []
-  if (moneyTypes.length) {
-    const { data } = await supabase
-      .from('MoneyConfig')
-      .select('id, name, icon_path, quality')
-      .in('id', moneyTypes)
-    moneyRows.push(...((data ?? []) as typeof moneyRows))
-  }
-
-  const itemNameRows = itemRows.map((r) => ({
-    id: r.id,
-    name: r.name,
-    des_value: r.des_value,
-  }))
-  const moneyKeys = moneyRows.map((r) => r.name)
-  const [itemNames, moneyTmap] = await Promise.all([
-    translateItemConfigNames(itemNameRows, lang),
-    moneyKeys.length ? translateKeys(moneyKeys, lang) : Promise.resolve({} as Record<string, string>),
+      .select(
+        'id,name,desc,type,child_type,quality,icon_path,max_num,isRare,compose,args,get_path,des_value'
+      )
+      .eq('id', itemId)
+      .maybeSingle(),
+    loadItemUsageRows(itemId),
   ])
 
-  for (const r of itemRows) {
-    const resolved = itemNames.get(r.id)
-    const key = consumeRefKey({ type: 'prop', sid: r.id, num: 0 })
-    map[key] = {
-      name: resolved?.name ?? r.name,
-      nameKey: resolved?.nameKey ?? r.name,
-      iconUrl: itemIconUrl(r.icon_path),
-      iconPath: r.icon_path,
-      quality: r.quality != null ? Number(r.quality) : undefined,
-    }
-    map[String(r.id)] = map[key]
-  }
-
-  for (const r of moneyRows) {
-    const key = consumeRefKey({ type: r.id, num: 0 })
-    map[key] = {
-      name: moneyTmap[r.name] || r.name,
-      nameKey: r.name,
-      iconUrl: itemIconUrl(r.icon_path),
-      iconPath: r.icon_path,
-      quality: r.quality != null ? Number(r.quality) : undefined,
-    }
-    map[r.id] = map[key]
-  }
-
-  return map
-}
-
-export async function loadItemDetail(
-  itemId: number,
-  lang: string,
-  usedInCraft: UsedInCraft[] = []
-): Promise<ItemDetailBundle | null> {
-  const { data: row, error } = await supabase
-    .from('ItemConfig')
-    .select('id,name,desc,type,child_type,quality,icon_path,max_num,isRare,compose,get_path,des_value')
-    .eq('id', itemId)
-    .maybeSingle()
-
-  if (error || !row) return null
+  const row = itemRes.data
+  if (itemRes.error || !row) return null
 
   const item: ItemConfigRow = {
     id: toNum(row.id),
@@ -155,19 +153,30 @@ export async function loadItemDetail(
     max_num: row.max_num ?? null,
     isRare: row.isRare ?? null,
     compose: row.compose ?? null,
+    args: row.args ?? null,
     get_path: row.get_path ?? null,
     des_value: row.des_value ?? null,
   }
 
   const composeId = toNum(item.compose, 0)
-  const [compositeRes, exchangeRes, boxShowRes, boxConsumeRes] = await Promise.all([
-    composeId
-      ? supabase.from('CompositeConfig').select('id,consume').eq('id', composeId).maybeSingle()
-      : Promise.resolve({ data: null }),
-    supabase.from('ExchangeConfig').select('item_id,compose_id,decompose_id,exchange_id').eq('item_id', itemId),
-    supabase.from('BoxAwardShowConfig').select('id,awards,rate_list').eq('id', itemId).maybeSingle(),
-    supabase.from('BoxAwardConsumeConfig').select('id,awards').eq('id', itemId).maybeSingle(),
-  ])
+  const compositeLookupId = composeId > 0 ? composeId : itemId
+  const [compositeRes, exchangeRes, boxShowRes, boxConsumeRes, conditionRes, relatedItems] =
+    await Promise.all([
+      supabase
+        .from('CompositeConfig')
+        .select('id,consume')
+        .eq('id', compositeLookupId)
+        .maybeSingle(),
+      supabase.from('ExchangeConfig').select('id,compose_id,decompose_id,exchange_id').eq('id', itemId),
+      supabase.from('BoxAwardShowConfig').select('id,awards,rate_list').eq('id', itemId).maybeSingle(),
+      supabase.from('BoxAwardConsumeConfig').select('id,awards').eq('id', itemId).maybeSingle(),
+      supabase.from('ExchangeConditionConfig').select('id,unlock').eq('id', itemId).maybeSingle(),
+      loadRelatedItems(itemId, {
+        compose: item.compose,
+        childType: item.child_type,
+        usageRows,
+      }),
+    ])
 
   const craftConsume = compositeRes.data
     ? normalizeConsumeList((compositeRes.data as { consume: unknown }).consume)
@@ -203,6 +212,37 @@ export async function loadItemDetail(
 
   const exchangeBlocks = resolveExchangeBlocks(resolvedExchanges)
 
+  let craftRecipe =
+    craftConsume.length > 0
+      ? resolveItemCraftRecipe(compositeLookupId, craftConsume, resolvedExchanges)
+      : null
+
+  if (!craftRecipe) {
+    const targetIds = [
+      ...new Set(
+        usageRows
+          .filter((r) => r.role === 'craft_ingredient' && r.meta?.craft_target_id)
+          .map((r) => toNum(r.meta!.craft_target_id, 0))
+          .filter((id) => id > 0)
+      ),
+    ]
+
+    if (targetIds.length) {
+      const { data: composites } = await supabase
+        .from('CompositeConfig')
+        .select('id,consume')
+        .in('id', targetIds)
+
+      for (const row of composites ?? []) {
+        const targetId = toNum((row as { id: number }).id)
+        const consume = normalizeConsumeList((row as { consume: unknown }).consume)
+        if (!consume.some((c) => c.sid === itemId)) continue
+        craftRecipe = resolveItemCraftRecipe(targetId, consume, resolvedExchanges)
+        if (craftRecipe) break
+      }
+    }
+  }
+
   const childType = item.child_type
   const isRandomBox =
     String(childType).toLowerCase() === 'randombox' ||
@@ -218,33 +258,36 @@ export async function loadItemDetail(
     : []
 
   const boxConsumeAwards = boxConsumeRes.data
-    ? normalizeConsumeList(normalizeAwardList((boxConsumeRes.data as { awards: unknown }).awards))
+    ? normalizeBoxAwardList((boxConsumeRes.data as { awards: unknown }).awards)
     : []
 
-  const refIds = new Set<string>()
-  for (const c of craftConsume) {
-    const id = pickRefId(c)
-    if (id) refIds.add(id)
-  }
-  for (const block of exchangeBlocks) {
-    for (const c of [...block.consume, ...block.get]) {
-      const id = pickRefId(c)
-      if (id) refIds.add(id)
-    }
-  }
-  for (const b of boxShowAwards) {
-    const id = pickRefId(b.award)
-    if (id) refIds.add(id)
-  }
-  for (const c of boxConsumeAwards) {
-    const id = pickRefId(c)
-    if (id) refIds.add(id)
-  }
-  for (const u of usedInCraft) refIds.add(String(u.targetId))
+  const exchangeConditions: ExchangeConditionRow[] = conditionRes.data
+    ? [
+        {
+          id: toNum((conditionRes.data as { id: number }).id),
+          unlock: (conditionRes.data as { unlock: unknown }).unlock,
+        },
+      ]
+    : []
 
-  const getPathKeys = collectGetPathLcKeys(item.get_path)
-  const itemLcKeys = collectItemLcKeys([{ id: item.id, name: item.name, desc: item.desc }])
-  const allKeys = [...new Set([...itemLcKeys, ...getPathKeys])]
+  const linkedEntity = resolveLinkedEntity(item.args, item.child_type)
+  const groupedUsage = groupItemUsageRows(usageRows)
+  const rewardSources = buildItemRewardSources(usageRows)
+
+  const consumeRefEntries = collectDetailConsumeEntries({
+    craftRecipe,
+    exchangeBlocks,
+    boxShowAwards,
+    boxConsumeAwards,
+    usageRows,
+    relatedItems,
+    rewardSources,
+  })
+
+  const itemLcKeys = collectItemLcKeys([
+    { id: item.id, name: item.name, desc: item.desc, des_value: item.des_value },
+  ])
+  const allKeys = [...new Set([...itemLcKeys, bagTabNameKey(item.type)])]
   const translations = allKeys.length ? await translateKeys(allKeys, lang) : {}
 
   const { name: resolvedName, descHtml: resolvedDescHtml } = await resolveItemTexts(
@@ -253,21 +296,27 @@ export async function loadItemDetail(
     translations
   )
 
-  const getPathLines = getPathKeys.map((k) => translations[k] || k).filter(Boolean)
-
-  const consumeRefMap = await loadRefEntities([...refIds], lang)
+  const [getPathByRegion, consumeRefMap] = await Promise.all([
+    resolveItemGetPathByRegion(item.id, lang),
+    loadConsumeRefMap(consumeRefEntries, lang),
+  ])
 
   return {
     item,
     translations,
     resolvedName,
     resolvedDescHtml,
-    craftConsume: hasCraftRecipe(item.compose) ? craftConsume : [],
+    craftRecipe,
     exchangeBlocks,
+    exchangeConditions,
     boxShowAwards,
     boxConsumeAwards,
-    usedInCraft,
-    getPathLines,
+    usageRows,
+    groupedUsage,
+    rewardSources,
+    relatedItems,
+    linkedEntity,
+    getPathByRegion,
     consumeRefMap,
   }
 }
