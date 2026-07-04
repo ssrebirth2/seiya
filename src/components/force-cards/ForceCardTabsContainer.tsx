@@ -17,6 +17,7 @@ interface ForceCardProgressionProps {
 interface ForceCardStatsProps {
   info: any
   levels: any[]
+  getT?: (key?: string) => string
 }
 
 interface ForceCardRebornProps {

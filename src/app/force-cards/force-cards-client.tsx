@@ -140,7 +140,7 @@ export default function ForceCardsClient() {
         if (!info) return null
         return { id: card.id, card_star: info.card_star, card_awaken: info.card_awaken }
       })
-      .filter((row): row is { id: number; card_star?: unknown; card_awaken?: unknown } => row != null)
+      .filter((row): row is { id: number; card_star: unknown; card_awaken: unknown } => row != null)
 
     Promise.all([
       translationKeys.length ? translateKeys(translationKeys, lang) : Promise.resolve({}),

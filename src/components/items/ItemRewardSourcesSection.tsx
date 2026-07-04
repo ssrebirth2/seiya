@@ -27,7 +27,7 @@ export function ItemRewardSourcesSection({
         const award = {
           type: 'prop' as const,
           sid: entry.sourceItemId,
-          num: entry.qty ?? undefined,
+          num: entry.qty ?? 1,
         }
         const resolved = resolveConsumeEntry(award, consumeRefMap, ITEM_QUALITY_SHOW_TYPE.small)
         const href = localized(`/items/${entry.sourceItemId}`)
