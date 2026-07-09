@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { applySkillValues, setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import {
   artifactAscensionQualityLabelKey,
@@ -16,8 +16,6 @@ import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { getAwakenStarIconPath, getStarIconPath } from '@/lib/game/hero-ui-sprites'
 import GameImage from '@/components/ui/GameImage'
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
-
-setupGlobalSkillTooltips()
 
 export type { ArtifactStarRow } from '@/lib/game/artifact-equip'
 
@@ -191,6 +189,8 @@ export function ArtifactAscensionList({
   consumeRefReady,
 }: Props) {
   const { t } = useUiTranslation()
+
+  useEffect(() => setupGlobalSkillTooltips(), [])
 
   const sortedRows = useMemo(() => sortArtifactStarRows(stars), [stars])
 

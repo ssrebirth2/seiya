@@ -169,6 +169,7 @@ export async function loadSkillValues(
  */
 let _tooltipsBound = false
 export function setupGlobalSkillTooltips() {
+  if (typeof document === 'undefined') return
   if (_tooltipsBound) return
   _tooltipsBound = true
 

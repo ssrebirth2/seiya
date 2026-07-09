@@ -1,6 +1,8 @@
 'use client'
 
 import type { ReactNode } from 'react'
+import GameImage from '@/components/ui/GameImage'
+import { IMAGE_UNAVAILABLE } from '@/lib/assets/game-images'
 import { formatSkillCooldown, hasSkillCooldown } from '@/lib/game/format-skill-cooldown'
 import { isNotAvailableLabel } from '@/lib/game/format-skill-labels'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
@@ -61,11 +63,14 @@ export function SkillDetailCard({
     >
       <div className="skill-detail-card__inner">
         <header className="skill-detail-card__header">
-          {iconPath ? (
-            <div className="skill-detail-card__icon-frame">
-              <img src={iconPath} alt={name} className="skill-detail-card__icon" />
-            </div>
-          ) : null}
+          <div className="skill-detail-card__icon-frame">
+            <GameImage
+              src={iconPath || IMAGE_UNAVAILABLE}
+              rawSrc={iconPath || undefined}
+              alt={name}
+              className="skill-detail-card__icon"
+            />
+          </div>
 
           <div className="skill-detail-card__head">
             {descriptionInHeader ? (
