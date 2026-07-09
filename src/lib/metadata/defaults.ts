@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { resolveAssetUrlInitial } from '@/lib/assets/asset-registry'
 import { SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 import { openGraphLocale } from '@/lib/metadata/lang'
 import { absoluteUrl, OG_DEFAULT_IMAGE } from '@/lib/metadata/site-url'
@@ -26,10 +27,14 @@ export function buildEntityMetadata(
   const description =
     meta?.description?.trim() ||
     'Hero and skill database viewer for Saint Seiya: Rebirth 2 (EX).'
-  const imagePath = meta?.imageUrl && meta.imageUrl !== 'IMAGE_UNAVAILABLE'
-    ? meta.imageUrl
+  const rawImage =
+    meta?.imageUrl && meta.imageUrl !== 'IMAGE_UNAVAILABLE' ? meta.imageUrl : null
+  const imagePath = rawImage
+    ? rawImage.startsWith('http')
+      ? rawImage
+      : resolveAssetUrlInitial(rawImage, OG_DEFAULT_IMAGE)
     : OG_DEFAULT_IMAGE
-  const imageUrl = absoluteUrl(imagePath.startsWith('http') ? imagePath : imagePath)
+  const imageUrl = absoluteUrl(imagePath)
 
   return {
     title,
