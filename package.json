@@ -5,6 +5,8 @@
   "scripts": {
     "build": "next build",
     "items:get-path:build": "node tools/build-item-get-path-index.mjs",
+    "items:stage-rewards:build": "node tools/build-item-stage-rewards-index.mjs",
+    "items:sources:audit": "node tools/audit-item-sources.mjs",
     "assets:extract": "python scripts/game-assets/cli.py extract",
     "assets:extract:heroes": "python scripts/game-assets/cli.py extract --recipe square-hero-item",
     "assets:extract:items": "python scripts/game-assets/cli.py extract --recipe square-item",

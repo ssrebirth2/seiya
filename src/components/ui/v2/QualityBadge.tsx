@@ -1,6 +1,10 @@
 import { qualityNameKey, forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { getForceCardQualityToneClass } from '@/lib/game/dynamis-ui'
+import {
+  artifactQualityLabelKey,
+  getArtifactQualityBadgeClass,
+} from '@/lib/game/artifact-equip'
 
 const HERO_QUALITY_CLASS: Record<number, string> = {
   2: 'quality-badge-r',
@@ -12,17 +16,24 @@ const HERO_QUALITY_CLASS: Record<number, string> = {
 type QualityBadgeProps = {
   quality: number
   className?: string
-  /** When set, uses force-card color tiers (Green/Blue/…) instead of hero R/SR/SSR/UR. */
-  variant?: 'hero' | 'force-card'
+  /** hero: R/SR/SSR/UR (display scale 2–5). force-card / artifact: PropQuality DB 2–6. */
+  variant?: 'hero' | 'force-card' | 'artifact'
 }
 
 export function QualityBadge({ quality, className = '', variant = 'hero' }: QualityBadgeProps) {
   const { t } = useUiTranslation()
   const cls =
-    variant === 'force-card'
-      ? getForceCardQualityToneClass(quality) || 'badge-accent'
-      : HERO_QUALITY_CLASS[quality] ?? 'badge-accent'
-  const labelKey = variant === 'force-card' ? forceCardQualityNameKey(quality) : qualityNameKey(quality)
+    variant === 'artifact'
+      ? getArtifactQualityBadgeClass(quality)
+      : variant === 'force-card'
+        ? getForceCardQualityToneClass(quality) || 'badge-accent'
+        : HERO_QUALITY_CLASS[quality] ?? 'badge-accent'
+  const labelKey =
+    variant === 'artifact'
+      ? artifactQualityLabelKey(quality)
+      : variant === 'force-card'
+        ? forceCardQualityNameKey(quality)
+        : qualityNameKey(quality)
   const label = t(labelKey)
 
   return (

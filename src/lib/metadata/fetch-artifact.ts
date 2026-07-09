@@ -1,7 +1,7 @@
 import { supabase } from '@/lib/supabase-client'
 import { translateKeys } from '@/lib/i18n/language-package'
 import { resolveArtifactPreviewAsset } from '@/lib/assets/game-images'
-import { IMAGE_UNAVAILABLE } from '@/lib/assets/asset-registry'
+import { IMAGE_UNAVAILABLE, resolveAssetUrl } from '@/lib/assets/asset-registry'
 import type { EntityMetadataPayload } from '@/lib/metadata/defaults'
 import { toPlainMetadataText } from '@/lib/metadata/plain-text'
 
@@ -31,7 +31,9 @@ export async function fetchArtifactMetadata(
   )
 
   const { src } = resolveArtifactPreviewAsset(res?.preview_icon, artifactId)
-  const imageUrl = src !== IMAGE_UNAVAILABLE ? src : null
+  const resolvedPreview =
+    src !== IMAGE_UNAVAILABLE ? resolveAssetUrl(src) : IMAGE_UNAVAILABLE
+  const imageUrl = resolvedPreview !== IMAGE_UNAVAILABLE ? resolvedPreview : null
 
   return { title, description, imageUrl }
 }

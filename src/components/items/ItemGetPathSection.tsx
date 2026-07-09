@@ -1,5 +1,6 @@
 'use client'
 
+import type { ItemObtainMode } from '@/lib/game/item-stage-rewards'
 import {
   getPathEntryKey,
   groupItemGetPathsBySource,
@@ -11,6 +12,7 @@ import {
 
 type ItemGetPathSectionProps = {
   groups: ItemGetPathRegionGroup[]
+  obtainModes?: ItemObtainMode[]
 }
 
 function PathEntryIcon({ entry }: { entry: ItemGetPathDisplay }) {
@@ -35,7 +37,27 @@ function PathEntryBody({ entry }: { entry: ItemGetPathDisplay }) {
   )
 }
 
-function PathEntryList({ entries }: { entries: ItemGetPathDisplay[] }) {
+function ObtainModeRows({ modes }: { modes: ItemObtainMode[] }) {
+  return (
+    <>
+      {modes.map((mode) => (
+        <li key={`mode-${mode.levelType}`} className="item-get-path-row">
+          <div className="item-get-path-row__body">
+            <p className="item-get-path-row__name">{mode.label}</p>
+          </div>
+        </li>
+      ))}
+    </>
+  )
+}
+
+function PathEntryList({
+  entries,
+  obtainModes = [],
+}: {
+  entries: ItemGetPathDisplay[]
+  obtainModes?: ItemObtainMode[]
+}) {
   return (
     <ul className="item-get-path-list">
       {entries.map((entry) => (
@@ -44,6 +66,7 @@ function PathEntryList({ entries }: { entries: ItemGetPathDisplay[] }) {
           <PathEntryBody entry={entry} />
         </li>
       ))}
+      <ObtainModeRows modes={obtainModes} />
     </ul>
   )
 }
@@ -60,7 +83,13 @@ function RegionBadges({ labels }: { labels: string[] }) {
   )
 }
 
-function GroupedPathList({ rows }: { rows: ItemGetPathSourceRow[] }) {
+function GroupedPathList({
+  rows,
+  obtainModes = [],
+}: {
+  rows: ItemGetPathSourceRow[]
+  obtainModes?: ItemObtainMode[]
+}) {
   return (
     <ul className="item-get-path-list">
       {rows.map((row) => (
@@ -72,17 +101,30 @@ function GroupedPathList({ rows }: { rows: ItemGetPathSourceRow[] }) {
           </div>
         </li>
       ))}
+      <ObtainModeRows modes={obtainModes} />
     </ul>
   )
 }
 
-export function ItemGetPathSection({ groups }: ItemGetPathSectionProps) {
-  const visible = groups.filter((g) => g.entries.length > 0)
-  if (!visible.length) return null
+function ObtainModesOnlyList({ modes }: { modes: ItemObtainMode[] }) {
+  if (!modes.length) return null
+  return (
+    <ul className="item-get-path-list">
+      <ObtainModeRows modes={modes} />
+    </ul>
+  )
+}
 
-  if (visible.length === 1 || regionsHaveIdenticalGetPaths(visible)) {
-    return <PathEntryList entries={visible[0].entries} />
+export function ItemGetPathSection({ groups, obtainModes = [] }: ItemGetPathSectionProps) {
+  const visible = groups.filter((g) => g.entries.length > 0)
+
+  if (!visible.length) {
+    return <ObtainModesOnlyList modes={obtainModes} />
   }
 
-  return <GroupedPathList rows={groupItemGetPathsBySource(visible)} />
+  if (visible.length === 1 || regionsHaveIdenticalGetPaths(visible)) {
+    return <PathEntryList entries={visible[0].entries} obtainModes={obtainModes} />
+  }
+
+  return <GroupedPathList rows={groupItemGetPathsBySource(visible)} obtainModes={obtainModes} />
 }

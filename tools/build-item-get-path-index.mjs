@@ -121,6 +121,47 @@ function extractConfigRows(source) {
   return rows
 }
 
+/** Extract `{...}` block bodies from a Lua inline table (handles `{{a,b,c}}` and `{{a,b,c},{d,e,f}}`). */
+function extractBraceEntryBodies(source) {
+  const bodies = []
+  for (let i = 0; i < source.length; i++) {
+    if (source[i] !== '{') continue
+    let depth = 0
+    const start = i
+    for (let j = i; j < source.length; j++) {
+      const ch = source[j]
+      if (ch === '{') depth++
+      else if (ch === '}') {
+        depth--
+        if (depth === 0) {
+          bodies.push(source.slice(start + 1, j))
+          i = j
+          break
+        }
+      }
+    }
+  }
+  return bodies
+}
+
+function parseInlineGetPathEntries(rawGetPath, sMap, tMap) {
+  const paths = []
+  for (const body of extractBraceEntryBodies(rawGetPath)) {
+    if (body.includes('{')) {
+      for (const inner of extractBraceEntryBodies(body)) {
+        const parts = inner.split(',').map((p) => p.trim())
+        const entry = resolvePathEntry(parts, sMap, tMap)
+        if (entry) paths.push(entry)
+      }
+      continue
+    }
+    const parts = body.split(',').map((p) => p.trim())
+    const entry = resolvePathEntry(parts, sMap, tMap)
+    if (entry) paths.push(entry)
+  }
+  return paths
+}
+
 function parseAreaKeyGetPaths(source) {
   const sMap = parseSymbolTable(source)
   const tMap = parseTemplateTable(source)
@@ -137,12 +178,7 @@ function parseAreaKeyGetPaths(source) {
     if (rawGetPath.startsWith('T.')) {
       paths = resolveToken(rawGetPath, sMap, tMap)
     } else if (rawGetPath.startsWith('{{')) {
-      paths = []
-      for (const chunk of rawGetPath.matchAll(/\{([^\}]+)\}/g)) {
-        const parts = chunk[1].split(',').map((p) => p.trim())
-        const entry = resolvePathEntry(parts, sMap, tMap)
-        if (entry) paths.push(entry)
-      }
+      paths = parseInlineGetPathEntries(rawGetPath, sMap, tMap)
     }
     if (paths?.length) areaKeyPaths[String(id)] = paths
   }

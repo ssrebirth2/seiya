@@ -87,7 +87,10 @@ export function rewardSourceLabelKey(role: ItemRewardSourceRole): string {
   return REWARD_SOURCE_LABEL_KEYS[role]
 }
 
-export function buildItemRewardSources(rows: ItemUsageRow[]): ItemRewardSourceEntry[] {
+export function buildItemRewardSources(
+  rows: ItemUsageRow[],
+  itemId?: number
+): ItemRewardSourceEntry[] {
   const bySource = new Map<string, ItemRewardSourceEntry>()
 
   for (const row of rows) {
@@ -116,6 +119,7 @@ export function buildItemRewardSources(rows: ItemUsageRow[]): ItemRewardSourceEn
 
   return [...bySource.values()]
     .filter((entry) => isItemListed(entry.sourceItemId))
+    .filter((entry) => itemId == null || entry.sourceItemId !== itemId)
     .sort((a, b) => a.sourceItemId - b.sourceItemId)
 }
 

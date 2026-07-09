@@ -4,12 +4,17 @@ import { useMemo, type ReactNode } from 'react'
 import { ConsumeList } from '@/components/game/ConsumeList'
 import { ItemBoxRewardsGrid } from '@/components/items/ItemBoxRewardsGrid'
 import { ItemCraftRecipeCard } from '@/components/items/ItemCraftRecipeCard'
-import { ItemExchangeSection } from '@/components/items/ItemExchangeSection'
+import { ItemExchangeSection, getExchangeSectionTitle } from '@/components/items/ItemExchangeSection'
 import { ItemGetPathSection } from '@/components/items/ItemGetPathSection'
 import { ItemRelatedSection } from '@/components/items/ItemRelatedSection'
 import { ItemRewardSourcesSection } from '@/components/items/ItemRewardSourcesSection'
+import { ItemStageRewardsSection } from '@/components/items/ItemStageRewardsSection'
 import { ItemUsageSection } from '@/components/items/ItemUsageSection'
-import { boxSectionKeyForChildType } from '@/lib/game/item-business'
+import { boxSectionKeyForChildType, filterExchangeBlocksForItemDetail } from '@/lib/game/item-business'
+import {
+  collectItemObtainModes,
+  filterObtainModesNotInGetPath,
+} from '@/lib/game/item-stage-rewards'
 import type { ItemDetailBundle } from '@/lib/game/load-item-detail'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
@@ -66,22 +71,66 @@ export function ItemDetailSections({ bundle, getT }: ItemDetailSectionsProps) {
     return items
   }, [bundle.relatedItems, bundle.rewardSources.length, craftRecipe?.output.sid])
 
-  const hasExchange =
-    bundle.exchangeBlocks.length > 0 ||
-    bundle.exchangeConditions.some((c) => c.unlock != null)
+  const exchangeBlocksForPage = useMemo(
+    () => filterExchangeBlocksForItemDetail(bundle.exchangeBlocks, bundle.item.id),
+    [bundle.exchangeBlocks, bundle.item.id]
+  )
+
+  const hasExchangePreview = exchangeBlocksForPage.some((b) => b.get.length > 0)
+  const hasStageRewards = bundle.stageRewardLines.length > 0
+  const hasProgressRewards = bundle.progressRewardLines.length > 0
+  const hasExchangeUnlock = bundle.exchangeUnlockLines.length > 0
   const hasBoxPreview = bundle.boxShowAwards.length > 0
   const hasBoxConsume = bundle.boxConsumeAwards.length > 0
 
   const hasGamePath = bundle.getPathByRegion.length > 0
   const hasRewardSources = bundle.rewardSources.length > 0
 
+  /** Infer tabs from stage drops; fall back to progress modes when get_path is empty. */
+  const obtainModes = useMemo(() => {
+    const fromStages = collectItemObtainModes(bundle.stageRewardLines)
+    const hasGetPathEntries = bundle.getPathByRegion.some((group) => group.entries.length > 0)
+    if (fromStages.length > 0 || hasGetPathEntries) return fromStages
+    return collectItemObtainModes(bundle.progressRewardLines)
+  }, [bundle.stageRewardLines, bundle.progressRewardLines, bundle.getPathByRegion])
+
+  const getPathLabels = useMemo(
+    () => bundle.getPathByRegion.flatMap((group) => group.entries.map((entry) => entry.name)),
+    [bundle.getPathByRegion]
+  )
+
+  const getPathFunopenIds = useMemo(
+    () => bundle.getPathByRegion.flatMap((group) => group.entries.map((entry) => entry.funopenId)),
+    [bundle.getPathByRegion]
+  )
+
+  const obtainModesForFonte = useMemo(
+    () => filterObtainModesNotInGetPath(obtainModes, getPathFunopenIds, getPathLabels),
+    [obtainModes, getPathFunopenIds, getPathLabels]
+  )
+
+  const hasObtainModes = obtainModesForFonte.length > 0
+  const hasFontePaths = hasGamePath || hasObtainModes
+  const showFonteSection = hasFontePaths || hasRewardSources
+
   return (
     <div className="space-y-4">
-      {hasGamePath || hasRewardSources ? (
+      {hasExchangeUnlock ? (
+        <Section title={t(UI_KEYS.common.unlockCondition)}>
+          <ItemStageRewardsSection lines={bundle.exchangeUnlockLines} />
+        </Section>
+      ) : null}
+
+      {showFonteSection ? (
         <Section title={t(UI_KEYS.common.getPath)}>
-          {hasGamePath ? <ItemGetPathSection groups={bundle.getPathByRegion} /> : null}
+          {hasFontePaths ? (
+            <ItemGetPathSection
+              groups={bundle.getPathByRegion}
+              obtainModes={obtainModesForFonte}
+            />
+          ) : null}
           {hasRewardSources ? (
-            <div className={hasGamePath ? 'mt-5 border-t border-border/60 pt-5' : undefined}>
+            <div className={hasFontePaths ? 'mt-5 border-t border-border/60 pt-5' : undefined}>
               <ItemRewardSourcesSection
                 entries={bundle.rewardSources}
                 consumeRefMap={bundle.consumeRefMap}
@@ -120,14 +169,26 @@ export function ItemDetailSections({ bundle, getT }: ItemDetailSectionsProps) {
         </Section>
       ) : null}
 
-      {hasExchange ? (
-        <ItemExchangeSection
-          exchangeBlocks={bundle.exchangeBlocks}
-          exchangeConditions={bundle.exchangeConditions}
-          consumeRefMap={bundle.consumeRefMap}
-          getT={getT}
-          embedded
-        />
+      {hasStageRewards ? (
+        <Section title={t(UI_KEYS.item.stageRewards)}>
+          <ItemStageRewardsSection lines={bundle.stageRewardLines} />
+        </Section>
+      ) : null}
+
+      {hasProgressRewards ? (
+        <Section title={t(UI_KEYS.item.progressRewards)}>
+          <ItemStageRewardsSection lines={bundle.progressRewardLines} variant="progress" />
+        </Section>
+      ) : null}
+
+      {hasExchangePreview ? (
+        <Section title={getExchangeSectionTitle(exchangeBlocksForPage, t)}>
+          <ItemExchangeSection
+            exchangeBlocks={exchangeBlocksForPage}
+            consumeRefMap={bundle.consumeRefMap}
+            embedded
+          />
+        </Section>
       ) : null}
 
       {hasBoxPreview || hasBoxConsume ? (

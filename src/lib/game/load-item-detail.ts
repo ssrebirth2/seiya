@@ -24,6 +24,7 @@ import {
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import { loadConsumeRefMap } from '@/lib/game/load-consume-ref-map'
 import { normalizeConsumeList } from '@/lib/game/parse-game-data'
+import { loadItemStageSourceLines, splitStageRewardLines, type ItemStageRewardLine } from '@/lib/game/item-stage-rewards'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 
 export type ItemConfigRow = {
@@ -42,11 +43,6 @@ export type ItemConfigRow = {
   des_value?: unknown
 }
 
-export type ExchangeConditionRow = {
-  id: number
-  unlock: unknown
-}
-
 export type ItemDetailBundle = {
   item: ItemConfigRow
   translations: Record<string, string>
@@ -54,7 +50,9 @@ export type ItemDetailBundle = {
   resolvedDescHtml?: string
   craftRecipe: ItemCraftRecipe | null
   exchangeBlocks: ExchangeBlock[]
-  exchangeConditions: ExchangeConditionRow[]
+  stageRewardLines: ItemStageRewardLine[]
+  progressRewardLines: ItemStageRewardLine[]
+  exchangeUnlockLines: ItemStageRewardLine[]
   boxShowAwards: ReturnType<typeof buildBoxShowAwards>
   boxConsumeAwards: ConsumeEntry[]
   usageRows: ItemUsageRow[]
@@ -160,7 +158,7 @@ export async function loadItemDetail(itemId: number, lang: string): Promise<Item
 
   const composeId = toNum(item.compose, 0)
   const compositeLookupId = composeId > 0 ? composeId : itemId
-  const [compositeRes, exchangeRes, boxShowRes, boxConsumeRes, conditionRes, relatedItems] =
+  const [compositeRes, exchangeRes, boxShowRes, boxConsumeRes, relatedItems] =
     await Promise.all([
       supabase
         .from('CompositeConfig')
@@ -170,7 +168,6 @@ export async function loadItemDetail(itemId: number, lang: string): Promise<Item
       supabase.from('ExchangeConfig').select('id,compose_id,decompose_id,exchange_id').eq('id', itemId),
       supabase.from('BoxAwardShowConfig').select('id,awards,rate_list').eq('id', itemId).maybeSingle(),
       supabase.from('BoxAwardConsumeConfig').select('id,awards').eq('id', itemId).maybeSingle(),
-      supabase.from('ExchangeConditionConfig').select('id,unlock').eq('id', itemId).maybeSingle(),
       loadRelatedItems(itemId, {
         compose: item.compose,
         childType: item.child_type,
@@ -261,18 +258,9 @@ export async function loadItemDetail(itemId: number, lang: string): Promise<Item
     ? normalizeBoxAwardList((boxConsumeRes.data as { awards: unknown }).awards)
     : []
 
-  const exchangeConditions: ExchangeConditionRow[] = conditionRes.data
-    ? [
-        {
-          id: toNum((conditionRes.data as { id: number }).id),
-          unlock: (conditionRes.data as { unlock: unknown }).unlock,
-        },
-      ]
-    : []
-
   const linkedEntity = resolveLinkedEntity(item.args, item.child_type)
   const groupedUsage = groupItemUsageRows(usageRows)
-  const rewardSources = buildItemRewardSources(usageRows)
+  const rewardSources = buildItemRewardSources(usageRows, itemId)
 
   const consumeRefEntries = collectDetailConsumeEntries({
     craftRecipe,
@@ -296,10 +284,15 @@ export async function loadItemDetail(itemId: number, lang: string): Promise<Item
     translations
   )
 
-  const [getPathByRegion, consumeRefMap] = await Promise.all([
+  const [getPathByRegion, consumeRefMap, stageSources] = await Promise.all([
     resolveItemGetPathByRegion(item.id, lang),
     loadConsumeRefMap(consumeRefEntries, lang),
+    loadItemStageSourceLines(item.id, lang),
   ])
+
+  const { chapterRewardLines, progressRewardLines } = splitStageRewardLines(
+    stageSources.stageRewardLines
+  )
 
   return {
     item,
@@ -308,7 +301,9 @@ export async function loadItemDetail(itemId: number, lang: string): Promise<Item
     resolvedDescHtml,
     craftRecipe,
     exchangeBlocks,
-    exchangeConditions,
+    stageRewardLines: chapterRewardLines,
+    progressRewardLines,
+    exchangeUnlockLines: stageSources.exchangeUnlockLines,
     boxShowAwards,
     boxConsumeAwards,
     usageRows,

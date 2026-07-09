@@ -23,6 +23,8 @@ type SkillDetailCardProps = {
   noDataLabel: string
   getT: (key?: string) => string
   nested?: boolean
+  /** Artifact relic skill: description beside icon instead of title + separate section. */
+  headerMode?: 'default' | 'description'
 }
 
 function formatHeroLevelLabel(level: number, getT: (key?: string) => string): string {
@@ -43,16 +45,20 @@ export function SkillDetailCard({
   noDataLabel,
   getT,
   nested = false,
+  headerMode = 'default',
 }: SkillDetailCardProps) {
   const { t } = useUiTranslation()
   const cd = skill.cd
   const hasCooldown = hasSkillCooldown(cd)
+  const descriptionInHeader = headerMode === 'description'
 
   const typeChip =
     skillTypeLabel && !isNotAvailableLabel(skillTypeLabel, noDataLabel) ? skillTypeLabel : null
 
   return (
-    <article className={`skill-detail-card${nested ? ' skill-detail-card--nested' : ''}`}>
+    <article
+      className={`skill-detail-card${nested ? ' skill-detail-card--nested' : ''}${descriptionInHeader ? ' skill-detail-card--description-header' : ''}`}
+    >
       <div className="skill-detail-card__inner">
         <header className="skill-detail-card__header">
           {iconPath ? (
@@ -62,9 +68,18 @@ export function SkillDetailCard({
           ) : null}
 
           <div className="skill-detail-card__head">
-            <h3 className="skill-detail-card__title">{name}</h3>
+            {descriptionInHeader ? (
+              mainDescriptionHtml ? (
+                <div
+                  className="skill-detail-card__prose skill-detail-card__prose--header"
+                  dangerouslySetInnerHTML={{ __html: mainDescriptionHtml }}
+                />
+              ) : null
+            ) : (
+              <h3 className="skill-detail-card__title">{name}</h3>
+            )}
 
-            {(typeChip || hasCooldown || tagLabels.length > 0) && (
+            {!descriptionInHeader && (typeChip || hasCooldown || tagLabels.length > 0) && (
               <div className="skill-detail-card__chips" role="list">
                 {typeChip ? (
                   <span className="skill-detail-card__chip" role="listitem">
@@ -90,7 +105,7 @@ export function SkillDetailCard({
           </div>
         </header>
 
-        {mainDescriptionHtml ? (
+        {mainDescriptionHtml && !descriptionInHeader ? (
           <section className="skill-detail-card__section" aria-labelledby={`skill-${skill.skillid}-desc`}>
             <h4 id={`skill-${skill.skillid}-desc`} className="skill-detail-card__section-title">
               {t(UI_KEYS.common.description)}

@@ -17,11 +17,12 @@ import {
   normalizeSearchText,
 } from '@/lib/game/force-card-effect-search'
 import {
-  buildCardRestrictionTypeMap,
+  buildForceCardRestrictionChipMap,
   buildForceCardRestrictionChips,
   cardMatchesRestrictionFilter,
   collectRestrictionTranslationKeys,
   getForceCardQualityTiers,
+  getForceCardRestrictionFilterChips,
 } from '@/lib/game/force-card-equip'
 import { forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
 import {
@@ -64,15 +65,23 @@ export default function ForceCardsClient() {
 
   const qualityTiers = useMemo(() => getForceCardQualityTiers(cards), [cards])
 
-  const restrictionMap = useMemo(
+  const conditionRows = useMemo(
     () =>
-      buildCardRestrictionTypeMap(
-        Object.entries(infoById).map(([id, row]) => ({
-          id: Number(id),
-          condition: row.condition,
-        }))
-      ),
+      Object.entries(infoById).map(([id, row]) => ({
+        id: Number(id),
+        condition: row.condition,
+      })),
     [infoById]
+  )
+
+  const restrictionChipMap = useMemo(
+    () => buildForceCardRestrictionChipMap(conditionRows, lang),
+    [conditionRows, lang]
+  )
+
+  const restrictionFilterChips = useMemo(
+    () => getForceCardRestrictionFilterChips(conditionRows, lang),
+    [conditionRows, lang]
   )
 
   useEffect(() => {
@@ -175,7 +184,7 @@ export default function ForceCardsClient() {
       const matchesRestriction = cardMatchesRestrictionFilter(
         c.id,
         filters.restriction,
-        restrictionMap
+        restrictionChipMap
       )
       return matchesQuality && matchesSearch && matchesDesc && matchesRestriction
     })
@@ -193,7 +202,7 @@ export default function ForceCardsClient() {
     })
 
     return result
-  }, [cards, filters, restrictionMap, translations, effectSearchByCardId, effectSearchReady, sortBy, getT])
+  }, [cards, filters, restrictionChipMap, translations, effectSearchByCardId, effectSearchReady, sortBy, getT])
 
   const resetFilters = () => setFilters({ quality: '', search: '', searchDesc: '', restriction: '' })
 
@@ -218,7 +227,7 @@ export default function ForceCardsClient() {
         filters={filters}
         sortBy={sortBy}
         qualityTiers={qualityTiers}
-        restrictionMap={restrictionMap}
+        restrictionChips={restrictionFilterChips}
         onFilterChange={handleFilterChange}
         onSortChange={setSortBy}
         onClear={resetFilters}

@@ -43,7 +43,7 @@ export function pickAwardQty(x: Record<string, unknown>): number {
   return toNum(x.num ?? x.amount ?? x.count, 0)
 }
 
-/** BoxAwardShowConfig tuple: `[?, num, ?, sid?, ?, type]` (see BagItemInfoView). */
+/** BoxAwardShowConfig award tuple: `[exp, num, quality, sid, star, type]` (ConstClass format). */
 export function normalizeBoxAwardEntry(raw: unknown): (ConsumeEntry & { quality?: number }) | null {
   if (raw == null) return null
 
@@ -55,11 +55,19 @@ export function normalizeBoxAwardEntry(raw: unknown): (ConsumeEntry & { quality?
       const type = typeRaw != null ? String(typeRaw) : 'prop'
       const sid = typeof sidRaw === 'number' && sidRaw > 0 ? sidRaw : undefined
       if (num <= 0 && !sid && type === 'prop') return null
+
+      const qualityRaw = raw[2]
+      const quality =
+        typeof qualityRaw === 'number' && qualityRaw > 0 ? toNum(qualityRaw, 0) : undefined
+      const starRaw = raw[4]
+      const star = typeof starRaw === 'number' && starRaw > 0 ? toNum(starRaw, 0) : undefined
+
       return {
         num,
         sid,
         type,
-        quality: typeof raw[4] === 'number' ? toNum(raw[4], 0) : undefined,
+        quality,
+        star,
       }
     }
 
@@ -254,4 +262,26 @@ export function resolveExchangeBlocks(
     add('exchange', ex.exchange)
   }
   return blocks
+}
+
+function isSelfPropRef(entry: ConsumeEntry, itemId: number): boolean {
+  return entry.type === 'prop' && entry.sid === itemId
+}
+
+/** Drop circular refs when viewing an item's own detail page (output/input = current item). */
+export function filterExchangeBlocksForItemDetail(
+  blocks: ExchangeBlock[],
+  itemId: number
+): ExchangeBlock[] {
+  return blocks
+    .map((block) => ({
+      ...block,
+      consume: block.consume.filter((e) => !isSelfPropRef(e, itemId)),
+      get: block.get.filter((e) => !isSelfPropRef(e, itemId)),
+    }))
+    .filter((block) => block.get.length > 0 || block.consume.length > 0)
+}
+
+export function hasExchangePreviewForItem(blocks: ExchangeBlock[], itemId: number): boolean {
+  return filterExchangeBlocksForItemDetail(blocks, itemId).some((b) => b.get.length > 0)
 }

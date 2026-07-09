@@ -17,6 +17,13 @@ export interface ConsumeRefEntity {
   iconUrl: string
   iconPath?: string | null
   quality?: number
+  /** Hero box awards — UISquareHeroItem fields from RoleConfig */
+  heroMeta?: {
+    camp: number
+    stance: number
+    damagetype: number
+    star?: number
+  }
 }
 
 export type ConsumeRefMap = Record<string, ConsumeRefEntity>

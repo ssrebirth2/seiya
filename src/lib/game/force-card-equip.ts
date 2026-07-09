@@ -214,6 +214,68 @@ export function getForceCardQualityTiers(
 
 export type ForceCardRestrictionFilter = ForceCardConditionType
 
+const FORCE_CARD_RESTRICTION_TYPE_ORDER: Record<string, number> = {
+  stance: 0,
+  damagetype: 1,
+  occupation: 2,
+  hero_camp: 3,
+  camp: 3,
+  hero_sids: 4,
+}
+
+export function forceCardRestrictionChipKey(chip: ForceCardRestrictionChip): string {
+  return `${chip.type}-${chip.objectId}`
+}
+
+export function parseForceCardRestrictionChipKey(
+  key: string
+): { type: ForceCardRestrictionChip['type']; objectId: number } | null {
+  const dash = key.indexOf('-')
+  if (dash <= 0) return null
+  const type = key.slice(0, dash) as ForceCardRestrictionChip['type']
+  const objectId = Number(key.slice(dash + 1))
+  if (!type || Number.isNaN(objectId)) return null
+  return { type, objectId }
+}
+
+export function buildForceCardRestrictionChipMap(
+  rows: Array<{ id: number; condition?: unknown }>,
+  lang?: string
+): Map<number, ForceCardRestrictionChip[]> {
+  const map = new Map<number, ForceCardRestrictionChip[]>()
+  for (const row of rows) {
+    const chips = buildForceCardRestrictionChips(row.condition, lang)
+    if (chips.length) map.set(row.id, chips)
+  }
+  return map
+}
+
+export function getForceCardRestrictionFilterChips(
+  rows: Array<{ id: number; condition?: unknown }>,
+  lang?: string
+): ForceCardRestrictionChip[] {
+  const seen = new Set<string>()
+  const options: ForceCardRestrictionChip[] = []
+
+  for (const row of rows) {
+    for (const chip of buildForceCardRestrictionChips(row.condition, lang)) {
+      if (!chip.iconSrc) continue
+      const key = forceCardRestrictionChipKey(chip)
+      if (seen.has(key)) continue
+      seen.add(key)
+      options.push(chip)
+    }
+  }
+
+  return options.sort((a, b) => {
+    const orderA = FORCE_CARD_RESTRICTION_TYPE_ORDER[a.type] ?? 99
+    const orderB = FORCE_CARD_RESTRICTION_TYPE_ORDER[b.type] ?? 99
+    if (orderA !== orderB) return orderA - orderB
+    return a.objectId - b.objectId
+  })
+}
+
+/** @deprecated use buildForceCardRestrictionChipMap — type-only filter replaced by icon chips */
 export function buildCardRestrictionTypeMap(
   rows: Array<{ id: number; condition?: unknown }>
 ): Map<number, Set<ForceCardRestrictionFilter>> {
@@ -232,9 +294,11 @@ export function buildCardRestrictionTypeMap(
 export function cardMatchesRestrictionFilter(
   cardId: number,
   filter: string,
-  restrictionMap: Map<number, Set<ForceCardRestrictionFilter>>
+  chipMap: Map<number, ForceCardRestrictionChip[]>
 ): boolean {
   if (!filter) return true
-  const types = restrictionMap.get(cardId)
-  return types?.has(filter as ForceCardRestrictionFilter) ?? false
+  const parsed = parseForceCardRestrictionChipKey(filter)
+  if (!parsed) return true
+  const chips = chipMap.get(cardId)
+  return chips?.some((c) => c.type === parsed.type && c.objectId === parsed.objectId) ?? false
 }

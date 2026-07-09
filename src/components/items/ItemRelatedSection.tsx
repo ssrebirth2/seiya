@@ -19,7 +19,6 @@ type ItemRelatedSectionProps = {
 const RELATION_LABEL_KEYS: Record<string, string> = {
   LC_COMMON_compose: UI_KEYS.item.compose,
   LC_COMMON_compose_fragment: UI_KEYS.item.composeFragment,
-  LC_COMMON_material_title: UI_KEYS.item.materialTitle,
   LC_ITEM_box_award_tip2: UI_KEYS.item.boxAwardRandom,
 }
 

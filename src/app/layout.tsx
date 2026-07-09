@@ -99,13 +99,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
               <TopDock />
 
-              <div className="flex min-h-screen flex-col overflow-hidden bg-background lg:pt-[var(--top-shell-offset)]">
+              <div className="app-shell flex flex-col overflow-hidden bg-background lg:pt-[var(--top-shell-offset)]">
 
                 <main
 
                   role="main"
 
-                  className="flex-1 overflow-y-auto p-4 max-lg:pb-[calc(var(--dock-height)+var(--dock-safe-bottom)+1rem)] sm:p-6 lg:px-8 lg:pb-8 lg:pt-4"
+                  className="app-shell-main flex-1 overflow-y-auto px-4 pt-4 sm:px-6 sm:pt-6 lg:px-8 lg:pb-8 lg:pt-4"
 
                 >
 

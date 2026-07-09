@@ -4,7 +4,7 @@ import { isItemListed } from '@/lib/game/hidden-item-ids'
 
 export type RelatedItemEntry = {
   id: number
-  relation: 'compose_parent' | 'compose_child' | 'exchange_list' | 'box_source'
+  relation: 'compose_parent' | 'compose_child' | 'box_source'
   labelKey?: string
 }
 
@@ -50,25 +50,6 @@ export async function loadRelatedItems(
 
   if (String(opts.childType ?? '').toLowerCase() === 'item_chip' && composeId > 0) {
     add(composeId, 'compose_parent', 'LC_COMMON_compose_fragment')
-  }
-
-  const { data: exchangeRow } = await supabase
-    .from('ExchangeConfig')
-    .select('id,type')
-    .eq('id', itemId)
-    .maybeSingle()
-
-  if (exchangeRow) {
-    const { data: lists } = await supabase.from('ExchangeListConfig').select('id,item_list')
-    for (const list of lists ?? []) {
-      const raw = (list as { item_list?: unknown }).item_list
-      const ids = Array.isArray(raw) ? raw.map(Number).filter((n) => Number.isFinite(n)) : []
-      if (ids.includes(itemId)) {
-        for (const peerId of ids) {
-          if (peerId !== itemId) add(peerId, 'exchange_list', 'LC_COMMON_material_title')
-        }
-      }
-    }
   }
 
   for (const row of opts.usageRows ?? []) {

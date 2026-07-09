@@ -9,6 +9,7 @@ const steps = [
   { label: 'Import configs + language packs → Supabase', cmd: 'npm', args: ['run', 'import'] },
   { label: 'Build ItemUsageIndex → Supabase', cmd: 'npm', args: ['run', 'items:index'] },
   { label: 'Build item get-path index → public/data', cmd: 'npm', args: ['run', 'items:get-path:build'] },
+  { label: 'Build item stage rewards index → public/data', cmd: 'npm', args: ['run', 'items:stage-rewards:build'] },
   { label: 'Extract all game asset recipes → public/', cmd: 'npm', args: ['run', 'assets:extract:all'] },
   { label: 'Regenerate asset manifest', cmd: 'npm', args: ['run', 'assets:manifest'] },
 ]

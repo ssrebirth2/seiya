@@ -1,5 +1,9 @@
 import { resolveArtifactListIcon, resolveForceCardListIcon } from '@/lib/assets/game-images'
 import {
+  fetchHeroHeadIconEntry,
+  getHeroSquareHeadUrl,
+} from '@/lib/game/fetch-hero-head-icons'
+import {
   figureNameKeyFromSid,
   figureObjIdFromSid,
   figureQualityFromItemQuality,
@@ -21,6 +25,10 @@ type RefRow = {
   iconUrl: string
   iconPath?: string | null
   quality?: number
+  camp?: number
+  stance?: number
+  damagetype?: number
+  star?: number
 }
 
 function isPropEntry(entry: ConsumeEntry): boolean {
@@ -291,6 +299,69 @@ async function loadFigureRefs(
   return map
 }
 
+async function loadHeroRefs(
+  entries: ConsumeEntry[],
+  lang: string
+): Promise<Map<number, RefRow>> {
+  const heroIds = [
+    ...new Set(
+      entries
+        .filter((e) => e.type === 'hero' && e.sid != null && e.sid > 0)
+        .map((e) => e.sid!)
+    ),
+  ]
+  const map = new Map<number, RefRow>()
+  if (!heroIds.length) return map
+
+  const resourceIds = heroIds.map((id) => id * 10)
+  const [{ data: roles }, { data: resources }] = await Promise.all([
+    supabase.from('RoleConfig').select('id, camp, stance, damagetype, quality, star').in('id', heroIds),
+    supabase.from('RoleResourcesConfig').select('id, role_name').in('id', resourceIds),
+  ])
+
+  const nameKeyByHeroId = new Map<number, string>()
+  for (const row of resources ?? []) {
+    const resource = row as { id: number; role_name?: string | null }
+    const heroId = Math.floor(resource.id / 10)
+    if (resource.role_name) nameKeyByHeroId.set(heroId, String(resource.role_name))
+  }
+
+  const nameKeys = [...new Set(nameKeyByHeroId.values())]
+  const tmap = nameKeys.length ? await translateKeys(nameKeys, lang) : {}
+  const iconEntries = await Promise.all(heroIds.map((id) => fetchHeroHeadIconEntry(id)))
+
+  for (let i = 0; i < heroIds.length; i++) {
+    const heroId = heroIds[i]
+    const role = (roles ?? []).find((r) => Number((r as { id: number }).id) === heroId) as
+      | {
+          id: number
+          camp: number
+          stance: number
+          damagetype: number
+          quality?: number | null
+          star?: number | null
+        }
+      | undefined
+    const nameKey = nameKeyByHeroId.get(heroId) ?? `LC_ROLE_role_full_name_${heroId}`
+    const iconEntry = iconEntries[i]
+    const iconMap = iconEntry ? { [heroId]: iconEntry } : undefined
+
+    map.set(heroId, {
+      name: tmap[nameKey] || nameKey,
+      nameKey,
+      iconUrl: getHeroSquareHeadUrl(iconMap, heroId),
+      iconPath: iconEntry?.squarePath,
+      quality: role?.quality != null ? Number(role.quality) : undefined,
+      camp: role?.camp != null ? Number(role.camp) : 0,
+      stance: role?.stance != null ? Number(role.stance) : 0,
+      damagetype: role?.damagetype != null ? Number(role.damagetype) : 0,
+      star: role?.star != null ? Number(role.star) : undefined,
+    })
+  }
+
+  return map
+}
+
 function fallbackEntity(entry: ConsumeEntry): ConsumeRefEntity {
   return {
     name: entry.sid ? `#${entry.sid}` : entry.type || 'Unknown',
@@ -301,13 +372,27 @@ function fallbackEntity(entry: ConsumeEntry): ConsumeRefEntity {
 
 function toEntity(ref: RefRow | undefined, entry: ConsumeEntry): ConsumeRefEntity {
   if (!ref) return fallbackEntity(entry)
-  return {
+  const entity: ConsumeRefEntity = {
     name: ref.name,
     nameKey: ref.nameKey,
     iconUrl: ref.iconUrl,
     iconPath: ref.iconPath,
     quality: ref.quality,
   }
+  if (
+    entry.type === 'hero' &&
+    ref.camp != null &&
+    ref.stance != null &&
+    ref.damagetype != null
+  ) {
+    entity.heroMeta = {
+      camp: ref.camp,
+      stance: ref.stance,
+      damagetype: ref.damagetype,
+      star: entry.star && entry.star > 0 ? entry.star : ref.star,
+    }
+  }
+  return entity
 }
 
 /** Resolve consume entries to icon/name/quality refs (items, money, artifacts, …). */
@@ -320,12 +405,13 @@ export async function loadConsumeRefMap(
 
   const uniqueEntries = [...new Map(entries.map((entry) => [consumeRefKey(entry), entry])).values()]
 
-  const [itemById, moneyById, artifactById, forceCardById, figureById] = await Promise.all([
+  const [itemById, moneyById, artifactById, forceCardById, figureById, heroById] = await Promise.all([
     loadItemRefs(uniqueEntries, lang),
     loadMoneyRefs(uniqueEntries, lang),
     loadArtifactRefs(uniqueEntries, lang),
     loadForceCardRefs(uniqueEntries, lang),
     loadFigureRefs(uniqueEntries, lang),
+    loadHeroRefs(uniqueEntries, lang),
   ])
 
   for (const entry of uniqueEntries) {
@@ -344,6 +430,11 @@ export async function loadConsumeRefMap(
 
     if (entry.type === 'figure' && entry.sid) {
       map[key] = toEntity(figureById.get(entry.sid), entry)
+      continue
+    }
+
+    if (entry.type === 'hero' && entry.sid) {
+      map[key] = toEntity(heroById.get(entry.sid), entry)
       continue
     }
 

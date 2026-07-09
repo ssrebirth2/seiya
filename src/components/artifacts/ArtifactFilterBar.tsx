@@ -4,34 +4,34 @@ import { Search, X } from 'lucide-react'
 import GameImage from '@/components/ui/GameImage'
 import { Input } from '@/components/ui/v2'
 import {
-  forceCardRestrictionChipKey,
-  type ForceCardRestrictionChip,
-} from '@/lib/game/force-card-equip'
-import { getForceCardQualityToneClass } from '@/lib/game/dynamis-ui'
-import { formatPlainLabel } from '@/lib/game/apply-skill-values'
+  ITEM_QUALITY_SHOW_TYPE,
+  resolveItemQualityFramePath,
+} from '@/lib/game/item-quality-ui'
+import { artifactRestrictionChipKey } from '@/lib/game/artifact-equip'
+import type { ForceCardRestrictionChip } from '@/lib/game/force-card-equip'
 import { getFilterAllIconPath } from '@/lib/game/hero-ui-sprites'
+import { formatPlainLabel } from '@/lib/game/apply-skill-values'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
-import { forceCardQualityNameKey } from '@/lib/i18n/ui-keys'
+import { qualityNameKey } from '@/lib/i18n/ui-keys'
 import { useLanguage } from '@/context/language-context'
 
-export type ForceCardListFilters = {
+export type ArtifactListFilters = {
   quality: string
-  search: string
-  searchDesc: string
   restriction: string
+  search: string
 }
 
-export type ForceCardSortKey = 'id' | 'name' | 'quality'
+export type ArtifactSortKey = 'id' | 'name' | 'quality'
 
-type ForceCardFilterBarProps = {
-  filters: ForceCardListFilters
-  sortBy: ForceCardSortKey
+type ArtifactFilterBarProps = {
+  filters: ArtifactListFilters
+  sortBy: ArtifactSortKey
   qualityTiers: number[]
   restrictionChips: ForceCardRestrictionChip[]
-  onFilterChange: (field: keyof ForceCardListFilters, value: string) => void
-  onSortChange: (value: ForceCardSortKey) => void
+  onFilterChange: (field: keyof ArtifactListFilters, value: string) => void
+  onSortChange: (value: ArtifactSortKey) => void
   onClear: () => void
-  getT: (key: string | undefined) => string
+  getT: (key?: string) => string
   resultCount: number
 }
 
@@ -39,17 +39,15 @@ function SortPill({
   active,
   label,
   onClick,
-  className = '',
 }: {
   active: boolean
   label: string
   onClick: () => void
-  className?: string
 }) {
   return (
     <button
       type="button"
-      className={`catalog-sort-pill${active ? ' catalog-sort-pill--active' : ''} ${className}`.trim()}
+      className={`catalog-sort-pill${active ? ' catalog-sort-pill--active' : ''}`}
       onClick={onClick}
       aria-pressed={active}
     >
@@ -89,32 +87,41 @@ function FilterIconButton({
   )
 }
 
-function QualityColorPill({
+function QualityFramePill({
   active,
+  frameQuality,
   label,
-  toneClass,
   onClick,
 }: {
   active: boolean
+  frameQuality: number
   label: string
-  toneClass: string
   onClick: () => void
 }) {
+  const frame = resolveItemQualityFramePath(ITEM_QUALITY_SHOW_TYPE.small, frameQuality)
+  if (!frame) return null
+
   return (
     <button
       type="button"
-      className={`catalog-sort-pill force-card-quality-pill ${toneClass}${active ? ' force-card-quality-pill--active' : ''}`}
+      className={`hero-icon-filter__option item-filter-quality__option${active ? ' hero-icon-filter__option--active' : ''}`}
       onClick={onClick}
-      aria-pressed={active}
       title={label}
+      aria-label={label}
+      aria-pressed={active}
     >
-      <span className="force-card-quality-pill__dot" aria-hidden />
-      <span className="force-card-quality-pill__label">{label}</span>
+      <GameImage
+        src={frame.src}
+        rawSrc={frame.rawSrc ?? frame.src}
+        alt=""
+        aria-hidden
+        className="item-filter-quality__frame"
+      />
     </button>
   )
 }
 
-export function ForceCardFilterBar({
+export function ArtifactFilterBar({
   filters,
   sortBy,
   qualityTiers,
@@ -124,37 +131,30 @@ export function ForceCardFilterBar({
   onClear,
   getT,
   resultCount,
-}: ForceCardFilterBarProps) {
+}: ArtifactFilterBarProps) {
   const { lang } = useLanguage()
   const { t, site } = useUiTranslation()
   const allLabel = t(UI_KEYS.filter.all)
   const allIcon = getFilterAllIconPath(lang)
 
   const hasActiveFilters = Boolean(
-    filters.quality ||
-      filters.search.trim() ||
-      filters.searchDesc.trim() ||
-      filters.restriction
+    filters.quality || filters.restriction || filters.search.trim()
   )
 
-  const sortOptions: { value: ForceCardSortKey; label: string }[] = [
+  const sortOptions: { value: ArtifactSortKey; label: string }[] = [
     { value: 'id', label: site('id') },
     { value: 'name', label: site('name') },
     { value: 'quality', label: t(UI_KEYS.common.quality) },
   ]
 
   return (
-    <div className="force-card-filter-bar hero-icon-filter-bar">
+    <div className="force-card-filter-bar hero-icon-filter-bar artifact-filter-bar">
       <div className="hero-icon-filter-bar__groups force-card-filter-bar__groups">
         <div className="hero-icon-filter-bar__header">
           <h2 className="hero-icon-filter-bar__title">{t(UI_KEYS.filter.filter)}</h2>
           <div className="force-card-filter-bar__header-actions">
             {hasActiveFilters ? (
-              <button
-                type="button"
-                onClick={onClear}
-                className="force-card-filter-bar__clear"
-              >
+              <button type="button" onClick={onClear} className="force-card-filter-bar__clear">
                 <X size={14} aria-hidden />
                 {t(UI_KEYS.filter.clearAll)}
               </button>
@@ -175,57 +175,55 @@ export function ForceCardFilterBar({
               type="search"
               value={filters.search}
               onChange={(e) => onFilterChange('search', e.target.value)}
-              placeholder={t(UI_KEYS.forceCard.searchName)}
-              aria-label={t(UI_KEYS.forceCard.searchName)}
-              className="force-card-filter-bar__search-input"
-            />
-          </div>
-
-          <div className="force-card-filter-bar__search">
-            <Search size={16} className="force-card-filter-bar__search-icon" aria-hidden />
-            <Input
-              type="search"
-              value={filters.searchDesc}
-              onChange={(e) => onFilterChange('searchDesc', e.target.value)}
-              placeholder={t(UI_KEYS.forceCard.searchEffect)}
-              aria-label={t(UI_KEYS.forceCard.searchEffect)}
+              placeholder={site('searchPlaceholderArtifact')}
+              aria-label={t(UI_KEYS.filter.search)}
               className="force-card-filter-bar__search-input"
             />
           </div>
         </div>
 
         <div className="force-card-filter-bar__controls">
-          <div className="hero-icon-filter-bar__group">
-            <span className="hero-icon-filter-bar__group-label">{t(UI_KEYS.common.quality)}</span>
-            <div className="catalog-sort-pills" role="group" aria-label={t(UI_KEYS.common.quality)}>
-              <SortPill
-                active={filters.quality === ''}
-                label={allLabel}
-                onClick={() => onFilterChange('quality', '')}
-              />
-              {qualityTiers.map((q) => (
-                <QualityColorPill
-                  key={q}
-                  active={filters.quality === String(q)}
-                  label={getT(forceCardQualityNameKey(q))}
-                  toneClass={getForceCardQualityToneClass(q)}
-                  onClick={() =>
-                    onFilterChange('quality', filters.quality === String(q) ? '' : String(q))
-                  }
-                />
-              ))}
+          {qualityTiers.length > 0 ? (
+            <div className="hero-icon-filter-bar__group">
+              <span className="hero-icon-filter-bar__group-label">{t(UI_KEYS.common.quality)}</span>
+              <div
+                className="item-filter-quality__controls"
+                role="group"
+                aria-label={t(UI_KEYS.common.quality)}
+              >
+                <div className="catalog-sort-pills">
+                  <SortPill
+                    active={filters.quality === ''}
+                    label={allLabel}
+                    onClick={() => onFilterChange('quality', '')}
+                  />
+                </div>
+                <div className="hero-icon-filter-bar__options item-filter-quality__frames">
+                  {qualityTiers.map((q) => (
+                    <QualityFramePill
+                      key={q}
+                      active={filters.quality === String(q)}
+                      frameQuality={q + 1}
+                      label={getT(qualityNameKey(q))}
+                      onClick={() =>
+                        onFilterChange('quality', filters.quality === String(q) ? '' : String(q))
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          ) : null}
 
           {restrictionChips.length > 0 ? (
             <div className="hero-icon-filter-bar__group">
               <span className="hero-icon-filter-bar__group-label">
-                {t(UI_KEYS.forceCard.restrictionFilter)}
+                {t(UI_KEYS.artifact.restriction)}
               </span>
               <div
                 className="hero-icon-filter-bar__options artifact-restriction-filter__options"
                 role="group"
-                aria-label={t(UI_KEYS.forceCard.restrictionFilter)}
+                aria-label={t(UI_KEYS.artifact.restriction)}
               >
                 <FilterIconButton
                   active={filters.restriction === ''}
@@ -235,7 +233,7 @@ export function ForceCardFilterBar({
                 />
                 {restrictionChips.map((chip) => {
                   if (!chip.iconSrc) return null
-                  const key = forceCardRestrictionChipKey(chip)
+                  const key = artifactRestrictionChipKey(chip)
                   const label = formatPlainLabel(getT(chip.labelKey), 0, {})
                   return (
                     <FilterIconButton
@@ -274,3 +272,5 @@ export function ForceCardFilterBar({
     </div>
   )
 }
+
+export default ArtifactFilterBar

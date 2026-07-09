@@ -47,6 +47,24 @@ export function getPathEntryKey(entry: ItemGetPathDisplay): string {
   return `${entry.funopenId}:${entry.name}`
 }
 
+/** get_path dungeon funopen → chapter tab (LevelConfig.function_type). See FunOpenResourcesConfig 20103/20144/20326. */
+export const GET_PATH_DUNGEON_FUNOPEN_LEVEL_TYPE: Partial<Record<number, 1 | 2 | 3>> = {
+  20103: 1,
+  20144: 2,
+  20326: 3,
+}
+
+export function collectGetPathCoveredLevelTypes(
+  funopenIds: Iterable<number>
+): Set<1 | 2 | 3> {
+  const covered = new Set<1 | 2 | 3>()
+  for (const funopenId of funopenIds) {
+    const levelType = GET_PATH_DUNGEON_FUNOPEN_LEVEL_TYPE[funopenId]
+    if (levelType != null) covered.add(levelType)
+  }
+  return covered
+}
+
 function getPathSignature(entries: ItemGetPathDisplay[]): string {
   return entries.map((e) => e.funopenId).join(',')
 }

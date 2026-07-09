@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/language-context'
 import { ItemDetailHeader } from '@/components/items/ItemDetailHeader'
 import { ItemDetailSections } from '@/components/items/ItemDetailSections'
 import { DetailPageShell, LoadingSkeleton } from '@/components/ui/v2'
+import { hasExchangePreviewForItem } from '@/lib/game/item-business'
 import { fetchItemDetail } from '@/lib/query/fetchers/item-detail'
 import { GAME_CONFIG_STALE_MS } from '@/lib/query/query-config'
 import { queryKeys } from '@/lib/query/query-keys'
@@ -47,8 +48,10 @@ export default function ItemDetailClient() {
       bundle.rewardSources.length > 0 ||
       bundle.craftRecipe != null ||
       (craftUsage?.entries.length ?? 0) > 0 ||
-      bundle.exchangeBlocks.length > 0 ||
-      bundle.exchangeConditions.some((c) => c.unlock != null) ||
+      hasExchangePreviewForItem(bundle.exchangeBlocks, bundle.item.id) ||
+      bundle.stageRewardLines.length > 0 ||
+      bundle.progressRewardLines.length > 0 ||
+      bundle.exchangeUnlockLines.length > 0 ||
       bundle.boxShowAwards.length > 0 ||
       bundle.boxConsumeAwards.length > 0 ||
       bundle.relatedItems.length > 0
@@ -101,7 +104,6 @@ export default function ItemDetailClient() {
             item={item}
             resolvedName={resolvedName}
             resolvedDescHtml={resolvedDescHtml}
-            linkedEntity={bundle.linkedEntity}
           />
         }
       >

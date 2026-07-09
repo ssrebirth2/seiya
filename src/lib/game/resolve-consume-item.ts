@@ -52,6 +52,9 @@ export function resolveConsumeDisplayQuality(
   ) {
     return ref?.quality ?? 0
   }
+  if (entry.type === 'hero') {
+    return entry.quality ?? ref?.quality ?? 0
+  }
   if (entry.quality != null && entry.quality > 0) return entry.quality
   return ref?.quality ?? 0
 }

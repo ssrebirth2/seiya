@@ -68,6 +68,8 @@
   --top-shell-offset: var(--top-dock-height);
   --dock-height: 3.5rem;
   --dock-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --dock-total-height: calc(var(--dock-height) + var(--dock-safe-bottom) + 1px);
+  --main-dock-inset: calc(var(--dock-total-height) + 1.25rem);
   --radius-panel: 8px;
   --radius-card: 12px;
   --tooltip-bg: rgba(0, 0, 0, 0.85);

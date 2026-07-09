@@ -1,36 +1,21 @@
 'use client'
 
-import Link from 'next/link'
 import { SquareItem } from '@/components/game/SquareItem'
-import type { LinkedEntity } from '@/lib/game/item-args-resolver'
 import type { ItemConfigRow } from '@/lib/game/load-item-detail'
 import { ITEM_QUALITY_SHOW_TYPE, resolveItemQualityFramePath } from '@/lib/game/item-quality-ui'
 import { itemIconUrl } from '@/lib/game/resolve-item-icon'
-import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
-import { useLocalizedHref } from '@/lib/i18n/localized-href'
 
 type ItemDetailHeaderProps = {
   item: ItemConfigRow
   resolvedName: string
   resolvedDescHtml?: string
-  linkedEntity: LinkedEntity | null
-}
-
-const LINKED_LABEL_KEYS: Record<LinkedEntity['kind'], string> = {
-  hero: UI_KEYS.nav.heroes,
-  artifact: UI_KEYS.nav.artifacts,
-  spirit: UI_KEYS.nav.companions,
-  force_card: UI_KEYS.nav.forceCards,
 }
 
 export function ItemDetailHeader({
   item,
   resolvedName,
   resolvedDescHtml,
-  linkedEntity,
 }: ItemDetailHeaderProps) {
-  const { t } = useUiTranslation()
-  const localized = useLocalizedHref()
   const largeFrame =
     item.quality > 0 ? resolveItemQualityFramePath(ITEM_QUALITY_SHOW_TYPE.large, item.quality) : null
 
@@ -62,18 +47,6 @@ export function ItemDetailHeader({
               className="force-card-detail-header__story-text mt-3"
               dangerouslySetInnerHTML={{ __html: resolvedDescHtml }}
             />
-          ) : null}
-
-          {linkedEntity ? (
-            <p className="mt-3 text-sm">
-              <span className="text-text-muted">{t(LINKED_LABEL_KEYS[linkedEntity.kind])}: </span>
-              <Link
-                href={localized(linkedEntity.href)}
-                className="font-medium text-accent hover:underline"
-              >
-                #{linkedEntity.id}
-              </Link>
-            </p>
           ) : null}
         </div>
       </div>
