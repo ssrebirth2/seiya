@@ -2,15 +2,17 @@
 
 import React from 'react'
 import { NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 import { TALENT_ICON_CLASS } from '@/lib/assets/talent-images'
 
 interface HeroTalentNotImplementedProps {
   subtitle?: string
 }
 
-export function HeroTalentNotImplemented({
-  subtitle = 'This awakening skill is not available in the database yet.',
-}: HeroTalentNotImplementedProps) {
+export function HeroTalentNotImplemented({ subtitle }: HeroTalentNotImplementedProps) {
+  const { t } = useUiTranslation()
+  const resolvedSubtitle = subtitle ?? t(UI_KEYS.common.noData)
+
   return (
     <div className="flex items-start gap-3">
       <div
@@ -21,7 +23,7 @@ export function HeroTalentNotImplemented({
       </div>
       <div className="min-w-0 pt-1">
         <p className="text-base font-semibold text-text-muted sm:text-lg">{NOT_AVAILABLE_LABEL}</p>
-        <p className="mt-1 text-sm leading-relaxed text-text-muted">{subtitle}</p>
+        <p className="mt-1 text-sm leading-relaxed text-text-muted">{resolvedSubtitle}</p>
       </div>
     </div>
   )

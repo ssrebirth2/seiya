@@ -13,11 +13,10 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { resolveLuaRoot } from './resolve-lua-root.mjs'
 
 const ROOT = process.cwd()
-const LUA_ROOT =
-  process.env.LUA_CONFIG_ROOT ||
-  'C:/rb2/backup/assets/resources/luascriptwithoutcodecomments/luaconfig'
+const LUA_ROOT = resolveLuaRoot()
 
 const LEVEL_FILE = join(LUA_ROOT, 'game/level/LevelConfig.lua')
 const AWARD_FILE = join(LUA_ROOT, 'game/award/AwardConfig.lua')
@@ -26,12 +25,16 @@ const CHAPTER_FILE = join(LUA_ROOT, 'game/level/ChapterConfig.lua')
 const STRONGHOLD_CHAPTER_FILE = join(LUA_ROOT, 'game/level/StrongHoldChapterConfig.lua')
 const STRONGHOLD_FILE = join(LUA_ROOT, 'game/scene/StrongHoldConfig.lua')
 const COMMON_BASE_FILE = join(LUA_ROOT, 'game/common/CommonBaseConfig.lua')
+const NPC_ROSTER_STORY_FILE = join(LUA_ROOT, 'game/level/NpcRosterStoryConfig.lua')
 const OUTPUT = join(ROOT, 'public/data/item-stage-rewards-index.json')
 const HIDDEN_ITEM_IDS_TS = join(ROOT, 'src/lib/game/hidden-item-ids.ts')
 
 const LEVEL_FIRST_AWARD_IDX = 13
 const LEVEL_SWEEP_AWARD_IDX = 14
 const LEVEL_FUNCTION_TYPE_IDX = 1
+const LEVEL_ROSTER_IDX = 4
+/** NpcRosterStoryConfig.level_name — format v_i=4 → 0-based index 3. */
+const ROSTER_LEVEL_NAME_IDX = 3
 
 /** GameDefine.DuplicateType — only 1/2/3 are story chapter stages (normal/hard/nightmare). */
 const STORY_CHAPTER_FUNCTION_TYPES = new Set([1, 2, 3])
@@ -196,6 +199,13 @@ function parseLevelConfig(source) {
 
     if (firstAward == null && sweepAward == null) continue
 
+    let rosterId = null
+    const rosterField = fields[LEVEL_ROSTER_IDX]
+    if (rosterField?.startsWith('{')) {
+      const first = rosterField.slice(1, -1).split(',')[0]?.trim()
+      if (first) rosterId = resolveToken(first, sMap, new Map())
+    }
+
     levels.push({
       id: row.id,
       chapter: chapter != null ? Number(chapter) : null,
@@ -203,12 +213,41 @@ function parseLevelConfig(source) {
         functionType != null ? Number(functionType) : null
       ),
       levelSerial: levelSerial != null ? Number(levelSerial) : null,
+      rosterId: rosterId != null ? Number(rosterId) : null,
       firstAward: firstAward != null ? Number(firstAward) : null,
       sweepAward: sweepAward != null ? Number(sweepAward) : null,
     })
   }
 
   return levels
+}
+
+/**
+ * NpcRosterStoryConfig.id → level_name LC key.
+ * Used by GameUtil.GetLevelNameByLevelConfig for DuplicateType.normal_level.
+ */
+function parseNpcRosterLevelNameMap(source) {
+  const sMap = parseSymbolTable(source)
+  const byRosterId = new Map()
+
+  for (const row of extractConfigRows(source)) {
+    const fields = splitTopLevelFields(row.body)
+    if (fields.length <= ROSTER_LEVEL_NAME_IDX) continue
+    const nameField = fields[ROSTER_LEVEL_NAME_IDX]
+    let levelNameKey = null
+    if (nameField?.startsWith('"')) {
+      levelNameKey = nameField.slice(1, -1)
+    } else {
+      const resolved = resolveToken(nameField, sMap, new Map())
+      if (typeof resolved === 'string' && resolved.startsWith('LC_')) {
+        levelNameKey = resolved
+      }
+    }
+    if (!levelNameKey) continue
+    byRosterId.set(row.id, levelNameKey)
+  }
+
+  return byRosterId
 }
 
 function parseExchangeConditionConfig(source) {
@@ -300,6 +339,25 @@ function parseCommonBaseList(source, listKey) {
     .map((token) => resolveToken(token.trim(), sMap, new Map()))
     .filter((id) => id != null)
     .map(Number)
+}
+
+/**
+ * ChapterConfig.show_id (v_i=3) — player-facing chapter number used by
+ * GameUtil.GetLevelIndexName (show_id .. "-" .. level_serial).
+ */
+function parseChapterShowIdMap(source) {
+  const sMap = parseSymbolTable(source)
+  const showIdByChapter = new Map()
+
+  for (const row of extractConfigRows(source)) {
+    const fields = splitTopLevelFields(row.body)
+    if (fields.length < 3) continue
+    const showId = resolveToken(fields[2], sMap, new Map())
+    if (showId == null) continue
+    showIdByChapter.set(row.id, Number(showId))
+  }
+
+  return showIdByChapter
 }
 
 function parseChapterAwards(source, { listKey, chapterMode, awardById, hiddenItemIds }) {
@@ -433,15 +491,29 @@ function buildIndex({
   chapterAwards,
   progressMilestones,
   hiddenItemIds,
+  showIdByChapter,
+  rosterLevelNameById,
 }) {
   const byItemId = new Map()
 
   for (const level of levels) {
+    const showId =
+      level.chapter != null ? showIdByChapter.get(level.chapter) : undefined
+    const chapterNameKey =
+      level.chapter != null ? `LC_Level_chapter_name_${level.chapter}` : undefined
+    // GameUtil.GetLevelNameByLevelConfig: normal_level → roster.level_name
+    const levelNameKey =
+      level.levelType === 1 && level.rosterId != null
+        ? rosterLevelNameById.get(level.rosterId)
+        : undefined
     const base = {
       levelId: level.id,
       chapter: level.chapter ?? undefined,
+      showId: showId != null ? showId : undefined,
       levelSerial: level.levelSerial ?? undefined,
       levelType: level.levelType ?? undefined,
+      chapterNameKey: chapterNameKey ?? undefined,
+      levelNameKey: levelNameKey ?? undefined,
     }
 
     if (level.firstAward != null && level.firstAward > 0) {
@@ -519,12 +591,15 @@ function main() {
   const chapterSource = readFileSync(CHAPTER_FILE, 'utf8')
   const strongHoldChapterSource = readFileSync(STRONGHOLD_CHAPTER_FILE, 'utf8')
   const strongHoldSource = readFileSync(STRONGHOLD_FILE, 'utf8')
+  const rosterStorySource = readFileSync(NPC_ROSTER_STORY_FILE, 'utf8')
   const hiddenItemIds = loadHiddenItemIds()
 
   const awardById = parseAwardConfig(awardSource)
   const levels = parseLevelConfig(levelSource)
   const exchangeByItemId = parseExchangeConditionConfig(exchangeSource)
   const difficultyByShChapterId = parseStrongHoldChapterDifficultyMap(strongHoldSource)
+  const showIdByChapter = parseChapterShowIdMap(chapterSource)
+  const rosterLevelNameById = parseNpcRosterLevelNameMap(rosterStorySource)
 
   const normalChapters = parseChapterAwards(chapterSource, {
     listKey: 'chapter_award_list',
@@ -562,6 +637,8 @@ function main() {
     chapterAwards,
     progressMilestones,
     hiddenItemIds,
+    showIdByChapter,
+    rosterLevelNameById,
   })
 
   const payload = {

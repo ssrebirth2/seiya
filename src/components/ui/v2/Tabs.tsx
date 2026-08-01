@@ -33,7 +33,7 @@ export function Tabs({
       <div
         role="tablist"
         aria-label={ariaLabel}
-        className={`flex scroll-strip-h border-b border-panel-border ${sticky ? 'detail-tabs-sticky' : ''}`}
+        className={`ui-tabs__list border-b border-panel-border ${sticky ? 'detail-tabs-sticky' : ''}`}
       >
         {tabs.map((tab) => {
           const active = tab.id === activeId
@@ -46,7 +46,7 @@ export function Tabs({
               id={`tab-${tab.id}`}
               aria-controls={`panel-${tab.id}`}
               onClick={() => onChange(tab.id)}
-              className={`tab-btn ${active ? 'tab-btn-active' : 'tab-btn-inactive'}`}
+              className={`ui-tabs__tab tab-btn ${active ? 'tab-btn-active' : 'tab-btn-inactive'}`}
             >
               {tab.label}
             </button>
@@ -60,7 +60,7 @@ export function Tabs({
             role="tabpanel"
             id={`panel-${tab.id}`}
             aria-labelledby={`tab-${tab.id}`}
-            className="p-4 sm:p-6"
+            className="px-4 pb-4 pt-2.5 sm:px-6 sm:pb-5 sm:pt-3"
           >
             {tab.panel}
           </div>

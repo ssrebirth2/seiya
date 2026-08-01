@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { FunctionShortcutGrid } from '@/components/ui/v2/FunctionShortcutGrid'
+import { DatabaseUpdatesSection } from '@/components/changelog/DatabaseUpdatesSection'
 import { useLanguage } from '@/context/language-context'
 import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { getSiteLogoSpec } from '@/lib/i18n/site-logo'
@@ -53,7 +54,10 @@ export default function HomeClient() {
       <section className="home-page__shortcuts mx-auto max-w-7xl px-4 pb-2 sm:px-8 sm:py-10 lg:px-12 lg:py-10">
         <FunctionShortcutGrid items={HOME_SHORTCUTS} variant="home" />
       </section>
+
+      <section className="home-page__updates mx-auto max-w-7xl px-4 pb-10 sm:px-8 sm:pb-14 lg:px-12">
+        <DatabaseUpdatesSection />
+      </section>
     </div>
   )
 }
-

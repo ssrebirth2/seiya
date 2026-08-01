@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import type { ItemStageRewardLine, LevelType } from '@/lib/game/item-stage-rewards'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
@@ -12,11 +12,24 @@ type ItemStageRewardsSectionProps = {
 
 type RewardHighlight = 'first_clear' | 'stage_drop' | 'fixed' | 'progress'
 
+type DifficultyTab = {
+  levelType: LevelType
+  label: string
+  count: number
+  lines: ItemStageRewardLine[]
+}
+
 const HIGHLIGHT_CLASS: Record<RewardHighlight, string> = {
   first_clear: 'first-clear',
   stage_drop: 'stage-drop',
   fixed: 'fixed',
   progress: 'progress',
+}
+
+const LEVEL_TYPE_MODIFIER: Record<LevelType, string> = {
+  1: 'story',
+  2: 'elite',
+  3: 'nightmare',
 }
 
 function InlineDifficulty({ label, levelType }: { label: string; levelType?: LevelType }) {
@@ -112,14 +125,20 @@ function RewardRow({
   )
 }
 
-function MetaRewardRow({ row }: { row: ItemStageRewardLine }) {
+function MetaRewardRow({
+  row,
+  hideDifficulty,
+}: {
+  row: ItemStageRewardLine
+  hideDifficulty?: boolean
+}) {
   const qty = row.qty ?? 1
 
   return (
     <RewardRow
       quantities={[qty]}
       difficulty={
-        row.difficulty ? (
+        !hideDifficulty && row.difficulty ? (
           <InlineDifficulty label={row.difficulty} levelType={row.levelType} />
         ) : undefined
       }
@@ -128,7 +147,13 @@ function MetaRewardRow({ row }: { row: ItemStageRewardLine }) {
   )
 }
 
-function ProgressRewardRow({ row }: { row: ItemStageRewardLine }) {
+function ProgressRewardRow({
+  row,
+  hideDifficulty,
+}: {
+  row: ItemStageRewardLine
+  hideDifficulty?: boolean
+}) {
   const { t } = useUiTranslation()
   const qty = row.qty ?? 1
 
@@ -137,7 +162,7 @@ function ProgressRewardRow({ row }: { row: ItemStageRewardLine }) {
       className="item-stage-rewards__row--progress"
       quantities={[qty]}
       difficulty={
-        row.difficulty ? (
+        !hideDifficulty && row.difficulty ? (
           <InlineDifficulty label={row.difficulty} levelType={row.levelType} />
         ) : undefined
       }
@@ -148,7 +173,13 @@ function ProgressRewardRow({ row }: { row: ItemStageRewardLine }) {
   )
 }
 
-function StageMergedRow({ row }: { row: ItemStageRewardLine }) {
+function StageMergedRow({
+  row,
+  hideDifficulty,
+}: {
+  row: ItemStageRewardLine
+  hideDifficulty?: boolean
+}) {
   const { t } = useUiTranslation()
   const quantities: number[] = []
 
@@ -160,7 +191,7 @@ function StageMergedRow({ row }: { row: ItemStageRewardLine }) {
       className="item-stage-rewards__row--merged"
       quantities={quantities}
       difficulty={
-        row.difficulty ? (
+        !hideDifficulty && row.difficulty ? (
           <InlineDifficulty label={row.difficulty} levelType={row.levelType} />
         ) : undefined
       }
@@ -184,39 +215,132 @@ function StageMergedRow({ row }: { row: ItemStageRewardLine }) {
   )
 }
 
+function StageRewardList({
+  lines,
+  variant,
+  hideDifficulty,
+}: {
+  lines: ItemStageRewardLine[]
+  variant: 'default' | 'progress'
+  hideDifficulty?: boolean
+}) {
+  return (
+    <ul className="item-stage-rewards__list scroll-y" role="list">
+      {lines.map((row) => {
+        if (row.line) {
+          return (
+            <li key={row.id} className="item-stage-rewards__row item-stage-rewards__row--plain">
+              {row.line}
+            </li>
+          )
+        }
+
+        if (variant === 'progress' || row.kind === 'chapter_progress') {
+          return <ProgressRewardRow key={row.id} row={row} hideDifficulty={hideDifficulty} />
+        }
+
+        if (row.kind === 'stage_merged') {
+          return <StageMergedRow key={row.id} row={row} hideDifficulty={hideDifficulty} />
+        }
+
+        return <MetaRewardRow key={row.id} row={row} hideDifficulty={hideDifficulty} />
+      })}
+    </ul>
+  )
+}
+
+function groupLinesByDifficulty(lines: ItemStageRewardLine[]): DifficultyTab[] {
+  const buckets = new Map<LevelType, ItemStageRewardLine[]>()
+  const labels = new Map<LevelType, string>()
+
+  for (const line of lines) {
+    if (line.levelType == null) continue
+    const list = buckets.get(line.levelType) ?? []
+    list.push(line)
+    buckets.set(line.levelType, list)
+    if (line.difficulty?.trim()) labels.set(line.levelType, line.difficulty)
+  }
+
+  return ([1, 2, 3] as LevelType[])
+    .filter((type) => buckets.has(type))
+    .map((levelType) => {
+      const groupLines = buckets.get(levelType) ?? []
+      return {
+        levelType,
+        label: labels.get(levelType) ?? String(levelType),
+        count: groupLines.length,
+        lines: groupLines,
+      }
+    })
+}
+
 export function ItemStageRewardsSection({
   lines,
   variant = 'default',
 }: ItemStageRewardsSectionProps) {
+  const { t } = useUiTranslation()
+  const tabs = useMemo(() => groupLinesByDifficulty(lines), [lines])
+  const useTabs = tabs.length > 1
+  const [activeType, setActiveType] = useState<LevelType | null>(tabs[0]?.levelType ?? null)
+
+  useEffect(() => {
+    if (!tabs.length) {
+      setActiveType(null)
+      return
+    }
+    if (activeType == null || !tabs.some((tab) => tab.levelType === activeType)) {
+      setActiveType(tabs[0].levelType)
+    }
+  }, [tabs, activeType])
+
   if (!lines.length) return null
 
+  const activeTab = tabs.find((tab) => tab.levelType === activeType) ?? tabs[0]
+  const visibleLines = useTabs && activeTab ? activeTab.lines : lines
+
   return (
-    <div className="item-stage-rewards">
-      <ul className="item-stage-rewards__list scroll-y" role="list">
-        {lines.map((row) => {
-          if (row.line) {
+    <div className={`item-stage-rewards${useTabs ? ' item-stage-rewards--tabbed' : ''}`}>
+      {useTabs ? (
+        <div
+          className="item-stage-rewards__tabs"
+          role="tablist"
+          aria-label={t(UI_KEYS.item.stageRewards)}
+        >
+          {tabs.map((tab) => {
+            const active = tab.levelType === activeTab?.levelType
+            const modifier = LEVEL_TYPE_MODIFIER[tab.levelType]
             return (
-              <li key={row.id} className="item-stage-rewards__row item-stage-rewards__row--plain">
-                {row.line}
-              </li>
+              <button
+                key={tab.levelType}
+                type="button"
+                role="tab"
+                id={`stage-reward-tab-${tab.levelType}`}
+                aria-selected={active}
+                aria-controls={`stage-reward-panel-${tab.levelType}`}
+                className={`item-stage-rewards__tab item-stage-rewards__tab--${modifier}${
+                  active ? ' item-stage-rewards__tab--active' : ''
+                }`}
+                onClick={() => setActiveType(tab.levelType)}
+              >
+                <span className="item-stage-rewards__tab-label">{tab.label}</span>
+                <span className="item-stage-rewards__tab-count">{tab.count}</span>
+              </button>
             )
-          }
+          })}
+        </div>
+      ) : null}
 
-          if (variant === 'progress' || row.kind === 'chapter_progress') {
-            return <ProgressRewardRow key={row.id} row={row} />
-          }
-
-          if (row.kind === 'stage_merged') {
-            return <StageMergedRow key={row.id} row={row} />
-          }
-
-          if (row.kind === 'chapter_award') {
-            return <MetaRewardRow key={row.id} row={row} />
-          }
-
-          return <MetaRewardRow key={row.id} row={row} />
-        })}
-      </ul>
+      <div
+        key={useTabs ? activeTab?.levelType : 'all'}
+        role={useTabs ? 'tabpanel' : undefined}
+        id={useTabs && activeTab ? `stage-reward-panel-${activeTab.levelType}` : undefined}
+        aria-labelledby={
+          useTabs && activeTab ? `stage-reward-tab-${activeTab.levelType}` : undefined
+        }
+        className="item-stage-rewards__panel"
+      >
+        <StageRewardList lines={visibleLines} variant={variant} hideDifficulty={useTabs} />
+      </div>
     </div>
   )
 }

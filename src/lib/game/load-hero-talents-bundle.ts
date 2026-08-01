@@ -3,6 +3,7 @@ import type { HeroTalentsData } from '@/lib/game/talent-types'
 import { loadHeroTalents } from '@/lib/game/load-hero-talents'
 import { loadConsumeRefMap as loadConsumeRefMapCore } from '@/lib/game/load-consume-ref-map'
 import { translateKeys, NOT_AVAILABLE_LABEL, isMissingLcTranslation } from '@/lib/i18n/language-package'
+import { UI_KEYS } from '@/lib/i18n/ui-keys'
 import { supabase } from '@/lib/supabase-client'
 import { skillTypeLcKey } from '@/lib/game/format-skill-labels'
 import {
@@ -72,7 +73,21 @@ export async function loadHeroTalentsBundle(
   const valueIds = new Set<number>()
   const labelIds = new Set<number>()
 
-  tkeys.add('LC_hero_giftness_tag')
+  const talentUiKeys = [
+    UI_KEYS.hero.talentLayerTag,
+    UI_KEYS.hero.talentUnlockTasks,
+    UI_KEYS.hero.talentLevelUpTitle,
+    UI_KEYS.hero.talentAwakenSkill,
+    UI_KEYS.hero.talentEffectTitle,
+    UI_KEYS.hero.talentLevelLabel,
+    UI_KEYS.hero.talentAwakenMaterials,
+    UI_KEYS.hero.talentUpgradeMaterials,
+    UI_KEYS.hero.talentsTab,
+    UI_KEYS.common.noData,
+    UI_KEYS.common.heroLv,
+    UI_KEYS.common.materials,
+  ]
+  talentUiKeys.forEach((key) => tkeys.add(key))
   data.visibleStats.forEach((s) => tkeys.add(s))
 
   for (const layer of data.layers) {

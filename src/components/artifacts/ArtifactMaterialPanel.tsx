@@ -9,7 +9,7 @@ import { useConsumeRefMap, EMPTY_CONSUME_ENTRIES } from '@/hooks/use-consume-ref
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import { ITEM_QUALITY_SHOW_TYPE, resolveItemQualityFramePath } from '@/lib/game/item-quality-ui'
 import { resolveConsumeEntry } from '@/lib/game/resolve-consume-item'
-import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export type ArtifactMaterialPanelProps = {
   artifactId: number
@@ -104,7 +104,7 @@ export function ArtifactMaterialPanel({
   consumeRefMap: externalConsumeRefMap,
   consumeRefReady,
 }: ArtifactMaterialPanelProps) {
-  const { t } = useUiTranslation()
+  const { site } = useUiTranslation()
 
   const moneyItems = useMemo(
     () => normalizeConsumeList(consumeMoney).filter((c) => Number(c.num) > 0),
@@ -148,7 +148,7 @@ export function ArtifactMaterialPanel({
       <div className="artifact-material-inline">
         {chips}
         <p className="artifact-material-inline__meta">
-          {t(UI_KEYS.item.cumulativeTotal)}: ×{exchangeNum}
+          {site('cumulativeTotal')}: ×{exchangeNum}
         </p>
       </div>
     )
@@ -160,7 +160,7 @@ export function ArtifactMaterialPanel({
         {chips}
         {hasExchange ? (
           <p className="artifact-material-inline__meta">
-            {t(UI_KEYS.item.cumulativeTotal)}: ×{exchangeNum}
+            {site('cumulativeTotal')}: ×{exchangeNum}
           </p>
         ) : null}
       </div>

@@ -108,26 +108,29 @@ export default function HeroBonds({ heroId }: HeroBondsProps) {
   const getT = createTranslationGetter(translations, { lang })
   const noDataLabel = getT(NO_DATA_LC_KEY)
 
-  const renderBondPortraits = (ids: number[]) => (
-    <div className="hero-bonds-portraits hero-bonds-portraits--sm">
-      {ids.map((id) => (
-        <Link
-          key={id}
-          href={localized(`/heroes/${id}`)}
-          className="hero-bonds-portrait hero-bonds-portrait--bond"
-          title={`Hero ${id}`}
-        >
-          <GameImage
-            src={circleHeroHeadUrl(id, iconMap)}
-            alt=""
-            aria-hidden
-            className="hero-bonds-portrait__img"
-            rawSrc={circleHeroHeadUrl(id, iconMap)}
-          />
-        </Link>
-      ))}
-    </div>
-  )
+  const renderBondPortraits = (ids: number[]) => {
+    const uniqueIds = [...new Set(ids.filter((id) => Number.isFinite(id)))]
+    return (
+      <div className="hero-bonds-portraits hero-bonds-portraits--sm">
+        {uniqueIds.map((id) => (
+          <Link
+            key={id}
+            href={localized(`/heroes/${id}`)}
+            className="hero-bonds-portrait hero-bonds-portrait--bond"
+            title={`Hero ${id}`}
+          >
+            <GameImage
+              src={circleHeroHeadUrl(id, iconMap)}
+              alt=""
+              aria-hidden
+              className="hero-bonds-portrait__img"
+              rawSrc={circleHeroHeadUrl(id, iconMap)}
+            />
+          </Link>
+        ))}
+      </div>
+    )
+  }
 
   useEffect(() => setupGlobalSkillTooltips(), [])
 

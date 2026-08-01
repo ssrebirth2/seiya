@@ -8,11 +8,10 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
+import { resolveLuaRoot } from './resolve-lua-root.mjs'
 
 const ROOT = process.cwd()
-const LUA_ROOT =
-  process.env.LUA_CONFIG_ROOT ||
-  'C:/rb2/backup/assets/resources/luascriptwithoutcodecomments/luaconfig'
+const LUA_ROOT = resolveLuaRoot()
 
 const HIDDEN_ITEM_IDS_TS = join(ROOT, 'src/lib/game/hidden-item-ids.ts')
 const ITEM_FILE = join(LUA_ROOT, 'game/item/ItemConfig.lua')

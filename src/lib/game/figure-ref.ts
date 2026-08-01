@@ -8,6 +8,16 @@ export function isRoleFigureSid(sid: number): boolean {
   return sid >= 9500 && sid < 10000
 }
 
+/** Cloth figure sid ≈ 8000 + clothid (e.g. cloth 1001 → 9001). */
+export function clothFigureSidFromClothId(clothId: number): number {
+  return 8000 + clothId
+}
+
+/** Role figure sid ≈ 8500 + heroId (e.g. Seiya 1001 → 9501). */
+export function roleFigureSidFromHeroId(heroId: number): number {
+  return 8500 + heroId
+}
+
 /** ItemConfig / ItemIcon id linked to a figure attribute id. */
 export function figureObjIdFromSid(sid: number): number | null {
   if (isClothFigureSid(sid)) return 51000 + (sid - 9000)

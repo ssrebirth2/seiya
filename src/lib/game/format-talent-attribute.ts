@@ -1,4 +1,5 @@
 import type { TalentAttributeEntry } from '@/lib/game/talent-types'
+import { applyLcPlaceholders } from '@/lib/game/format-cosmo-unlock'
 
 /** Game uses is_percent=0 for percentage stats shown with a % suffix. */
 export function formatTalentAttributeValue(value: number, isPercent: number): string {
@@ -9,12 +10,16 @@ export function formatTalentAttributeValue(value: number, isPercent: number): st
 export function formatUnlockRequirement(
   desc: string | undefined,
   value: number | undefined,
-  getT: (key?: string) => string
+  getT: (key?: string) => string,
+  name?: string
 ): string {
   if (!desc) return ''
   const template = getT(desc)
+  if (/\{1\}/.test(template)) {
+    return applyLcPlaceholders(template, [name ?? '', value ?? ''])
+  }
   if (value == null) return template
-  return template.replace(/\{0\}/g, String(value))
+  return applyLcPlaceholders(template, [value])
 }
 
 export function filterVisibleAttributes(

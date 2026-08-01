@@ -1,0 +1,13 @@
+{
+  "cosmoSenseLcKeys": [
+    "LC_COMMON_sight_sense",
+    "LC_COMMON_hearing_sense",
+    "LC_COMMON_taste_sense",
+    "LC_COMMON_touch_sense",
+    "LC_COMMON_smell_sense",
+    "LC_COMMON_sixth_sense",
+    "LC_COMMON_seventh_sense",
+    "LC_COMMON_eighth_sense",
+    "LC_COMMON_ninth_sense"
+  ]
+}

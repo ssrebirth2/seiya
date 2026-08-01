@@ -1,0 +1,6783 @@
+{
+  "root": "SenseDomain4",
+  "layout": {
+    "root": "SenseDomain4",
+    "size": {
+      "width": 1920.0,
+      "height": 1080.0
+    },
+    "nodes": [
+      {
+        "pathId": -6622517635542215315,
+        "name": "SenseDomain4",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 1920.0,
+          "y": 1080.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -7478735895741942934,
+            "name": "AorRawImage",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -286.0,
+              "y": -113.0
+            },
+            "sizeDelta": {
+              "x": 2975.0,
+              "y": 2725.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -813.5,
+              "top": -709.5,
+              "width": 2975.0,
+              "height": 2725.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -6104867410307709379,
+            "name": "points",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -143.0,
+              "y": -180.0
+            },
+            "sizeDelta": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -9024663688354051345,
+                "name": "15",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 634.0,
+                  "y": 241.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1401.0,
+                  "top": 429.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -7336011829110359686,
+                "name": "8",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -984.0,
+                  "y": 216.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -217.0,
+                  "top": 454.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -7251771509454018716,
+                "name": "20",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 13.0,
+                  "y": 953.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 780.0,
+                  "top": -283.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": -6515260400080555485,
+                "name": "25",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -465.0,
+                  "y": -257.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 302.0,
+                  "top": 927.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": -5848818024900175878,
+                "name": "35",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 257.0,
+                  "y": -700.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1024.0,
+                  "top": 1370.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 4
+              },
+              {
+                "pathId": -5536824853953995288,
+                "name": "18",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 966.0,
+                  "y": 182.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1733.0,
+                  "top": 488.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 5
+              },
+              {
+                "pathId": -5317063541920347064,
+                "name": "17",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 830.0,
+                  "y": 88.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1597.0,
+                  "top": 582.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 6
+              },
+              {
+                "pathId": -4922822024877323806,
+                "name": "24",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -237.0,
+                  "y": -97.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 530.0,
+                  "top": 767.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 7
+              },
+              {
+                "pathId": -4365028209260266498,
+                "name": "33",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -54.0,
+                  "y": -586.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 713.0,
+                  "top": 1256.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 8
+              },
+              {
+                "pathId": -3847769545438225834,
+                "name": "6",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -394.0,
+                  "y": 291.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 373.0,
+                  "top": 379.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 9
+              },
+              {
+                "pathId": -3122469156869236568,
+                "name": "23",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -1374.0,
+                  "y": -389.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -607.0,
+                  "top": 1059.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 10
+              },
+              {
+                "pathId": -2873584085316341409,
+                "name": "36",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 480.0,
+                  "y": -602.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1247.0,
+                  "top": 1272.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 11
+              },
+              {
+                "pathId": -1951424292213508434,
+                "name": "11",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 360.0,
+                  "y": 536.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1127.0,
+                  "top": 134.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 12
+              },
+              {
+                "pathId": -1882076486523026189,
+                "name": "10",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -916.0,
+                  "y": 468.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -149.0,
+                  "top": 202.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 13
+              },
+              {
+                "pathId": -1366800681022948062,
+                "name": "13",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 333.0,
+                  "y": 748.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1100.0,
+                  "top": -78.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 14
+              },
+              {
+                "pathId": -1030429341024302032,
+                "name": "14",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 609.0,
+                  "y": 758.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1376.0,
+                  "top": -88.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 15
+              },
+              {
+                "pathId": -907387300686894965,
+                "name": "37",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 461.29974365234375,
+                  "y": -241.40000915527344
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1228.3,
+                  "top": 911.4,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 16
+              },
+              {
+                "pathId": 64743716152934323,
+                "name": "39",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 675.2996215820312,
+                  "y": -137.6999969482422
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1442.3,
+                  "top": 807.7,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 17
+              },
+              {
+                "pathId": 212564545907085356,
+                "name": "34",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 225.0,
+                  "y": -516.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 992.0,
+                  "top": 1186.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 18
+              },
+              {
+                "pathId": 546927756597311998,
+                "name": "30",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 972.0,
+                  "y": 1170.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1739.0,
+                  "top": -500.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 19
+              },
+              {
+                "pathId": 725992533827178387,
+                "name": "26",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -648.0,
+                  "y": -93.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 119.0,
+                  "top": 763.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 20
+              },
+              {
+                "pathId": 1239168503855786111,
+                "name": "0",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 147.5001220703125,
+                  "y": 186.79998779296875
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 914.5,
+                  "top": 483.2,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 21
+              },
+              {
+                "pathId": 1817214101176965714,
+                "name": "32",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 42.0,
+                  "y": -349.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 809.0,
+                  "top": 1019.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 22
+              },
+              {
+                "pathId": 2355741814346086602,
+                "name": "19",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 926.0,
+                  "y": 374.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1693.0,
+                  "top": 296.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 23
+              },
+              {
+                "pathId": 2476607196859423015,
+                "name": "27",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -616.0,
+                  "y": -461.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 151.0,
+                  "top": 1131.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 24
+              },
+              {
+                "pathId": 2797696593567524357,
+                "name": "40",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 904.8997192382812,
+                  "y": -365.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1671.9,
+                  "top": 1035.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 25
+              },
+              {
+                "pathId": 2814400194722363383,
+                "name": "21",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 911.0,
+                  "y": 856.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1678.0,
+                  "top": -186.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 26
+              },
+              {
+                "pathId": 2872938131084533428,
+                "name": "4",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -637.0,
+                  "y": 670.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 130.0,
+                  "top": 0.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 27
+              },
+              {
+                "pathId": 2897960755993485468,
+                "name": "29",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -929.0,
+                  "y": -436.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -162.0,
+                  "top": 1106.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 28
+              },
+              {
+                "pathId": 3848455028804252987,
+                "name": "3",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -406.5997314453125,
+                  "y": 789.7999877929688
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 360.4,
+                  "top": -119.8,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 29
+              },
+              {
+                "pathId": 4193401894020961718,
+                "name": "9",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 79.0,
+                  "y": 467.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 846.0,
+                  "top": 203.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 30
+              },
+              {
+                "pathId": 4717187294819566001,
+                "name": "5",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -397.50006103515625,
+                  "y": 521.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 369.5,
+                  "top": 149.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 31
+              },
+              {
+                "pathId": 4786211108862554796,
+                "name": "38",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 337.6002502441406,
+                  "y": -82.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1104.6,
+                  "top": 752.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 32
+              },
+              {
+                "pathId": 5100474390160014598,
+                "name": "31",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 110.0,
+                  "y": -44.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 877.0,
+                  "top": 714.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 33
+              },
+              {
+                "pathId": 6512037014888471305,
+                "name": "7",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -836.80029296875,
+                  "y": 103.19999694824219
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -69.8,
+                  "top": 566.8,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 34
+              },
+              {
+                "pathId": 7065889620345320998,
+                "name": "16",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 713.0,
+                  "y": 406.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1480.0,
+                  "top": 264.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 35
+              },
+              {
+                "pathId": 7421904147598936443,
+                "name": "1",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -222.499755859375,
+                  "y": 401.79998779296875
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 544.5,
+                  "top": 268.2,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 36
+              },
+              {
+                "pathId": 8630926836089280600,
+                "name": "28",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -801.0,
+                  "y": -263.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -34.0,
+                  "top": 933.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 37
+              },
+              {
+                "pathId": 8738136535124977109,
+                "name": "2",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -152.5,
+                  "y": 556.4000244140625
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 614.5,
+                  "top": 113.6,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 38
+              },
+              {
+                "pathId": 8773050846236890957,
+                "name": "22",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 701.0,
+                  "y": 1015.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1468.0,
+                  "top": -345.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 39
+              },
+              {
+                "pathId": 8872948028839697717,
+                "name": "12",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 196.0,
+                  "y": 638.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 963.0,
+                  "top": 32.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 40
+              }
+            ],
+            "absolute": {
+              "left": -143.0,
+              "top": 180.0,
+              "width": 1920.0,
+              "height": 1080.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -5667711534593082285,
+            "name": "border",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -78.0,
+              "y": 194.0
+            },
+            "sizeDelta": {
+              "x": 3106.0,
+              "y": 2482.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -671.0,
+              "top": -895.0,
+              "width": 3106.0,
+              "height": 2482.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": 5397059138076373061,
+            "name": "lines",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 910.0,
+              "top": 490.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 3
+          }
+        ],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1920.0,
+          "height": 1080.0
+        },
+        "parentName": null,
+        "siblingIndex": 0
+      }
+    ],
+    "nodesByName": {
+      "15": {
+        "pathId": -9024663688354051345,
+        "name": "15",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 634.0,
+          "y": 241.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1401.0,
+          "top": 429.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 0
+      },
+      "AorRawImage": {
+        "pathId": -7478735895741942934,
+        "name": "AorRawImage",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -286.0,
+          "y": -113.0
+        },
+        "sizeDelta": {
+          "x": 2975.0,
+          "y": 2725.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -813.5,
+          "top": -709.5,
+          "width": 2975.0,
+          "height": 2725.0
+        },
+        "parentName": "SenseDomain4",
+        "siblingIndex": 0
+      },
+      "8": {
+        "pathId": -7336011829110359686,
+        "name": "8",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -984.0,
+          "y": 216.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -217.0,
+          "top": 454.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 1
+      },
+      "20": {
+        "pathId": -7251771509454018716,
+        "name": "20",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 13.0,
+          "y": 953.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 780.0,
+          "top": -283.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 2
+      },
+      "SenseDomain4": {
+        "pathId": -6622517635542215315,
+        "name": "SenseDomain4",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 1920.0,
+          "y": 1080.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -7478735895741942934,
+            "name": "AorRawImage",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -286.0,
+              "y": -113.0
+            },
+            "sizeDelta": {
+              "x": 2975.0,
+              "y": 2725.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -813.5,
+              "top": -709.5,
+              "width": 2975.0,
+              "height": 2725.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -6104867410307709379,
+            "name": "points",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -143.0,
+              "y": -180.0
+            },
+            "sizeDelta": {
+              "x": 1920.0,
+              "y": 1080.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [
+              {
+                "pathId": -9024663688354051345,
+                "name": "15",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 634.0,
+                  "y": 241.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1401.0,
+                  "top": 429.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 0
+              },
+              {
+                "pathId": -7336011829110359686,
+                "name": "8",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -984.0,
+                  "y": 216.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -217.0,
+                  "top": 454.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 1
+              },
+              {
+                "pathId": -7251771509454018716,
+                "name": "20",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 13.0,
+                  "y": 953.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 780.0,
+                  "top": -283.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 2
+              },
+              {
+                "pathId": -6515260400080555485,
+                "name": "25",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -465.0,
+                  "y": -257.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 302.0,
+                  "top": 927.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 3
+              },
+              {
+                "pathId": -5848818024900175878,
+                "name": "35",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 257.0,
+                  "y": -700.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1024.0,
+                  "top": 1370.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 4
+              },
+              {
+                "pathId": -5536824853953995288,
+                "name": "18",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 966.0,
+                  "y": 182.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1733.0,
+                  "top": 488.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 5
+              },
+              {
+                "pathId": -5317063541920347064,
+                "name": "17",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 830.0,
+                  "y": 88.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1597.0,
+                  "top": 582.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 6
+              },
+              {
+                "pathId": -4922822024877323806,
+                "name": "24",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -237.0,
+                  "y": -97.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 530.0,
+                  "top": 767.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 7
+              },
+              {
+                "pathId": -4365028209260266498,
+                "name": "33",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -54.0,
+                  "y": -586.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 713.0,
+                  "top": 1256.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 8
+              },
+              {
+                "pathId": -3847769545438225834,
+                "name": "6",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -394.0,
+                  "y": 291.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 373.0,
+                  "top": 379.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 9
+              },
+              {
+                "pathId": -3122469156869236568,
+                "name": "23",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -1374.0,
+                  "y": -389.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -607.0,
+                  "top": 1059.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 10
+              },
+              {
+                "pathId": -2873584085316341409,
+                "name": "36",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 480.0,
+                  "y": -602.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1247.0,
+                  "top": 1272.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 11
+              },
+              {
+                "pathId": -1951424292213508434,
+                "name": "11",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 360.0,
+                  "y": 536.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1127.0,
+                  "top": 134.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 12
+              },
+              {
+                "pathId": -1882076486523026189,
+                "name": "10",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -916.0,
+                  "y": 468.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -149.0,
+                  "top": 202.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 13
+              },
+              {
+                "pathId": -1366800681022948062,
+                "name": "13",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 333.0,
+                  "y": 748.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1100.0,
+                  "top": -78.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 14
+              },
+              {
+                "pathId": -1030429341024302032,
+                "name": "14",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 609.0,
+                  "y": 758.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1376.0,
+                  "top": -88.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 15
+              },
+              {
+                "pathId": -907387300686894965,
+                "name": "37",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 461.29974365234375,
+                  "y": -241.40000915527344
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1228.3,
+                  "top": 911.4,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 16
+              },
+              {
+                "pathId": 64743716152934323,
+                "name": "39",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 675.2996215820312,
+                  "y": -137.6999969482422
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1442.3,
+                  "top": 807.7,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 17
+              },
+              {
+                "pathId": 212564545907085356,
+                "name": "34",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 225.0,
+                  "y": -516.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 992.0,
+                  "top": 1186.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 18
+              },
+              {
+                "pathId": 546927756597311998,
+                "name": "30",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 972.0,
+                  "y": 1170.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1739.0,
+                  "top": -500.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 19
+              },
+              {
+                "pathId": 725992533827178387,
+                "name": "26",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -648.0,
+                  "y": -93.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 119.0,
+                  "top": 763.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 20
+              },
+              {
+                "pathId": 1239168503855786111,
+                "name": "0",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 147.5001220703125,
+                  "y": 186.79998779296875
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 914.5,
+                  "top": 483.2,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 21
+              },
+              {
+                "pathId": 1817214101176965714,
+                "name": "32",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 42.0,
+                  "y": -349.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 809.0,
+                  "top": 1019.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 22
+              },
+              {
+                "pathId": 2355741814346086602,
+                "name": "19",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 926.0,
+                  "y": 374.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1693.0,
+                  "top": 296.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 23
+              },
+              {
+                "pathId": 2476607196859423015,
+                "name": "27",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -616.0,
+                  "y": -461.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 151.0,
+                  "top": 1131.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 24
+              },
+              {
+                "pathId": 2797696593567524357,
+                "name": "40",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 904.8997192382812,
+                  "y": -365.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1671.9,
+                  "top": 1035.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 25
+              },
+              {
+                "pathId": 2814400194722363383,
+                "name": "21",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 911.0,
+                  "y": 856.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1678.0,
+                  "top": -186.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 26
+              },
+              {
+                "pathId": 2872938131084533428,
+                "name": "4",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -637.0,
+                  "y": 670.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 130.0,
+                  "top": 0.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 27
+              },
+              {
+                "pathId": 2897960755993485468,
+                "name": "29",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -929.0,
+                  "y": -436.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -162.0,
+                  "top": 1106.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 28
+              },
+              {
+                "pathId": 3848455028804252987,
+                "name": "3",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -406.5997314453125,
+                  "y": 789.7999877929688
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 360.4,
+                  "top": -119.8,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 29
+              },
+              {
+                "pathId": 4193401894020961718,
+                "name": "9",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 79.0,
+                  "y": 467.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 846.0,
+                  "top": 203.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 30
+              },
+              {
+                "pathId": 4717187294819566001,
+                "name": "5",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -397.50006103515625,
+                  "y": 521.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 369.5,
+                  "top": 149.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 31
+              },
+              {
+                "pathId": 4786211108862554796,
+                "name": "38",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 337.6002502441406,
+                  "y": -82.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1104.6,
+                  "top": 752.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 32
+              },
+              {
+                "pathId": 5100474390160014598,
+                "name": "31",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 110.0,
+                  "y": -44.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 877.0,
+                  "top": 714.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 33
+              },
+              {
+                "pathId": 6512037014888471305,
+                "name": "7",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -836.80029296875,
+                  "y": 103.19999694824219
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -69.8,
+                  "top": 566.8,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 34
+              },
+              {
+                "pathId": 7065889620345320998,
+                "name": "16",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 713.0,
+                  "y": 406.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1480.0,
+                  "top": 264.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 35
+              },
+              {
+                "pathId": 7421904147598936443,
+                "name": "1",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -222.499755859375,
+                  "y": 401.79998779296875
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 544.5,
+                  "top": 268.2,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 36
+              },
+              {
+                "pathId": 8630926836089280600,
+                "name": "28",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -801.0,
+                  "y": -263.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": -34.0,
+                  "top": 933.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 37
+              },
+              {
+                "pathId": 8738136535124977109,
+                "name": "2",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": -152.5,
+                  "y": 556.4000244140625
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 614.5,
+                  "top": 113.6,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 38
+              },
+              {
+                "pathId": 8773050846236890957,
+                "name": "22",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 701.0,
+                  "y": 1015.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 1468.0,
+                  "top": -345.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 39
+              },
+              {
+                "pathId": 8872948028839697717,
+                "name": "12",
+                "anchorMin": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchorMax": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "anchoredPosition": {
+                  "x": 196.0,
+                  "y": 638.0
+                },
+                "sizeDelta": {
+                  "x": 100.0,
+                  "y": 100.0
+                },
+                "pivot": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "localScale": {
+                  "x": 1.0,
+                  "y": 1.0,
+                  "z": 1.0
+                },
+                "children": [],
+                "absolute": {
+                  "left": 963.0,
+                  "top": 32.0,
+                  "width": 100.0,
+                  "height": 100.0
+                },
+                "parentName": "points",
+                "siblingIndex": 40
+              }
+            ],
+            "absolute": {
+              "left": -143.0,
+              "top": 180.0,
+              "width": 1920.0,
+              "height": 1080.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -5667711534593082285,
+            "name": "border",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -78.0,
+              "y": 194.0
+            },
+            "sizeDelta": {
+              "x": 3106.0,
+              "y": 2482.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -671.0,
+              "top": -895.0,
+              "width": 3106.0,
+              "height": 2482.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": 5397059138076373061,
+            "name": "lines",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 910.0,
+              "top": 490.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "SenseDomain4",
+            "siblingIndex": 3
+          }
+        ],
+        "absolute": {
+          "left": 0.0,
+          "top": 0.0,
+          "width": 1920.0,
+          "height": 1080.0
+        },
+        "parentName": null,
+        "siblingIndex": 0
+      },
+      "25": {
+        "pathId": -6515260400080555485,
+        "name": "25",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -465.0,
+          "y": -257.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 302.0,
+          "top": 927.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 3
+      },
+      "points": {
+        "pathId": -6104867410307709379,
+        "name": "points",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -143.0,
+          "y": -180.0
+        },
+        "sizeDelta": {
+          "x": 1920.0,
+          "y": 1080.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [
+          {
+            "pathId": -9024663688354051345,
+            "name": "15",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 634.0,
+              "y": 241.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1401.0,
+              "top": 429.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 0
+          },
+          {
+            "pathId": -7336011829110359686,
+            "name": "8",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -984.0,
+              "y": 216.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -217.0,
+              "top": 454.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 1
+          },
+          {
+            "pathId": -7251771509454018716,
+            "name": "20",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 13.0,
+              "y": 953.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 780.0,
+              "top": -283.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 2
+          },
+          {
+            "pathId": -6515260400080555485,
+            "name": "25",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -465.0,
+              "y": -257.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 302.0,
+              "top": 927.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 3
+          },
+          {
+            "pathId": -5848818024900175878,
+            "name": "35",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 257.0,
+              "y": -700.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1024.0,
+              "top": 1370.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 4
+          },
+          {
+            "pathId": -5536824853953995288,
+            "name": "18",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 966.0,
+              "y": 182.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1733.0,
+              "top": 488.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 5
+          },
+          {
+            "pathId": -5317063541920347064,
+            "name": "17",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 830.0,
+              "y": 88.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1597.0,
+              "top": 582.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 6
+          },
+          {
+            "pathId": -4922822024877323806,
+            "name": "24",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -237.0,
+              "y": -97.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 530.0,
+              "top": 767.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 7
+          },
+          {
+            "pathId": -4365028209260266498,
+            "name": "33",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -54.0,
+              "y": -586.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 713.0,
+              "top": 1256.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 8
+          },
+          {
+            "pathId": -3847769545438225834,
+            "name": "6",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -394.0,
+              "y": 291.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 373.0,
+              "top": 379.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 9
+          },
+          {
+            "pathId": -3122469156869236568,
+            "name": "23",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -1374.0,
+              "y": -389.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -607.0,
+              "top": 1059.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 10
+          },
+          {
+            "pathId": -2873584085316341409,
+            "name": "36",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 480.0,
+              "y": -602.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1247.0,
+              "top": 1272.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 11
+          },
+          {
+            "pathId": -1951424292213508434,
+            "name": "11",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 360.0,
+              "y": 536.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1127.0,
+              "top": 134.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 12
+          },
+          {
+            "pathId": -1882076486523026189,
+            "name": "10",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -916.0,
+              "y": 468.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -149.0,
+              "top": 202.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 13
+          },
+          {
+            "pathId": -1366800681022948062,
+            "name": "13",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 333.0,
+              "y": 748.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1100.0,
+              "top": -78.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 14
+          },
+          {
+            "pathId": -1030429341024302032,
+            "name": "14",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 609.0,
+              "y": 758.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1376.0,
+              "top": -88.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 15
+          },
+          {
+            "pathId": -907387300686894965,
+            "name": "37",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 461.29974365234375,
+              "y": -241.40000915527344
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1228.3,
+              "top": 911.4,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 16
+          },
+          {
+            "pathId": 64743716152934323,
+            "name": "39",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 675.2996215820312,
+              "y": -137.6999969482422
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1442.3,
+              "top": 807.7,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 17
+          },
+          {
+            "pathId": 212564545907085356,
+            "name": "34",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 225.0,
+              "y": -516.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 992.0,
+              "top": 1186.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 18
+          },
+          {
+            "pathId": 546927756597311998,
+            "name": "30",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 972.0,
+              "y": 1170.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1739.0,
+              "top": -500.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 19
+          },
+          {
+            "pathId": 725992533827178387,
+            "name": "26",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -648.0,
+              "y": -93.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 119.0,
+              "top": 763.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 20
+          },
+          {
+            "pathId": 1239168503855786111,
+            "name": "0",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 147.5001220703125,
+              "y": 186.79998779296875
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 914.5,
+              "top": 483.2,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 21
+          },
+          {
+            "pathId": 1817214101176965714,
+            "name": "32",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 42.0,
+              "y": -349.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 809.0,
+              "top": 1019.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 22
+          },
+          {
+            "pathId": 2355741814346086602,
+            "name": "19",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 926.0,
+              "y": 374.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1693.0,
+              "top": 296.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 23
+          },
+          {
+            "pathId": 2476607196859423015,
+            "name": "27",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -616.0,
+              "y": -461.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 151.0,
+              "top": 1131.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 24
+          },
+          {
+            "pathId": 2797696593567524357,
+            "name": "40",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 904.8997192382812,
+              "y": -365.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1671.9,
+              "top": 1035.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 25
+          },
+          {
+            "pathId": 2814400194722363383,
+            "name": "21",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 911.0,
+              "y": 856.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1678.0,
+              "top": -186.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 26
+          },
+          {
+            "pathId": 2872938131084533428,
+            "name": "4",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -637.0,
+              "y": 670.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 130.0,
+              "top": 0.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 27
+          },
+          {
+            "pathId": 2897960755993485468,
+            "name": "29",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -929.0,
+              "y": -436.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -162.0,
+              "top": 1106.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 28
+          },
+          {
+            "pathId": 3848455028804252987,
+            "name": "3",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -406.5997314453125,
+              "y": 789.7999877929688
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 360.4,
+              "top": -119.8,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 29
+          },
+          {
+            "pathId": 4193401894020961718,
+            "name": "9",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 79.0,
+              "y": 467.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 846.0,
+              "top": 203.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 30
+          },
+          {
+            "pathId": 4717187294819566001,
+            "name": "5",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -397.50006103515625,
+              "y": 521.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 369.5,
+              "top": 149.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 31
+          },
+          {
+            "pathId": 4786211108862554796,
+            "name": "38",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 337.6002502441406,
+              "y": -82.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1104.6,
+              "top": 752.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 32
+          },
+          {
+            "pathId": 5100474390160014598,
+            "name": "31",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 110.0,
+              "y": -44.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 877.0,
+              "top": 714.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 33
+          },
+          {
+            "pathId": 6512037014888471305,
+            "name": "7",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -836.80029296875,
+              "y": 103.19999694824219
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -69.8,
+              "top": 566.8,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 34
+          },
+          {
+            "pathId": 7065889620345320998,
+            "name": "16",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 713.0,
+              "y": 406.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1480.0,
+              "top": 264.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 35
+          },
+          {
+            "pathId": 7421904147598936443,
+            "name": "1",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -222.499755859375,
+              "y": 401.79998779296875
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 544.5,
+              "top": 268.2,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 36
+          },
+          {
+            "pathId": 8630926836089280600,
+            "name": "28",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -801.0,
+              "y": -263.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": -34.0,
+              "top": 933.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 37
+          },
+          {
+            "pathId": 8738136535124977109,
+            "name": "2",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": -152.5,
+              "y": 556.4000244140625
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 614.5,
+              "top": 113.6,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 38
+          },
+          {
+            "pathId": 8773050846236890957,
+            "name": "22",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 701.0,
+              "y": 1015.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 1468.0,
+              "top": -345.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 39
+          },
+          {
+            "pathId": 8872948028839697717,
+            "name": "12",
+            "anchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "anchoredPosition": {
+              "x": 196.0,
+              "y": 638.0
+            },
+            "sizeDelta": {
+              "x": 100.0,
+              "y": 100.0
+            },
+            "pivot": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "localScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "children": [],
+            "absolute": {
+              "left": 963.0,
+              "top": 32.0,
+              "width": 100.0,
+              "height": 100.0
+            },
+            "parentName": "points",
+            "siblingIndex": 40
+          }
+        ],
+        "absolute": {
+          "left": -143.0,
+          "top": 180.0,
+          "width": 1920.0,
+          "height": 1080.0
+        },
+        "parentName": "SenseDomain4",
+        "siblingIndex": 1
+      },
+      "35": {
+        "pathId": -5848818024900175878,
+        "name": "35",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 257.0,
+          "y": -700.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1024.0,
+          "top": 1370.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 4
+      },
+      "border": {
+        "pathId": -5667711534593082285,
+        "name": "border",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -78.0,
+          "y": 194.0
+        },
+        "sizeDelta": {
+          "x": 3106.0,
+          "y": 2482.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -671.0,
+          "top": -895.0,
+          "width": 3106.0,
+          "height": 2482.0
+        },
+        "parentName": "SenseDomain4",
+        "siblingIndex": 2
+      },
+      "18": {
+        "pathId": -5536824853953995288,
+        "name": "18",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 966.0,
+          "y": 182.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1733.0,
+          "top": 488.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 5
+      },
+      "17": {
+        "pathId": -5317063541920347064,
+        "name": "17",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 830.0,
+          "y": 88.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1597.0,
+          "top": 582.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 6
+      },
+      "24": {
+        "pathId": -4922822024877323806,
+        "name": "24",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -237.0,
+          "y": -97.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 530.0,
+          "top": 767.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 7
+      },
+      "33": {
+        "pathId": -4365028209260266498,
+        "name": "33",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -54.0,
+          "y": -586.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 713.0,
+          "top": 1256.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 8
+      },
+      "6": {
+        "pathId": -3847769545438225834,
+        "name": "6",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -394.0,
+          "y": 291.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 373.0,
+          "top": 379.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 9
+      },
+      "23": {
+        "pathId": -3122469156869236568,
+        "name": "23",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -1374.0,
+          "y": -389.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -607.0,
+          "top": 1059.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 10
+      },
+      "36": {
+        "pathId": -2873584085316341409,
+        "name": "36",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 480.0,
+          "y": -602.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1247.0,
+          "top": 1272.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 11
+      },
+      "11": {
+        "pathId": -1951424292213508434,
+        "name": "11",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 360.0,
+          "y": 536.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1127.0,
+          "top": 134.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 12
+      },
+      "10": {
+        "pathId": -1882076486523026189,
+        "name": "10",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -916.0,
+          "y": 468.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -149.0,
+          "top": 202.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 13
+      },
+      "13": {
+        "pathId": -1366800681022948062,
+        "name": "13",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 333.0,
+          "y": 748.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1100.0,
+          "top": -78.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 14
+      },
+      "14": {
+        "pathId": -1030429341024302032,
+        "name": "14",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 609.0,
+          "y": 758.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1376.0,
+          "top": -88.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 15
+      },
+      "37": {
+        "pathId": -907387300686894965,
+        "name": "37",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 461.29974365234375,
+          "y": -241.40000915527344
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1228.3,
+          "top": 911.4,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 16
+      },
+      "39": {
+        "pathId": 64743716152934323,
+        "name": "39",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 675.2996215820312,
+          "y": -137.6999969482422
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1442.3,
+          "top": 807.7,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 17
+      },
+      "34": {
+        "pathId": 212564545907085356,
+        "name": "34",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 225.0,
+          "y": -516.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 992.0,
+          "top": 1186.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 18
+      },
+      "30": {
+        "pathId": 546927756597311998,
+        "name": "30",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 972.0,
+          "y": 1170.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1739.0,
+          "top": -500.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 19
+      },
+      "26": {
+        "pathId": 725992533827178387,
+        "name": "26",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -648.0,
+          "y": -93.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 119.0,
+          "top": 763.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 20
+      },
+      "0": {
+        "pathId": 1239168503855786111,
+        "name": "0",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 147.5001220703125,
+          "y": 186.79998779296875
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 914.5,
+          "top": 483.2,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 21
+      },
+      "32": {
+        "pathId": 1817214101176965714,
+        "name": "32",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 42.0,
+          "y": -349.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 809.0,
+          "top": 1019.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 22
+      },
+      "19": {
+        "pathId": 2355741814346086602,
+        "name": "19",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 926.0,
+          "y": 374.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1693.0,
+          "top": 296.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 23
+      },
+      "27": {
+        "pathId": 2476607196859423015,
+        "name": "27",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -616.0,
+          "y": -461.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 151.0,
+          "top": 1131.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 24
+      },
+      "40": {
+        "pathId": 2797696593567524357,
+        "name": "40",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 904.8997192382812,
+          "y": -365.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1671.9,
+          "top": 1035.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 25
+      },
+      "21": {
+        "pathId": 2814400194722363383,
+        "name": "21",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 911.0,
+          "y": 856.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1678.0,
+          "top": -186.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 26
+      },
+      "4": {
+        "pathId": 2872938131084533428,
+        "name": "4",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -637.0,
+          "y": 670.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 130.0,
+          "top": 0.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 27
+      },
+      "29": {
+        "pathId": 2897960755993485468,
+        "name": "29",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -929.0,
+          "y": -436.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -162.0,
+          "top": 1106.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 28
+      },
+      "3": {
+        "pathId": 3848455028804252987,
+        "name": "3",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -406.5997314453125,
+          "y": 789.7999877929688
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 360.4,
+          "top": -119.8,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 29
+      },
+      "9": {
+        "pathId": 4193401894020961718,
+        "name": "9",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 79.0,
+          "y": 467.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 846.0,
+          "top": 203.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 30
+      },
+      "5": {
+        "pathId": 4717187294819566001,
+        "name": "5",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -397.50006103515625,
+          "y": 521.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 369.5,
+          "top": 149.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 31
+      },
+      "38": {
+        "pathId": 4786211108862554796,
+        "name": "38",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 337.6002502441406,
+          "y": -82.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1104.6,
+          "top": 752.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 32
+      },
+      "31": {
+        "pathId": 5100474390160014598,
+        "name": "31",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 110.0,
+          "y": -44.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 877.0,
+          "top": 714.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 33
+      },
+      "lines": {
+        "pathId": 5397059138076373061,
+        "name": "lines",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 0.0,
+          "y": 0.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 910.0,
+          "top": 490.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "SenseDomain4",
+        "siblingIndex": 3
+      },
+      "7": {
+        "pathId": 6512037014888471305,
+        "name": "7",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -836.80029296875,
+          "y": 103.19999694824219
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -69.8,
+          "top": 566.8,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 34
+      },
+      "16": {
+        "pathId": 7065889620345320998,
+        "name": "16",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 713.0,
+          "y": 406.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1480.0,
+          "top": 264.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 35
+      },
+      "1": {
+        "pathId": 7421904147598936443,
+        "name": "1",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -222.499755859375,
+          "y": 401.79998779296875
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 544.5,
+          "top": 268.2,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 36
+      },
+      "28": {
+        "pathId": 8630926836089280600,
+        "name": "28",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -801.0,
+          "y": -263.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": -34.0,
+          "top": 933.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 37
+      },
+      "2": {
+        "pathId": 8738136535124977109,
+        "name": "2",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": -152.5,
+          "y": 556.4000244140625
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 614.5,
+          "top": 113.6,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 38
+      },
+      "22": {
+        "pathId": 8773050846236890957,
+        "name": "22",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 701.0,
+          "y": 1015.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 1468.0,
+          "top": -345.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 39
+      },
+      "12": {
+        "pathId": 8872948028839697717,
+        "name": "12",
+        "anchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "anchoredPosition": {
+          "x": 196.0,
+          "y": 638.0
+        },
+        "sizeDelta": {
+          "x": 100.0,
+          "y": 100.0
+        },
+        "pivot": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "localScale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "children": [],
+        "absolute": {
+          "left": 963.0,
+          "top": 32.0,
+          "width": 100.0,
+          "height": 100.0
+        },
+        "parentName": "points",
+        "siblingIndex": 40
+      }
+    }
+  }
+}

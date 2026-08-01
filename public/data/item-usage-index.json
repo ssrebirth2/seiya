@@ -1,5 +1,38 @@
 [
   {
+    "id": "10251:CompositeConfig:10250:craft_ingredient",
+    "item_id": 10251,
+    "source_table": "CompositeConfig",
+    "source_id": "10250",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 10250
+    }
+  },
+  {
+    "id": "10275:CompositeConfig:10274:craft_ingredient",
+    "item_id": 10275,
+    "source_table": "CompositeConfig",
+    "source_id": "10274",
+    "role": "craft_ingredient",
+    "qty": 10,
+    "meta": {
+      "craft_target_id": 10274
+    }
+  },
+  {
+    "id": "10277:CompositeConfig:10276:craft_ingredient",
+    "item_id": 10277,
+    "source_table": "CompositeConfig",
+    "source_id": "10276",
+    "role": "craft_ingredient",
+    "qty": 100,
+    "meta": {
+      "craft_target_id": 10276
+    }
+  },
+  {
     "id": "10160:CompositeConfig:30143:craft_ingredient",
     "item_id": 10160,
     "source_table": "CompositeConfig",
@@ -129,6 +162,28 @@
     "qty": 9,
     "meta": {
       "craft_target_id": 30257
+    }
+  },
+  {
+    "id": "10268:CompositeConfig:30284:craft_ingredient",
+    "item_id": 10268,
+    "source_table": "CompositeConfig",
+    "source_id": "30284",
+    "role": "craft_ingredient",
+    "qty": 9,
+    "meta": {
+      "craft_target_id": 30284
+    }
+  },
+  {
+    "id": "10269:CompositeConfig:30285:craft_ingredient",
+    "item_id": 10269,
+    "source_table": "CompositeConfig",
+    "source_id": "30285",
+    "role": "craft_ingredient",
+    "qty": 9,
+    "meta": {
+      "craft_target_id": 30285
     }
   },
   {
@@ -1955,6 +2010,160 @@
     "qty": 60,
     "meta": {
       "craft_target_id": 43027
+    }
+  },
+  {
+    "id": "10253:CompositeConfig:43117:craft_ingredient",
+    "item_id": 10253,
+    "source_table": "CompositeConfig",
+    "source_id": "43117",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43117
+    }
+  },
+  {
+    "id": "10254:CompositeConfig:43118:craft_ingredient",
+    "item_id": 10254,
+    "source_table": "CompositeConfig",
+    "source_id": "43118",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43118
+    }
+  },
+  {
+    "id": "10255:CompositeConfig:43119:craft_ingredient",
+    "item_id": 10255,
+    "source_table": "CompositeConfig",
+    "source_id": "43119",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43119
+    }
+  },
+  {
+    "id": "10256:CompositeConfig:43120:craft_ingredient",
+    "item_id": 10256,
+    "source_table": "CompositeConfig",
+    "source_id": "43120",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43120
+    }
+  },
+  {
+    "id": "10257:CompositeConfig:43121:craft_ingredient",
+    "item_id": 10257,
+    "source_table": "CompositeConfig",
+    "source_id": "43121",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43121
+    }
+  },
+  {
+    "id": "10258:CompositeConfig:43122:craft_ingredient",
+    "item_id": 10258,
+    "source_table": "CompositeConfig",
+    "source_id": "43122",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43122
+    }
+  },
+  {
+    "id": "10259:CompositeConfig:43123:craft_ingredient",
+    "item_id": 10259,
+    "source_table": "CompositeConfig",
+    "source_id": "43123",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43123
+    }
+  },
+  {
+    "id": "10260:CompositeConfig:43124:craft_ingredient",
+    "item_id": 10260,
+    "source_table": "CompositeConfig",
+    "source_id": "43124",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43124
+    }
+  },
+  {
+    "id": "10261:CompositeConfig:43125:craft_ingredient",
+    "item_id": 10261,
+    "source_table": "CompositeConfig",
+    "source_id": "43125",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43125
+    }
+  },
+  {
+    "id": "10262:CompositeConfig:43126:craft_ingredient",
+    "item_id": 10262,
+    "source_table": "CompositeConfig",
+    "source_id": "43126",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43126
+    }
+  },
+  {
+    "id": "10263:CompositeConfig:43127:craft_ingredient",
+    "item_id": 10263,
+    "source_table": "CompositeConfig",
+    "source_id": "43127",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43127
+    }
+  },
+  {
+    "id": "10264:CompositeConfig:43128:craft_ingredient",
+    "item_id": 10264,
+    "source_table": "CompositeConfig",
+    "source_id": "43128",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43128
+    }
+  },
+  {
+    "id": "10265:CompositeConfig:43129:craft_ingredient",
+    "item_id": 10265,
+    "source_table": "CompositeConfig",
+    "source_id": "43129",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43129
+    }
+  },
+  {
+    "id": "10266:CompositeConfig:43130:craft_ingredient",
+    "item_id": 10266,
+    "source_table": "CompositeConfig",
+    "source_id": "43130",
+    "role": "craft_ingredient",
+    "qty": 60,
+    "meta": {
+      "craft_target_id": 43130
     }
   },
   {
@@ -16974,19 +17183,8 @@
     }
   },
   {
-    "id": "10038:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10038,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30255",
-    "role": "box_contains",
-    "qty": 10,
-    "meta": {
-      "box_item_id": 30255
-    }
-  },
-  {
-    "id": "10038:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10038,
+    "id": "10175:BoxAwardShowConfig:30255:box_contains",
+    "item_id": 10175,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30255",
     "role": "box_contains",
@@ -16996,8 +17194,8 @@
     }
   },
   {
-    "id": "10026:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10026,
+    "id": "10176:BoxAwardShowConfig:30255:box_contains",
+    "item_id": 10176,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30255",
     "role": "box_contains",
@@ -17007,52 +17205,8 @@
     }
   },
   {
-    "id": "10109:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10109,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30255",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30255
-    }
-  },
-  {
-    "id": "10178:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10178,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30255",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30255
-    }
-  },
-  {
-    "id": "10155:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10155,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30255",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30255
-    }
-  },
-  {
-    "id": "10112:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10112,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30255",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30255
-    }
-  },
-  {
-    "id": "10029:BoxAwardShowConfig:30255:box_contains",
-    "item_id": 10029,
+    "id": "10177:BoxAwardShowConfig:30255:box_contains",
+    "item_id": 10177,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30255",
     "role": "box_contains",
@@ -17271,8 +17425,8 @@
     }
   },
   {
-    "id": "40214:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 40214,
+    "id": "40420:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 40420,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30258",
     "role": "box_contains",
@@ -17282,78 +17436,12 @@
     }
   },
   {
-    "id": "35147:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 35147,
+    "id": "35140:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 35140,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30258",
     "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "35148:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 35148,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "35134:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 35134,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "35092:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 35092,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 1,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "35081:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 35081,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 5,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "10112:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 10112,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 40,
-    "meta": {
-      "box_item_id": 30258
-    }
-  },
-  {
-    "id": "10095:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 10095,
-    "source_table": "BoxAwardShowConfig",
-    "source_id": "30258",
-    "role": "box_contains",
-    "qty": 30,
+    "qty": 2,
     "meta": {
       "box_item_id": 30258
     }
@@ -17364,18 +17452,128 @@
     "source_table": "BoxAwardShowConfig",
     "source_id": "30258",
     "role": "box_contains",
-    "qty": 25,
+    "qty": 1,
     "meta": {
       "box_item_id": 30258
     }
   },
   {
-    "id": "10155:BoxAwardShowConfig:30258:box_contains",
-    "item_id": 10155,
+    "id": "10095:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10095,
     "source_table": "BoxAwardShowConfig",
     "source_id": "30258",
     "role": "box_contains",
-    "qty": 60,
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10029:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10029,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10115:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10115,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10025:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10025,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10109:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10109,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10026:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10005:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10005,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "35073:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 35073,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "35198:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 35198,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 2,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "30019:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 30019,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 30258
+    }
+  },
+  {
+    "id": "10114:BoxAwardShowConfig:30258:box_contains",
+    "item_id": 10114,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30258",
+    "role": "box_contains",
+    "qty": 1,
     "meta": {
       "box_item_id": 30258
     }
@@ -17466,6 +17664,182 @@
     "qty": 1,
     "meta": {
       "box_item_id": 30259
+    }
+  },
+  {
+    "id": "10175:BoxAwardShowConfig:30260:box_contains",
+    "item_id": 10175,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30260",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30260
+    }
+  },
+  {
+    "id": "10176:BoxAwardShowConfig:30260:box_contains",
+    "item_id": 10176,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30260",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30260
+    }
+  },
+  {
+    "id": "10177:BoxAwardShowConfig:30260:box_contains",
+    "item_id": 10177,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30260",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30260
+    }
+  },
+  {
+    "id": "10245:BoxAwardShowConfig:30283:box_contains",
+    "item_id": 10245,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30283",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30283
+    }
+  },
+  {
+    "id": "10245:BoxAwardShowConfig:30283:box_contains",
+    "item_id": 10245,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30283",
+    "role": "box_contains",
+    "qty": 2,
+    "meta": {
+      "box_item_id": 30283
+    }
+  },
+  {
+    "id": "10245:BoxAwardShowConfig:30283:box_contains",
+    "item_id": 10245,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30283",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 30283
+    }
+  },
+  {
+    "id": "10245:BoxAwardShowConfig:30283:box_contains",
+    "item_id": 10245,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30283",
+    "role": "box_contains",
+    "qty": 5,
+    "meta": {
+      "box_item_id": 30283
+    }
+  },
+  {
+    "id": "10245:BoxAwardShowConfig:30283:box_contains",
+    "item_id": 10245,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30283",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 30283
+    }
+  },
+  {
+    "id": "10269:BoxAwardShowConfig:30284:box_contains",
+    "item_id": 10269,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30284",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30284
+    }
+  },
+  {
+    "id": "10026:BoxAwardShowConfig:30284:box_contains",
+    "item_id": 10026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30284",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 30284
+    }
+  },
+  {
+    "id": "10026:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
+    }
+  },
+  {
+    "id": "10109:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10109,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
+    }
+  },
+  {
+    "id": "10178:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10178,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
+    }
+  },
+  {
+    "id": "10155:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10155,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
+    }
+  },
+  {
+    "id": "10112:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10112,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
+    }
+  },
+  {
+    "id": "10029:BoxAwardShowConfig:30285:box_contains",
+    "item_id": 10029,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30285",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30285
     }
   },
   {
@@ -17719,6 +18093,61 @@
     "qty": 2,
     "meta": {
       "box_item_id": 30307
+    }
+  },
+  {
+    "id": "10113:BoxAwardShowConfig:30308:box_contains",
+    "item_id": 10113,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30308",
+    "role": "box_contains",
+    "qty": 5,
+    "meta": {
+      "box_item_id": 30308
+    }
+  },
+  {
+    "id": "10178:BoxAwardShowConfig:30308:box_contains",
+    "item_id": 10178,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30308",
+    "role": "box_contains",
+    "qty": 5,
+    "meta": {
+      "box_item_id": 30308
+    }
+  },
+  {
+    "id": "35140:BoxAwardShowConfig:30308:box_contains",
+    "item_id": 35140,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30308",
+    "role": "box_contains",
+    "qty": 8,
+    "meta": {
+      "box_item_id": 30308
+    }
+  },
+  {
+    "id": "30238:BoxAwardShowConfig:30308:box_contains",
+    "item_id": 30238,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30308",
+    "role": "box_contains",
+    "qty": 5,
+    "meta": {
+      "box_item_id": 30308
+    }
+  },
+  {
+    "id": "10222:BoxAwardShowConfig:30308:box_contains",
+    "item_id": 10222,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30308",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30308
     }
   },
   {
@@ -26728,6 +27157,446 @@
     "qty": 1,
     "meta": {
       "box_item_id": 35245
+    }
+  },
+  {
+    "id": "10155:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10155,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 8,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10178:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10178,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 8,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10025:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10025,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 8,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10029:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10029,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 5,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10109:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10109,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10026:BoxAwardShowConfig:35246:box_contains",
+    "item_id": 10026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35246",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35246
+    }
+  },
+  {
+    "id": "10095:BoxAwardShowConfig:35247:box_contains",
+    "item_id": 10095,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35247",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35247
+    }
+  },
+  {
+    "id": "10112:BoxAwardShowConfig:35247:box_contains",
+    "item_id": 10112,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35247",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35247
+    }
+  },
+  {
+    "id": "10113:BoxAwardShowConfig:35248:box_contains",
+    "item_id": 10113,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35248",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35248
+    }
+  },
+  {
+    "id": "10095:BoxAwardShowConfig:35248:box_contains",
+    "item_id": 10095,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35248",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35248
+    }
+  },
+  {
+    "id": "10050:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 10050,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "10048:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 10048,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "10049:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 10049,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40414:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40414,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40413:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40413,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40412:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40412,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40411:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40411,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "54202:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 54202,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 2,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40403:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40403,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 8,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40404:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40404,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 6,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "40420:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 40420,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "10111:BoxAwardShowConfig:35250:box_contains",
+    "item_id": 10111,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35250",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35250
+    }
+  },
+  {
+    "id": "55001:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55001,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55002:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55002,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55003:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55003,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55005:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55005,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55006:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55006,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55007:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55007,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "55008:BoxAwardShowConfig:35251:box_contains",
+    "item_id": 55008,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35251",
+    "role": "box_contains",
+    "qty": 3,
+    "meta": {
+      "box_item_id": 35251
+    }
+  },
+  {
+    "id": "57421:BoxAwardShowConfig:35252:box_contains",
+    "item_id": 57421,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35252",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35252
+    }
+  },
+  {
+    "id": "57422:BoxAwardShowConfig:35252:box_contains",
+    "item_id": 57422,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35252",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 35252
+    }
+  },
+  {
+    "id": "52056:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52056,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52029:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52029,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52055:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52055,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52031:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52031,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52079:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52079,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52030:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52030,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "52058:BoxAwardShowConfig:35253:box_contains",
+    "item_id": 52058,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35253",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35253
+    }
+  },
+  {
+    "id": "43026:BoxAwardShowConfig:35255:box_contains",
+    "item_id": 43026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35255",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35255
+    }
+  },
+  {
+    "id": "43013:BoxAwardShowConfig:35255:box_contains",
+    "item_id": 43013,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35255",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35255
     }
   },
   {

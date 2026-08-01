@@ -14,6 +14,8 @@ type SkillIconButtonProps = {
   selected?: boolean
   onClick?: () => void
   className?: string
+  /** When false, renders a non-interactive display (for nested cards). */
+  interactive?: boolean
 }
 
 /** Skill slot: glow → icon → border (_1 | _3). */
@@ -23,11 +25,45 @@ export function SkillIconButton({
   selected = false,
   onClick,
   className = '',
+  interactive = true,
 }: SkillIconButtonProps) {
   const isAwaken = isAwakenSkillRow(skill)
   const borderSrc = getSkillBorderPath(isAwaken)
   const selectSrc = getSkillSelectPath()
   const iconSrc = resolveSkillIconUrl(skill as { iconpath?: string | null })
+  const rootClass = `skill-icon-btn${isAwaken ? ' skill-icon-btn--awaken' : ''} ${className}`.trim()
+
+  const canvas = (
+    <div className="skill-icon-btn__canvas">
+      {selected && (
+        <GameImage
+          src={selectSrc}
+          rawSrc={selectSrc}
+          alt=""
+          aria-hidden
+          className="skill-icon-btn__select"
+        />
+      )}
+      {iconSrc && (
+        <GameImage src={iconSrc} rawSrc={iconSrc} alt={name} className="skill-icon-btn__icon" />
+      )}
+      <GameImage
+        src={borderSrc}
+        rawSrc={borderSrc}
+        alt=""
+        aria-hidden
+        className="skill-icon-btn__border"
+      />
+    </div>
+  )
+
+  if (!interactive) {
+    return (
+      <div className={rootClass} aria-hidden={false} role="img" aria-label={name}>
+        {canvas}
+      </div>
+    )
+  }
 
   return (
     <button
@@ -35,29 +71,9 @@ export function SkillIconButton({
       onClick={onClick}
       aria-label={name}
       aria-pressed={selected}
-      className={`skill-icon-btn${isAwaken ? ' skill-icon-btn--awaken' : ''} ${className}`.trim()}
+      className={rootClass}
     >
-      <div className="skill-icon-btn__canvas">
-        {selected && (
-          <GameImage
-            src={selectSrc}
-            rawSrc={selectSrc}
-            alt=""
-            aria-hidden
-            className="skill-icon-btn__select"
-          />
-        )}
-        {iconSrc && (
-          <GameImage src={iconSrc} rawSrc={iconSrc} alt={name} className="skill-icon-btn__icon" />
-        )}
-        <GameImage
-          src={borderSrc}
-          rawSrc={borderSrc}
-          alt=""
-          aria-hidden
-          className="skill-icon-btn__border"
-        />
-      </div>
+      {canvas}
     </button>
   )
 }

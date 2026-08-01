@@ -1,8 +1,10 @@
+import { getCanonicalAssetPath } from '@/lib/assets/asset-registry'
+
 /** Supabase SkillConfig.iconpath → public asset URL under /assets/resources/. */
 export function convertSkillIconPath(rawPath?: string | null): string {
   if (!rawPath) return ''
 
-  const cleanPath = rawPath.replace(/^\/+/, '')
+  const cleanPath = rawPath.replace(/^\/+/, '').replace(/\\/g, '/')
   const lastSlashIndex = cleanPath.lastIndexOf('/')
   let dir = ''
   let file = cleanPath
@@ -12,7 +14,9 @@ export function convertSkillIconPath(rawPath?: string | null): string {
     file = cleanPath.substring(lastSlashIndex + 1)
   }
 
-  return `/assets/resources/${dir.toLowerCase()}/${file}.png`
+  // Match game_path_to_public (full path lowercased) + manifest case lookup for older PascalCase files.
+  const candidate = `/assets/resources/${dir.toLowerCase()}/${file.toLowerCase()}.png`
+  return getCanonicalAssetPath(candidate) ?? candidate
 }
 
 /** Icon URL from SkillConfig row — uses iconpath only (no inferred SkillIcon_{id}). */

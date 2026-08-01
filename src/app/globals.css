@@ -206,7 +206,7 @@ img[data-unavailable='true'] {
   /* Profile header — decorative art (transparent sprite, bottom-cropped) */
   .profile-header {
     @apply relative overflow-hidden rounded-xl border border-panel-border bg-panel sm:rounded-2xl;
-    min-height: 11rem;
+    min-height: 0;
   }
 
   .profile-header-art {
@@ -223,8 +223,12 @@ img[data-unavailable='true'] {
   }
 
   .hero-profile-head {
-    @apply h-24 w-24 shrink-0 rounded-md object-cover sm:h-28 sm:w-28;
-    border: 1px solid var(--panel-border);
+    width: 144px;
+    height: 144px;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    border: none;
     background-color: var(--panel-hover);
   }
 

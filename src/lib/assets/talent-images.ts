@@ -1,7 +1,10 @@
 import { getCanonicalAssetPath, isAssetMarkedMissing } from './asset-registry'
 
-/** Same size as hero skill icons (HeroSkillList). */
-export const TALENT_ICON_CLASS = 'h-16 w-16 shrink-0 object-contain sm:h-20 sm:w-20'
+/** Skill-sized icons (awakening skill). */
+export const TALENT_ICON_CLASS = 'h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14'
+
+/** Compact selectors for talent attribute points. */
+export const TALENT_POINT_ICON_CLASS = 'hero-talents-point__img'
 
 /**
  * In-game giftedness point icons: tfxt_icon_shuxingdian_{1-5}

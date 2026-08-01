@@ -5,6 +5,8 @@ import {
 } from '@/lib/i18n/language-package'
 import { collectGetPathCoveredLevelTypes } from '@/lib/game/item-get-path'
 import { resolveExchangeUnlockLine } from '@/lib/game/exchange-unlock'
+import { getLevelIndexCode } from '@/lib/game/get-level-index-code'
+import { resolveGameLevelDisplayName } from '@/lib/game/get-level-display-name'
 
 export type ItemStageRewardKind =
   | 'first_clear'
@@ -21,14 +23,26 @@ export type ItemStageRewardEntry = {
   levelId?: number
   kind: ItemStageRewardKind
   qty?: number
+  /** LevelConfig.chapter (internal chapter id). */
   chapter?: number
+  /**
+   * ChapterConfig.show_id — player-facing chapter number in stage codes
+   * (GameUtil.GetLevelIndexName). Falls back to `chapter` when absent.
+   */
+  showId?: number
   levelSerial?: number
   /** Chapter difficulty tab — from LevelConfig.function_type (1 story, 2 elite, 3 nightmare). */
   levelType?: LevelType
+  /** ChapterConfig.chapter_name LC key. */
+  chapterNameKey?: string
+  /**
+   * NpcRoster.level_name LC key — used for normal_level (story) via
+   * GameUtil.GetLevelNameByLevelConfig.
+   */
+  levelNameKey?: string
   chapterId?: number
   progressChapterId?: number
   chapterMode?: ChapterMode
-  chapterNameKey?: string
   strongholdChapterId?: number
   progress?: number
 }
@@ -121,9 +135,11 @@ function resolveLevelLabel(
   translations: Record<string, string>,
   lang: string
 ): string {
-  if (entry.chapter != null && entry.levelSerial != null) {
-    return `${entry.chapter}-${entry.levelSerial}`
-  }
+  const indexCode = getLevelIndexCode(
+    entry.showId ?? entry.chapter,
+    entry.levelSerial
+  )
+  if (indexCode) return indexCode
 
   const nameKey = `LC_LEVEL_name_${entry.levelId}`
   const name = translations[nameKey]
@@ -155,6 +171,7 @@ function resolveChapterNameKey(entry: ItemStageRewardEntry): string | null {
   return null
 }
 
+/** Chapter completion / progress rows — chapter LC only (not a per-level name). */
 function resolveChapterLabel(
   entry: ItemStageRewardEntry,
   translations: Record<string, string>,
@@ -170,6 +187,26 @@ function resolveChapterLabel(
   const chapterRef = entry.chapterId ?? entry.progressChapterId ?? entry.chapter
   if (chapterRef != null) return `#${chapterRef}`
   return ''
+}
+
+/**
+ * Stage drop name — mirrors GameUtil.GetLevelNameByLevelConfig
+ * (BigLevelItemView LevelNameLabel).
+ */
+function resolveStageLevelName(
+  entry: ItemStageRewardEntry,
+  translations: Record<string, string>,
+  lang: string
+): string {
+  return resolveGameLevelDisplayName(
+    {
+      levelType: entry.levelType,
+      levelNameKey: entry.levelNameKey,
+      chapterNameKey: resolveChapterNameKey(entry) ?? undefined,
+    },
+    translations,
+    (key, value) => Boolean(value && !isNoDataTranslation(key, value, lang))
+  )
 }
 
 function formatProgressTemplate(
@@ -264,12 +301,6 @@ function mergeStageRewardLines(lines: ItemStageRewardLine[]): ItemStageRewardLin
   return [...byStage.values(), ...merged]
 }
 
-function parseStageParts(stage: string | undefined): [number, number] {
-  const match = stage?.match(/^(\d+)-(\d+)$/)
-  if (!match) return [Number.MAX_SAFE_INTEGER, Number.MAX_SAFE_INTEGER]
-  return [Number(match[1]), Number(match[2])]
-}
-
 function compareStageRewardLines(a: ItemStageRewardLine, b: ItemStageRewardLine): number {
   const kindRank = (kind: ItemStageRewardLine['kind']) => {
     if (kind === 'stage_merged' || kind === 'first_clear' || kind === 'sweep') return 0
@@ -280,13 +311,19 @@ function compareStageRewardLines(a: ItemStageRewardLine, b: ItemStageRewardLine)
   const rankDiff = kindRank(a.kind) - kindRank(b.kind)
   if (rankDiff !== 0) return rankDiff
 
+  // Story → Elite → Nightmare, then player-facing show_id-serial, then levelId.
+  if (a.levelType != null && b.levelType != null) {
+    const typeDiff = a.levelType - b.levelType
+    if (typeDiff !== 0) return typeDiff
+  }
+
   const aHasStage = /^\d+-\d+$/.test(a.stage ?? '')
   const bHasStage = /^\d+-\d+$/.test(b.stage ?? '')
   if (aHasStage && bHasStage) {
-    const [aChapterNum, aLevelNum] = parseStageParts(a.stage)
-    const [bChapterNum, bLevelNum] = parseStageParts(b.stage)
-    if (aChapterNum !== bChapterNum) return aChapterNum - bChapterNum
-    if (aLevelNum !== bLevelNum) return aLevelNum - bLevelNum
+    const [aShow, aSerial] = (a.stage as string).split('-').map(Number)
+    const [bShow, bSerial] = (b.stage as string).split('-').map(Number)
+    if (aShow !== bShow) return aShow - bShow
+    if (aSerial !== bSerial) return aSerial - bSerial
   }
 
   if (a.chapterId != null && b.chapterId != null) {
@@ -297,11 +334,6 @@ function compareStageRewardLines(a: ItemStageRewardLine, b: ItemStageRewardLine)
   if (a.progress != null && b.progress != null) {
     const progressDiff = a.progress - b.progress
     if (progressDiff !== 0) return progressDiff
-  }
-
-  if (a.levelType != null && b.levelType != null) {
-    const typeDiff = a.levelType - b.levelType
-    if (typeDiff !== 0) return typeDiff
   }
 
   if (a.levelId != null && b.levelId != null) return a.levelId - b.levelId
@@ -332,7 +364,7 @@ function buildStageRewardLine(
   }
 
   if (entry.kind === 'first_clear' && entry.levelId != null) {
-    const chapter = resolveChapterLabel(entry, translations, lang)
+    const chapter = resolveStageLevelName(entry, translations, lang)
     const stage = resolveLevelLabel(entry, translations, lang)
     if (!chapter || !stage) return null
     const levelType = entry.levelType
@@ -394,7 +426,7 @@ function buildStageRewardLine(
   }
 
   if (entry.kind === 'sweep' && entry.levelId != null) {
-    const chapter = resolveChapterLabel(entry, translations, lang)
+    const chapter = resolveStageLevelName(entry, translations, lang)
     const stage = resolveLevelLabel(entry, translations, lang)
     if (!chapter || !stage) return null
     const levelType = entry.levelType
@@ -417,6 +449,7 @@ function buildStageRewardLine(
 function collectTranslationKeys(entries: ItemStageRewardEntry[]): string[] {
   const keys = new Set<string>()
   for (const entry of entries) {
+    if (entry.levelNameKey) keys.add(entry.levelNameKey)
     if (entry.levelId != null) {
       keys.add(`LC_LEVEL_name_${entry.levelId}`)
     }
@@ -492,13 +525,18 @@ export async function loadItemStageSourceLines(
       const ai = order.indexOf(a.kind)
       const bi = order.indexOf(b.kind)
       if (ai !== bi) return ai - bi
-      if (a.chapterId != null && b.chapterId != null) return a.chapterId - b.chapterId
-      if (a.chapter != null && b.chapter != null) {
-        return (
-          a.chapter - b.chapter ||
-          (a.levelSerial ?? 0) - (b.levelSerial ?? 0) ||
-          (a.levelId ?? 0) - (b.levelId ?? 0)
-        )
+      if (a.levelType != null && b.levelType != null) {
+        const typeDiff = a.levelType - b.levelType
+        if (typeDiff !== 0) return typeDiff
+      }
+      const aShow = a.showId ?? a.chapter ?? 0
+      const bShow = b.showId ?? b.chapter ?? 0
+      if (aShow !== bShow) return aShow - bShow
+      const serialDiff = (a.levelSerial ?? 0) - (b.levelSerial ?? 0)
+      if (serialDiff !== 0) return serialDiff
+      if (a.chapterId != null && b.chapterId != null) {
+        const chapterDiff = a.chapterId - b.chapterId
+        if (chapterDiff !== 0) return chapterDiff
       }
       if (a.strongholdChapterId != null && b.strongholdChapterId != null) {
         return (

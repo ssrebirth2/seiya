@@ -8,13 +8,12 @@ import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { createClient } from '@supabase/supabase-js'
 import dotenv from 'dotenv'
+import { resolveLuaRoot } from './resolve-lua-root.mjs'
 
 dotenv.config({ path: '.env.local' })
 
 const ROOT = process.cwd()
-const LUA_ROOT =
-  process.env.LUA_CONFIG_ROOT ||
-  'C:/rb2/backup/assets/resources/luascriptwithoutcodecomments/luaconfig'
+const LUA_ROOT = resolveLuaRoot()
 
 const AREA_KEY_FILE = join(LUA_ROOT, 'game/areaformat/AreaKeyConfig.lua')
 const FUN_OPEN_FILE = join(LUA_ROOT, 'game/funopen/FunOpenResourcesConfig.lua')

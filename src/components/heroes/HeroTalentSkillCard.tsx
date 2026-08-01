@@ -3,12 +3,12 @@
 import React from 'react'
 import { applySkillValues } from '@/lib/game/apply-skill-values'
 import {
+  normalizeConditionList,
   normalizeDesValueList,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import type { TalentLayerSkill } from '@/lib/game/talent-types'
-import { TALENT_ICON_CLASS } from '@/lib/assets/talent-images'
 import { layerAwakeningMaterials } from '@/lib/game/aggregate-consume'
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
@@ -17,10 +17,9 @@ import {
   HeroTalentNotImplemented,
   isNotAvailableLabel,
 } from './HeroTalentNotImplemented'
-import { NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
+import { NO_DATA_LC_KEY, UI_KEYS } from '@/lib/i18n/ui-keys'
 import { resolveSkillTypeLabel } from '@/lib/game/format-skill-labels'
-import SkillCooldownMeta from './SkillCooldownMeta'
-import { hasSkillCooldown } from '@/lib/game/format-skill-cooldown'
+import { SkillDetailCard, type SkillDetailLine } from './SkillDetailCard'
 
 interface HeroTalentSkillCardProps {
   layerSkill: TalentLayerSkill
@@ -41,37 +40,38 @@ export default function HeroTalentSkillCard({
 }: HeroTalentSkillCardProps) {
   const skill = layerSkill.skillRow
   const layerMaterials = layerAwakeningMaterials(layerSkill)
+  const noDataLabel = getT(NO_DATA_LC_KEY) || getT(UI_KEYS.common.noData)
 
-  const cardShell = (children: React.ReactNode) => (
-    <div className="rounded-xl border border-panel-border bg-panel p-3 sm:p-4">
-      <h4 className="mb-3 text-xs font-semibold uppercase tracking-wide text-text-muted sm:text-sm">
-        Layer Awakening Skill
-      </h4>
-      {children}
+  const shell = (children: React.ReactNode) => (
+    <>
+      <header className="hero-talents-panel__head">
+        <h4 className="hero-talents-section__title">
+          {getT(UI_KEYS.hero.talentAwakenSkill)}
+        </h4>
+      </header>
+      <div className="hero-talents-skill">{children}</div>
       {(layerMaterials.length > 0 || cumulativeMaterials.length > 0) && (
         <HeroTalentMaterialsRow
           materials={layerMaterials}
           cumulative={cumulativeMaterials}
           consumeRefMap={consumeRefMap}
+          materialsLabel={getT(UI_KEYS.hero.talentAwakenMaterials)}
         />
       )}
-    </div>
+    </>
   )
 
   if (!skill) {
-    return cardShell(
-      <HeroTalentNotImplemented subtitle="Skill configuration exists, but no skill data was found." />
-    )
+    return shell(<HeroTalentNotImplemented />)
   }
 
   const name = getT(String(skill.name ?? ''))
   const skillTypeRaw = resolveSkillTypeLabel(skill.skill_type, getT)
   const skillType = isNotAvailableLabel(skillTypeRaw) ? '' : skillTypeRaw
 
-  const labels = parsePrimitiveList(skill.label_list)
+  const tagLabels = parsePrimitiveList(skill.label_list)
     .map((id) => labelMap[Number(id)])
-    .filter((label) => label && !isNotAvailableLabel(label))
-    .join(', ')
+    .filter((label): label is string => Boolean(label) && !isNotAvailableLabel(label))
 
   const desList = normalizeDesValueList(skill.skill_des)
   const descriptionKey = desList[0]?.des
@@ -79,61 +79,59 @@ export default function HeroTalentSkillCard({
   const mainDescription =
     descriptionRaw && !isNotAvailableLabel(descriptionRaw)
       ? applySkillValues(descriptionRaw, desList[0].value ?? 0, valuesMap)
-      : ''
+      : descriptionKey
+        ? `<p class="italic">${noDataLabel}</p>`
+        : ''
+
+  const sketches = normalizeDesValueList(skill.skill_sketch)
+  const conds = normalizeConditionList(skill.skill_condition)
+  const levelLines: SkillDetailLine[] = sketches
+    .map((s, i) => {
+      if (!s.des) return { level: i + 1, text: '', condition: '' }
+      const raw = getT(s.des)
+      const text = isNotAvailableLabel(raw)
+        ? noDataLabel
+        : applySkillValues(raw, s.value ?? 0, valuesMap)
+      return {
+        level: i + 1,
+        text,
+        condition: conds[i] ? getT(conds[i]) : '',
+      }
+    })
+    .filter((line) => line.text || line.condition)
 
   const skillUnavailable = isNotAvailableLabel(name)
   const iconPath = skillUnavailable ? '' : resolveSkillIconUrl(skill)
 
   if (skillUnavailable) {
-    return cardShell(
-      <HeroTalentNotImplemented subtitle="Skill text has not been added to the language files yet." />
-    )
+    return shell(<HeroTalentNotImplemented />)
   }
 
   const hasSkillBody =
     Boolean(iconPath || name) ||
-    Boolean(skillType || labels || mainDescription || hasSkillCooldown(skill.cd))
+    Boolean(skillType || tagLabels.length || mainDescription || levelLines.length)
 
   if (!hasSkillBody) {
-    return cardShell(
-      <HeroTalentNotImplemented subtitle="Skill data exists but has no displayable content yet." />
-    )
+    return shell(<HeroTalentNotImplemented />)
   }
 
-  return cardShell(
-    <>
-      <div className="mb-3 flex items-start gap-3">
-        {iconPath ? (
-          <img src={iconPath} alt={name} className={TALENT_ICON_CLASS} />
-        ) : (
-          <div
-            className={`${TALENT_ICON_CLASS} rounded-xl border border-panel-border bg-panel-hover`}
-            aria-hidden
-          />
-        )}
-        <div className="min-w-0">
-          <p className="text-base font-semibold leading-tight sm:text-lg">{name}</p>
-          {skillType && <p className="text-sm text-text-muted">{skillType}</p>}
-        </div>
-      </div>
-
-      <div className="mb-2 grid grid-cols-1 gap-1 text-sm sm:grid-cols-2">
-        <SkillCooldownMeta cd={skill.cd} />
-        {labels && (
-          <p>
-            <strong>Tags:</strong> {labels}
-          </p>
-        )}
-      </div>
-
-      {mainDescription ? (
-        <div
-          className="mb-3 text-sm text-text-muted whitespace-pre-wrap break-words"
-          dangerouslySetInnerHTML={{ __html: mainDescription }}
-        />
-      ) : descriptionKey ? (
-        <p className="mb-3 text-sm italic text-text-muted">{NOT_AVAILABLE_LABEL}</p>
-      ) : null}
-    </>
+  return shell(
+    <SkillDetailCard
+      skill={skill as Record<string, unknown>}
+      name={name}
+      iconPath={iconPath}
+      skillTypeLabel={skillType}
+      tagLabels={tagLabels}
+      mainDescriptionHtml={mainDescription}
+      levelLines={levelLines}
+      noDataLabel={noDataLabel}
+      getT={getT}
+      density="compact"
+      nested
+      sections={{
+        levels: levelLines.length > 0,
+        subskills: false,
+      }}
+    />
   )
 }

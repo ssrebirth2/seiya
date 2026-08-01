@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import HeroTalentConsumeList from './HeroTalentConsumeList'
@@ -10,51 +10,57 @@ interface HeroTalentMaterialsRowProps {
   materials: ConsumeEntry[]
   cumulative: ConsumeEntry[]
   consumeRefMap: ConsumeRefMap
+  materialsLabel?: string
+}
+
+function consumeKey(entry: ConsumeEntry): string {
+  return `${entry.type ?? ''}:${entry.sid ?? 0}:${entry.num ?? 0}`
+}
+
+function consumeListsEqual(a: ConsumeEntry[], b: ConsumeEntry[]): boolean {
+  if (a.length !== b.length) return false
+  const left = [...a].map(consumeKey).sort()
+  const right = [...b].map(consumeKey).sort()
+  return left.every((key, i) => key === right[i])
 }
 
 export default function HeroTalentMaterialsRow({
   materials,
   cumulative,
   consumeRefMap,
+  materialsLabel,
 }: HeroTalentMaterialsRowProps) {
-  const { t } = useUiTranslation()
+  const { t, site } = useUiTranslation()
+  const materialsTitle = materialsLabel ?? t(UI_KEYS.common.materials)
+  const cumulativeTitle = site('cumulativeTotal')
+
+  const showCumulative = useMemo(() => {
+    if (!cumulative.length) return false
+    if (!materials.length) return true
+    return !consumeListsEqual(materials, cumulative)
+  }, [materials, cumulative])
 
   if (!materials.length && !cumulative.length) return null
 
   return (
-    <div className="mt-4 grid grid-cols-2 items-start gap-x-6">
-      <div className="min-w-0">
-        {materials.length > 0 ? (
-          <HeroTalentConsumeList
-            items={materials}
-            label={t(UI_KEYS.common.materials)}
-            consumeRefMap={consumeRefMap}
-          />
-        ) : (
-          <>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-muted">
-              {t(UI_KEYS.common.materials)}
-            </p>
-            <span className="text-sm text-text-muted">—</span>
-          </>
-        )}
-      </div>
-      <div className="min-w-0">
-        {cumulative.length > 0 ? (
-          <HeroTalentConsumeList
-            items={cumulative}
-            label={t(UI_KEYS.item.cumulativeTotal)}
-            consumeRefMap={consumeRefMap}
-          />
-        ) : (
-          <>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-text-muted">
-              {t(UI_KEYS.item.cumulativeTotal)}
-            </p>
-            <span className="text-sm text-text-muted">—</span>
-          </>
-        )}
-      </div>
+    <div className="hero-talents-materials">
+      {materials.length > 0 ? (
+        <HeroTalentConsumeList
+          items={materials}
+          label={materialsTitle}
+          consumeRefMap={consumeRefMap}
+          compact
+        />
+      ) : null}
+
+      {showCumulative ? (
+        <HeroTalentConsumeList
+          items={cumulative}
+          label={cumulativeTitle}
+          consumeRefMap={consumeRefMap}
+          compact
+        />
+      ) : null}
     </div>
   )
 }

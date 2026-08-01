@@ -49,23 +49,26 @@ export async function loadHeroProfileSkillEntries(
     .maybeSingle()
 
   if (heroRow?.hero_quality_skill_ids?.length) {
+    // HeroUtil.GetAwakeAndQualitySkill: first hero_quality_skill_ids entry with skill_info.
     const qualityIds = heroRow.hero_quality_skill_ids as number[]
     const { data: qualityRows } = await supabase
       .from('HeroQualitySkillConfig')
-      .select('*')
+      .select('id, skill_info')
       .in('id', qualityIds)
 
-    if (qualityRows?.length) {
-      const lastInfo = qualityRows[qualityRows.length - 1].skill_info
-      const qualitySkillId = extractSkillIdFromInfo(lastInfo)
-      if (qualitySkillId) {
-        entries.push({
-          skillId: String(qualitySkillId),
-          sortKey: Number(qualitySkillId),
-          isQuality: true,
-          isAwaken: false,
-        })
-      }
+    const byId = new Map((qualityRows ?? []).map((row) => [Number(row.id), row]))
+    for (const cfgId of qualityIds) {
+      const row = byId.get(Number(cfgId))
+      if (!row) continue
+      const qualitySkillId = extractSkillIdFromInfo(row.skill_info)
+      if (!qualitySkillId) continue
+      entries.push({
+        skillId: String(qualitySkillId),
+        sortKey: Number(qualitySkillId),
+        isQuality: true,
+        isAwaken: false,
+      })
+      break
     }
   }
 

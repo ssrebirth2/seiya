@@ -8,6 +8,7 @@ import {
   figureObjIdFromSid,
   figureQualityFromItemQuality,
 } from '@/lib/game/figure-ref'
+import { parseFigureAttributePayload } from '@/lib/game/parse-figure-attribute-payload'
 import { translateKeys } from '@/lib/i18n/language-package'
 import { translateItemConfigNames } from '@/lib/game/item-i18n'
 import {
@@ -228,30 +229,34 @@ async function loadFigureRefs(
 
   const { data, error } = await supabase
     .from('FigureAttributeConfig')
-    .select('id, name, icon_path, figure_initial_quality')
-    .in('id', figureIds)
+    .select('id, payload')
+    .in(
+      'id',
+      figureIds.map((id) => String(id))
+    )
 
   const foundIds = new Set<number>()
 
   if (!error && data?.length) {
-    const nameKeys = data.map((r) => String((r as { name: string }).name))
+    const parsed = data.map((row) =>
+      parseFigureAttributePayload(
+        (row as { payload: unknown }).payload,
+        Number((row as { id: string | number }).id)
+      )
+    )
+    const nameKeys = parsed.map((r) => r.name).filter((k): k is string => Boolean(k))
     const tmap = nameKeys.length ? await translateKeys(nameKeys, lang) : {}
 
-    for (const row of data) {
-      const fig = row as {
-        id: number
-        name: string
-        icon_path?: string | null
-        figure_initial_quality?: number | null
-      }
+    for (const fig of parsed) {
+      if (!fig.id) continue
       foundIds.add(fig.id)
+      const nameKey = fig.name || figureNameKeyFromSid(fig.id)
       map.set(fig.id, {
-        name: tmap[fig.name] || fig.name,
-        nameKey: fig.name,
-        iconUrl: itemIconUrl(fig.icon_path),
-        iconPath: fig.icon_path,
-        quality:
-          fig.figure_initial_quality != null ? Number(fig.figure_initial_quality) : undefined,
+        name: (fig.name && tmap[fig.name]) || nameKey,
+        nameKey,
+        iconUrl: itemIconUrl(fig.iconPath),
+        iconPath: fig.iconPath,
+        quality: fig.figureInitialQuality ?? undefined,
       })
     }
   }

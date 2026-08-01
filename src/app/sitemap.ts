@@ -10,6 +10,7 @@ const STATIC_ROUTES = [
   '/artifacts',
   '/force-cards',
   '/team-builder',
+  '/changelog',
   ...(ITEMS_SECTION_ENABLED ? ['/items'] : []),
 ]
 

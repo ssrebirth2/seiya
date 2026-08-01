@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import { setupGlobalSkillTooltips } from '@/lib/game/apply-skill-values'
 import { cumulativeAwakeningMaterials } from '@/lib/game/aggregate-consume'
 import { createTranslationGetter } from '@/lib/i18n/language-package'
+import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { LoadingSkeleton, EmptyState } from '@/components/ui/v2'
 import { useHeroTalents } from '@/hooks/use-hero-talents'
 import HeroTalentLayer from './HeroTalentLayer'
 
@@ -12,6 +14,7 @@ interface HeroTalentsProps {
 }
 
 export default function HeroTalents({ heroId }: HeroTalentsProps) {
+  const { t } = useUiTranslation()
   const { data: bundle, isLoading, isFetching, isError } = useHeroTalents(heroId)
   const [activeLayer, setActiveLayer] = useState(0)
   const isRetranslating = isFetching && !isLoading
@@ -26,30 +29,30 @@ export default function HeroTalents({ heroId }: HeroTalentsProps) {
 
   if (isLoading) {
     return (
-      <section className="mt-2 flex justify-center py-8 sm:mt-4">
-        <div className="spinner h-8 w-8" />
+      <section className="hero-talents-root hero-talents-root--loading">
+        <LoadingSkeleton variant="detail" />
       </section>
     )
   }
 
   if (isError || !bundle?.data.layers.length) {
-    return <p className="text-sm text-text-muted">No talents found for this hero.</p>
+    return <EmptyState message={t(UI_KEYS.common.noData)} />
   }
 
   const { data, translations, valuesMap, labelMap, consumeRefMap } = bundle
   const getT = createTranslationGetter(translations)
 
   const layerLabel = (index: number) => {
-    const template = getT('LC_hero_giftness_tag')
-    return template.includes('{0}') ? template.replace('{0}', String(index)) : `Layer ${index}`
+    const template = getT(UI_KEYS.hero.talentLayerTag)
+    return template.includes('{0}') ? template.replace('{0}', String(index)) : template
   }
 
   return (
-    <section className={isRetranslating ? 'i18n-content--pending' : undefined}>
+    <section className={`hero-talents-root${isRetranslating ? ' i18n-content--pending' : ''}`}>
       <div
-        className="mb-4 flex flex-wrap gap-2"
+        className="hero-talents-layers"
         role="tablist"
-        aria-label="Talent layers"
+        aria-label={getT(UI_KEYS.hero.talentsTab)}
       >
         {data.layers.map((layer, idx) => {
           const isActive = idx === activeLayer
@@ -60,11 +63,7 @@ export default function HeroTalents({ heroId }: HeroTalentsProps) {
               role="tab"
               aria-selected={isActive}
               onClick={() => setActiveLayer(idx)}
-              className={`rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-colors sm:px-3 sm:text-sm ${
-                isActive
-                  ? 'border-accent bg-accent/10 text-accent'
-                  : 'border-panel-border bg-panel hover:bg-panel-hover'
-              }`}
+              className={`hero-talents-chip${isActive ? ' hero-talents-chip--active' : ''}`}
             >
               {layerLabel(layer.index)}
             </button>
