@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T03:52:05.814Z",
+  "generatedAt": "2026-08-26T21:55:22.073Z",
   "defaultArea": "China",
   "areas": [
     "Asia",
@@ -2019,43 +2019,6 @@
         }
       ]
     },
-    "10060": {
-      "Asia": [
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ]
-    },
     "10085": {
       "Asia": [
         {
@@ -2131,117 +2094,6 @@
       ]
     },
     "10087": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "10088": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "10089": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "10090": {
       "Asia": [
         {
           "funopenId": 10019,
@@ -4704,36 +4556,6 @@
           "value": null
         }
       ],
-      "China": [
-        {
-          "funopenId": 20023,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 20023,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 20023,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 20023,
-          "type": 1,
-          "value": null
-        }
-      ]
-    },
-    "10241": {
       "China": [
         {
           "funopenId": 20023,
@@ -10833,88 +10655,6 @@
         }
       ]
     },
-    "40148": {
-      "Asia": [
-        {
-          "funopenId": 20103,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20326,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 20103,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20326,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 20103,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20326,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 20103,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 20103,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20144,
-          "type": 2,
-          "value": null
-        },
-        {
-          "funopenId": 20326,
-          "type": 2,
-          "value": null
-        }
-      ]
-    },
     "40149": {
       "Asia": [
         {
@@ -13675,6 +13415,132 @@
         }
       ]
     },
+    "43052": {
+      "China": [
+        {
+          "funopenId": 10019,
+          "type": 7,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20228,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20099,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20229,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "43053": {
+      "Asia": [
+        {
+          "funopenId": 20021,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20021,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20021,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20021,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20224,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20228,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20099,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20098,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "43054": {
+      "Asia": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20224,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20021,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20224,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20228,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20099,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20098,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
     "43065": {
       "China": [
         {
@@ -13737,6 +13603,65 @@
         }
       ]
     },
+    "43073": {
+      "Japan": [
+        {
+          "funopenId": 20237,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "43075": {
+      "Asia": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20022,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20224,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20228,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20099,
+          "type": 1,
+          "value": null
+        },
+        {
+          "funopenId": 20098,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
     "43093": {
       "Japan": [
         {
@@ -13752,20 +13677,6 @@
       ]
     },
     "43094": {
-      "Japan": [
-        {
-          "funopenId": 20149,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20021,
-          "type": 1,
-          "value": null
-        }
-      ]
-    },
-    "43095": {
       "Japan": [
         {
           "funopenId": 20149,
@@ -13815,20 +13726,6 @@
         },
         {
           "funopenId": 20022,
-          "type": 1,
-          "value": null
-        }
-      ]
-    },
-    "43099": {
-      "Japan": [
-        {
-          "funopenId": 20149,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20021,
           "type": 1,
           "value": null
         }
@@ -15181,6 +15078,48 @@
         }
       ],
       "Japan": [
+        {
+          "funopenId": 20080,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "SoutheastAsia": [
+        {
+          "funopenId": 20080,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "52009": {
+      "Asia": [
+        {
+          "funopenId": 20080,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20080,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20080,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 10019,
+          "type": 7,
+          "value": null
+        },
         {
           "funopenId": 20080,
           "type": 1,
@@ -16617,80 +16556,6 @@
       ]
     },
     "52106": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "52111": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "52112": {
       "Asia": [
         {
           "funopenId": 10019,

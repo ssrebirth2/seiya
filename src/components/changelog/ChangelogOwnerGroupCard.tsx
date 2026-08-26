@@ -157,15 +157,21 @@ export function ChangelogOwnerGroupCard({
   const ownerEntityType = (group.ownerType || 'hero') as ChangelogEntityType
 
   const skillEntries = group.entries.filter((e) => e.entityType === 'skill')
-  const otherEntries = group.entries.filter(
-    (e) => e.entityType !== 'skill' && e.entityType !== 'hero' && e.entityType !== 'cosmo' && e.entityType !== 'talent'
-  )
   const selfEntries = group.entries.filter(
     (e) =>
-      e.entityType === 'hero' ||
-      e.entityType === 'cosmo' ||
-      e.entityType === 'talent' ||
-      (e.entityType === group.ownerType && e.entityType !== 'skill')
+      e.entityType !== 'skill' &&
+      (e.entityType === 'hero' ||
+        e.entityType === 'cosmo' ||
+        e.entityType === 'talent' ||
+        e.entityType === group.ownerType)
+  )
+  const otherEntries = group.entries.filter(
+    (e) =>
+      e.entityType !== 'skill' &&
+      e.entityType !== 'hero' &&
+      e.entityType !== 'cosmo' &&
+      e.entityType !== 'talent' &&
+      e.entityType !== group.ownerType
   )
 
   const lineEntries = [...selfEntries.filter((e) => e.changes?.length), ...otherEntries, ...skillEntries]
