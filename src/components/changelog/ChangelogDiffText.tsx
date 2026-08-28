@@ -38,8 +38,8 @@ function collectLangDiffs(
     const beforeRaw = beforeMap?.[code]
     const afterRaw = afterMap?.[code]
     if (beforeRaw == null && afterRaw == null) continue
-    const b = typeof beforeRaw === 'string' ? beforeRaw.trim() : String(beforeRaw ?? '').trim()
-    const a = typeof afterRaw === 'string' ? afterRaw.trim() : String(afterRaw ?? '').trim()
+    let b = typeof beforeRaw === 'string' ? beforeRaw.trim() : String(beforeRaw ?? '').trim()
+    let a = typeof afterRaw === 'string' ? afterRaw.trim() : String(afterRaw ?? '').trim()
     if (!b && !a) continue
     if (b === a) continue
     if (b.startsWith('LC_') && a.startsWith('LC_')) continue
