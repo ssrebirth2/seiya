@@ -1,6 +1,12 @@
 import { ACTION_ORDER, ENTITY_ORDER, HERO_SCOPED_ENTITY_TYPES, SITE_LANGS } from './schema.mjs'
 import { contentHash } from './hash.mjs'
-import { plainDesMap, resolveTitleMap, formatPlainLabel, resolveLc } from './plain-text.mjs'
+import {
+  plainDesMap,
+  resolveTitleMap,
+  resolveItemTitleMap,
+  formatPlainLabel,
+  resolveLc,
+} from './plain-text.mjs'
 import { isListed, loadHiddenSets } from './hidden.mjs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -16,6 +22,28 @@ const OWNER_HREF = {
   item: (id) => `/items/${id}`,
 }
 
+function canonicalizeValue(value, key = '') {
+  if (value == null) return null
+  if (Array.isArray(value)) {
+    const mapped = value.map((item) => canonicalizeValue(item))
+    if (key === 'skill_up') {
+      return mapped
+        .filter((item) => item != null)
+        .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
+    }
+    return mapped
+  }
+  if (typeof value === 'object') {
+    const out = {}
+    for (const k of Object.keys(value).sort()) {
+      const next = canonicalizeValue(value[k], k)
+      if (next != null) out[k] = next
+    }
+    return out
+  }
+  return value
+}
+
 function fieldChanges(beforeFields, afterFields) {
   const keys = new Set([
     ...Object.keys(beforeFields || {}),
@@ -26,7 +54,9 @@ function fieldChanges(beforeFields, afterFields) {
     if (key === 'nameKey' || key === 'valueIds') continue
     const b = beforeFields?.[key]
     const a = afterFields?.[key]
-    if (contentHash({ v: b }) === contentHash({ v: a })) continue
+    if (contentHash({ v: canonicalizeValue(b, key) }) === contentHash({ v: canonicalizeValue(a, key) })) {
+      continue
+    }
     changes.push({
       field: key,
       before: stringifyField(b),
@@ -51,6 +81,33 @@ function langMapFromScalar(value) {
   const out = {}
   for (const lang of SITE_LANGS) out[lang] = s
   return out
+}
+
+function isLcKeyString(value) {
+  return typeof value === 'string' && value.trim().startsWith('LC_')
+}
+
+function langMapIsLcKeys(map) {
+  if (!map) return false
+  const vals = Object.values(map).filter((v) => typeof v === 'string' && v.trim())
+  return vals.length > 0 && vals.every((v) => isLcKeyString(v))
+}
+
+function langMapsEqual(before, after) {
+  return SITE_LANGS.every(
+    (lang) => formatPlainLabel(before?.[lang] || '') === formatPlainLabel(after?.[lang] || '')
+  )
+}
+
+function isIdFallbackChange(change, entityId) {
+  const id = String(entityId)
+  let sawId = false
+  for (const lang of SITE_LANGS) {
+    const before = String(change.before?.[lang] ?? '').trim()
+    if (before === id) sawId = true
+    else if (before !== '') return false
+  }
+  return sawId
 }
 
 const CATALOG_ENTITY_TYPES = new Set(['hero', 'companion', 'artifact', 'force_card', 'item'])
@@ -108,7 +165,7 @@ function buildOwner(owners, snap) {
   const nameKey = ownerEntity?.nameKey || ownerEntity?.fields?.name
   const title =
     typeof nameKey === 'string' && nameKey.startsWith('LC_')
-      ? resolveTitleMap(snap.lc, nameKey, String(primary.id))
+      ? resolveItemTitleMap(snap.lc, nameKey, ownerEntity?.fields?.des_value, String(primary.id))
       : typeof nameKey === 'string' && nameKey
         ? langMapFromScalar(nameKey)
         : undefined
@@ -191,12 +248,17 @@ function skillTextChanges(prevEntity, nextEntity, prevSnap, nextSnap) {
 function nameTitle(entity, snap, fallbackId) {
   const key = entity?.nameKey || entity?.fields?.name || entity?.fields?.nameKey
   if (typeof key === 'string' && key.startsWith('LC_')) {
-    return resolveTitleMap(snap.lc, key, String(fallbackId))
+    return resolveItemTitleMap(snap.lc, key, entity?.fields?.des_value, String(fallbackId))
   }
   if (typeof key === 'string' && key) {
     return langMapFromScalar(key)
   }
   return langMapFromScalar(String(fallbackId))
+}
+
+function lcFieldMap(snap, key, entity, fallback) {
+  if (typeof key !== 'string' || !key.startsWith('LC_')) return langMapFromScalar(key ?? fallback)
+  return resolveItemTitleMap(snap.lc, key, entity?.fields?.des_value, fallback ?? key)
 }
 
 /** True when title is just the bare id in every language (unresolved LC / missing name). */
@@ -251,9 +313,40 @@ function makeEntry({
       changes.push(...skillTextChanges(prevEntity, nextEntity, prevSnap, nextSnap))
       const structural = fieldChanges(prevEntity?.fields, nextEntity?.fields).filter(
         (c) =>
-          !['skill_des', 'skill_sketch', 'awaken_skill_des', 'valueIds'].includes(c.field)
+          ![
+            'skill_des',
+            'skill_sketch',
+            'awaken_skill_des',
+            'valueIds',
+            'label_list',
+            'skill_type',
+            'skill_condition',
+            'sub_skills',
+            'iconpath',
+            'skill_quality',
+            'quality',
+            'initial_quality',
+            'general_item',
+          ].includes(c.field)
       )
       for (const c of structural) {
+        if (c.field === 'name' || c.field === 'desc') {
+          const beforeMap = isLcKeyString(c.before)
+            ? resolveTitleMap(prevSnap.lc, c.before, c.before)
+            : langMapFromScalar(c.before)
+          const afterMap = isLcKeyString(c.after)
+            ? resolveTitleMap(nextSnap.lc, c.after, c.after)
+            : langMapFromScalar(c.after)
+          const vals = [
+            ...Object.values(beforeMap || {}).filter((v) => typeof v === 'string' && v.trim()),
+            ...Object.values(afterMap || {}).filter((v) => typeof v === 'string' && v.trim()),
+          ]
+          if (vals.length && vals.every((v) => isLcKeyString(v))) continue
+          if (langMapsEqual(beforeMap, afterMap)) continue
+          changes.push({ field: c.field, before: beforeMap, after: afterMap })
+          continue
+        }
+        if (isLcKeyString(c.before) || isLcKeyString(c.after)) continue
         changes.push({
           field: c.field,
           before: langMapFromScalar(c.before),
@@ -264,11 +357,17 @@ function makeEntry({
       for (const c of fieldChanges(prevEntity?.fields, nextEntity?.fields)) {
         // Prefer LC-resolved name/desc when field is name or desc key
         if ((c.field === 'name' || c.field === 'desc') && typeof c.after === 'string' && c.after.startsWith('LC_')) {
+          const beforeMap = lcFieldMap(prevSnap, c.before, prevEntity, c.before)
+          const afterMap = lcFieldMap(nextSnap, c.after, nextEntity, c.after)
+          if (langMapIsLcKeys(beforeMap) && langMapIsLcKeys(afterMap)) continue
+          if (langMapsEqual(beforeMap, afterMap)) continue
           changes.push({
             field: c.field,
-            before: resolveTitleMap(prevSnap.lc, c.before, c.before),
-            after: resolveTitleMap(nextSnap.lc, c.after, c.after),
+            before: beforeMap,
+            after: afterMap,
           })
+        } else if (isLcKeyString(c.before) && isLcKeyString(c.after)) {
+          continue
         } else {
           changes.push({
             field: c.field,
@@ -277,6 +376,12 @@ function makeEntry({
           })
         }
       }
+    }
+  }
+
+  if (action === 'updated') {
+    for (let i = changes.length - 1; i >= 0; i--) {
+      if (isIdFallbackChange(changes[i], entityId)) changes.splice(i, 1)
     }
   }
 
@@ -437,8 +542,8 @@ export function diffSnapshots(prevSnap, nextSnap) {
         if (nameChanged) {
           changes.push({
             field: 'name',
-            before: resolveTitleMap(prevSnap.lc, nameKey, String(id)),
-            after: resolveTitleMap(nextSnap.lc, nameKey, String(id)),
+            before: resolveItemTitleMap(prevSnap.lc, nameKey, prevMap[id]?.fields?.des_value, String(id)),
+            after: resolveItemTitleMap(nextSnap.lc, nameKey, nextMap[id].fields?.des_value, String(id)),
           })
         }
       }
@@ -453,8 +558,8 @@ export function diffSnapshots(prevSnap, nextSnap) {
         if (descChanged) {
           changes.push({
             field: 'desc',
-            before: resolveTitleMap(prevSnap.lc, descKey, String(id)),
-            after: resolveTitleMap(nextSnap.lc, descKey, String(id)),
+            before: resolveItemTitleMap(prevSnap.lc, descKey, prevMap[id]?.fields?.des_value, String(id)),
+            after: resolveItemTitleMap(nextSnap.lc, descKey, nextMap[id].fields?.des_value, String(id)),
           })
         }
       }
@@ -516,6 +621,10 @@ export function diffSnapshots(prevSnap, nextSnap) {
       }
 
       if (!changes.length) continue
+      const kept = changes.filter(
+        (c) => !isIdFallbackChange(c, id) && !langMapsEqual(c.before, c.after)
+      )
+      if (!kept.length) continue
       const titleKey = nameKey || String(id)
       entries.push({
         id: `${entityType}:updated:${id}:lc`,
@@ -525,9 +634,9 @@ export function diffSnapshots(prevSnap, nextSnap) {
         href: nextMap[id].href,
         title:
           typeof nameKey === 'string' && nameKey.startsWith('LC_')
-            ? resolveTitleMap(nextSnap.lc, nameKey, String(id))
+            ? resolveItemTitleMap(nextSnap.lc, nameKey, nextMap[id].fields?.des_value, String(id))
             : resolveTitleMap(nextSnap.lc, titleKey, String(id)),
-        changes,
+        changes: kept,
         portraitSrc: nextMap[id].portraitSrc,
       })
     }

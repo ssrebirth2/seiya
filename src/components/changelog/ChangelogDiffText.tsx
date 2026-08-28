@@ -42,6 +42,13 @@ function collectLangDiffs(
     const a = typeof afterRaw === 'string' ? afterRaw.trim() : String(afterRaw ?? '').trim()
     if (!b && !a) continue
     if (b === a) continue
+    if (b.startsWith('LC_') && a.startsWith('LC_')) continue
+    if (b.startsWith('LC_') && !a) continue
+    if (a.startsWith('LC_') && !b) continue
+    if (b.startsWith('LC_')) b = ''
+    if (a.startsWith('LC_')) a = ''
+    if (!b && !a) continue
+    if (b === a) continue
     diffs.push({ code, label: langLabel(code), before: b, after: a })
   }
 
@@ -75,6 +82,10 @@ export function ChangelogDiffText({ change, className = '' }: ChangelogDiffTextP
   if (diffs.length === 0) return null
 
   const currentChanged = diffs.some((d) => d.code === lang)
+  const sameContent = diffs.every(
+    (d) => d.before === diffs[0].before && d.after === diffs[0].after
+  )
+  const showInline = diffs.length === 1 || sameContent
 
   return (
     <div className={`patch-notes-diff ${className}`.trim()}>
@@ -83,14 +94,18 @@ export function ChangelogDiffText({ change, className = '' }: ChangelogDiffTextP
         <strong>{diffs.map((d) => d.code).join(', ')}</strong>
         {!currentChanged ? <> — {site('changelogUnchangedIn')}</> : null}
       </p>
-      <div className="patch-notes-diff__langs">
-        {diffs.map((d) => (
-          <details key={d.code} className="patch-notes-diff__lang">
-            <summary>{d.label}</summary>
-            <DiffBlock before={d.before} after={d.after} />
-          </details>
-        ))}
-      </div>
+      {showInline ? (
+        <DiffBlock before={diffs[0].before} after={diffs[0].after} />
+      ) : (
+        <div className="patch-notes-diff__langs">
+          {diffs.map((d) => (
+            <details key={d.code} className="patch-notes-diff__lang">
+              <summary>{d.label}</summary>
+              <DiffBlock before={d.before} after={d.after} />
+            </details>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

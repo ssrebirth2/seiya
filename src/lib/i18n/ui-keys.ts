@@ -528,6 +528,38 @@ export const SITE_LOCALIZED_LABELS = {
     FR: 'Journal des changements',
     ID: 'Changelog',
   },
+  changelogFieldName: {
+    EN: 'Name',
+    CN: '名称',
+    PT: 'Nome',
+    SP: 'Nombre',
+    FR: 'Nom',
+    ID: 'Nama',
+  },
+  changelogStarLevel: {
+    EN: 'Star {n}',
+    CN: '{n} 星',
+    PT: 'Estrela {n}',
+    SP: 'Estrella {n}',
+    FR: 'Étoile {n}',
+    ID: 'Star {n}',
+  },
+  changelogGenericItem: {
+    EN: 'Generic material',
+    CN: '通用材料',
+    PT: 'Material genérico',
+    SP: 'Material genérico',
+    FR: 'Matériau générique',
+    ID: 'Material umum',
+  },
+  changelogSkillUnlocks: {
+    EN: 'Skill unlocks',
+    CN: '技能解锁',
+    PT: 'Desbloqueio de habilidades',
+    SP: 'Desbloqueo de habilidades',
+    FR: 'Déblocages de compétences',
+    ID: 'Unlock skill',
+  },
 } as const
 
 /** Labels without a game LC key — stay in English. */

@@ -25,6 +25,12 @@ export function figureObjIdFromSid(sid: number): number | null {
   return null
 }
 
+/** Role figurine ItemConfig id 52xxx → hero id (52117 → 1117). */
+export function heroIdFromRoleFigureItemId(itemId: number): number | null {
+  if (!Number.isFinite(itemId) || itemId < 52000 || itemId >= 53000) return null
+  return itemId - 51000
+}
+
 /** Language key from FigureAttributeConfig.name patterns. */
 export function figureNameKeyFromSid(sid: number): string {
   if (isRoleFigureSid(sid)) return `LC_ROLE_role_full_name_${sid - 8500}`

@@ -5,11 +5,13 @@ import { EmptyState } from '@/components/ui/v2/EmptyState'
 import { LoadingSkeleton } from '@/components/ui/v2/LoadingSkeleton'
 import { ChangelogReleaseGroup } from '@/components/changelog/ChangelogReleaseGroup'
 import { useDbChangelog } from '@/hooks/use-db-changelog'
+import { useHeroTypeDescConfig } from '@/hooks/use-hero-type-desc'
 import { useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 export default function ChangelogClient() {
   const { site } = useUiTranslation()
   const { data, isLoading, isError } = useDbChangelog()
+  useHeroTypeDescConfig()
   const releases = data?.releases ?? []
 
   return (

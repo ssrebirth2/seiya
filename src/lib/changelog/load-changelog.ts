@@ -19,6 +19,9 @@ import { isCompanionListed } from '@/lib/game/hidden-companion-ids'
 import { isForceCardListed } from '@/lib/game/hidden-force-card-ids'
 
 import { isItemListed } from '@/lib/game/hidden-item-ids'
+import { stripNoiseChanges } from '@/lib/changelog/meaningful'
+
+import { resolveChangelogItemPlaceholders } from '@/lib/changelog/resolve-item-placeholders'
 
 
 
@@ -38,7 +41,7 @@ export async function loadChangelog(): Promise<import('./types').DbChangelogDocu
 
   const data = (await res.json()) as import('./types').DbChangelogDocument
 
-  return {
+  return resolveChangelogItemPlaceholders({
 
     version: data.version ?? 1,
 
@@ -46,7 +49,7 @@ export async function loadChangelog(): Promise<import('./types').DbChangelogDocu
 
     releases: Array.isArray(data.releases) ? data.releases : [],
 
-  }
+  })
 
 }
 
@@ -236,7 +239,10 @@ export function resolveGroupTitle(group: ChangelogEntryGroup): LangTextMap {
 
 export function filterSiteVisibleEntries(entries: ChangelogEntry[]): ChangelogEntry[] {
 
-  return entries.filter((e) => {
+  return entries
+    .map((e) => stripNoiseChanges(e))
+    .filter((e): e is ChangelogEntry => e != null)
+    .filter((e) => {
 
     if (e.entityType === 'skill') {
 

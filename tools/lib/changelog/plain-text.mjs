@@ -57,6 +57,62 @@ export function resolveTitleMap(lcByLang, key, fallback = '') {
   return out
 }
 
+/** ItemConfig.des_value — LC keys (or raw strings) substituted into `{0}`, `{1}`, … */
+export function parseDesValueKeys(val) {
+  if (!val) return []
+  if (Array.isArray(val)) {
+    return val.filter((x) => typeof x === 'string' && x.length > 0)
+  }
+  if (typeof val === 'string') {
+    const trimmed = val.trim()
+    if (!trimmed) return []
+    if (trimmed.startsWith('[')) {
+      try {
+        const parsed = JSON.parse(trimmed)
+        if (Array.isArray(parsed)) {
+          return parsed.filter((x) => typeof x === 'string' && x.length > 0)
+        }
+      } catch {
+        return []
+      }
+    }
+    if (trimmed.startsWith('LC_')) return [trimmed]
+  }
+  return []
+}
+
+/** Port of GetLCString(template, ...args). */
+export function applyLcPlaceholders(template, args) {
+  let result = String(template ?? '')
+  for (let i = 0; i < args.length; i++) {
+    const placeholder = `{${i}}`
+    if (!result.includes(placeholder)) continue
+    result = result.split(placeholder).join(args[i] ?? '')
+  }
+  return result
+}
+
+/**
+ * Resolve an item name/desc LC key and apply des_value args
+ * (GameUtil.GetItemNameByConfig: GetLCString(name, GetLCString(des_value[1]), …)).
+ */
+export function resolveItemTitleMap(lcByLang, nameKey, desValue, fallback = '') {
+  const argKeys = parseDesValueKeys(desValue)
+  const out = {}
+  for (const lang of SITE_LANGS) {
+    const template = resolveLc(lcByLang, nameKey, lang) || fallback || (nameKey ? String(nameKey) : '')
+    if (!argKeys.length) {
+      out[lang] = template
+      continue
+    }
+    const args = argKeys.map((k) =>
+      typeof k === 'string' && k.startsWith('LC_') ? resolveLc(lcByLang, k, lang) || k : String(k)
+    )
+    out[lang] = applyLcPlaceholders(template, args)
+  }
+  return out
+}
+
 export function plainDesMap(lcByLang, desKey, valueId, skillValues) {
   const out = {}
   for (const lang of SITE_LANGS) {

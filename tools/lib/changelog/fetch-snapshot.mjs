@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js'
 import { contentHash, normalizeDesList, normalizeJson, collectLcKeysFromDesLists } from './hash.mjs'
 import { emptySnapshot, SITE_LANGS } from './schema.mjs'
 import { isListed } from './hidden.mjs'
+import { parseDesValueKeys } from './plain-text.mjs'
 
 const PAGE = 1000
 
@@ -423,8 +424,12 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
       if (Number(row.type) === 5) continue
       const nameKey = row.name || `LC_ITEM_itemname_${id}`
       const descKey = row.desc || `LC_ITEM_itemdes_${id}`
+      const desValue = normalizeJson(row.des_value)
       if (typeof nameKey === 'string') lcKeys.add(nameKey)
       if (typeof descKey === 'string' && descKey.startsWith('LC_')) lcKeys.add(descKey)
+      for (const k of parseDesValueKeys(desValue)) {
+        if (typeof k === 'string' && k.startsWith('LC_')) lcKeys.add(k)
+      }
       snap.entities.item[String(id)] = record(
         {
           name: nameKey,
@@ -434,7 +439,7 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
           child_type: row.child_type ?? null,
           compose: normalizeJson(row.compose),
           get_path: normalizeJson(row.get_path),
-          des_value: normalizeJson(row.des_value),
+          des_value: desValue,
           isRare: row.isRare ?? null,
           icon_path: row.icon_path ?? null,
         },
@@ -600,7 +605,11 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
       id: Number(row['1'] ?? fallbackId) || fallbackId,
       consume: normalizeJson(row['6']),
       general_item: row['7'] != null && Number.isFinite(Number(row['7'])) ? Number(row['7']) : null,
-      skill_up: normalizeJson(row['3']),
+      skill_up: (() => {
+        const parsed = normalizeJson(row['3'])
+        if (!Array.isArray(parsed)) return parsed
+        return [...parsed].sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
+      })(),
     }
   }
 

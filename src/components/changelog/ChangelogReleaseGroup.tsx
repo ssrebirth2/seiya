@@ -97,9 +97,9 @@ export function ChangelogReleaseGroup({
   const showCollapseNote =
     collapsedTotal > 0 && totalEntries > release.entries.length && release.entries.length > 0
 
-  const summaryAdded = release.summary?.added ?? visibleSummary.added
-  const summaryUpdated = release.summary?.updated ?? visibleSummary.updated
-  const summaryRemoved = release.summary?.removed ?? visibleSummary.removed
+  const summaryAdded = visibleSummary.added
+  const summaryUpdated = visibleSummary.updated
+  const summaryRemoved = visibleSummary.removed
 
   return (
     <article className="patch-notes-release">

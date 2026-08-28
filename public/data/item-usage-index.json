@@ -17843,6 +17843,94 @@
     }
   },
   {
+    "id": "10038:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10038,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 10,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10038:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10038,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10026:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10026,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10109:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10109,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10178:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10178,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10155:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10155,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10112:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10112,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
+    "id": "10029:BoxAwardShowConfig:30291:box_contains",
+    "item_id": 10029,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "30291",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 30291
+    }
+  },
+  {
     "id": "35123:BoxAwardShowConfig:30301:box_contains",
     "item_id": 35123,
     "source_table": "BoxAwardShowConfig",
@@ -27597,6 +27685,72 @@
     "qty": 1,
     "meta": {
       "box_item_id": 35255
+    }
+  },
+  {
+    "id": "51117:BoxAwardShowConfig:35257:box_contains",
+    "item_id": 51117,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35257",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35257
+    }
+  },
+  {
+    "id": "52117:BoxAwardShowConfig:35257:box_contains",
+    "item_id": 52117,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35257",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35257
+    }
+  },
+  {
+    "id": "51118:BoxAwardShowConfig:35258:box_contains",
+    "item_id": 51118,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35258
+    }
+  },
+  {
+    "id": "52118:BoxAwardShowConfig:35258:box_contains",
+    "item_id": 52118,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35258",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35258
+    }
+  },
+  {
+    "id": "51119:BoxAwardShowConfig:35259:box_contains",
+    "item_id": 51119,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35259",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35259
+    }
+  },
+  {
+    "id": "52119:BoxAwardShowConfig:35259:box_contains",
+    "item_id": 52119,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35259",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35259
     }
   },
   {
@@ -84769,13 +84923,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11171:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11171",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43117:HeroAwakenInfoConfig:11172:hero_awaken",
     "item_id": 43117,
     "source_table": "HeroAwakenInfoConfig",
@@ -84790,13 +84937,6 @@
     "source_id": "11172",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11172:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11172",
-    "role": "hero_awaken"
   },
   {
     "id": "43117:HeroAwakenInfoConfig:11173:hero_awaken",
@@ -84815,13 +84955,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11173:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11173",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43117:HeroAwakenInfoConfig:11174:hero_awaken",
     "item_id": 43117,
     "source_table": "HeroAwakenInfoConfig",
@@ -84836,13 +84969,6 @@
     "source_id": "11174",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11174:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11174",
-    "role": "hero_awaken"
   },
   {
     "id": "43117:HeroAwakenInfoConfig:11175:hero_awaken",
@@ -84861,13 +84987,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11175:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11175",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43117:HeroAwakenInfoConfig:11176:hero_awaken",
     "item_id": 43117,
     "source_table": "HeroAwakenInfoConfig",
@@ -84882,13 +85001,6 @@
     "source_id": "11176",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11176:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11176",
-    "role": "hero_awaken"
   },
   {
     "id": "43117:HeroAwakenInfoConfig:11177:hero_awaken",
@@ -84907,13 +85019,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11177:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11177",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43118:HeroAwakenInfoConfig:11181:hero_awaken",
     "item_id": 43118,
     "source_table": "HeroAwakenInfoConfig",
@@ -84928,13 +85033,6 @@
     "source_id": "11181",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11181:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11181",
-    "role": "hero_awaken"
   },
   {
     "id": "43118:HeroAwakenInfoConfig:11182:hero_awaken",
@@ -84953,13 +85051,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11182:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11182",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43118:HeroAwakenInfoConfig:11183:hero_awaken",
     "item_id": 43118,
     "source_table": "HeroAwakenInfoConfig",
@@ -84974,13 +85065,6 @@
     "source_id": "11183",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11183:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11183",
-    "role": "hero_awaken"
   },
   {
     "id": "43118:HeroAwakenInfoConfig:11184:hero_awaken",
@@ -84999,13 +85083,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11184:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11184",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43118:HeroAwakenInfoConfig:11185:hero_awaken",
     "item_id": 43118,
     "source_table": "HeroAwakenInfoConfig",
@@ -85020,13 +85097,6 @@
     "source_id": "11185",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11185:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11185",
-    "role": "hero_awaken"
   },
   {
     "id": "43118:HeroAwakenInfoConfig:11186:hero_awaken",
@@ -85045,13 +85115,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11186:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11186",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43118:HeroAwakenInfoConfig:11187:hero_awaken",
     "item_id": 43118,
     "source_table": "HeroAwakenInfoConfig",
@@ -85066,13 +85129,6 @@
     "source_id": "11187",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11187:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11187",
-    "role": "hero_awaken"
   },
   {
     "id": "43119:HeroAwakenInfoConfig:11191:hero_awaken",
@@ -85091,13 +85147,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11191:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11191",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43119:HeroAwakenInfoConfig:11192:hero_awaken",
     "item_id": 43119,
     "source_table": "HeroAwakenInfoConfig",
@@ -85112,13 +85161,6 @@
     "source_id": "11192",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11192:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11192",
-    "role": "hero_awaken"
   },
   {
     "id": "43119:HeroAwakenInfoConfig:11193:hero_awaken",
@@ -85137,13 +85179,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11193:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11193",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43119:HeroAwakenInfoConfig:11194:hero_awaken",
     "item_id": 43119,
     "source_table": "HeroAwakenInfoConfig",
@@ -85158,13 +85193,6 @@
     "source_id": "11194",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11194:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11194",
-    "role": "hero_awaken"
   },
   {
     "id": "43119:HeroAwakenInfoConfig:11195:hero_awaken",
@@ -85183,13 +85211,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11195:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11195",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43119:HeroAwakenInfoConfig:11196:hero_awaken",
     "item_id": 43119,
     "source_table": "HeroAwakenInfoConfig",
@@ -85204,13 +85225,6 @@
     "source_id": "11196",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11196:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11196",
-    "role": "hero_awaken"
   },
   {
     "id": "43119:HeroAwakenInfoConfig:11197:hero_awaken",
@@ -85229,13 +85243,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11197:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11197",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43120:HeroAwakenInfoConfig:11201:hero_awaken",
     "item_id": 43120,
     "source_table": "HeroAwakenInfoConfig",
@@ -85250,13 +85257,6 @@
     "source_id": "11201",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11201:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11201",
-    "role": "hero_awaken"
   },
   {
     "id": "43120:HeroAwakenInfoConfig:11202:hero_awaken",
@@ -85275,13 +85275,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11202:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11202",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43120:HeroAwakenInfoConfig:11203:hero_awaken",
     "item_id": 43120,
     "source_table": "HeroAwakenInfoConfig",
@@ -85296,13 +85289,6 @@
     "source_id": "11203",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11203:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11203",
-    "role": "hero_awaken"
   },
   {
     "id": "43120:HeroAwakenInfoConfig:11204:hero_awaken",
@@ -85321,13 +85307,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11204:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11204",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43120:HeroAwakenInfoConfig:11205:hero_awaken",
     "item_id": 43120,
     "source_table": "HeroAwakenInfoConfig",
@@ -85342,13 +85321,6 @@
     "source_id": "11205",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11205:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11205",
-    "role": "hero_awaken"
   },
   {
     "id": "43120:HeroAwakenInfoConfig:11206:hero_awaken",
@@ -85367,13 +85339,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11206:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11206",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43120:HeroAwakenInfoConfig:11207:hero_awaken",
     "item_id": 43120,
     "source_table": "HeroAwakenInfoConfig",
@@ -85388,13 +85353,6 @@
     "source_id": "11207",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11207:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11207",
-    "role": "hero_awaken"
   },
   {
     "id": "43121:HeroAwakenInfoConfig:11211:hero_awaken",
@@ -85413,13 +85371,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11211:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11211",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43121:HeroAwakenInfoConfig:11212:hero_awaken",
     "item_id": 43121,
     "source_table": "HeroAwakenInfoConfig",
@@ -85434,13 +85385,6 @@
     "source_id": "11212",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11212:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11212",
-    "role": "hero_awaken"
   },
   {
     "id": "43121:HeroAwakenInfoConfig:11213:hero_awaken",
@@ -85459,13 +85403,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11213:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11213",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43121:HeroAwakenInfoConfig:11214:hero_awaken",
     "item_id": 43121,
     "source_table": "HeroAwakenInfoConfig",
@@ -85480,13 +85417,6 @@
     "source_id": "11214",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11214:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11214",
-    "role": "hero_awaken"
   },
   {
     "id": "43121:HeroAwakenInfoConfig:11215:hero_awaken",
@@ -85505,13 +85435,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11215:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11215",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43121:HeroAwakenInfoConfig:11216:hero_awaken",
     "item_id": 43121,
     "source_table": "HeroAwakenInfoConfig",
@@ -85526,13 +85449,6 @@
     "source_id": "11216",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11216:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11216",
-    "role": "hero_awaken"
   },
   {
     "id": "43121:HeroAwakenInfoConfig:11217:hero_awaken",
@@ -85551,13 +85467,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11217:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11217",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43122:HeroAwakenInfoConfig:11221:hero_awaken",
     "item_id": 43122,
     "source_table": "HeroAwakenInfoConfig",
@@ -85572,13 +85481,6 @@
     "source_id": "11221",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11221:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11221",
-    "role": "hero_awaken"
   },
   {
     "id": "43122:HeroAwakenInfoConfig:11222:hero_awaken",
@@ -85597,13 +85499,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11222:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11222",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43122:HeroAwakenInfoConfig:11223:hero_awaken",
     "item_id": 43122,
     "source_table": "HeroAwakenInfoConfig",
@@ -85618,13 +85513,6 @@
     "source_id": "11223",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11223:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11223",
-    "role": "hero_awaken"
   },
   {
     "id": "43122:HeroAwakenInfoConfig:11224:hero_awaken",
@@ -85643,13 +85531,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11224:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11224",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43122:HeroAwakenInfoConfig:11225:hero_awaken",
     "item_id": 43122,
     "source_table": "HeroAwakenInfoConfig",
@@ -85664,13 +85545,6 @@
     "source_id": "11225",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11225:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11225",
-    "role": "hero_awaken"
   },
   {
     "id": "43122:HeroAwakenInfoConfig:11226:hero_awaken",
@@ -85689,13 +85563,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11226:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11226",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43122:HeroAwakenInfoConfig:11227:hero_awaken",
     "item_id": 43122,
     "source_table": "HeroAwakenInfoConfig",
@@ -85710,13 +85577,6 @@
     "source_id": "11227",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11227:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11227",
-    "role": "hero_awaken"
   },
   {
     "id": "43123:HeroAwakenInfoConfig:11231:hero_awaken",
@@ -85735,13 +85595,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11231:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11231",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43123:HeroAwakenInfoConfig:11232:hero_awaken",
     "item_id": 43123,
     "source_table": "HeroAwakenInfoConfig",
@@ -85756,13 +85609,6 @@
     "source_id": "11232",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11232:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11232",
-    "role": "hero_awaken"
   },
   {
     "id": "43123:HeroAwakenInfoConfig:11233:hero_awaken",
@@ -85781,13 +85627,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11233:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11233",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43123:HeroAwakenInfoConfig:11234:hero_awaken",
     "item_id": 43123,
     "source_table": "HeroAwakenInfoConfig",
@@ -85802,13 +85641,6 @@
     "source_id": "11234",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11234:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11234",
-    "role": "hero_awaken"
   },
   {
     "id": "43123:HeroAwakenInfoConfig:11235:hero_awaken",
@@ -85827,13 +85659,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11235:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11235",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43123:HeroAwakenInfoConfig:11236:hero_awaken",
     "item_id": 43123,
     "source_table": "HeroAwakenInfoConfig",
@@ -85848,13 +85673,6 @@
     "source_id": "11236",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11236:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11236",
-    "role": "hero_awaken"
   },
   {
     "id": "43123:HeroAwakenInfoConfig:11237:hero_awaken",
@@ -85873,13 +85691,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11237:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11237",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43124:HeroAwakenInfoConfig:11241:hero_awaken",
     "item_id": 43124,
     "source_table": "HeroAwakenInfoConfig",
@@ -85894,13 +85705,6 @@
     "source_id": "11241",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11241:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11241",
-    "role": "hero_awaken"
   },
   {
     "id": "43124:HeroAwakenInfoConfig:11242:hero_awaken",
@@ -85919,13 +85723,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11242:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11242",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43124:HeroAwakenInfoConfig:11243:hero_awaken",
     "item_id": 43124,
     "source_table": "HeroAwakenInfoConfig",
@@ -85940,13 +85737,6 @@
     "source_id": "11243",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11243:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11243",
-    "role": "hero_awaken"
   },
   {
     "id": "43124:HeroAwakenInfoConfig:11244:hero_awaken",
@@ -85965,13 +85755,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11244:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11244",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43124:HeroAwakenInfoConfig:11245:hero_awaken",
     "item_id": 43124,
     "source_table": "HeroAwakenInfoConfig",
@@ -85986,13 +85769,6 @@
     "source_id": "11245",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11245:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11245",
-    "role": "hero_awaken"
   },
   {
     "id": "43124:HeroAwakenInfoConfig:11246:hero_awaken",
@@ -86011,13 +85787,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11246:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11246",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43124:HeroAwakenInfoConfig:11247:hero_awaken",
     "item_id": 43124,
     "source_table": "HeroAwakenInfoConfig",
@@ -86032,13 +85801,6 @@
     "source_id": "11247",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11247:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11247",
-    "role": "hero_awaken"
   },
   {
     "id": "43125:HeroAwakenInfoConfig:11251:hero_awaken",
@@ -86057,13 +85819,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11251:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11251",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43125:HeroAwakenInfoConfig:11252:hero_awaken",
     "item_id": 43125,
     "source_table": "HeroAwakenInfoConfig",
@@ -86078,13 +85833,6 @@
     "source_id": "11252",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11252:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11252",
-    "role": "hero_awaken"
   },
   {
     "id": "43125:HeroAwakenInfoConfig:11253:hero_awaken",
@@ -86103,13 +85851,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11253:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11253",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43125:HeroAwakenInfoConfig:11254:hero_awaken",
     "item_id": 43125,
     "source_table": "HeroAwakenInfoConfig",
@@ -86124,13 +85865,6 @@
     "source_id": "11254",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11254:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11254",
-    "role": "hero_awaken"
   },
   {
     "id": "43125:HeroAwakenInfoConfig:11255:hero_awaken",
@@ -86149,13 +85883,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11255:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11255",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43125:HeroAwakenInfoConfig:11256:hero_awaken",
     "item_id": 43125,
     "source_table": "HeroAwakenInfoConfig",
@@ -86170,13 +85897,6 @@
     "source_id": "11256",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11256:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11256",
-    "role": "hero_awaken"
   },
   {
     "id": "43125:HeroAwakenInfoConfig:11257:hero_awaken",
@@ -86195,13 +85915,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11257:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11257",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43126:HeroAwakenInfoConfig:11261:hero_awaken",
     "item_id": 43126,
     "source_table": "HeroAwakenInfoConfig",
@@ -86216,13 +85929,6 @@
     "source_id": "11261",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11261:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11261",
-    "role": "hero_awaken"
   },
   {
     "id": "43126:HeroAwakenInfoConfig:11262:hero_awaken",
@@ -86241,13 +85947,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11262:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11262",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43126:HeroAwakenInfoConfig:11263:hero_awaken",
     "item_id": 43126,
     "source_table": "HeroAwakenInfoConfig",
@@ -86262,13 +85961,6 @@
     "source_id": "11263",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11263:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11263",
-    "role": "hero_awaken"
   },
   {
     "id": "43126:HeroAwakenInfoConfig:11264:hero_awaken",
@@ -86287,13 +85979,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11264:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11264",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43126:HeroAwakenInfoConfig:11265:hero_awaken",
     "item_id": 43126,
     "source_table": "HeroAwakenInfoConfig",
@@ -86308,13 +85993,6 @@
     "source_id": "11265",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11265:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11265",
-    "role": "hero_awaken"
   },
   {
     "id": "43126:HeroAwakenInfoConfig:11266:hero_awaken",
@@ -86333,13 +86011,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11266:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11266",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43126:HeroAwakenInfoConfig:11267:hero_awaken",
     "item_id": 43126,
     "source_table": "HeroAwakenInfoConfig",
@@ -86354,13 +86025,6 @@
     "source_id": "11267",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11267:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11267",
-    "role": "hero_awaken"
   },
   {
     "id": "43127:HeroAwakenInfoConfig:11271:hero_awaken",
@@ -86379,13 +86043,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11271:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11271",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43127:HeroAwakenInfoConfig:11272:hero_awaken",
     "item_id": 43127,
     "source_table": "HeroAwakenInfoConfig",
@@ -86400,13 +86057,6 @@
     "source_id": "11272",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11272:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11272",
-    "role": "hero_awaken"
   },
   {
     "id": "43127:HeroAwakenInfoConfig:11273:hero_awaken",
@@ -86425,13 +86075,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11273:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11273",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43127:HeroAwakenInfoConfig:11274:hero_awaken",
     "item_id": 43127,
     "source_table": "HeroAwakenInfoConfig",
@@ -86446,13 +86089,6 @@
     "source_id": "11274",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11274:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11274",
-    "role": "hero_awaken"
   },
   {
     "id": "43127:HeroAwakenInfoConfig:11275:hero_awaken",
@@ -86471,13 +86107,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11275:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11275",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43127:HeroAwakenInfoConfig:11276:hero_awaken",
     "item_id": 43127,
     "source_table": "HeroAwakenInfoConfig",
@@ -86492,13 +86121,6 @@
     "source_id": "11276",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11276:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11276",
-    "role": "hero_awaken"
   },
   {
     "id": "43127:HeroAwakenInfoConfig:11277:hero_awaken",
@@ -86517,13 +86139,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11277:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11277",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43128:HeroAwakenInfoConfig:11281:hero_awaken",
     "item_id": 43128,
     "source_table": "HeroAwakenInfoConfig",
@@ -86538,13 +86153,6 @@
     "source_id": "11281",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11281:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11281",
-    "role": "hero_awaken"
   },
   {
     "id": "43128:HeroAwakenInfoConfig:11282:hero_awaken",
@@ -86563,13 +86171,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11282:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11282",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43128:HeroAwakenInfoConfig:11283:hero_awaken",
     "item_id": 43128,
     "source_table": "HeroAwakenInfoConfig",
@@ -86584,13 +86185,6 @@
     "source_id": "11283",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11283:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11283",
-    "role": "hero_awaken"
   },
   {
     "id": "43128:HeroAwakenInfoConfig:11284:hero_awaken",
@@ -86609,13 +86203,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11284:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11284",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43128:HeroAwakenInfoConfig:11285:hero_awaken",
     "item_id": 43128,
     "source_table": "HeroAwakenInfoConfig",
@@ -86630,13 +86217,6 @@
     "source_id": "11285",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11285:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11285",
-    "role": "hero_awaken"
   },
   {
     "id": "43128:HeroAwakenInfoConfig:11286:hero_awaken",
@@ -86655,13 +86235,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11286:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11286",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43128:HeroAwakenInfoConfig:11287:hero_awaken",
     "item_id": 43128,
     "source_table": "HeroAwakenInfoConfig",
@@ -86676,13 +86249,6 @@
     "source_id": "11287",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11287:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11287",
-    "role": "hero_awaken"
   },
   {
     "id": "43129:HeroAwakenInfoConfig:11291:hero_awaken",
@@ -86701,13 +86267,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11291:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11291",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43129:HeroAwakenInfoConfig:11292:hero_awaken",
     "item_id": 43129,
     "source_table": "HeroAwakenInfoConfig",
@@ -86722,13 +86281,6 @@
     "source_id": "11292",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11292:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11292",
-    "role": "hero_awaken"
   },
   {
     "id": "43129:HeroAwakenInfoConfig:11293:hero_awaken",
@@ -86747,13 +86299,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11293:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11293",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43129:HeroAwakenInfoConfig:11294:hero_awaken",
     "item_id": 43129,
     "source_table": "HeroAwakenInfoConfig",
@@ -86768,13 +86313,6 @@
     "source_id": "11294",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11294:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11294",
-    "role": "hero_awaken"
   },
   {
     "id": "43129:HeroAwakenInfoConfig:11295:hero_awaken",
@@ -86793,13 +86331,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11295:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11295",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43129:HeroAwakenInfoConfig:11296:hero_awaken",
     "item_id": 43129,
     "source_table": "HeroAwakenInfoConfig",
@@ -86814,13 +86345,6 @@
     "source_id": "11296",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11296:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11296",
-    "role": "hero_awaken"
   },
   {
     "id": "43129:HeroAwakenInfoConfig:11297:hero_awaken",
@@ -86839,13 +86363,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11297:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11297",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43130:HeroAwakenInfoConfig:11301:hero_awaken",
     "item_id": 43130,
     "source_table": "HeroAwakenInfoConfig",
@@ -86860,13 +86377,6 @@
     "source_id": "11301",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11301:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11301",
-    "role": "hero_awaken"
   },
   {
     "id": "43130:HeroAwakenInfoConfig:11302:hero_awaken",
@@ -86885,13 +86395,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11302:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11302",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43130:HeroAwakenInfoConfig:11303:hero_awaken",
     "item_id": 43130,
     "source_table": "HeroAwakenInfoConfig",
@@ -86906,13 +86409,6 @@
     "source_id": "11303",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11303:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11303",
-    "role": "hero_awaken"
   },
   {
     "id": "43130:HeroAwakenInfoConfig:11304:hero_awaken",
@@ -86931,13 +86427,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11304:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11304",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43130:HeroAwakenInfoConfig:11305:hero_awaken",
     "item_id": 43130,
     "source_table": "HeroAwakenInfoConfig",
@@ -86952,13 +86441,6 @@
     "source_id": "11305",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11305:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11305",
-    "role": "hero_awaken"
   },
   {
     "id": "43130:HeroAwakenInfoConfig:11306:hero_awaken",
@@ -86977,13 +86459,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11306:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11306",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43130:HeroAwakenInfoConfig:11307:hero_awaken",
     "item_id": 43130,
     "source_table": "HeroAwakenInfoConfig",
@@ -86998,13 +86473,6 @@
     "source_id": "11307",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11307:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11307",
-    "role": "hero_awaken"
   },
   {
     "id": "43131:HeroAwakenInfoConfig:11311:hero_awaken",
@@ -87023,13 +86491,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11311:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11311",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43131:HeroAwakenInfoConfig:11312:hero_awaken",
     "item_id": 43131,
     "source_table": "HeroAwakenInfoConfig",
@@ -87044,13 +86505,6 @@
     "source_id": "11312",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11312:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11312",
-    "role": "hero_awaken"
   },
   {
     "id": "43131:HeroAwakenInfoConfig:11313:hero_awaken",
@@ -87069,13 +86523,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11313:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11313",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43131:HeroAwakenInfoConfig:11314:hero_awaken",
     "item_id": 43131,
     "source_table": "HeroAwakenInfoConfig",
@@ -87090,13 +86537,6 @@
     "source_id": "11314",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11314:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11314",
-    "role": "hero_awaken"
   },
   {
     "id": "43131:HeroAwakenInfoConfig:11315:hero_awaken",
@@ -87115,13 +86555,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11315:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11315",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43131:HeroAwakenInfoConfig:11316:hero_awaken",
     "item_id": 43131,
     "source_table": "HeroAwakenInfoConfig",
@@ -87136,13 +86569,6 @@
     "source_id": "11316",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11316:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11316",
-    "role": "hero_awaken"
   },
   {
     "id": "43131:HeroAwakenInfoConfig:11317:hero_awaken",
@@ -87161,13 +86587,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11317:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11317",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43132:HeroAwakenInfoConfig:11321:hero_awaken",
     "item_id": 43132,
     "source_table": "HeroAwakenInfoConfig",
@@ -87182,13 +86601,6 @@
     "source_id": "11321",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11321:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11321",
-    "role": "hero_awaken"
   },
   {
     "id": "43132:HeroAwakenInfoConfig:11322:hero_awaken",
@@ -87207,13 +86619,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11322:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11322",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43132:HeroAwakenInfoConfig:11323:hero_awaken",
     "item_id": 43132,
     "source_table": "HeroAwakenInfoConfig",
@@ -87228,13 +86633,6 @@
     "source_id": "11323",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11323:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11323",
-    "role": "hero_awaken"
   },
   {
     "id": "43132:HeroAwakenInfoConfig:11324:hero_awaken",
@@ -87253,13 +86651,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11324:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11324",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43132:HeroAwakenInfoConfig:11325:hero_awaken",
     "item_id": 43132,
     "source_table": "HeroAwakenInfoConfig",
@@ -87274,13 +86665,6 @@
     "source_id": "11325",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11325:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11325",
-    "role": "hero_awaken"
   },
   {
     "id": "43132:HeroAwakenInfoConfig:11326:hero_awaken",
@@ -87299,13 +86683,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11326:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11326",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43132:HeroAwakenInfoConfig:11327:hero_awaken",
     "item_id": 43132,
     "source_table": "HeroAwakenInfoConfig",
@@ -87320,13 +86697,6 @@
     "source_id": "11327",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11327:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11327",
-    "role": "hero_awaken"
   },
   {
     "id": "43133:HeroAwakenInfoConfig:11331:hero_awaken",
@@ -87345,13 +86715,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11331:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11331",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43133:HeroAwakenInfoConfig:11332:hero_awaken",
     "item_id": 43133,
     "source_table": "HeroAwakenInfoConfig",
@@ -87366,13 +86729,6 @@
     "source_id": "11332",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11332:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11332",
-    "role": "hero_awaken"
   },
   {
     "id": "43133:HeroAwakenInfoConfig:11333:hero_awaken",
@@ -87391,13 +86747,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11333:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11333",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43133:HeroAwakenInfoConfig:11334:hero_awaken",
     "item_id": 43133,
     "source_table": "HeroAwakenInfoConfig",
@@ -87412,13 +86761,6 @@
     "source_id": "11334",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11334:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11334",
-    "role": "hero_awaken"
   },
   {
     "id": "43133:HeroAwakenInfoConfig:11335:hero_awaken",
@@ -87437,13 +86779,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11335:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11335",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43133:HeroAwakenInfoConfig:11336:hero_awaken",
     "item_id": 43133,
     "source_table": "HeroAwakenInfoConfig",
@@ -87458,13 +86793,6 @@
     "source_id": "11336",
     "role": "hero_awaken",
     "qty": 4
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11336:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11336",
-    "role": "hero_awaken"
   },
   {
     "id": "43133:HeroAwakenInfoConfig:11337:hero_awaken",
@@ -87483,13 +86811,6 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11337:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11337",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43134:HeroAwakenInfoConfig:11341:hero_awaken",
     "item_id": 43134,
     "source_table": "HeroAwakenInfoConfig",
@@ -87504,13 +86825,6 @@
     "source_id": "11341",
     "role": "hero_awaken",
     "qty": 1
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11341:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11341",
-    "role": "hero_awaken"
   },
   {
     "id": "43134:HeroAwakenInfoConfig:11342:hero_awaken",
@@ -87529,13 +86843,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11342:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11342",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43134:HeroAwakenInfoConfig:11343:hero_awaken",
     "item_id": 43134,
     "source_table": "HeroAwakenInfoConfig",
@@ -87550,13 +86857,6 @@
     "source_id": "11343",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11343:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11343",
-    "role": "hero_awaken"
   },
   {
     "id": "43134:HeroAwakenInfoConfig:11344:hero_awaken",
@@ -87575,13 +86875,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11344:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11344",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43134:HeroAwakenInfoConfig:11345:hero_awaken",
     "item_id": 43134,
     "source_table": "HeroAwakenInfoConfig",
@@ -87596,13 +86889,6 @@
     "source_id": "11345",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11345:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11345",
-    "role": "hero_awaken"
   },
   {
     "id": "43134:HeroAwakenInfoConfig:11346:hero_awaken",
@@ -87621,13 +86907,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11346:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11346",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43134:HeroAwakenInfoConfig:11347:hero_awaken",
     "item_id": 43134,
     "source_table": "HeroAwakenInfoConfig",
@@ -87644,15 +86923,8 @@
     "qty": 5
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11347:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11347",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11351:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11351:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11351",
     "role": "hero_awaken",
@@ -87667,15 +86939,8 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11351:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11351",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11352:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11352:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11352",
     "role": "hero_awaken",
@@ -87690,15 +86955,8 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11352:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11352",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11353:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11353:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11353",
     "role": "hero_awaken",
@@ -87713,15 +86971,8 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11353:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11353",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11354:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11354:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11354",
     "role": "hero_awaken",
@@ -87736,15 +86987,8 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11354:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11354",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11355:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11355:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11355",
     "role": "hero_awaken",
@@ -87759,15 +87003,8 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11355:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11355",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11356:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11356:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11356",
     "role": "hero_awaken",
@@ -87782,15 +87019,8 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11356:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11356",
-    "role": "hero_awaken"
-  },
-  {
-    "id": "43135:HeroAwakenInfoConfig:11357:hero_awaken",
-    "item_id": 43135,
+    "id": "43136:HeroAwakenInfoConfig:11357:hero_awaken",
+    "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
     "source_id": "11357",
     "role": "hero_awaken",
@@ -87803,13 +87033,6 @@
     "source_id": "11357",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11357:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11357",
-    "role": "hero_awaken"
   },
   {
     "id": "43136:HeroAwakenInfoConfig:11361:hero_awaken",
@@ -87828,13 +87051,6 @@
     "qty": 1
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11361:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11361",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43136:HeroAwakenInfoConfig:11362:hero_awaken",
     "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
@@ -87849,13 +87065,6 @@
     "source_id": "11362",
     "role": "hero_awaken",
     "qty": 2
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11362:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11362",
-    "role": "hero_awaken"
   },
   {
     "id": "43136:HeroAwakenInfoConfig:11363:hero_awaken",
@@ -87874,13 +87083,6 @@
     "qty": 2
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11363:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11363",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43136:HeroAwakenInfoConfig:11364:hero_awaken",
     "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
@@ -87895,13 +87097,6 @@
     "source_id": "11364",
     "role": "hero_awaken",
     "qty": 3
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11364:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11364",
-    "role": "hero_awaken"
   },
   {
     "id": "43136:HeroAwakenInfoConfig:11365:hero_awaken",
@@ -87920,13 +87115,6 @@
     "qty": 3
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11365:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11365",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43136:HeroAwakenInfoConfig:11366:hero_awaken",
     "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
@@ -87943,13 +87131,6 @@
     "qty": 4
   },
   {
-    "id": "40217:HeroAwakenInfoConfig:11366:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11366",
-    "role": "hero_awaken"
-  },
-  {
     "id": "43136:HeroAwakenInfoConfig:11367:hero_awaken",
     "item_id": 43136,
     "source_table": "HeroAwakenInfoConfig",
@@ -87964,13 +87145,6 @@
     "source_id": "11367",
     "role": "hero_awaken",
     "qty": 5
-  },
-  {
-    "id": "40217:HeroAwakenInfoConfig:11367:hero_awaken",
-    "item_id": 40217,
-    "source_table": "HeroAwakenInfoConfig",
-    "source_id": "11367",
-    "role": "hero_awaken"
   },
   {
     "id": "41001:HeroStarUpConfig:10010:hero_star",

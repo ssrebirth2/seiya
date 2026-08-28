@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T21:55:22.073Z",
+  "generatedAt": "2026-08-28T03:06:10.146Z",
   "defaultArea": "China",
   "areas": [
     "Asia",
@@ -2015,6 +2015,43 @@
         {
           "funopenId": 20159,
           "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "10060": {
+      "Asia": [
+        {
+          "funopenId": 20144,
+          "type": 2,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20144,
+          "type": 2,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20144,
+          "type": 2,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20144,
+          "type": 2,
+          "value": null
+        }
+      ],
+      "SoutheastAsia": [
+        {
+          "funopenId": 20144,
+          "type": 2,
           "value": null
         }
       ]
@@ -13690,47 +13727,6 @@
         }
       ]
     },
-    "43098": {
-      "China": [
-        {
-          "funopenId": 20022,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20021,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20060,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20149,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20224,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 20021,
-          "type": 1,
-          "value": null
-        },
-        {
-          "funopenId": 20022,
-          "type": 1,
-          "value": null
-        }
-      ]
-    },
     "43105": {
       "China": [
         {
@@ -14311,43 +14307,6 @@
       ]
     },
     "51034": {
-      "Asia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "Japan": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10019,
-          "type": 7,
-          "value": null
-        }
-      ]
-    },
-    "51035": {
       "Asia": [
         {
           "funopenId": 10019,

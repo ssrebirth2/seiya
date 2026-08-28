@@ -6270,10 +6270,11 @@ input:focus-visible {
 }
 
 .patch-notes-unit__details { min-width: 0; }
+.patch-notes-unit__row > .patch-notes-unit__summary { min-width: 0; }
 
 .patch-notes-unit__summary {
   list-style: none;
-  cursor: pointer;
+  cursor: default;
   display: grid;
   grid-template-columns: 2.5rem 1fr;
   gap: 0.65rem;
@@ -6281,8 +6282,12 @@ input:focus-visible {
   padding: 0.65rem 0.75rem;
 }
 
+.patch-notes-unit__details .patch-notes-unit__summary {
+  cursor: pointer;
+}
+
 .patch-notes-unit__summary::-webkit-details-marker { display: none; }
-.patch-notes-unit__summary:hover { background: var(--panel-hover); }
+.patch-notes-unit__details .patch-notes-unit__summary:hover { background: var(--panel-hover); }
 
 .patch-notes-unit__portrait {
   width: 2.5rem;
@@ -6369,6 +6374,58 @@ input:focus-visible {
   border-radius: 0.3rem;
 }
 
+.patch-notes-line__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.55rem;
+  padding: 0.28rem 0.2rem;
+}
+
+.patch-notes-enum {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.patch-notes-enum__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.patch-notes-enum__chip--before {
+  color: var(--text-muted);
+}
+
+.patch-notes-enum__chip--before .patch-notes-enum__name {
+  text-decoration: line-through;
+}
+
+.patch-notes-enum__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.patch-notes-enum__name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.patch-notes-enum__chip--before .patch-notes-enum__name {
+  color: var(--text-muted);
+}
+
+.patch-notes-enum__arrow {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
 .patch-notes-line__summary::-webkit-details-marker { display: none; }
 .patch-notes-line__summary:hover { background: var(--panel-hover); }
 
@@ -6409,6 +6466,37 @@ input:focus-visible {
   color: var(--text-muted);
   font-weight: 600;
   font-size: 0.7rem;
+}
+
+.patch-notes-line__deltas {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.patch-notes-line__delta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.patch-notes-line__delta-label {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.patch-notes-line__delta-values {
+  color: var(--foreground);
+}
+
+.patch-notes-line__delta-values s {
+  color: var(--text-muted);
 }
 
 .patch-notes-diff {
