@@ -22,6 +22,7 @@ export const CATALOG_SHORTCUTS: FunctionShortcutItem[] = [
 
 export const TOOLS_SHORTCUTS: FunctionShortcutItem[] = [
   { href: '/team-builder', lcKey: UI_KEYS.nav.teamBuilder, icon: 'teamBuilder' },
+  { href: '/stage-up', lcKey: UI_KEYS.nav.stageUp, icon: 'heroes' },
 ]
 
 export const HOME_SHORTCUTS: FunctionShortcutItem[] = [

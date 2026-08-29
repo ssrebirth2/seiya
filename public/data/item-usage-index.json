@@ -95851,6 +95851,7374 @@
     "qty": 0
   },
   {
+    "id": "40101:HeroStageConsumeConfig:1011:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1011",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1011:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1011",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1012:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1012",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1012:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1012",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1013:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1013",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1013:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1013",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40101:HeroStageConsumeConfig:1014:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1014",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1014:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1014",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40105:HeroStageConsumeConfig:1014:hero_stage",
+    "item_id": 40105,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1014",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1015:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1015",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1015:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1015",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1015:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1015",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1016:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1016",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1016:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1016",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1016:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1016",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1017:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1017",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1017:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1017",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1017:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1017",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1018:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1018",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1018:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1018",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1018:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1018",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1018:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1018",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1019:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1019",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1019:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1019",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1019:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1019",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1019:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1019",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40101:HeroStageConsumeConfig:1021:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1021",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1021:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1021",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1022:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1022",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1022:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1022",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1023:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1023",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1023:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1023",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40101:HeroStageConsumeConfig:1024:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1024",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1024:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1024",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40105:HeroStageConsumeConfig:1024:hero_stage",
+    "item_id": 40105,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1024",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1025:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1025",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1025:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1025",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1025:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1025",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1026:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1026",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1026:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1026",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1026:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1026",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1027:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1027",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1027:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1027",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1027:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1027",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1028:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1028",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1028:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1028",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1028:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1028",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1028:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1028",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1029:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1029",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40107:HeroStageConsumeConfig:1029:hero_stage",
+    "item_id": 40107,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1029",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1029:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1029",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1029:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1029",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40101:HeroStageConsumeConfig:1031:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1031",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1031:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1031",
+    "role": "hero_stage",
+    "qty": 3
+  },
+  {
+    "id": "40102:HeroStageConsumeConfig:1032:hero_stage",
+    "item_id": 40102,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1032",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1032:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1032",
+    "role": "hero_stage",
+    "qty": 4
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1033:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1033",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1033:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1033",
+    "role": "hero_stage",
+    "qty": 6
+  },
+  {
+    "id": "40101:HeroStageConsumeConfig:1034:hero_stage",
+    "item_id": 40101,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1034",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1034:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1034",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40105:HeroStageConsumeConfig:1034:hero_stage",
+    "item_id": 40105,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1034",
+    "role": "hero_stage",
+    "qty": 8
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1035:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1035",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40103:HeroStageConsumeConfig:1035:hero_stage",
+    "item_id": 40103,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1035",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1035:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1035",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1036:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1036",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1036:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1036",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40104:HeroStageConsumeConfig:1036:hero_stage",
+    "item_id": 40104,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1036",
+    "role": "hero_stage",
+    "qty": 10
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1037:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1037",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1037:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1037",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1037:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1037",
+    "role": "hero_stage",
+    "qty": 14
+  },
+  {
+    "id": "40106:HeroStageConsumeConfig:1038:hero_stage",
+    "item_id": 40106,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1038",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1038:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1038",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1038:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1038",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1038:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1038",
+    "role": "hero_stage",
+    "qty": 18
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1039:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1039",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1039:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1039",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1039:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1039",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1039:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1039",
+    "role": "hero_stage",
+    "qty": 24
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1110:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1110",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1110:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1110",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40108:HeroStageConsumeConfig:1110:hero_stage",
+    "item_id": 40108,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1110",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1110:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1110",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1111:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1111",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1111:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1111",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1111:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1111",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1111:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1111",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1112:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1112",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1112:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1112",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1112:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1112",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1112:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1112",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1113:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1113",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1113:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1113",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1113:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1113",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1113:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1113",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1114:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1114",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1114:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1114",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1114:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1114",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1114:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1114",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1115:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1115",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1115:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1115",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1115:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1115",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1115:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1115",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1116:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1116",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1116:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1116",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1116:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1116",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1116:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1116",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1117:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1117",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1117:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1117",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1117:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1117",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1117:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1117",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1118:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1118",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1118:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1118",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1118:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1118",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1118:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1118",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1119:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1119",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1119:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1119",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1119:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1119",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1119:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1119",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1120:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1120",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1120:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1120",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1120:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1120",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1120:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1120",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1121:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1121",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1121:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1121",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1121:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1121",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1121:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1121",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1122:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1122",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1122:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1122",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1122:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1122",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1122:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1122",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1123:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1123",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1123:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1123",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1123:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1123",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1123:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1123",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1124:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1124",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1124:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1124",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1124:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1124",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1124:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1124",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1125:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1125",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1125:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1125",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1125:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1125",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1125:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1125",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1126:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1126",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1126:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1126",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1126:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1126",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1126:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1126",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1127:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1127",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1127:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1127",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1127:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1127",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1127:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1127",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1128:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1128",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1128:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1128",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1128:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1128",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1128:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1128",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1129:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1129",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1129:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1129",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1129:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1129",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1129:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1129",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1130:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1130",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1130:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1130",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1130:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1130",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1130:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1130",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1131:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1131",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1131:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1131",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1131:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1131",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1131:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1131",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1132:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1132",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1132:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1132",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1132:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1132",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1132:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1132",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1133:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1133",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1133:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1133",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1133:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1133",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1133:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1133",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1134:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1134",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1134:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1134",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1134:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1134",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1134:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1134",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1135:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1135",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1135:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1135",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1135:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1135",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1135:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1135",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1136:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1136",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1136:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1136",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1136:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1136",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1136:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1136",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1137:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1137",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1137:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1137",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1137:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1137",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1137:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1137",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1138:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1138",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1138:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1138",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1138:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1138",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1138:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1138",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1139:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1139",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1139:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1139",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1139:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1139",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1139:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1139",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1140:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1140",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1140:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1140",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1140:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1140",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1140:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1140",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1141:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1141",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1141:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1141",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1141:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1141",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1141:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1141",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1142:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1142",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1142:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1142",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1142:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1142",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1142:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1142",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1143:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1143",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1143:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1143",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1143:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1143",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1143:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1143",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1144:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1144",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1144:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1144",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1144:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1144",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1144:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1144",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1145:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1145",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1145:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1145",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1145:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1145",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1145:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1145",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1146:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1146",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1146:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1146",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1146:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1146",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1146:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1146",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1147:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1147",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1147:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1147",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1147:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1147",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1147:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1147",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1148:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1148",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1148:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1148",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1148:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1148",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1148:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1148",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1149:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1149",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1149:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1149",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1149:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1149",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1149:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1149",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1150:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1150",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40162:HeroStageConsumeConfig:1150:hero_stage",
+    "item_id": 40162,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1150",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1150:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1150",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1150:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1150",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1151:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1151",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40162:HeroStageConsumeConfig:1151:hero_stage",
+    "item_id": 40162,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1151",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40163:HeroStageConsumeConfig:1151:hero_stage",
+    "item_id": 40163,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1151",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40164:HeroStageConsumeConfig:1151:hero_stage",
+    "item_id": 40164,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1151",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40166:HeroStageConsumeConfig:1152:hero_stage",
+    "item_id": 40166,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1152",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40167:HeroStageConsumeConfig:1152:hero_stage",
+    "item_id": 40167,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1152",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40168:HeroStageConsumeConfig:1152:hero_stage",
+    "item_id": 40168,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1152",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40169:HeroStageConsumeConfig:1152:hero_stage",
+    "item_id": 40169,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1152",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40301:HeroStageConsumeConfig:1153:hero_stage",
+    "item_id": 40301,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1153",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40302:HeroStageConsumeConfig:1153:hero_stage",
+    "item_id": 40302,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1153",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40303:HeroStageConsumeConfig:1153:hero_stage",
+    "item_id": 40303,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1153",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40304:HeroStageConsumeConfig:1153:hero_stage",
+    "item_id": 40304,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1153",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40306:HeroStageConsumeConfig:1154:hero_stage",
+    "item_id": 40306,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1154",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40307:HeroStageConsumeConfig:1154:hero_stage",
+    "item_id": 40307,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1154",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40308:HeroStageConsumeConfig:1154:hero_stage",
+    "item_id": 40308,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1154",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40309:HeroStageConsumeConfig:1154:hero_stage",
+    "item_id": 40309,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1154",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40311:HeroStageConsumeConfig:1155:hero_stage",
+    "item_id": 40311,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1155",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40312:HeroStageConsumeConfig:1155:hero_stage",
+    "item_id": 40312,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1155",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40313:HeroStageConsumeConfig:1155:hero_stage",
+    "item_id": 40313,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1155",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40314:HeroStageConsumeConfig:1155:hero_stage",
+    "item_id": 40314,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1155",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40316:HeroStageConsumeConfig:1156:hero_stage",
+    "item_id": 40316,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1156",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40317:HeroStageConsumeConfig:1156:hero_stage",
+    "item_id": 40317,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1156",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40318:HeroStageConsumeConfig:1156:hero_stage",
+    "item_id": 40318,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1156",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40319:HeroStageConsumeConfig:1156:hero_stage",
+    "item_id": 40319,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1156",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40321:HeroStageConsumeConfig:1157:hero_stage",
+    "item_id": 40321,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1157",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40322:HeroStageConsumeConfig:1157:hero_stage",
+    "item_id": 40322,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1157",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40323:HeroStageConsumeConfig:1157:hero_stage",
+    "item_id": 40323,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1157",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40324:HeroStageConsumeConfig:1157:hero_stage",
+    "item_id": 40324,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1157",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40326:HeroStageConsumeConfig:1158:hero_stage",
+    "item_id": 40326,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1158",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40327:HeroStageConsumeConfig:1158:hero_stage",
+    "item_id": 40327,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1158",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40328:HeroStageConsumeConfig:1158:hero_stage",
+    "item_id": 40328,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1158",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40329:HeroStageConsumeConfig:1158:hero_stage",
+    "item_id": 40329,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1158",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40331:HeroStageConsumeConfig:1159:hero_stage",
+    "item_id": 40331,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1159",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40332:HeroStageConsumeConfig:1159:hero_stage",
+    "item_id": 40332,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1159",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40333:HeroStageConsumeConfig:1159:hero_stage",
+    "item_id": 40333,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1159",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40334:HeroStageConsumeConfig:1159:hero_stage",
+    "item_id": 40334,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1159",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40336:HeroStageConsumeConfig:1160:hero_stage",
+    "item_id": 40336,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1160",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40337:HeroStageConsumeConfig:1160:hero_stage",
+    "item_id": 40337,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1160",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40338:HeroStageConsumeConfig:1160:hero_stage",
+    "item_id": 40338,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1160",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40339:HeroStageConsumeConfig:1160:hero_stage",
+    "item_id": 40339,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1160",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40341:HeroStageConsumeConfig:1161:hero_stage",
+    "item_id": 40341,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1161",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40342:HeroStageConsumeConfig:1161:hero_stage",
+    "item_id": 40342,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1161",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40343:HeroStageConsumeConfig:1161:hero_stage",
+    "item_id": 40343,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1161",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40344:HeroStageConsumeConfig:1161:hero_stage",
+    "item_id": 40344,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1161",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40346:HeroStageConsumeConfig:1162:hero_stage",
+    "item_id": 40346,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1162",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40347:HeroStageConsumeConfig:1162:hero_stage",
+    "item_id": 40347,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1162",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40348:HeroStageConsumeConfig:1162:hero_stage",
+    "item_id": 40348,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1162",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40349:HeroStageConsumeConfig:1162:hero_stage",
+    "item_id": 40349,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1162",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40351:HeroStageConsumeConfig:1163:hero_stage",
+    "item_id": 40351,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1163",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40352:HeroStageConsumeConfig:1163:hero_stage",
+    "item_id": 40352,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1163",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40353:HeroStageConsumeConfig:1163:hero_stage",
+    "item_id": 40353,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1163",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40354:HeroStageConsumeConfig:1163:hero_stage",
+    "item_id": 40354,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1163",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1210:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1210",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1210:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1210",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1210:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1210",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1210:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1210",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1211:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1211",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1211:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1211",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1211:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1211",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1211:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1211",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1212:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1212",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1212:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1212",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1212:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1212",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1212:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1212",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1213:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1213",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40112:HeroStageConsumeConfig:1213:hero_stage",
+    "item_id": 40112,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1213",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1213:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1213",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1213:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1213",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1214:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1214",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1214:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1214",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1214:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1214",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1214:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1214",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1215:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1215",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1215:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1215",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1215:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1215",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1215:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1215",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1216:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1216",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1216:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1216",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1216:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1216",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1216:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1216",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1217:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1217",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40117:HeroStageConsumeConfig:1217:hero_stage",
+    "item_id": 40117,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1217",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1217:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1217",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1217:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1217",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1218:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1218",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1218:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1218",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1218:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1218",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1218:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1218",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1219:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1219",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1219:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1219",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1219:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1219",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1219:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1219",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1220:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1220",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1220:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1220",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1220:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1220",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1220:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1220",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1221:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1221",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40122:HeroStageConsumeConfig:1221:hero_stage",
+    "item_id": 40122,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1221",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1221:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1221",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1221:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1221",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1222:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1222",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1222:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1222",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1222:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1222",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1222:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1222",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1223:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1223",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1223:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1223",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1223:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1223",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1223:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1223",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1224:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1224",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1224:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1224",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1224:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1224",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1224:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1224",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1225:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1225",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40127:HeroStageConsumeConfig:1225:hero_stage",
+    "item_id": 40127,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1225",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1225:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1225",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1225:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1225",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1226:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1226",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1226:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1226",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1226:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1226",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1226:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1226",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1227:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1227",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1227:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1227",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1227:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1227",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1227:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1227",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1228:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1228",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1228:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1228",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1228:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1228",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1228:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1228",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1229:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1229",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40132:HeroStageConsumeConfig:1229:hero_stage",
+    "item_id": 40132,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1229",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1229:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1229",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1229:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1229",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1230:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1230",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1230:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1230",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1230:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1230",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1230:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1230",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1231:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1231",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1231:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1231",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1231:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1231",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1231:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1231",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1232:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1232",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1232:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1232",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1232:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1232",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1232:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1232",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1233:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1233",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40137:HeroStageConsumeConfig:1233:hero_stage",
+    "item_id": 40137,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1233",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1233:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1233",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1233:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1233",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1234:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1234",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1234:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1234",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1234:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1234",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1234:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1234",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1235:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1235",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1235:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1235",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1235:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1235",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1235:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1235",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1236:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1236",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1236:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1236",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1236:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1236",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1236:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1236",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1237:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1237",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40142:HeroStageConsumeConfig:1237:hero_stage",
+    "item_id": 40142,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1237",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1237:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1237",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1237:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1237",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1238:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1238",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1238:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1238",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1238:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1238",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1238:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1238",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1239:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1239",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1239:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1239",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1239:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1239",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1239:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1239",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1240:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1240",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1240:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1240",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1240:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1240",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1240:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1240",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1241:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1241",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40147:HeroStageConsumeConfig:1241:hero_stage",
+    "item_id": 40147,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1241",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1241:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1241",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1241:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1241",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1242:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1242",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1242:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1242",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1242:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1242",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1242:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1242",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1243:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1243",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1243:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1243",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1243:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1243",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1243:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1243",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1244:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1244",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1244:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1244",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1244:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1244",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1244:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1244",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1245:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1245",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40152:HeroStageConsumeConfig:1245:hero_stage",
+    "item_id": 40152,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1245",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1245:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1245",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1245:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1245",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1246:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1246",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1246:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1246",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1246:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1246",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1246:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1246",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1247:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1247",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1247:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1247",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1247:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1247",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1247:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1247",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1248:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1248",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1248:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1248",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1248:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1248",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1248:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1248",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1249:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1249",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40157:HeroStageConsumeConfig:1249:hero_stage",
+    "item_id": 40157,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1249",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1249:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1249",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1249:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1249",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1250:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1250",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40162:HeroStageConsumeConfig:1250:hero_stage",
+    "item_id": 40162,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1250",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1250:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1250",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1250:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1250",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40162:HeroStageConsumeConfig:1251:hero_stage",
+    "item_id": 40162,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1251",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40163:HeroStageConsumeConfig:1251:hero_stage",
+    "item_id": 40163,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1251",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40164:HeroStageConsumeConfig:1251:hero_stage",
+    "item_id": 40164,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1251",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40165:HeroStageConsumeConfig:1251:hero_stage",
+    "item_id": 40165,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1251",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40167:HeroStageConsumeConfig:1252:hero_stage",
+    "item_id": 40167,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1252",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40168:HeroStageConsumeConfig:1252:hero_stage",
+    "item_id": 40168,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1252",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40169:HeroStageConsumeConfig:1252:hero_stage",
+    "item_id": 40169,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1252",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40170:HeroStageConsumeConfig:1252:hero_stage",
+    "item_id": 40170,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1252",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40302:HeroStageConsumeConfig:1253:hero_stage",
+    "item_id": 40302,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1253",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40303:HeroStageConsumeConfig:1253:hero_stage",
+    "item_id": 40303,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1253",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40304:HeroStageConsumeConfig:1253:hero_stage",
+    "item_id": 40304,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1253",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40305:HeroStageConsumeConfig:1253:hero_stage",
+    "item_id": 40305,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1253",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40307:HeroStageConsumeConfig:1254:hero_stage",
+    "item_id": 40307,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1254",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40308:HeroStageConsumeConfig:1254:hero_stage",
+    "item_id": 40308,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1254",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40309:HeroStageConsumeConfig:1254:hero_stage",
+    "item_id": 40309,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1254",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40310:HeroStageConsumeConfig:1254:hero_stage",
+    "item_id": 40310,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1254",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40312:HeroStageConsumeConfig:1255:hero_stage",
+    "item_id": 40312,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1255",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40313:HeroStageConsumeConfig:1255:hero_stage",
+    "item_id": 40313,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1255",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40314:HeroStageConsumeConfig:1255:hero_stage",
+    "item_id": 40314,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1255",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40315:HeroStageConsumeConfig:1255:hero_stage",
+    "item_id": 40315,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1255",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40317:HeroStageConsumeConfig:1256:hero_stage",
+    "item_id": 40317,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1256",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40318:HeroStageConsumeConfig:1256:hero_stage",
+    "item_id": 40318,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1256",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40319:HeroStageConsumeConfig:1256:hero_stage",
+    "item_id": 40319,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1256",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40320:HeroStageConsumeConfig:1256:hero_stage",
+    "item_id": 40320,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1256",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40322:HeroStageConsumeConfig:1257:hero_stage",
+    "item_id": 40322,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1257",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40323:HeroStageConsumeConfig:1257:hero_stage",
+    "item_id": 40323,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1257",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40324:HeroStageConsumeConfig:1257:hero_stage",
+    "item_id": 40324,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1257",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40325:HeroStageConsumeConfig:1257:hero_stage",
+    "item_id": 40325,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1257",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40327:HeroStageConsumeConfig:1258:hero_stage",
+    "item_id": 40327,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1258",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40328:HeroStageConsumeConfig:1258:hero_stage",
+    "item_id": 40328,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1258",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40329:HeroStageConsumeConfig:1258:hero_stage",
+    "item_id": 40329,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1258",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40330:HeroStageConsumeConfig:1258:hero_stage",
+    "item_id": 40330,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1258",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40332:HeroStageConsumeConfig:1259:hero_stage",
+    "item_id": 40332,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1259",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40333:HeroStageConsumeConfig:1259:hero_stage",
+    "item_id": 40333,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1259",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40334:HeroStageConsumeConfig:1259:hero_stage",
+    "item_id": 40334,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1259",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40335:HeroStageConsumeConfig:1259:hero_stage",
+    "item_id": 40335,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1259",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40337:HeroStageConsumeConfig:1260:hero_stage",
+    "item_id": 40337,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1260",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40338:HeroStageConsumeConfig:1260:hero_stage",
+    "item_id": 40338,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1260",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40339:HeroStageConsumeConfig:1260:hero_stage",
+    "item_id": 40339,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1260",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40340:HeroStageConsumeConfig:1260:hero_stage",
+    "item_id": 40340,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1260",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40342:HeroStageConsumeConfig:1261:hero_stage",
+    "item_id": 40342,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1261",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40343:HeroStageConsumeConfig:1261:hero_stage",
+    "item_id": 40343,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1261",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40344:HeroStageConsumeConfig:1261:hero_stage",
+    "item_id": 40344,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1261",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40345:HeroStageConsumeConfig:1261:hero_stage",
+    "item_id": 40345,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1261",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40347:HeroStageConsumeConfig:1262:hero_stage",
+    "item_id": 40347,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1262",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40348:HeroStageConsumeConfig:1262:hero_stage",
+    "item_id": 40348,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1262",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40349:HeroStageConsumeConfig:1262:hero_stage",
+    "item_id": 40349,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1262",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40350:HeroStageConsumeConfig:1262:hero_stage",
+    "item_id": 40350,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1262",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40352:HeroStageConsumeConfig:1263:hero_stage",
+    "item_id": 40352,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1263",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40353:HeroStageConsumeConfig:1263:hero_stage",
+    "item_id": 40353,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1263",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40354:HeroStageConsumeConfig:1263:hero_stage",
+    "item_id": 40354,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1263",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40355:HeroStageConsumeConfig:1263:hero_stage",
+    "item_id": 40355,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1263",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1310:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1310",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1310:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1310",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40109:HeroStageConsumeConfig:1310:hero_stage",
+    "item_id": 40109,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1310",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1310:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1310",
+    "role": "hero_stage",
+    "qty": 26
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1311:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1311",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1311:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1311",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1311:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1311",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40110:HeroStageConsumeConfig:1311:hero_stage",
+    "item_id": 40110,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1311",
+    "role": "hero_stage",
+    "qty": 30
+  },
+  {
+    "id": "40111:HeroStageConsumeConfig:1312:hero_stage",
+    "item_id": 40111,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1312",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1312:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1312",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1312:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1312",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1312:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1312",
+    "role": "hero_stage",
+    "qty": 36
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1313:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1313",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40113:HeroStageConsumeConfig:1313:hero_stage",
+    "item_id": 40113,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1313",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1313:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1313",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1313:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1313",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1314:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1314",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1314:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1314",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40114:HeroStageConsumeConfig:1314:hero_stage",
+    "item_id": 40114,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1314",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1314:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1314",
+    "role": "hero_stage",
+    "qty": 40
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1315:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1315",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1315:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1315",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1315:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1315",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40115:HeroStageConsumeConfig:1315:hero_stage",
+    "item_id": 40115,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1315",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40116:HeroStageConsumeConfig:1316:hero_stage",
+    "item_id": 40116,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1316",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1316:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1316",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1316:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1316",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1316:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1316",
+    "role": "hero_stage",
+    "qty": 50
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1317:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1317",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40118:HeroStageConsumeConfig:1317:hero_stage",
+    "item_id": 40118,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1317",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1317:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1317",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1317:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1317",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1318:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1318",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1318:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1318",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40119:HeroStageConsumeConfig:1318:hero_stage",
+    "item_id": 40119,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1318",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1318:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1318",
+    "role": "hero_stage",
+    "qty": 60
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1319:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1319",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1319:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1319",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1319:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1319",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40120:HeroStageConsumeConfig:1319:hero_stage",
+    "item_id": 40120,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1319",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40121:HeroStageConsumeConfig:1320:hero_stage",
+    "item_id": 40121,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1320",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1320:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1320",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1320:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1320",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1320:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1320",
+    "role": "hero_stage",
+    "qty": 70
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1321:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1321",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40123:HeroStageConsumeConfig:1321:hero_stage",
+    "item_id": 40123,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1321",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1321:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1321",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1321:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1321",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1322:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1322",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1322:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1322",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40124:HeroStageConsumeConfig:1322:hero_stage",
+    "item_id": 40124,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1322",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1322:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1322",
+    "role": "hero_stage",
+    "qty": 80
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1323:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1323",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1323:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1323",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1323:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1323",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40125:HeroStageConsumeConfig:1323:hero_stage",
+    "item_id": 40125,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1323",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40126:HeroStageConsumeConfig:1324:hero_stage",
+    "item_id": 40126,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1324",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1324:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1324",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1324:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1324",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1324:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1324",
+    "role": "hero_stage",
+    "qty": 100
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1325:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1325",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40128:HeroStageConsumeConfig:1325:hero_stage",
+    "item_id": 40128,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1325",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1325:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1325",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1325:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1325",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1326:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1326",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1326:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1326",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40129:HeroStageConsumeConfig:1326:hero_stage",
+    "item_id": 40129,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1326",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1326:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1326",
+    "role": "hero_stage",
+    "qty": 120
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1327:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1327",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1327:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1327",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1327:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1327",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40130:HeroStageConsumeConfig:1327:hero_stage",
+    "item_id": 40130,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1327",
+    "role": "hero_stage",
+    "qty": 140
+  },
+  {
+    "id": "40131:HeroStageConsumeConfig:1328:hero_stage",
+    "item_id": 40131,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1328",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1328:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1328",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1328:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1328",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1328:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1328",
+    "role": "hero_stage",
+    "qty": 160
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1329:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1329",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40133:HeroStageConsumeConfig:1329:hero_stage",
+    "item_id": 40133,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1329",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1329:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1329",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1329:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1329",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1330:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1330",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1330:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1330",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40134:HeroStageConsumeConfig:1330:hero_stage",
+    "item_id": 40134,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1330",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1330:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1330",
+    "role": "hero_stage",
+    "qty": 170
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1331:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1331",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1331:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1331",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1331:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1331",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40135:HeroStageConsumeConfig:1331:hero_stage",
+    "item_id": 40135,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1331",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40136:HeroStageConsumeConfig:1332:hero_stage",
+    "item_id": 40136,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1332",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1332:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1332",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1332:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1332",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1332:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1332",
+    "role": "hero_stage",
+    "qty": 180
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1333:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1333",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40138:HeroStageConsumeConfig:1333:hero_stage",
+    "item_id": 40138,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1333",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1333:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1333",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1333:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1333",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1334:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1334",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1334:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1334",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40139:HeroStageConsumeConfig:1334:hero_stage",
+    "item_id": 40139,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1334",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1334:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1334",
+    "role": "hero_stage",
+    "qty": 190
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1335:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1335",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1335:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1335",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1335:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1335",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40140:HeroStageConsumeConfig:1335:hero_stage",
+    "item_id": 40140,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1335",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40141:HeroStageConsumeConfig:1336:hero_stage",
+    "item_id": 40141,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1336",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1336:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1336",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1336:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1336",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1336:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1336",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1337:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1337",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40143:HeroStageConsumeConfig:1337:hero_stage",
+    "item_id": 40143,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1337",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1337:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1337",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1337:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1337",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1338:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1338",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1338:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1338",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40144:HeroStageConsumeConfig:1338:hero_stage",
+    "item_id": 40144,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1338",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1338:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1338",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1339:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1339",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1339:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1339",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1339:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1339",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40145:HeroStageConsumeConfig:1339:hero_stage",
+    "item_id": 40145,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1339",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40146:HeroStageConsumeConfig:1340:hero_stage",
+    "item_id": 40146,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1340",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1340:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1340",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1340:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1340",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1340:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1340",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1341:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1341",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40148:HeroStageConsumeConfig:1341:hero_stage",
+    "item_id": 40148,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1341",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1341:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1341",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1341:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1341",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1342:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1342",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1342:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1342",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40149:HeroStageConsumeConfig:1342:hero_stage",
+    "item_id": 40149,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1342",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1342:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1342",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1343:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1343",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1343:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1343",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1343:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1343",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40150:HeroStageConsumeConfig:1343:hero_stage",
+    "item_id": 40150,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1343",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40151:HeroStageConsumeConfig:1344:hero_stage",
+    "item_id": 40151,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1344",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1344:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1344",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1344:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1344",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1344:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1344",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1345:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1345",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40153:HeroStageConsumeConfig:1345:hero_stage",
+    "item_id": 40153,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1345",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1345:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1345",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1345:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1345",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1346:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1346",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1346:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1346",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40154:HeroStageConsumeConfig:1346:hero_stage",
+    "item_id": 40154,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1346",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1346:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1346",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1347:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1347",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1347:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1347",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1347:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1347",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40155:HeroStageConsumeConfig:1347:hero_stage",
+    "item_id": 40155,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1347",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40156:HeroStageConsumeConfig:1348:hero_stage",
+    "item_id": 40156,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1348",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1348:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1348",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1348:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1348",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1348:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1348",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1349:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1349",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40158:HeroStageConsumeConfig:1349:hero_stage",
+    "item_id": 40158,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1349",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1349:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1349",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1349:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1349",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1350:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1350",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40163:HeroStageConsumeConfig:1350:hero_stage",
+    "item_id": 40163,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1350",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40159:HeroStageConsumeConfig:1350:hero_stage",
+    "item_id": 40159,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1350",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40160:HeroStageConsumeConfig:1350:hero_stage",
+    "item_id": 40160,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1350",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40161:HeroStageConsumeConfig:1351:hero_stage",
+    "item_id": 40161,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1351",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40163:HeroStageConsumeConfig:1351:hero_stage",
+    "item_id": 40163,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1351",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40164:HeroStageConsumeConfig:1351:hero_stage",
+    "item_id": 40164,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1351",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40165:HeroStageConsumeConfig:1351:hero_stage",
+    "item_id": 40165,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1351",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40166:HeroStageConsumeConfig:1352:hero_stage",
+    "item_id": 40166,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1352",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40168:HeroStageConsumeConfig:1352:hero_stage",
+    "item_id": 40168,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1352",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40169:HeroStageConsumeConfig:1352:hero_stage",
+    "item_id": 40169,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1352",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40170:HeroStageConsumeConfig:1352:hero_stage",
+    "item_id": 40170,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1352",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40301:HeroStageConsumeConfig:1353:hero_stage",
+    "item_id": 40301,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1353",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40303:HeroStageConsumeConfig:1353:hero_stage",
+    "item_id": 40303,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1353",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40304:HeroStageConsumeConfig:1353:hero_stage",
+    "item_id": 40304,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1353",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40305:HeroStageConsumeConfig:1353:hero_stage",
+    "item_id": 40305,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1353",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40306:HeroStageConsumeConfig:1354:hero_stage",
+    "item_id": 40306,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1354",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40308:HeroStageConsumeConfig:1354:hero_stage",
+    "item_id": 40308,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1354",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40309:HeroStageConsumeConfig:1354:hero_stage",
+    "item_id": 40309,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1354",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40310:HeroStageConsumeConfig:1354:hero_stage",
+    "item_id": 40310,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1354",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40311:HeroStageConsumeConfig:1355:hero_stage",
+    "item_id": 40311,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1355",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40313:HeroStageConsumeConfig:1355:hero_stage",
+    "item_id": 40313,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1355",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40314:HeroStageConsumeConfig:1355:hero_stage",
+    "item_id": 40314,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1355",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40315:HeroStageConsumeConfig:1355:hero_stage",
+    "item_id": 40315,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1355",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40316:HeroStageConsumeConfig:1356:hero_stage",
+    "item_id": 40316,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1356",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40318:HeroStageConsumeConfig:1356:hero_stage",
+    "item_id": 40318,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1356",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40319:HeroStageConsumeConfig:1356:hero_stage",
+    "item_id": 40319,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1356",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40320:HeroStageConsumeConfig:1356:hero_stage",
+    "item_id": 40320,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1356",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40321:HeroStageConsumeConfig:1357:hero_stage",
+    "item_id": 40321,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1357",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40323:HeroStageConsumeConfig:1357:hero_stage",
+    "item_id": 40323,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1357",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40324:HeroStageConsumeConfig:1357:hero_stage",
+    "item_id": 40324,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1357",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40325:HeroStageConsumeConfig:1357:hero_stage",
+    "item_id": 40325,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1357",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40326:HeroStageConsumeConfig:1358:hero_stage",
+    "item_id": 40326,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1358",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40328:HeroStageConsumeConfig:1358:hero_stage",
+    "item_id": 40328,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1358",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40329:HeroStageConsumeConfig:1358:hero_stage",
+    "item_id": 40329,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1358",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40330:HeroStageConsumeConfig:1358:hero_stage",
+    "item_id": 40330,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1358",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40331:HeroStageConsumeConfig:1359:hero_stage",
+    "item_id": 40331,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1359",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40333:HeroStageConsumeConfig:1359:hero_stage",
+    "item_id": 40333,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1359",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40334:HeroStageConsumeConfig:1359:hero_stage",
+    "item_id": 40334,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1359",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40335:HeroStageConsumeConfig:1359:hero_stage",
+    "item_id": 40335,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1359",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40336:HeroStageConsumeConfig:1360:hero_stage",
+    "item_id": 40336,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1360",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40338:HeroStageConsumeConfig:1360:hero_stage",
+    "item_id": 40338,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1360",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40339:HeroStageConsumeConfig:1360:hero_stage",
+    "item_id": 40339,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1360",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40340:HeroStageConsumeConfig:1360:hero_stage",
+    "item_id": 40340,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1360",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40341:HeroStageConsumeConfig:1361:hero_stage",
+    "item_id": 40341,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1361",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40343:HeroStageConsumeConfig:1361:hero_stage",
+    "item_id": 40343,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1361",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40344:HeroStageConsumeConfig:1361:hero_stage",
+    "item_id": 40344,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1361",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40345:HeroStageConsumeConfig:1361:hero_stage",
+    "item_id": 40345,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1361",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40346:HeroStageConsumeConfig:1362:hero_stage",
+    "item_id": 40346,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1362",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40348:HeroStageConsumeConfig:1362:hero_stage",
+    "item_id": 40348,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1362",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40349:HeroStageConsumeConfig:1362:hero_stage",
+    "item_id": 40349,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1362",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40350:HeroStageConsumeConfig:1362:hero_stage",
+    "item_id": 40350,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1362",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40351:HeroStageConsumeConfig:1363:hero_stage",
+    "item_id": 40351,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1363",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40353:HeroStageConsumeConfig:1363:hero_stage",
+    "item_id": 40353,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1363",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40354:HeroStageConsumeConfig:1363:hero_stage",
+    "item_id": 40354,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1363",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40355:HeroStageConsumeConfig:1363:hero_stage",
+    "item_id": 40355,
+    "source_table": "HeroStageConsumeConfig",
+    "source_id": "1363",
+    "role": "hero_stage",
+    "qty": 200
+  },
+  {
+    "id": "40061:HeroQualityConsumeConfig:12:hero_quality",
+    "item_id": 40061,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "12",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40066:HeroQualityConsumeConfig:12:hero_quality",
+    "item_id": 40066,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "12",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40070:HeroQualityConsumeConfig:12:hero_quality",
+    "item_id": 40070,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "12",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40055:HeroQualityConsumeConfig:12:hero_quality",
+    "item_id": 40055,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "12",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40051:HeroQualityConsumeConfig:12:hero_quality",
+    "item_id": 40051,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "12",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:13:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "13",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:13:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "13",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40071:HeroQualityConsumeConfig:13:hero_quality",
+    "item_id": 40071,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "13",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40056:HeroQualityConsumeConfig:13:hero_quality",
+    "item_id": 40056,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "13",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40052:HeroQualityConsumeConfig:13:hero_quality",
+    "item_id": 40052,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "13",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:14:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "14",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:14:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "14",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:14:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "14",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:14:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "14",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:14:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "14",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:15:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "15",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:15:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "15",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:15:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "15",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:15:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "15",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:15:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "15",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:16:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "16",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:16:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "16",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:16:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "16",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:16:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "16",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:16:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "16",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:17:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "17",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:17:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "17",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:17:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "17",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:17:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "17",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:17:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "17",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:18:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "18",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:18:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "18",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:18:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "18",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:18:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "18",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:18:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "18",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:19:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "19",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:19:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "19",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:19:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "19",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:19:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "19",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:19:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "19",
+    "role": "hero_quality",
+    "qty": 3
+  },
+  {
+    "id": "40066:HeroQualityConsumeConfig:22:hero_quality",
+    "item_id": 40066,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "22",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40071:HeroQualityConsumeConfig:22:hero_quality",
+    "item_id": 40071,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "22",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40055:HeroQualityConsumeConfig:22:hero_quality",
+    "item_id": 40055,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "22",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40060:HeroQualityConsumeConfig:22:hero_quality",
+    "item_id": 40060,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "22",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40051:HeroQualityConsumeConfig:22:hero_quality",
+    "item_id": 40051,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "22",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:23:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "23",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:23:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "23",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40056:HeroQualityConsumeConfig:23:hero_quality",
+    "item_id": 40056,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "23",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40061:HeroQualityConsumeConfig:23:hero_quality",
+    "item_id": 40061,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "23",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40052:HeroQualityConsumeConfig:23:hero_quality",
+    "item_id": 40052,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "23",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:24:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "24",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:24:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "24",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:24:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "24",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:24:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "24",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:24:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "24",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:25:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "25",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:25:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "25",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:25:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "25",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:25:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "25",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:25:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "25",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:26:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "26",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:26:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "26",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:26:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "26",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:26:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "26",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:26:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "26",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:27:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "27",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:27:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "27",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:27:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "27",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:27:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "27",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:27:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "27",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:28:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "28",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:28:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "28",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:28:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "28",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:28:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "28",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:28:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "28",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:29:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "29",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:29:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "29",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:29:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "29",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:29:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "29",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:29:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "29",
+    "role": "hero_quality",
+    "qty": 3
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:30:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "30",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:30:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "30",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:30:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "30",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:30:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "30",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:30:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "30",
+    "role": "hero_quality",
+    "qty": 4
+  },
+  {
+    "id": "40071:HeroQualityConsumeConfig:32:hero_quality",
+    "item_id": 40071,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "32",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40056:HeroQualityConsumeConfig:32:hero_quality",
+    "item_id": 40056,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "32",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40060:HeroQualityConsumeConfig:32:hero_quality",
+    "item_id": 40060,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "32",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40065:HeroQualityConsumeConfig:32:hero_quality",
+    "item_id": 40065,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "32",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40051:HeroQualityConsumeConfig:32:hero_quality",
+    "item_id": 40051,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "32",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:33:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "33",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:33:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "33",
+    "role": "hero_quality",
+    "qty": 40
+  },
+  {
+    "id": "40061:HeroQualityConsumeConfig:33:hero_quality",
+    "item_id": 40061,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "33",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40066:HeroQualityConsumeConfig:33:hero_quality",
+    "item_id": 40066,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "33",
+    "role": "hero_quality",
+    "qty": 80
+  },
+  {
+    "id": "40052:HeroQualityConsumeConfig:33:hero_quality",
+    "item_id": 40052,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "33",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:34:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "34",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:34:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "34",
+    "role": "hero_quality",
+    "qty": 50
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:34:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "34",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:34:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "34",
+    "role": "hero_quality",
+    "qty": 100
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:34:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "34",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:35:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "35",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:35:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "35",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:35:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "35",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:35:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "35",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:35:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "35",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:36:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "36",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:36:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "36",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:36:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "36",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:36:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "36",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:36:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "36",
+    "role": "hero_quality",
+    "qty": 1
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:37:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "37",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:37:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "37",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:37:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "37",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:37:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "37",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:37:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "37",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:38:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "38",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:38:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "38",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:38:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "38",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:38:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "38",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:38:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "38",
+    "role": "hero_quality",
+    "qty": 2
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:39:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "39",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:39:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "39",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:39:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "39",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:39:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "39",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:39:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "39",
+    "role": "hero_quality",
+    "qty": 3
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:40:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "40",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:40:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "40",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:40:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "40",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:40:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "40",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:40:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "40",
+    "role": "hero_quality",
+    "qty": 4
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:110:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "110",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:110:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "110",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:110:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "110",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:110:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "110",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:110:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "110",
+    "role": "hero_quality",
+    "qty": 4
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:111:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "111",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:111:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "111",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:111:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "111",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:111:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "111",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:111:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "111",
+    "role": "hero_quality",
+    "qty": 5
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:112:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "112",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:112:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "112",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:112:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "112",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:112:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "112",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:112:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "112",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:113:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "113",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:113:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "113",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:113:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "113",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:113:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "113",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:113:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "113",
+    "role": "hero_quality",
+    "qty": 8
+  },
+  {
+    "id": "40063:HeroQualityConsumeConfig:114:hero_quality",
+    "item_id": 40063,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "114",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:114:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "114",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40072:HeroQualityConsumeConfig:114:hero_quality",
+    "item_id": 40072,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "114",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:114:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "114",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:114:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "114",
+    "role": "hero_quality",
+    "qty": 10
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:211:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "211",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:211:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "211",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:211:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "211",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:211:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "211",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:211:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "211",
+    "role": "hero_quality",
+    "qty": 5
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:212:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "212",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:212:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "212",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:212:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "212",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:212:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "212",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:212:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "212",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:213:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "213",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:213:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "213",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:213:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "213",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:213:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "213",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:213:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "213",
+    "role": "hero_quality",
+    "qty": 8
+  },
+  {
+    "id": "40068:HeroQualityConsumeConfig:214:hero_quality",
+    "item_id": 40068,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "214",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:214:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "214",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40057:HeroQualityConsumeConfig:214:hero_quality",
+    "item_id": 40057,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "214",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:214:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "214",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:214:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "214",
+    "role": "hero_quality",
+    "qty": 10
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:311:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "311",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:311:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "311",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:311:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "311",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:311:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "311",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:311:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "311",
+    "role": "hero_quality",
+    "qty": 5
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:312:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "312",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:312:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "312",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:312:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "312",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:312:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "312",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:312:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "312",
+    "role": "hero_quality",
+    "qty": 6
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:313:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "313",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:313:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "313",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:313:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "313",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:313:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "313",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:313:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "313",
+    "role": "hero_quality",
+    "qty": 8
+  },
+  {
+    "id": "40073:HeroQualityConsumeConfig:314:hero_quality",
+    "item_id": 40073,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "314",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40058:HeroQualityConsumeConfig:314:hero_quality",
+    "item_id": 40058,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "314",
+    "role": "hero_quality",
+    "qty": 30
+  },
+  {
+    "id": "40062:HeroQualityConsumeConfig:314:hero_quality",
+    "item_id": 40062,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "314",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40067:HeroQualityConsumeConfig:314:hero_quality",
+    "item_id": 40067,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "314",
+    "role": "hero_quality",
+    "qty": 60
+  },
+  {
+    "id": "40053:HeroQualityConsumeConfig:314:hero_quality",
+    "item_id": 40053,
+    "source_table": "HeroQualityConsumeConfig",
+    "source_id": "314",
+    "role": "hero_quality",
+    "qty": 10
+  },
+  {
     "id": "40424:ArtifactStarConfig:400155:artifact_star",
     "item_id": 40424,
     "source_table": "ArtifactStarConfig",

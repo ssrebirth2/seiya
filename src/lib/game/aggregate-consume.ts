@@ -1,4 +1,4 @@
-import { consumeRefKey } from '@/lib/game/load-hero-talents-bundle'
+import { consumeRefKey } from '@/lib/game/consume-ref-key'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import type { TalentLayerData, TalentLayerSkill } from '@/lib/game/talent-types'
 

@@ -9,6 +9,7 @@ export type SectionKey =
   | 'artifacts'
   | 'force-cards'
   | 'team-builder'
+  | 'stage-up'
   | 'items'
 
 const SECTION_NAV_KEYS: Record<Exclude<SectionKey, 'home' | 'items'>, string> = {
@@ -17,9 +18,15 @@ const SECTION_NAV_KEYS: Record<Exclude<SectionKey, 'home' | 'items'>, string> = 
   artifacts: UI_KEYS.nav.artifacts,
   'force-cards': UI_KEYS.nav.forceCards,
   'team-builder': UI_KEYS.nav.teamBuilder,
+  'stage-up': UI_KEYS.nav.stageUp,
 }
 
-const SECTION_DESCRIPTIONS: Record<Exclude<SectionKey, 'home'>, string> = {
+function localizedStageUpDesc(lang: string): string {
+  const upper = lang.toUpperCase() as keyof typeof SITE_LOCALIZED_LABELS.stageUpDesc
+  return SITE_LOCALIZED_LABELS.stageUpDesc[upper] ?? SITE_LOCALIZED_LABELS.stageUpDesc.EN
+}
+
+const SECTION_DESCRIPTIONS: Record<Exclude<SectionKey, 'home' | 'stage-up'>, string> = {
   heroes: SITE_ONLY_LABELS.heroesCardDesc,
   companions: SITE_ONLY_LABELS.companionsCardDesc,
   artifacts: SITE_ONLY_LABELS.artifactsCardDesc,
@@ -58,11 +65,13 @@ export async function fetchSectionMetadata(
 
   const navKey = SECTION_NAV_KEYS[section]
   const translated = await translateKeys([navKey], lang)
-  const title = translated[navKey] || SECTION_DESCRIPTIONS[section]
+  const description =
+    section === 'stage-up' ? localizedStageUpDesc(lang) : SECTION_DESCRIPTIONS[section]
+  const title = translated[navKey] || description
 
   return {
     title,
-    description: SECTION_DESCRIPTIONS[section],
+    description,
     imageUrl: null,
   }
 }

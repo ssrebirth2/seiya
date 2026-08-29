@@ -30,6 +30,7 @@ const ROUTE_LABELS: Record<string, string> = {
   '/companions': UI_KEYS.nav.companions,
   '/force-cards': UI_KEYS.nav.forceCards,
   '/team-builder': UI_KEYS.nav.teamBuilder,
+  '/stage-up': UI_KEYS.nav.stageUp,
   '/items': UI_KEYS.nav.items,
 }
 

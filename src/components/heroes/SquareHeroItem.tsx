@@ -202,7 +202,7 @@ export function SquareHeroItem({
     </div>
   )
 
-  const interactiveClass = 'square-hero-item-link'
+  const interactiveClass = `square-hero-item-link ${className}`.trim()
 
   if (href) {
     return (

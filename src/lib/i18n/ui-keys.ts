@@ -55,6 +55,7 @@ export const UI_KEYS = {
     companions: 'LC_FUNCTION_10087',
     forceCards: 'LC_FUNCTION_10071',
     teamBuilder: 'LC_RULE_Activity_super_smash_battle_title_2',
+    stageUp: 'LC_FUNCTION_20038',
     tools: 'LC_FUNCTION_10057',
     gallery: 'LC_FUNCTION_10011',
     items: 'LC_COMMON_bag',
@@ -203,6 +204,13 @@ export const UI_KEYS = {
     lineupBonus: 'LC_COMMON_chooserole_team_info',
     helpTeam: 'LC_COMMON_formation_support_Team',
     comboSkills: 'LC_FUNCTION_10044',
+  },
+  stageUp: {
+    replacementStage: 'LC_COMMON_replacement_stage',
+    unlockDes: 'LC_COMMON_stage_up_unlock_des',
+    qualityUpLimit: 'LC_COMMON_quality_up_limit',
+    stageMax: 'LC_COMMON_stage_max_parentheses',
+    stageUp: 'LC_COMMON_stage_up',
   },
 } as const
 
@@ -560,6 +568,78 @@ export const SITE_LOCALIZED_LABELS = {
     FR: 'Déblocages de compétences',
     ID: 'Unlock skill',
   },
+  fromStage: {
+    EN: 'From',
+    CN: '当前',
+    PT: 'De',
+    SP: 'Desde',
+    FR: 'De',
+    ID: 'Dari',
+  },
+  toStage: {
+    EN: 'To',
+    CN: '目标',
+    PT: 'Até',
+    SP: 'Hasta',
+    FR: 'À',
+    ID: 'Sampai',
+  },
+  reachableMaterials: {
+    EN: 'Reachable now',
+    CN: '当前可升阶',
+    PT: 'Alcançável agora',
+    SP: 'Alcanzable ahora',
+    FR: 'Accessible maintenant',
+    ID: 'Bisa sekarang',
+  },
+  fullStageMaterials: {
+    EN: 'Full stage cost',
+    CN: '升阶全部消耗',
+    PT: 'Custo total de stage',
+    SP: 'Coste total de stage',
+    FR: 'Coût total de stage',
+    ID: 'Total biaya stage',
+  },
+  qualityUpMaterials: {
+    EN: 'Quality-up cost',
+    CN: '突破消耗',
+    PT: 'Custo de qualidade',
+    SP: 'Coste de calidad',
+    FR: 'Coût de qualité',
+    ID: 'Biaya kualitas',
+  },
+  levelCap: {
+    EN: 'Level cap',
+    CN: '等级上限',
+    PT: 'Limite de nível',
+    SP: 'Límite de nivel',
+    FR: 'Plafond de niveau',
+    ID: 'Batas level',
+  },
+  blockedUntilQuality: {
+    EN: 'Blocked',
+    CN: '未解锁',
+    PT: 'Bloqueado',
+    SP: 'Bloqueado',
+    FR: 'Bloqué',
+    ID: 'Terkunci',
+  },
+  pickAHero: {
+    EN: 'Select a hero to plan stage-up.',
+    CN: '选择斗士规划升阶。',
+    PT: 'Selecione um herói para planejar o stage-up.',
+    SP: 'Selecciona un héroe para planear el stage-up.',
+    FR: 'Sélectionnez un héros pour planifier la montée de stage.',
+    ID: 'Pilih hero untuk merencanakan stage-up.',
+  },
+  stageUpDesc: {
+    EN: 'Plan hero stage-up: materials, gold, quality gates, and level caps.',
+    CN: '规划斗士升阶：材料、金币、品质解锁与等级上限。',
+    PT: 'Planeje o stage-up do herói: materiais, ouro, travas de qualidade e teto de nível.',
+    SP: 'Planifica el stage-up del héroe: materiales, oro, bloqueos de calidad y tope de nivel.',
+    FR: 'Planifiez la montée de stage : matériaux, or, seuils de qualité et plafond de niveau.',
+    ID: 'Rencanakan stage-up hero: material, gold, batas kualitas, dan cap level.',
+  },
 } as const
 
 /** Labels without a game LC key — stay in English. */
@@ -631,6 +711,22 @@ export function qualityNameKey(n: number): string {
   return `LC_COMMON_quality_name_${n}`
 }
 
+/** GameDefine.RoleQualityString — used on stage-up lock text. */
+export function heroQualityLcKey(quality: number): string {
+  const named: Record<number, string> = {
+    1: 'LC_COMMON_quality_N',
+    2: 'LC_COMMON_quality_R',
+    3: 'LC_COMMON_quality_SR',
+    4: 'LC_COMMON_quality_SSR',
+    5: 'LC_COMMON_quality_UR',
+  }
+  if (named[quality]) return named[quality]
+  if (quality >= 6) return `LC_COMMON_quality_UR_${quality - 5}`
+  return qualityNameKey(quality)
+}
+
+export const HERO_QUALITY_LC_IDS = Array.from({ length: 15 }, (_, i) => i + 1)
+
 export function forceCardQualityNameKey(n: number): string {
   const keys: Record<number, string> = {
     2: 'LC_Dynamis_Green',
@@ -661,6 +757,8 @@ export const ALL_UI_LC_KEYS: string[] = [
   ...flattenObject(UI_KEYS.item),
   ...flattenObject(UI_KEYS.forceCard),
   ...flattenObject(UI_KEYS.teamBuilder),
+  ...flattenObject(UI_KEYS.stageUp),
   ...HERO_QUALITY_IDS.map(qualityNameKey),
+  ...HERO_QUALITY_LC_IDS.map(heroQualityLcKey),
   ...([2, 3, 4, 5, 6] as const).map(forceCardQualityNameKey),
 ]

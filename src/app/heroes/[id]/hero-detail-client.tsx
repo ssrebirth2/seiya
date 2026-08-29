@@ -12,31 +12,17 @@ import { fetchHeroTypeDescMap } from '@/lib/game/hero-type-desc'
 import { queryKeys } from '@/lib/query/query-keys'
 import { GAME_CONFIG_STALE_MS } from '@/lib/query/query-config'
 import HeroTabsContainer from '@/components/heroes/HeroTabsContainer'
-import GameImage from '@/components/ui/GameImage'
-import { isAssetAvailable } from '@/lib/assets/asset-registry'
-import {
-  superSkillBannerPath,
-  superSkillBannerUrl,
-  IMAGE_UNAVAILABLE,
-} from '@/lib/assets/game-images'
+import { HeroProfileHeader } from '@/components/heroes/HeroProfileHeader'
 import {
   fetchHeroHeadIconEntry,
   fetchHeroHeadIconMap,
-  getHeroSquareHeadUrl,
   type HeroHeadIconEntry,
 } from '@/lib/game/fetch-hero-head-icons'
 import { useHeroHeadIconMap } from '@/hooks/use-hero-head-icons'
-import {
-  getAttackTypeIconPath,
-  getCampIconPath,
-  getOccupationIconPath,
-  getPositionIconPath,
-  getQualityIconClassName,
-  getQualityIconPath,
-} from '@/lib/game/hero-ui-sprites'
 import { LoadingSkeleton, DetailPageShell } from '@/components/ui/v2'
 import { SetPageMeta } from '@/lib/ui/usePageMeta'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
+import { useLocalizedHref } from '@/lib/i18n/localized-href'
 import { qualityNameKey } from '@/lib/i18n/ui-keys'
 import {
   applySkillValues,
@@ -46,12 +32,6 @@ import {
 import { isHeroListed } from '@/lib/game/hidden-hero-ids'
 
 const SPECIAL_FIELDS = ['camp', 'stance', 'damagetype', 'occupation'] as const
-
-type MetaIcon = {
-  key: string
-  src: string
-  label: string
-}
 
 function parseLabelIds(raw: unknown): number[] {
   try {
@@ -69,6 +49,7 @@ export default function HeroDetailClient() {
   const heroId = parseInt(id as string)
   const { lang } = useLanguage()
   const { t, site } = useUiTranslation()
+  const localized = useLocalizedHref()
   const { data: iconMap } = useHeroHeadIconMap()
   const [heroHeadEntry, setHeroHeadEntry] = useState<HeroHeadIconEntry | null>(null)
 
@@ -205,57 +186,15 @@ export default function HeroDetailClient() {
     }
   }, [lang, isHeroLoaded])
 
-  const headIconUrl = useMemo(() => {
-    const map = heroHeadEntry != null ? { [heroId]: heroHeadEntry } : iconMap
-    return getHeroSquareHeadUrl(map, heroId)
-  }, [heroHeadEntry, iconMap, heroId])
-  const hasHeadIcon = headIconUrl !== IMAGE_UNAVAILABLE
-  const bannerPath = useMemo(() => superSkillBannerPath(heroId), [heroId])
-  const bannerUrl = useMemo(() => superSkillBannerUrl(heroId), [heroId])
-  const hasBannerArt = useMemo(() => isAssetAvailable(bannerPath), [bannerPath])
-
   const heroNameHtml = useMemo(
     () => applySkillValues(getT(roleName), 0, {}),
     [roleName, translations, getT]
   )
 
-  const typeLabel = (field: (typeof SPECIAL_FIELDS)[number], value: number) => {
-    const key = typeMap[`${field}_${value}`]
-    return key ? formatPlainLabel(getT(key)) : ''
-  }
-
-  const metaIcons = useMemo((): MetaIcon[] => {
-    if (!hero) return []
-    const camp = Number(hero.camp)
-    const stance = Number(hero.stance)
-    const damagetype = Number(hero.damagetype)
-    const occupation = Number(hero.occupation)
-
-    const items: MetaIcon[] = [
-      {
-        key: 'occupation',
-        src: getOccupationIconPath(occupation),
-        label: typeLabel('occupation', occupation),
-      },
-      {
-        key: 'camp',
-        src: getCampIconPath(camp),
-        label: typeLabel('camp', camp),
-      },
-      {
-        key: 'stance',
-        src: getPositionIconPath(stance, lang),
-        label: typeLabel('stance', stance),
-      },
-      {
-        key: 'damagetype',
-        src: getAttackTypeIconPath(damagetype),
-        label: typeLabel('damagetype', damagetype),
-      },
-    ]
-
-    return items.filter((item) => item.src && item.label)
-  }, [hero, typeMap, translations, lang, getT])
+  const headerIconMap = useMemo(() => {
+    if (heroHeadEntry == null) return iconMap
+    return { ...iconMap, [heroId]: heroHeadEntry }
+  }, [heroHeadEntry, iconMap, heroId])
 
   const tagChips = useMemo(() => {
     if (!hero) return []
@@ -286,15 +225,6 @@ export default function HeroDetailClient() {
     )
   }
 
-  const qualityLabel =
-    hero.quality != null ? formatPlainLabel(getT(qualityNameKey(hero.quality))) : null
-  const qualityIconSrc =
-    hero.quality != null ? getQualityIconPath(Number(hero.quality), Number(hero.quality)) : ''
-  const qualityIconClass =
-    hero.quality != null
-      ? getQualityIconClassName(Number(hero.quality), Number(hero.quality))
-      : ''
-
   return (
     <>
       <SetPageMeta title={getT(roleName)} />
@@ -304,87 +234,36 @@ export default function HeroDetailClient() {
           backLabel={t(UI_KEYS.common.loginBack)}
           title={getT(roleName)}
           header={
-            <section className="profile-header -mx-2 sm:mx-0">
-              {hasBannerArt && (
-                <>
-                  <div
-                    className="pointer-events-none absolute -right-6 top-1/2 z-0 h-40 w-40 -translate-y-1/2 rounded-full bg-accent/15 blur-3xl sm:h-56 sm:w-56"
-                    aria-hidden
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-y-0 right-0 z-0 w-[min(72%,17.5rem)] sm:w-[min(58%,22rem)] md:w-[min(50%,26rem)]"
-                    aria-hidden
-                  >
-                    <GameImage
-                      src={bannerUrl}
-                      rawSrc={bannerPath}
-                      alt=""
-                      aria-hidden
-                      className="profile-header-art absolute bottom-0 right-0 h-[118%] w-auto max-w-[135%] object-contain object-right-bottom"
-                    />
-                  </div>
-                  <div
-                    className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-panel from-35% via-panel/85 to-transparent"
-                    aria-hidden
-                  />
-                </>
-              )}
+            <HeroProfileHeader
+              className="-mx-2 sm:mx-0"
+              heroId={heroId}
+              nameHtml={heroNameHtml}
+              quality={Number(hero.quality ?? 0)}
+              camp={Number(hero.camp ?? 0)}
+              stance={Number(hero.stance ?? 0)}
+              damagetype={Number(hero.damagetype ?? 0)}
+              occupation={Number(hero.occupation ?? 0)}
+              typeMap={typeMap}
+              getT={getT}
+              iconMap={headerIconMap}
+            >
+              {tagChips.length > 0 ? (
+                <ul className="hero-profile-tags">
+                  {tagChips.map((tag) => (
+                    <li key={tag} className="hero-profile-tag">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
 
-              <div className="relative z-10 px-4 py-4 sm:px-7 sm:py-5">
-                <div className="hero-profile-header__row">
-                  {hasHeadIcon && (
-                    <GameImage
-                      src={headIconUrl}
-                      alt={getT(roleName)}
-                      className="hero-profile-head"
-                    />
-                  )}
-
-                  <div className="hero-profile-header__body">
-                    <div className="hero-profile-header__topline">
-                      {qualityIconSrc ? (
-                        <GameImage
-                          src={qualityIconSrc}
-                          alt={qualityLabel || t(UI_KEYS.common.quality)}
-                          title={qualityLabel || undefined}
-                          className={`hero-profile-quality ${qualityIconClass}`.trim()}
-                        />
-                      ) : null}
-                      <span className="hero-profile-header__id">ID {hero.id}</span>
-                    </div>
-                    <h1
-                      className="hero-profile-header__name font-display"
-                      dangerouslySetInnerHTML={{ __html: heroNameHtml }}
-                    />
-
-                    {metaIcons.length > 0 ? (
-                      <ul className="hero-profile-meta" aria-label={t(UI_KEYS.common.detail)}>
-                        {metaIcons.map((icon) => (
-                          <li key={icon.key}>
-                            <GameImage
-                              src={icon.src}
-                              alt={icon.label}
-                              title={icon.label}
-                              className="hero-profile-meta__icon"
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-
-                    {tagChips.length > 0 ? (
-                      <ul className="hero-profile-tags">
-                        {tagChips.map((tag) => (
-                          <li key={tag} className="hero-profile-tag">
-                            {tag}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
-                  </div>
-                </div>
-              </div>
-            </section>
+              <Link
+                href={localized(`/stage-up?hero=${heroId}`)}
+                className="hero-profile-stage-up"
+              >
+                {t(UI_KEYS.nav.stageUp)}
+              </Link>
+            </HeroProfileHeader>
           }
         >
           <HeroTabsContainer

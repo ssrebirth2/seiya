@@ -61,6 +61,7 @@ export const SITE_NAV_ICONS = {
   '/force-cards': 'forceCards',
   '/items': 'bag',
   '/team-builder': 'teamBuilder',
+  '/stage-up': 'heroes',
 } as const satisfies Record<string, FunOpenIconKey>
 
 export function iconKeyForHref(href: string): FunOpenIconKey | undefined {

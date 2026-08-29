@@ -1,3 +1,4 @@
+import { consumeRefKey } from '@/lib/game/consume-ref-key'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import type { HeroTalentsData } from '@/lib/game/talent-types'
 import { loadHeroTalents } from '@/lib/game/load-hero-talents'
@@ -37,9 +38,7 @@ export interface HeroTalentsBundle {
   consumeRefMap: ConsumeRefMap
 }
 
-export function consumeRefKey(item: ConsumeEntry): string {
-  return `${item.type ?? 'prop'}:${item.sid ?? 0}`
-}
+export { consumeRefKey }
 
 function collectAllConsumes(data: HeroTalentsData): ConsumeEntry[] {
   const out: ConsumeEntry[] = []
