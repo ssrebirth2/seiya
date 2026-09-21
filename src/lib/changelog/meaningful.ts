@@ -72,7 +72,7 @@ const INTERNAL_PATCH_FIELDS = new Set([
   'skill_type',
   'skill_condition',
   'sub_skills',
-  'iconpath',
+  // iconpath is meaningful for skill changelog entries
   'skill_quality',
   'nameKey',
   'valueIds',
@@ -80,6 +80,14 @@ const INTERNAL_PATCH_FIELDS = new Set([
   'initial_quality',
   'general_item',
   'consume',
+  // ItemConfig internals — raw ID tuples / bag taxonomy, not patch notes
+  'get_path',
+  'child_type',
+  'type',
+  'compose',
+  'des_value',
+  'isRare',
+  'icon_path',
 ])
 
 const INTERNAL_OBJECT_KEYS = new Set([
@@ -140,6 +148,7 @@ export function isTextChangeField(field: string): boolean {
     field === 'name' ||
     field === 'desc' ||
     field === 'skill_des' ||
+    field === 'iconpath' ||
     field === 'role_introduction' ||
     field === 'role_features' ||
     field.endsWith('.desc') ||
@@ -244,12 +253,8 @@ export function summarizeStructuralChange(
 }
 
 export function stripNoiseChanges(entry: ChangelogEntry): ChangelogEntry | null {
-  // Added skills with no text payload are just an unresolved name (e.g. 闪电光牙).
-  if (
-    entry.action === 'added' &&
-    (entry.entityType === 'skill' || entry.entityType === 'bond') &&
-    !entry.changes?.length
-  ) {
+  // Keep newly added skills even without resolved text (WIP / sneak peek).
+  if (entry.action === 'added' && entry.entityType === 'bond' && !entry.changes?.length) {
     return null
   }
   if (entry.action !== 'updated') return entry

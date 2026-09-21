@@ -126,40 +126,61 @@ export function formatPlainLabel(
 
 /**
  * Carrega valores de SkillValueConfig: { valueId => valores[] }
+ * Chunks `.in()` queries; optional `onChunk` merges as each batch returns (faster UI).
  */
 export async function loadSkillValues(
-  valueIds: (number | string)[]
+  valueIds: (number | string)[],
+  options?: { onChunk?: (partial: Record<number, (string | number)[]>) => void }
 ): Promise<Record<number, (string | number)[]>> {
-  const uniqueIds = Array.from(new Set(valueIds.map(Number))).filter((v) => !Number.isNaN(v))
+  const uniqueIds = Array.from(new Set(valueIds.map(Number))).filter((v) => Number.isFinite(v))
   if (uniqueIds.length === 0) return {}
 
-  const { data, error } = await supabase
-    .from('SkillValueConfig')
-    .select('skillid, show_value')
-    .in('skillid', uniqueIds)
-
-  if (error) {
-    console.error('❌ Erro ao carregar SkillValueConfig:', error.message)
-    return {}
-  }
-
+  const CHUNK = 80
   const result: Record<number, (string | number)[]> = {}
-  for (const row of data || []) {
-    const key = Number(row.skillid)
-    try {
-      const raw = row.show_value
-      let parsed: (string | number)[] = []
 
-      if (typeof raw === 'string') parsed = JSON.parse(raw)
-      else if (Array.isArray(raw)) parsed = raw
-      else if (typeof raw === 'object' && raw !== null) parsed = Object.values(raw)
+  for (let i = 0; i < uniqueIds.length; i += CHUNK) {
+    const chunk = uniqueIds.slice(i, i + CHUNK)
+    const { data, error } = await supabase
+      .from('SkillValueConfig')
+      .select('skillid, show_value')
+      .in('skillid', chunk)
 
-      result[key] = parsed
-    } catch (e) {
-      console.warn(`⚠️ Erro ao processar show_value para valueId ${key}`, e)
-      result[key] = []
+    if (error) {
+      console.error('❌ Erro ao carregar SkillValueConfig:', error.message)
+      continue
     }
+
+    const partial: Record<number, (string | number)[]> = {}
+    for (const row of data || []) {
+      const key = Number(row.skillid)
+      try {
+        const raw = row.show_value
+        let parsed: (string | number)[] = []
+
+        if (typeof raw === 'string') parsed = JSON.parse(raw)
+        else if (Array.isArray(raw)) parsed = raw
+        else if (typeof raw === 'object' && raw !== null) parsed = Object.values(raw)
+
+        // Nested level tables → use first row as flat {0}/{1}/… replacements.
+        if (parsed.length && Array.isArray(parsed[0])) {
+          parsed = (parsed[0] as (string | number)[]).map((v) =>
+            Array.isArray(v) ? String((v as unknown[])[0] ?? '') : v
+          )
+        } else {
+          parsed = parsed.map((v) => (Array.isArray(v) ? String((v as unknown[])[0] ?? '') : v))
+        }
+
+        partial[key] = parsed
+        result[key] = parsed
+      } catch (e) {
+        console.warn(`⚠️ Erro ao processar show_value para valueId ${key}`, e)
+        partial[key] = []
+        result[key] = []
+      }
+    }
+    options?.onChunk?.(partial)
   }
+
   return result
 }
 

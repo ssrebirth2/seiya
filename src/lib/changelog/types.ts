@@ -18,6 +18,7 @@ export type ChangelogEntityType =
   | 'figure'
   | 'hero_star'
   | 'hero_awaken'
+  | 'gallery'
 
 export type LangTextMap = Partial<Record<SiteLangCode, string>> & Record<string, string>
 

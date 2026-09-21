@@ -1,0 +1,1281 @@
+
+=== HERO 1001 skills ===
+  10010 type=1 name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_10010
+  10011 type=1 name=True icon=True des=True name=LC_SKILL_skill_name_10011 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10011
+  10012 type=2 name=True icon=True des=True name=LC_SKILL_skill_name_10012 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10012
+  10013 type=4 name=True icon=True des=True name=LC_SKILL_skill_name_10013 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10013
+  10014 type=8 name=True icon=True des=True name=LC_SKILL_skill_name_10014 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10014
+  10015 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_10015 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10015
+  10016 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_10016 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10016
+
+=== HERO 1021 skills ===
+  10210 type=1 name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_10210
+  10211 type=1 name=True icon=True des=True name=LC_SKILL_skill_name_10211 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10211
+  10212 type=2 name=True icon=True des=True name=LC_SKILL_skill_name_10212 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10212
+  10213 type=8 name=True icon=True des=True name=LC_SKILL_skill_name_10213 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10213
+  10214 type=8 name=True icon=True des=True name=LC_SKILL_skill_name_10214 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10214
+  10215 type=8 name=True icon=True des=True name=LC_SKILL_skill_name_10092 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10215
+  10216 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_10216 path=Textures/Hero/SkillIcon/Texture/SkillIcon_10216
+
+=== HERO 1100 skills ===
+  11000 type=1 name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11000
+  11001 type=1 name=True icon=True des=True name=LC_SKILL_skill_name_11001 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11001
+  11002 type=2 name=True icon=True des=True name=LC_SKILL_skill_name_11002 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11002
+  11003 type=4 name=True icon=True des=True name=LC_SKILL_skill_name_11003 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11003
+  11004 type=4 name=True icon=True des=True name=LC_SKILL_skill_name_11004 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11004
+  11005 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_11005 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11005
+  11006 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_11006 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11006
+
+=== HERO 1136 skills ===
+  11360 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11360
+  11361 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11361
+  11362 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11362
+  11363 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11363
+  11364 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11364
+  11365 type=None name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11365
+  11366 type=3 name=False icon=True des=False name=None path=Textures/Hero/SkillIcon/Texture/SkillIcon_11366
+  11367 type=3 name=True icon=True des=True name=LC_SKILL_skill_name_11367 path=Textures/Hero/SkillIcon/Texture/SkillIcon_11367
+
+=== SLOT 7 (quality skills?) ===
+count 32 all type3? True
+sample [(10097, 'LC_SKILL_skill_name_10097', 'Textures/Hero/SkillIcon/Texture/SkillIcon_66001'), (10117, 'LC_SKILL_skill_name_10117', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10117'), (10127, 'LC_SKILL_skill_name_10127', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10127'), (10137, 'LC_SKILL_skill_name_10137', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10137'), (10257, 'LC_SKILL_skill_name_10257', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10257'), (10267, 'LC_SKILL_skill_name_10267', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10267'), (10277, 'LC_SKILL_skill_name_10277', 'Textures/Hero/SkillIcon/Texture/SkillIcon_10277'), (10507, 'LC_SKILL_skill_name_10507', 'Textures/Hero/SkillIcon/Texture/SkillIcon_66001')]
+
+heroes with ALL skill names nil (WIP roster?): 10 [1038, 1045, 1109, 1110, 1111, 1112, 1113, 1114, 1115, 1116]
+
+=== 10xxxx ===
+n 78 range 100511 108960
+parent = id//10 in SkillConfig: {'parent_in_config': 78}
+sample:
+  100511 parent=10051 in=True name=LC_SKILL_skill_name_100511 type=1
+  100811 parent=10081 in=True name=LC_SKILL_skill_name_100811 type=1
+  100841 parent=10084 in=True name=LC_SKILL_skill_name_100841 type=4
+  100851 parent=10085 in=True name=LC_SKILL_skill_name_100851 type=4
+  100911 parent=10091 in=True name=LC_SKILL_skill_name_100911 type=1
+  101121 parent=10112 in=True name=LC_SKILL_skill_name_10112 type=2
+  101141 parent=10114 in=True name=LC_SKILL_skill_name_10013 type=4
+  101331 parent=10133 in=True name=LC_SKILL_skill_name_101331 type=4
+  101332 parent=10133 in=True name=LC_SKILL_skill_name_101332 type=4
+  101333 parent=10133 in=True name=LC_SKILL_skill_name_101333 type=4
+  101334 parent=10133 in=True name=LC_SKILL_skill_name_101334 type=4
+  101335 parent=10133 in=True name=LC_SKILL_skill_name_101335 type=4
+
+=== 11xxxx === 4 [110821, 110831, 110841, 110851]
+
+=== 50xxxx n=2 ===
+  500000 name=LC_SKILL_skill_name_500000 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10011 des=True type=3
+  500001 name=LC_SKILL_skill_name_500001 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10011 des=True type=3
+  named 2 icon 2 des 2
+
+=== 51xxxx n=44 ===
+  510001 name=LC_SKILL_skill_name_510001 icon=Textures/DimensionSpace/Buff/buff_icon_1001 des=True type=3
+  510002 name=LC_SKILL_skill_name_510002 icon=Textures/DimensionSpace/Buff/buff_icon_1002 des=True type=3
+  510003 name=LC_SKILL_skill_name_510003 icon=Textures/DimensionSpace/Buff/buff_icon_1003 des=True type=3
+  510004 name=LC_SKILL_skill_name_510004 icon=Textures/DimensionSpace/Buff/buff_icon_1004 des=True type=3
+  510005 name=LC_SKILL_skill_name_510005 icon=Textures/DimensionSpace/Buff/buff_icon_1005 des=True type=3
+  510006 name=LC_SKILL_skill_name_510006 icon=Textures/DimensionSpace/Buff/buff_icon_1006 des=True type=3
+  ... [510042, 510043, 510044]
+  named 44 icon 44 des 44
+
+=== 52xxxx n=61 ===
+  520001 name=LC_SKILL_skill_name_520001 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10011 des=True type=3
+  520002 name=LC_SKILL_skill_name_520002 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10011 des=True type=3
+  520003 name=None icon=None des=False type=None
+  520004 name=None icon=None des=False type=None
+  520005 name=None icon=None des=False type=None
+  520006 name=None icon=None des=False type=None
+  ... [520059, 520060, 520061]
+  named 2 icon 2 des 2
+
+=== 60xxxx n=2 ===
+  600003 name=LC_SKILL_skill_name_10712 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10712 des=True type=2
+  600010 name=LC_SKILL_skill_name_10062 icon=Textures/Hero/SkillIcon/Texture/SkillIcon_10062 des=True type=2
+  named 2 icon 2 des 2
+
+=== TALENT KEY PATTERN ===
+n keys 1224 sample [100101, 100102, 100103, 100104, 100105, 100106, 100107, 100108, 100109, 100201, 100202, 100203, 100204, 100205, 100206, 100207, 100208, 100209, 100301, 100302] ... [113509, 113601, 113602, 113603, 113604, 113605, 113606, 113607, 113608, 113609]
+key//100, key%100 sample: [(100101, 1001, 1), (100102, 1001, 2), (100103, 1001, 3), (100104, 1001, 4), (100105, 1001, 5), (100106, 1001, 6), (100107, 1001, 7), (100108, 1001, 8), (100109, 1001, 9), (100201, 1002, 1), (100202, 1002, 2), (100203, 1002, 3), (100204, 1002, 4), (100205, 1002, 5), (100206, 1002, 6)]
+talent keys in SkillConfig: 3 / 1224
+1M+ %100: [(4, 544), (10, 2), (0, 1), (20, 1), (30, 1), (40, 1)]
+1M+ //100 unique (hero-ish): 546
+1M+ //1000 sample: [1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020, 1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030]
+related to 1001: [1001304, 1001404, 1001504, 1001604]
+1001xxx: [1001304, 1001404, 1001504, 1001604]
+1M+ = parentSkill*100 + xx; parent in SkillConfig: 550 / 550
+suffixes: Counter({4: 544, 10: 2, 0: 1, 20: 1, 30: 1, 40: 1})
+bad sample: []
+1M+ parent slots: {'hero_slot_3': 137, 'hero_slot_4': 136, 'hero_slot_5': 136, 'hero_slot_6': 136, 'hero_slot_2': 5}
+
+=== 8xxxx detail ===
+subranges: Counter({84: 190, 81: 39, 80: 26, 85: 26, 83: 14, 89: 8})
+84000-84999: 190
+sample 80: [80001, 80002, 80003, 80004, 80005, 80006, 80007, 80008, 80009, 80010]
+sample 84: [84001, 84002, 84003, 84004, 84005, 84006, 84007, 84008, 84009, 84010, 84011, 84012, 84013, 84014, 84015]
+sample 89: [89901, 89902, 89903, 89904, 89905, 89906, 89998, 89999]
+
+=== 6xxxx awaken ===
+subranges: Counter({60: 110, 65: 25, 61: 17, 66: 8, 67: 4})
+sample with names:
+  60001 None icon=None
+  60002 None icon=None
+  60003 None icon=None
+  60004 None icon=None
+  60005 None icon=None
+  60006 None icon=None
+  60007 None icon=None
+  60008 None icon=None
+awaken icon_only WIP: [60250, 60340, 60350, 60380, 60410, 60420, 60450, 60460, 60800, 60810, 60820, 60860, 61060, 61070, 61090]
+
+=== 7xxxx combo ===
+  relation 70001 -> skill_id 70001 in_cfg=True type_field=1
+  relation 70002 -> skill_id 70002 in_cfg=True type_field=1
+  relation 70003 -> skill_id 70003 in_cfg=True type_field=1
+  relation 70004 -> skill_id 70004 in_cfg=True type_field=1
+  relation 70005 -> skill_id 70005 in_cfg=True type_field=1
+  relation 70006 -> skill_id 70006 in_cfg=True type_field=1
+  relation 70008 -> skill_id 70008 in_cfg=True type_field=1
+  relation 70009 -> skill_id 70009 in_cfg=True type_field=1
+
+=== FORCE 9xxxx ===
+all name nil? True
+all icon nil? True
+all des present? True
+skill_types: Counter({6: 165})
+subranges: Counter({93: 88, 92: 44, 91: 24, 90: 9})
+
+=== SYSTEM 5xxxx ===
+subranges: Counter({50: 391, 53: 82, 51: 10})
+named 238
+icon 33
+  named+icon 50001 LC_SKILL_skill_name_50001 Textures/Hero/SkillIcon/Texture/SkillIcon_50001
+iconpath kinds: {'SkillIcon': 33, 'nil': 450}
+
+=== ARTIFACT ===
+ids: [400100, 400200, 400300, 400400, 400500, 400600, 400700, 400800, 400900, 401000, 401100, 401200, 401300, 401400, 401500, 401600, 401700, 401800, 401900, 402000, 402100, 402200, 402300, 402400, 402500, 402600, 402700, 402800, 402900, 403000, 403100, 403200, 403300, 404100]
+all end with 00? True
+
+=== SPIRIT ===
+ids: [820100, 820200, 820300, 820400, 820500, 820600, 820700, 820800, 820900, 821000, 821100, 821200, 821300, 821400, 821500, 821600, 821700, 821800, 821900, 822000, 822100, 822200, 822300, 822400]
+step 100? True
+
+=== STREAMING ICONS ===
+stream dir exists True C:\rb2\assets\StreamingResources\textures\hero\skillicon
+  skillbanner dir
+  skillbanner\superskill_10010.assetbundle file
+  skillbanner\superskill_10011.assetbundle file
+  skillbanner\superskill_10060.assetbundle file
+  skillbanner\superskill_10070.assetbundle file
+  skillbanner\superskill_10100.assetbundle file
+  skillbanner\superskill_10230_enemy.assetbundle file
+  skillbanner\superskill_10250_enemy.assetbundle file
+  skillbanner\superskill_10260_enemy.assetbundle file
+  skillbanner\superskill_10270_enemy.assetbundle file
+  skillbanner\superskill_10280_enemy.assetbundle file
+  skillbanner\superskill_10290_enemy.assetbundle file
+  skillbanner\superskill_10370_enemy.assetbundle file
+  skillbanner\superskill_10500.assetbundle file
+  skillbanner\superskill_10710.assetbundle file
+  skillbannername dir
+  skillbannername\cn dir
+  skillbannername\cn\superskillname_10012.assetbundle file
+  skillbannername\cn\superskillname_10062.assetbundle file
+  skillbannername\cn\superskillname_10232_enemy.assetbundle file
+  skillbannername\cn\superskillname_10252_enemy.assetbundle file
+  skillbannername\cn\superskillname_10262_enemy.assetbundle file
+  skillbannername\cn\superskillname_10372_enemy.assetbundle file
+  skillbannername\cn\superskillname_10712.assetbundle file
+  texture dir
+  texture\skillicon_10011.assetbundle file
+  texture\skillicon_10071.assetbundle file
+  texture\skillicon_10111.assetbundle file
+  texture\skillicon_10216.assetbundle file
+  texture\skillicon_10471.assetbundle file
+png count 0
+stream texture SkillIcon_*.png 0
+only in stream not public 0 []
+only in public not stream 1057 [10011, 10012, 10013, 10014, 10015, 10016, 10021, 10022, 10023, 10024, 10025, 10026, 10031, 10032, 10033, 10034, 10035, 10036, 10041, 10042]
+stream icons not in SkillConfig keys 0
+
+=== MISSING PUBLIC FILE BREAKDOWN (SkillIcon_* only) ===
+{'hero_AA': 136, 'hero_other': 195, 'npc': 10, 'awaken': 18, 'other': 5, 'talent': 104, 'talent_display': 116}
+non-SkillIcon iconpaths (common/buff): 119
+AA stubs missing own icon file: 136
+
+=== ORPHAN ICON FILES DETAIL ===
+  file SkillIcon_10011 refs_from_skills=[10011, 500000, 500001, 520001, 520002] nrefs=5
+  file SkillIcon_10012 refs_from_skills=[10012] nrefs=1
+  file SkillIcon_10013 refs_from_skills=[10013, 1001304] nrefs=2
+  file SkillIcon_10014 refs_from_skills=[10014, 1001404] nrefs=2
+  file SkillIcon_10015 refs_from_skills=[10015, 1001504] nrefs=2
+  file SkillIcon_10016 refs_from_skills=[10016, 1001604] nrefs=2
+  file SkillIcon_10021 refs_from_skills=[10021] nrefs=1
+  file SkillIcon_10022 refs_from_skills=[10022, 81000, 81001, 81003, 81004, 81006, 81007, 81009] nrefs=23
+  file SkillIcon_10023 refs_from_skills=[10023, 1002304] nrefs=2
+  file SkillIcon_10024 refs_from_skills=[10024, 1002404] nrefs=2
+  file SkillIcon_10025 refs_from_skills=[10025, 1002504] nrefs=2
+  file SkillIcon_10026 refs_from_skills=[10026, 1002604] nrefs=2
+  file SkillIcon_10031 refs_from_skills=[10031] nrefs=1
+  file SkillIcon_10032 refs_from_skills=[10032, 81002, 81014] nrefs=3
+  file SkillIcon_10033 refs_from_skills=[10033, 1003304] nrefs=2
+  file SkillIcon_10034 refs_from_skills=[10034, 1003404] nrefs=2
+  file SkillIcon_10035 refs_from_skills=[10035, 1003504] nrefs=2
+  file SkillIcon_10036 refs_from_skills=[10036, 1003604] nrefs=2
+  file SkillIcon_10041 refs_from_skills=[10041] nrefs=1
+  file SkillIcon_10042 refs_from_skills=[10042, 81005, 81017] nrefs=3
+  file SkillIcon_10043 refs_from_skills=[10043, 1004304] nrefs=2
+  file SkillIcon_10044 refs_from_skills=[10044, 1004404] nrefs=2
+  file SkillIcon_10045 refs_from_skills=[10045, 1004504] nrefs=2
+  file SkillIcon_10046 refs_from_skills=[10046, 1004604] nrefs=2
+  file SkillIcon_10051 refs_from_skills=[10051, 30010, 30011, 30020, 30021, 30240, 30241, 30250] nrefs=12
+  file SkillIcon_10052 refs_from_skills=[10052, 30012, 30022, 30242, 30252, 30262, 81008, 81020] nrefs=10
+  file SkillIcon_10053 refs_from_skills=[10053, 30013, 30023, 30243, 30253, 30263, 1005304] nrefs=7
+  file SkillIcon_10054 refs_from_skills=[10054, 30015, 30025, 30245, 30255, 30265, 1005404] nrefs=7
+  file SkillIcon_10055 refs_from_skills=[10055, 30014, 30024, 30244, 30254, 30264, 1005504] nrefs=7
+  file SkillIcon_10056 refs_from_skills=[10056, 30016, 30026, 30246, 30256, 30266, 1005604] nrefs=7
+  file SkillIcon_10061 refs_from_skills=[10061] nrefs=1
+  file SkillIcon_10062 refs_from_skills=[10062, 81011, 81023, 81032, 600010] nrefs=5
+  file SkillIcon_10063 refs_from_skills=[10063, 50041, 50043, 50050, 50052, 50054, 50056, 1006304] nrefs=8
+  file SkillIcon_10064 refs_from_skills=[10064, 1006404] nrefs=2
+  file SkillIcon_10065 refs_from_skills=[10065, 50042, 50044, 50051, 50053, 50055, 50057, 50058] nrefs=9
+  file SkillIcon_10066 refs_from_skills=[10066, 1006604] nrefs=2
+  file SkillIcon_10071 refs_from_skills=[10071] nrefs=1
+  file SkillIcon_10072 refs_from_skills=[10072] nrefs=1
+  file SkillIcon_10073 refs_from_skills=[10073, 1007304] nrefs=2
+  file SkillIcon_10074 refs_from_skills=[10074, 1007404] nrefs=2
+  file SkillIcon_10075 refs_from_skills=[10075, 1007504] nrefs=2
+  file SkillIcon_10076 refs_from_skills=[10076, 84006, 1007604] nrefs=3
+  file SkillIcon_10081 refs_from_skills=[10081, 100811] nrefs=2
+  file SkillIcon_10082 refs_from_skills=[10082] nrefs=1
+  file SkillIcon_10083 refs_from_skills=[10083, 1008304] nrefs=2
+  file SkillIcon_10084 refs_from_skills=[10084, 100841, 1008404] nrefs=3
+  file SkillIcon_10085 refs_from_skills=[10085, 100851, 1008504] nrefs=3
+  file SkillIcon_10086 refs_from_skills=[10086, 84012, 1008604] nrefs=3
+  file SkillIcon_10091 refs_from_skills=[10091, 100911] nrefs=2
+  file SkillIcon_10092 refs_from_skills=[10092] nrefs=1
+  file SkillIcon_10093 refs_from_skills=[10093, 1009304] nrefs=2
+  file SkillIcon_10094 refs_from_skills=[10094, 1009404] nrefs=2
+  file SkillIcon_10095 refs_from_skills=[10095, 1009504] nrefs=2
+  file SkillIcon_10096 refs_from_skills=[10096, 1009604] nrefs=2
+  file SkillIcon_10097 refs_from_skills=[] nrefs=0
+  file SkillIcon_10101 refs_from_skills=[10101] nrefs=1
+  file SkillIcon_10102 refs_from_skills=[10102] nrefs=1
+  file SkillIcon_10103 refs_from_skills=[10103, 1010304] nrefs=2
+  file SkillIcon_10104 refs_from_skills=[10104, 1010404] nrefs=2
+  file SkillIcon_10105 refs_from_skills=[10105, 1010504] nrefs=2
+  file SkillIcon_10106 refs_from_skills=[10106, 84031, 89901, 1010604] nrefs=4
+  file SkillIcon_10111 refs_from_skills=[10111, 89906] nrefs=2
+  file SkillIcon_10112 refs_from_skills=[10112, 101121] nrefs=2
+  file SkillIcon_10113 refs_from_skills=[10113, 1011304] nrefs=2
+  file SkillIcon_10114 refs_from_skills=[10114, 101141, 1011404] nrefs=3
+  file SkillIcon_10115 refs_from_skills=[10115, 1011504] nrefs=2
+  file SkillIcon_10116 refs_from_skills=[10116, 1011604] nrefs=2
+  file SkillIcon_10117 refs_from_skills=[10117] nrefs=1
+  file SkillIcon_10121 refs_from_skills=[10121] nrefs=1
+  file SkillIcon_10122 refs_from_skills=[10122] nrefs=1
+  file SkillIcon_10123 refs_from_skills=[10123, 1012304] nrefs=2
+  file SkillIcon_10124 refs_from_skills=[10124, 1012404] nrefs=2
+  file SkillIcon_10125 refs_from_skills=[10125, 1012504] nrefs=2
+  file SkillIcon_10126 refs_from_skills=[10126, 1012604] nrefs=2
+  file SkillIcon_10127 refs_from_skills=[10127] nrefs=1
+  file SkillIcon_10131 refs_from_skills=[10131, 30070, 30071, 30080, 30081] nrefs=5
+  file SkillIcon_10132 refs_from_skills=[10132, 30072, 30082] nrefs=3
+  file SkillIcon_10133 refs_from_skills=[10133, 30073, 30083, 101331, 101332, 101333, 101334, 101335] nrefs=14
+  file SkillIcon_10134 refs_from_skills=[10134, 30074, 30084, 101341, 1013404] nrefs=5
+  file SkillIcon_10135 refs_from_skills=[10135, 30075, 30085, 101351, 1013504] nrefs=5
+  file SkillIcon_10136 refs_from_skills=[10136, 30076, 30086, 101361, 1013604] nrefs=5
+  file SkillIcon_10137 refs_from_skills=[10137] nrefs=1
+  file SkillIcon_10141 refs_from_skills=[10141] nrefs=1
+  file SkillIcon_10142 refs_from_skills=[10142] nrefs=1
+  file SkillIcon_10143 refs_from_skills=[10143, 1014304] nrefs=2
+  file SkillIcon_10144 refs_from_skills=[10144, 1014404] nrefs=2
+  file SkillIcon_10145 refs_from_skills=[10145, 1014504] nrefs=2
+  file SkillIcon_10146 refs_from_skills=[10146, 1014604] nrefs=2
+  file SkillIcon_10151 refs_from_skills=[10151, 30811] nrefs=2
+  file SkillIcon_10152 refs_from_skills=[10152, 30812] nrefs=2
+  file SkillIcon_10153 refs_from_skills=[10153, 30813, 1015304] nrefs=3
+  file SkillIcon_10154 refs_from_skills=[10154, 30814, 1015404] nrefs=3
+  file SkillIcon_10155 refs_from_skills=[10155, 30815, 1015504] nrefs=3
+  file SkillIcon_10156 refs_from_skills=[10156, 30816, 30826, 30836, 1015604] nrefs=5
+  file SkillIcon_10161 refs_from_skills=[10161, 30871] nrefs=2
+  file SkillIcon_10162 refs_from_skills=[10162, 30872, 1016200] nrefs=3
+  file SkillIcon_10163 refs_from_skills=[10163, 30873, 1016304] nrefs=3
+  file SkillIcon_10164 refs_from_skills=[10164, 30874, 1016404] nrefs=3
+  file SkillIcon_10165 refs_from_skills=[10165, 30875, 1016504] nrefs=3
+  file SkillIcon_10166 refs_from_skills=[10166, 30876, 30886, 30896, 1016604] nrefs=5
+  file SkillIcon_10171 refs_from_skills=[10171] nrefs=1
+  file SkillIcon_10172 refs_from_skills=[10172] nrefs=1
+  file SkillIcon_10173 refs_from_skills=[10173, 1017304] nrefs=2
+  file SkillIcon_10174 refs_from_skills=[10174, 1017404] nrefs=2
+  file SkillIcon_10175 refs_from_skills=[10175, 1017504] nrefs=2
+  file SkillIcon_10176 refs_from_skills=[10176, 1017604] nrefs=2
+  file SkillIcon_10181 refs_from_skills=[10181, 30841] nrefs=2
+  file SkillIcon_10182 refs_from_skills=[10182, 30842] nrefs=2
+  file SkillIcon_10183 refs_from_skills=[10183, 30843, 101831, 101832, 1018304] nrefs=5
+  file SkillIcon_10184 refs_from_skills=[10184, 30844, 101841, 101842, 1018404] nrefs=5
+  file SkillIcon_10185 refs_from_skills=[10185, 30845, 101851, 101852, 1018504] nrefs=5
+  file SkillIcon_10186 refs_from_skills=[10186, 30846, 30856, 30866, 101861, 1018604] nrefs=6
+  file SkillIcon_10191 refs_from_skills=[10191, 30901] nrefs=2
+  file SkillIcon_10192 refs_from_skills=[10192, 30902] nrefs=2
+  file SkillIcon_10193 refs_from_skills=[10193, 30903, 1019304] nrefs=3
+  file SkillIcon_10194 refs_from_skills=[10194, 30904, 1019404] nrefs=3
+  file SkillIcon_10195 refs_from_skills=[10195, 30905, 1019504] nrefs=3
+  file SkillIcon_10196 refs_from_skills=[10196, 30906, 30916, 30926, 1019604] nrefs=5
+  file SkillIcon_10201 refs_from_skills=[10201, 30931, 102031] nrefs=3
+  file SkillIcon_10202 refs_from_skills=[10202, 30932] nrefs=2
+  file SkillIcon_10203 refs_from_skills=[10203, 30933, 1020304] nrefs=3
+  file SkillIcon_10204 refs_from_skills=[10204, 30934, 102041, 1020404] nrefs=4
+  file SkillIcon_10205 refs_from_skills=[10205, 30935, 102051, 1020504] nrefs=4
+  file SkillIcon_10206 refs_from_skills=[10206, 30936, 30946, 30956, 1020604] nrefs=5
+  file SkillIcon_10211 refs_from_skills=[10211, 30961] nrefs=2
+  file SkillIcon_10212 refs_from_skills=[10212, 30962] nrefs=2
+  file SkillIcon_10213 refs_from_skills=[10213, 30963, 1021304] nrefs=3
+  file SkillIcon_10214 refs_from_skills=[10214, 30964, 1021404] nrefs=3
+  file SkillIcon_10215 refs_from_skills=[10215, 30965, 1021504] nrefs=3
+  file SkillIcon_10216 refs_from_skills=[10216, 30966, 30976, 30986, 1021604] nrefs=5
+  file SkillIcon_10221 refs_from_skills=[10221] nrefs=1
+  file SkillIcon_10222 refs_from_skills=[10222] nrefs=1
+  file SkillIcon_10223 refs_from_skills=[10223, 1022304] nrefs=2
+  file SkillIcon_10224 refs_from_skills=[10224, 1022404] nrefs=2
+  file SkillIcon_10225 refs_from_skills=[10225, 84063, 1022504] nrefs=3
+  file SkillIcon_10226 refs_from_skills=[10226, 1022604] nrefs=2
+  file SkillIcon_10231 refs_from_skills=[10231] nrefs=1
+  file SkillIcon_10232 refs_from_skills=[10232] nrefs=1
+  file SkillIcon_10233 refs_from_skills=[10233, 1023304] nrefs=2
+  file SkillIcon_10234 refs_from_skills=[10234, 1023404] nrefs=2
+  file SkillIcon_10235 refs_from_skills=[10235, 1023504] nrefs=2
+  file SkillIcon_10236 refs_from_skills=[10236, 1023604] nrefs=2
+  file SkillIcon_10241 refs_from_skills=[10241] nrefs=1
+  file SkillIcon_10242 refs_from_skills=[10242] nrefs=1
+  file SkillIcon_10243 refs_from_skills=[10243, 1024304] nrefs=2
+  file SkillIcon_10244 refs_from_skills=[10244, 1024404] nrefs=2
+  file SkillIcon_10245 refs_from_skills=[10245, 1024504] nrefs=2
+  file SkillIcon_10246 refs_from_skills=[10246, 1024604] nrefs=2
+  file SkillIcon_10251 refs_from_skills=[10251, 31000, 31001, 31010, 31011] nrefs=5
+  file SkillIcon_10252 refs_from_skills=[10252, 31002, 31012, 102521] nrefs=4
+  file SkillIcon_10253 refs_from_skills=[10253, 31003, 31013, 1025304] nrefs=4
+  file SkillIcon_10254 refs_from_skills=[10254, 31004, 31014, 1025404] nrefs=4
+  file SkillIcon_10255 refs_from_skills=[10255, 31005, 31015, 1025504] nrefs=4
+  file SkillIcon_10256 refs_from_skills=[10256, 31006, 31016, 1025604] nrefs=4
+  file SkillIcon_10261 refs_from_skills=[10261, 22261, 30301, 30311, 30321, 50059] nrefs=6
+  file SkillIcon_10262 refs_from_skills=[10262, 22262, 30302, 30312, 30322] nrefs=5
+  file SkillIcon_10263 refs_from_skills=[10263, 22263, 30303, 30313, 30323, 102631, 102632, 102633] nrefs=11
+  file SkillIcon_10264 refs_from_skills=[10264, 22264, 30304, 30314, 30324, 102641, 102642, 102643] nrefs=11
+  file SkillIcon_10265 refs_from_skills=[10265, 22265, 30305, 30315, 30325, 1026504] nrefs=6
+  file SkillIcon_10266 refs_from_skills=[10266, 22266, 30306, 30316, 30326, 1026604] nrefs=6
+  file SkillIcon_10267 refs_from_skills=[10267] nrefs=1
+  file SkillIcon_10271 refs_from_skills=[10271, 22271, 30331, 30341, 30351] nrefs=5
+  file SkillIcon_10272 refs_from_skills=[10272, 22272, 30332, 30342, 30352] nrefs=5
+  file SkillIcon_10273 refs_from_skills=[10273, 22273, 30333, 30343, 30353, 1027304] nrefs=6
+  file SkillIcon_10274 refs_from_skills=[10274, 22274, 30334, 30344, 30354, 1027404] nrefs=6
+  file SkillIcon_10275 refs_from_skills=[10275, 22275, 30335, 30345, 30355, 1027504] nrefs=6
+  file SkillIcon_10276 refs_from_skills=[10276, 22276, 30336, 30346, 30356, 1027604] nrefs=6
+  file SkillIcon_10277 refs_from_skills=[10277] nrefs=1
+  file SkillIcon_10281 refs_from_skills=[10281, 22281] nrefs=2
+  file SkillIcon_10282 refs_from_skills=[10282, 22282] nrefs=2
+  file SkillIcon_10283 refs_from_skills=[10283, 22283, 1028304] nrefs=3
+  file SkillIcon_10284 refs_from_skills=[10284, 22284, 102841, 1028404] nrefs=4
+  file SkillIcon_10285 refs_from_skills=[10285, 22285, 1028504] nrefs=3
+  file SkillIcon_10286 refs_from_skills=[10286, 22286, 1028604] nrefs=3
+  file SkillIcon_10291 refs_from_skills=[10291, 22291] nrefs=2
+  file SkillIcon_10292 refs_from_skills=[10292, 22292, 102924] nrefs=3
+  file SkillIcon_10293 refs_from_skills=[10293, 22293, 1029304] nrefs=3
+  file SkillIcon_10294 refs_from_skills=[10294, 22294, 1029404] nrefs=3
+  file SkillIcon_10295 refs_from_skills=[10295, 22295, 1029504] nrefs=3
+  file SkillIcon_10296 refs_from_skills=[10296, 22296, 102961, 1029604] nrefs=4
+  file SkillIcon_10301 refs_from_skills=[10301] nrefs=1
+  file SkillIcon_10302 refs_from_skills=[10302] nrefs=1
+  file SkillIcon_10303 refs_from_skills=[10303, 1030304] nrefs=2
+  file SkillIcon_10304 refs_from_skills=[10304, 1030404] nrefs=2
+  file SkillIcon_10305 refs_from_skills=[10305, 103051, 1030504] nrefs=3
+  file SkillIcon_10306 refs_from_skills=[10306, 1030604] nrefs=2
+  file SkillIcon_10311 refs_from_skills=[10311] nrefs=1
+  file SkillIcon_10312 refs_from_skills=[10312] nrefs=1
+  file SkillIcon_10313 refs_from_skills=[10313, 1031304] nrefs=2
+  file SkillIcon_10314 refs_from_skills=[10314, 1031404] nrefs=2
+  file SkillIcon_10315 refs_from_skills=[10315, 1031504] nrefs=2
+  file SkillIcon_10316 refs_from_skills=[10316, 1031604] nrefs=2
+  file SkillIcon_10321 refs_from_skills=[10321] nrefs=1
+  file SkillIcon_10322 refs_from_skills=[10322] nrefs=1
+  file SkillIcon_10323 refs_from_skills=[10323, 1032304] nrefs=2
+  file SkillIcon_10324 refs_from_skills=[10324, 1032404] nrefs=2
+  file SkillIcon_10325 refs_from_skills=[10325, 1032504] nrefs=2
+  file SkillIcon_10326 refs_from_skills=[10326, 1032604] nrefs=2
+  file SkillIcon_10331 refs_from_skills=[10331, 31021] nrefs=2
+  file SkillIcon_10332 refs_from_skills=[10332, 31022, 103321] nrefs=3
+  file SkillIcon_10333 refs_from_skills=[10333, 31023, 1033304] nrefs=3
+  file SkillIcon_10334 refs_from_skills=[10334, 31024, 1033404] nrefs=3
+  file SkillIcon_10335 refs_from_skills=[10335, 31025, 1033504] nrefs=3
+  file SkillIcon_10336 refs_from_skills=[10336, 31026, 31036, 31046, 1033604] nrefs=5
+  file SkillIcon_10341 refs_from_skills=[10341] nrefs=1
+  file SkillIcon_10342 refs_from_skills=[10342] nrefs=1
+  file SkillIcon_10343 refs_from_skills=[10343, 1034304] nrefs=2
+  file SkillIcon_10344 refs_from_skills=[10344, 1034404] nrefs=2
+  file SkillIcon_10345 refs_from_skills=[10345, 1034504] nrefs=2
+  file SkillIcon_10346 refs_from_skills=[10346, 1034604] nrefs=2
+  file SkillIcon_10351 refs_from_skills=[10351] nrefs=1
+  file SkillIcon_10352 refs_from_skills=[10352] nrefs=1
+  file SkillIcon_10353 refs_from_skills=[10353, 1035304] nrefs=2
+  file SkillIcon_10354 refs_from_skills=[10354, 1035404] nrefs=2
+  file SkillIcon_10355 refs_from_skills=[10355, 1035504] nrefs=2
+  file SkillIcon_10356 refs_from_skills=[10356, 1035604] nrefs=2
+  file SkillIcon_10361 refs_from_skills=[10361, 31111] nrefs=2
+  file SkillIcon_10362 refs_from_skills=[10362, 31112] nrefs=2
+  file SkillIcon_10363 refs_from_skills=[10363, 31113, 1036304] nrefs=3
+  file SkillIcon_10364 refs_from_skills=[10364, 31114, 1036404] nrefs=3
+  file SkillIcon_10365 refs_from_skills=[10365, 31115, 1036504] nrefs=3
+  file SkillIcon_10366 refs_from_skills=[10366, 31116, 31126, 31136, 1036604] nrefs=5
+  file SkillIcon_10371 refs_from_skills=[10371] nrefs=1
+  file SkillIcon_10372 refs_from_skills=[10372] nrefs=1
+  file SkillIcon_10373 refs_from_skills=[10373, 1037304] nrefs=2
+  file SkillIcon_10374 refs_from_skills=[10374, 1037404] nrefs=2
+  file SkillIcon_10375 refs_from_skills=[10375, 1037504] nrefs=2
+  file SkillIcon_10376 refs_from_skills=[10376, 1037604] nrefs=2
+  file SkillIcon_10381 refs_from_skills=[10381] nrefs=1
+  file SkillIcon_10382 refs_from_skills=[10382] nrefs=1
+  file SkillIcon_10383 refs_from_skills=[10383, 1038304] nrefs=2
+  file SkillIcon_10384 refs_from_skills=[10384, 1038404] nrefs=2
+  file SkillIcon_10385 refs_from_skills=[10385, 1038504] nrefs=2
+  file SkillIcon_10386 refs_from_skills=[10386, 1038604] nrefs=2
+  file SkillIcon_10391 refs_from_skills=[10391] nrefs=1
+  file SkillIcon_10392 refs_from_skills=[10392] nrefs=1
+  file SkillIcon_10393 refs_from_skills=[10393, 1039304] nrefs=2
+  file SkillIcon_10394 refs_from_skills=[10394, 81033, 81034, 81035, 1039404] nrefs=5
+  file SkillIcon_10395 refs_from_skills=[10395, 1039504] nrefs=2
+  file SkillIcon_10396 refs_from_skills=[10396, 1039604] nrefs=2
+  file SkillIcon_10401 refs_from_skills=[10401] nrefs=1
+  file SkillIcon_10402 refs_from_skills=[10402] nrefs=1
+  file SkillIcon_10403 refs_from_skills=[10403, 1040304] nrefs=2
+  file SkillIcon_10404 refs_from_skills=[10404, 1040404] nrefs=2
+  file SkillIcon_10405 refs_from_skills=[10405, 1040504] nrefs=2
+  file SkillIcon_10406 refs_from_skills=[10406, 1040604] nrefs=2
+  file SkillIcon_10411 refs_from_skills=[10411] nrefs=1
+  file SkillIcon_10412 refs_from_skills=[10412] nrefs=1
+  file SkillIcon_10413 refs_from_skills=[10413, 1041304] nrefs=2
+  file SkillIcon_10414 refs_from_skills=[10414, 1041404] nrefs=2
+  file SkillIcon_10415 refs_from_skills=[10415, 1041504] nrefs=2
+  file SkillIcon_10416 refs_from_skills=[10416, 81036, 81037, 81038, 1041604] nrefs=5
+  file SkillIcon_10421 refs_from_skills=[10421] nrefs=1
+  file SkillIcon_10422 refs_from_skills=[10422] nrefs=1
+  file SkillIcon_10423 refs_from_skills=[10423, 1042304] nrefs=2
+  file SkillIcon_10424 refs_from_skills=[10424, 1042404] nrefs=2
+  file SkillIcon_10425 refs_from_skills=[10425, 1042504] nrefs=2
+  file SkillIcon_10426 refs_from_skills=[10426, 1042604] nrefs=2
+  file SkillIcon_10431 refs_from_skills=[10431, 30721] nrefs=2
+  file SkillIcon_10432 refs_from_skills=[10432, 30722, 104320] nrefs=3
+  file SkillIcon_10433 refs_from_skills=[10433, 30723, 1043304] nrefs=3
+  file SkillIcon_10434 refs_from_skills=[10434, 30724, 1043404] nrefs=3
+  file SkillIcon_10435 refs_from_skills=[10435, 30725, 1043504] nrefs=3
+  file SkillIcon_10436 refs_from_skills=[10436, 30726, 30736, 30746, 1043604] nrefs=5
+  file SkillIcon_10441 refs_from_skills=[10441] nrefs=1
+  file SkillIcon_10442 refs_from_skills=[10442] nrefs=1
+  file SkillIcon_10443 refs_from_skills=[10443, 1044304] nrefs=2
+  file SkillIcon_10444 refs_from_skills=[10444, 1044404] nrefs=2
+  file SkillIcon_10445 refs_from_skills=[10445, 1044504] nrefs=2
+  file SkillIcon_10446 refs_from_skills=[10446, 1044604] nrefs=2
+  file SkillIcon_10461 refs_from_skills=[10461] nrefs=1
+  file SkillIcon_10462 refs_from_skills=[10462] nrefs=1
+  file SkillIcon_10463 refs_from_skills=[10463, 1046304] nrefs=2
+  file SkillIcon_10464 refs_from_skills=[10464, 1046404] nrefs=2
+  file SkillIcon_10465 refs_from_skills=[10465, 1046504] nrefs=2
+  file SkillIcon_10466 refs_from_skills=[10466, 1046604] nrefs=2
+  file SkillIcon_10471 refs_from_skills=[10471, 31051] nrefs=2
+  file SkillIcon_10472 refs_from_skills=[10472, 31052] nrefs=2
+  file SkillIcon_10473 refs_from_skills=[10473, 31053, 1047304] nrefs=3
+  file SkillIcon_10474 refs_from_skills=[10474, 31054, 1047404] nrefs=3
+  file SkillIcon_10475 refs_from_skills=[10475, 31055, 1047504] nrefs=3
+  file SkillIcon_10476 refs_from_skills=[10476, 31056, 31066, 31076, 1047604] nrefs=5
+  file SkillIcon_10481 refs_from_skills=[10481] nrefs=1
+  file SkillIcon_10482 refs_from_skills=[10482] nrefs=1
+  file SkillIcon_10483 refs_from_skills=[10483, 1048304] nrefs=2
+  file SkillIcon_10484 refs_from_skills=[10484, 1048404] nrefs=2
+  file SkillIcon_10485 refs_from_skills=[10485, 1048504] nrefs=2
+  file SkillIcon_10486 refs_from_skills=[10486, 84024, 1048604] nrefs=3
+  file SkillIcon_10491 refs_from_skills=[10491, 104911, 104912, 104961, 104962] nrefs=5
+  file SkillIcon_10492 refs_from_skills=[10492] nrefs=1
+  file SkillIcon_10493 refs_from_skills=[10493, 84033, 1049304] nrefs=3
+  file SkillIcon_10494 refs_from_skills=[10494, 1049404] nrefs=2
+  file SkillIcon_10495 refs_from_skills=[10495, 1049504] nrefs=2
+  file SkillIcon_10496 refs_from_skills=[10496, 1049604] nrefs=2
+  file SkillIcon_10501 refs_from_skills=[10501, 22211] nrefs=2
+  file SkillIcon_10502 refs_from_skills=[10502, 22212] nrefs=2
+  file SkillIcon_10503 refs_from_skills=[10503, 22213, 105031, 105032, 105033, 1050304] nrefs=6
+  file SkillIcon_10504 refs_from_skills=[10504, 22214, 105041, 105042, 105043, 1050404] nrefs=6
+  file SkillIcon_10505 refs_from_skills=[10505, 22215, 1050504] nrefs=3
+  file SkillIcon_10506 refs_from_skills=[10506, 22216, 1050604] nrefs=3
+  file SkillIcon_10511 refs_from_skills=[10511] nrefs=1
+  file SkillIcon_10512 refs_from_skills=[10512] nrefs=1
+  file SkillIcon_10513 refs_from_skills=[10513, 1051304] nrefs=2
+  file SkillIcon_10514 refs_from_skills=[10514, 84030, 1051404] nrefs=3
+  file SkillIcon_10515 refs_from_skills=[10515, 1051504] nrefs=2
+  file SkillIcon_10516 refs_from_skills=[10516, 1051604] nrefs=2
+  file SkillIcon_10521 refs_from_skills=[10521] nrefs=1
+  file SkillIcon_10522 refs_from_skills=[10522, 84034] nrefs=2
+  file SkillIcon_10523 refs_from_skills=[10523, 1052304] nrefs=2
+  file SkillIcon_10524 refs_from_skills=[10524, 1052404] nrefs=2
+  file SkillIcon_10525 refs_from_skills=[10525, 1052504] nrefs=2
+  file SkillIcon_10526 refs_from_skills=[10526, 105261, 1052604] nrefs=3
+  file SkillIcon_10531 refs_from_skills=[10531] nrefs=1
+  file SkillIcon_10532 refs_from_skills=[10532, 84062] nrefs=2
+  file SkillIcon_10533 refs_from_skills=[10533, 1053304] nrefs=2
+  file SkillIcon_10534 refs_from_skills=[10534, 1053404] nrefs=2
+  file SkillIcon_10535 refs_from_skills=[10535, 1053504] nrefs=2
+  file SkillIcon_10536 refs_from_skills=[10536, 1053604] nrefs=2
+  file SkillIcon_10541 refs_from_skills=[10541] nrefs=1
+  file SkillIcon_10542 refs_from_skills=[10542] nrefs=1
+  file SkillIcon_10543 refs_from_skills=[10543, 1054304] nrefs=2
+  file SkillIcon_10544 refs_from_skills=[10544, 1054404] nrefs=2
+  file SkillIcon_10545 refs_from_skills=[10545, 84061, 1054504] nrefs=3
+  file SkillIcon_10546 refs_from_skills=[10546, 1054604] nrefs=2
+  file SkillIcon_10551 refs_from_skills=[10551] nrefs=1
+  file SkillIcon_10552 refs_from_skills=[10552] nrefs=1
+  file SkillIcon_10553 refs_from_skills=[10553, 1055304] nrefs=2
+  file SkillIcon_10554 refs_from_skills=[10554, 1055404] nrefs=2
+  file SkillIcon_10555 refs_from_skills=[10555, 1055504] nrefs=2
+  file SkillIcon_10556 refs_from_skills=[10556, 1055604] nrefs=2
+  file SkillIcon_10561 refs_from_skills=[10561] nrefs=1
+  file SkillIcon_10562 refs_from_skills=[10562] nrefs=1
+  file SkillIcon_10563 refs_from_skills=[10563, 1056304] nrefs=2
+  file SkillIcon_10564 refs_from_skills=[10564, 105641, 1056404] nrefs=3
+  file SkillIcon_10565 refs_from_skills=[10565, 1056504] nrefs=2
+  file SkillIcon_10566 refs_from_skills=[10566, 1056604] nrefs=2
+  file SkillIcon_10571 refs_from_skills=[10571, 31081] nrefs=2
+  file SkillIcon_10572 refs_from_skills=[10572, 31082] nrefs=2
+  file SkillIcon_10573 refs_from_skills=[10573, 31083, 1057304] nrefs=3
+  file SkillIcon_10574 refs_from_skills=[10574, 31084, 1057404] nrefs=3
+  file SkillIcon_10575 refs_from_skills=[10575, 31085, 1057504] nrefs=3
+  file SkillIcon_10576 refs_from_skills=[10576, 31086, 31096, 31106, 1057604] nrefs=5
+  file SkillIcon_10581 refs_from_skills=[10581] nrefs=1
+  file SkillIcon_10582 refs_from_skills=[10582] nrefs=1
+  file SkillIcon_10583 refs_from_skills=[10583, 1058304] nrefs=2
+  file SkillIcon_10584 refs_from_skills=[10584, 1058404] nrefs=2
+  file SkillIcon_10585 refs_from_skills=[10585, 1058504] nrefs=2
+  file SkillIcon_10586 refs_from_skills=[10586, 1058604] nrefs=2
+  file SkillIcon_10591 refs_from_skills=[10591, 105901, 105902, 105903] nrefs=4
+  file SkillIcon_10592 refs_from_skills=[10592, 105921, 105922, 105923, 1059210, 1059220, 1059230, 1059240] nrefs=8
+  file SkillIcon_10593 refs_from_skills=[10593, 1059304] nrefs=2
+  file SkillIcon_10594 refs_from_skills=[10594, 105941, 105942, 105943, 105944, 1059404] nrefs=6
+  file SkillIcon_10595 refs_from_skills=[10595, 1059504] nrefs=2
+  file SkillIcon_10596 refs_from_skills=[10596, 1059604] nrefs=2
+  file SkillIcon_10601 refs_from_skills=[10601, 30481, 30491, 30501] nrefs=4
+  file SkillIcon_10602 refs_from_skills=[10602, 30482, 30492, 30502] nrefs=4
+  file SkillIcon_10603 refs_from_skills=[10603, 30483, 30493, 30503, 1060304] nrefs=5
+  file SkillIcon_10604 refs_from_skills=[10604, 30484, 30494, 30504, 1060404] nrefs=5
+  file SkillIcon_10605 refs_from_skills=[10605, 30485, 30495, 30505, 1060504] nrefs=5
+  file SkillIcon_10606 refs_from_skills=[10606, 30486, 30496, 30506, 1060604] nrefs=5
+  file SkillIcon_10611 refs_from_skills=[10611, 30601, 30611, 30621] nrefs=4
+  file SkillIcon_10612 refs_from_skills=[10612, 30602, 30612, 30622] nrefs=4
+  file SkillIcon_10613 refs_from_skills=[10613, 30603, 30613, 30623, 1061304] nrefs=5
+  file SkillIcon_10614 refs_from_skills=[10614, 30604, 30614, 30624, 1061404] nrefs=5
+  file SkillIcon_10615 refs_from_skills=[10615, 30605, 30615, 30625, 1061504] nrefs=5
+  file SkillIcon_10616 refs_from_skills=[10616, 30606, 30616, 30626, 1061604] nrefs=5
+  file SkillIcon_10621 refs_from_skills=[10621, 30631] nrefs=2
+  file SkillIcon_10622 refs_from_skills=[10622, 30632] nrefs=2
+  file SkillIcon_10623 refs_from_skills=[10623, 30633, 106231, 106232, 1062304] nrefs=5
+  file SkillIcon_10624 refs_from_skills=[10624, 30634, 1062404] nrefs=3
+  file SkillIcon_10625 refs_from_skills=[10625, 30635, 1062504] nrefs=3
+  file SkillIcon_10626 refs_from_skills=[10626, 30636, 30646, 30656, 1062604] nrefs=5
+  file SkillIcon_10631 refs_from_skills=[10631, 30661, 106311, 106312] nrefs=4
+  file SkillIcon_10632 refs_from_skills=[10632, 30662] nrefs=2
+  file SkillIcon_10633 refs_from_skills=[10633, 30663, 1063304] nrefs=3
+  file SkillIcon_10634 refs_from_skills=[10634, 30664, 106341, 1063404] nrefs=4
+  file SkillIcon_10635 refs_from_skills=[10635, 30665, 1063504] nrefs=3
+  file SkillIcon_10636 refs_from_skills=[10636, 30666, 30676, 30686, 1063604] nrefs=5
+  file SkillIcon_10641 refs_from_skills=[10641, 30751] nrefs=2
+  file SkillIcon_10642 refs_from_skills=[10642, 30752] nrefs=2
+  file SkillIcon_10643 refs_from_skills=[10643, 30753, 1064304] nrefs=3
+  file SkillIcon_10644 refs_from_skills=[10644, 30754, 1064404] nrefs=3
+  file SkillIcon_10645 refs_from_skills=[10645, 30755, 1064504] nrefs=3
+  file SkillIcon_10646 refs_from_skills=[10646, 30756, 30766, 30776, 1064604] nrefs=5
+  file SkillIcon_10651 refs_from_skills=[10651, 30691] nrefs=2
+  file SkillIcon_10652 refs_from_skills=[10652, 30692] nrefs=2
+  file SkillIcon_10653 refs_from_skills=[10653, 30693, 1065304] nrefs=3
+  file SkillIcon_10654 refs_from_skills=[10654, 30694, 1065404] nrefs=3
+  file SkillIcon_10655 refs_from_skills=[10655, 30695, 1065504] nrefs=3
+  file SkillIcon_10656 refs_from_skills=[10656, 30696, 30706, 30716, 1065604] nrefs=5
+  file SkillIcon_10661 refs_from_skills=[10661, 106611] nrefs=2
+  file SkillIcon_10662 refs_from_skills=[10662] nrefs=1
+  file SkillIcon_10663 refs_from_skills=[10663, 106631, 1066304] nrefs=3
+  file SkillIcon_10664 refs_from_skills=[10664, 106641, 1066404] nrefs=3
+  file SkillIcon_10665 refs_from_skills=[10665, 1066504] nrefs=2
+  file SkillIcon_10666 refs_from_skills=[10666, 1066604] nrefs=2
+  file SkillIcon_10671 refs_from_skills=[10671] nrefs=1
+  file SkillIcon_10672 refs_from_skills=[10672] nrefs=1
+  file SkillIcon_10673 refs_from_skills=[10673, 84032, 1067304] nrefs=3
+  file SkillIcon_10674 refs_from_skills=[10674, 1067404] nrefs=2
+  file SkillIcon_10675 refs_from_skills=[10675, 1067504] nrefs=2
+  file SkillIcon_10676 refs_from_skills=[10676, 1067604] nrefs=2
+  file SkillIcon_10681 refs_from_skills=[10681] nrefs=1
+  file SkillIcon_10682 refs_from_skills=[10682] nrefs=1
+  file SkillIcon_10683 refs_from_skills=[10683, 1068304] nrefs=2
+  file SkillIcon_10684 refs_from_skills=[10684, 1068404] nrefs=2
+  file SkillIcon_10685 refs_from_skills=[10685, 1068504] nrefs=2
+  file SkillIcon_10686 refs_from_skills=[10686, 1068604] nrefs=2
+  file SkillIcon_10691 refs_from_skills=[10691] nrefs=1
+  file SkillIcon_10692 refs_from_skills=[10692] nrefs=1
+  file SkillIcon_10693 refs_from_skills=[10693, 1069304] nrefs=2
+  file SkillIcon_10694 refs_from_skills=[10694, 1069404] nrefs=2
+  file SkillIcon_10695 refs_from_skills=[10695, 1069504] nrefs=2
+  file SkillIcon_10696 refs_from_skills=[10696, 1069604] nrefs=2
+  file SkillIcon_10701 refs_from_skills=[10701] nrefs=1
+  file SkillIcon_10702 refs_from_skills=[10702] nrefs=1
+  file SkillIcon_10703 refs_from_skills=[10703, 1070304] nrefs=2
+  file SkillIcon_10704 refs_from_skills=[10704, 1070404] nrefs=2
+  file SkillIcon_10705 refs_from_skills=[10705, 1070504] nrefs=2
+  file SkillIcon_10706 refs_from_skills=[10706, 1070604] nrefs=2
+  file SkillIcon_10711 refs_from_skills=[10711] nrefs=1
+  file SkillIcon_10712 refs_from_skills=[10712, 600003] nrefs=2
+  file SkillIcon_10713 refs_from_skills=[10713, 1071304] nrefs=2
+  file SkillIcon_10714 refs_from_skills=[10714, 1071404] nrefs=2
+  file SkillIcon_10715 refs_from_skills=[10715, 84035, 1071504] nrefs=3
+  file SkillIcon_10716 refs_from_skills=[10716, 1071604] nrefs=2
+  file SkillIcon_10721 refs_from_skills=[10721] nrefs=1
+  file SkillIcon_10722 refs_from_skills=[10722] nrefs=1
+  file SkillIcon_10723 refs_from_skills=[10723, 1072304] nrefs=2
+  file SkillIcon_10724 refs_from_skills=[10724, 1072404] nrefs=2
+  file SkillIcon_10725 refs_from_skills=[10725, 1072504] nrefs=2
+  file SkillIcon_10726 refs_from_skills=[10726, 84018, 1072604] nrefs=3
+  file SkillIcon_10731 refs_from_skills=[10731] nrefs=1
+  file SkillIcon_10732 refs_from_skills=[10732] nrefs=1
+  file SkillIcon_10733 refs_from_skills=[10733, 1073304] nrefs=2
+  file SkillIcon_10734 refs_from_skills=[10734, 1073404] nrefs=2
+  file SkillIcon_10735 refs_from_skills=[10735, 1073504] nrefs=2
+  file SkillIcon_10736 refs_from_skills=[10736, 1073604] nrefs=2
+  file SkillIcon_10741 refs_from_skills=[10741] nrefs=1
+  file SkillIcon_10742 refs_from_skills=[10742] nrefs=1
+  file SkillIcon_10743 refs_from_skills=[10743, 1074304] nrefs=2
+  file SkillIcon_10744 refs_from_skills=[10744, 1074404] nrefs=2
+  file SkillIcon_10745 refs_from_skills=[10745, 1074504] nrefs=2
+  file SkillIcon_10746 refs_from_skills=[10746, 1074604] nrefs=2
+  file SkillIcon_10751 refs_from_skills=[10751, 30451, 30461, 30471, 36801] nrefs=5
+  file SkillIcon_10752 refs_from_skills=[10752, 30452, 30462, 30472, 36802] nrefs=5
+  file SkillIcon_10753 refs_from_skills=[10753, 30453, 30463, 30473, 36803, 1075304] nrefs=6
+  file SkillIcon_10754 refs_from_skills=[10754, 30454, 30464, 30474, 36804, 1075404] nrefs=6
+  file SkillIcon_10755 refs_from_skills=[10755, 30455, 30465, 30475, 36805, 1075504] nrefs=6
+  file SkillIcon_10756 refs_from_skills=[10756, 30456, 30466, 30476, 36806, 1075604] nrefs=6
+  file SkillIcon_10761 refs_from_skills=[10761, 30050, 30051, 30060, 30061] nrefs=5
+  file SkillIcon_10762 refs_from_skills=[10762, 30052, 30062] nrefs=3
+  file SkillIcon_10763 refs_from_skills=[10763, 30053, 30063, 1076304] nrefs=4
+  file SkillIcon_10764 refs_from_skills=[10764, 30054, 30064, 1076404] nrefs=4
+  file SkillIcon_10765 refs_from_skills=[10765, 30055, 30065, 1076504] nrefs=4
+  file SkillIcon_10766 refs_from_skills=[10766, 30056, 30066, 1076604] nrefs=4
+  file SkillIcon_10771 refs_from_skills=[10771, 30781] nrefs=2
+  file SkillIcon_10772 refs_from_skills=[10772, 30782] nrefs=2
+  file SkillIcon_10773 refs_from_skills=[10773, 30783, 50029, 50030, 50033, 1077304] nrefs=6
+  file SkillIcon_10774 refs_from_skills=[10774, 30784, 1077404] nrefs=3
+  file SkillIcon_10775 refs_from_skills=[10775, 30785, 1077504] nrefs=3
+  file SkillIcon_10776 refs_from_skills=[10776, 30786, 30796, 30806, 1077604] nrefs=5
+  file SkillIcon_10781 refs_from_skills=[10781] nrefs=1
+  file SkillIcon_10782 refs_from_skills=[10782] nrefs=1
+  file SkillIcon_10783 refs_from_skills=[10783, 1078304] nrefs=2
+  file SkillIcon_10784 refs_from_skills=[10784, 1078404] nrefs=2
+  file SkillIcon_10785 refs_from_skills=[10785, 1078504] nrefs=2
+  file SkillIcon_10786 refs_from_skills=[10786, 1078604] nrefs=2
+  file SkillIcon_10791 refs_from_skills=[10791] nrefs=1
+  file SkillIcon_10792 refs_from_skills=[10792] nrefs=1
+  file SkillIcon_10793 refs_from_skills=[10793, 1079304] nrefs=2
+  file SkillIcon_10794 refs_from_skills=[10794, 1079404] nrefs=2
+  file SkillIcon_10795 refs_from_skills=[10795, 1079504] nrefs=2
+  file SkillIcon_10796 refs_from_skills=[10796, 1079604] nrefs=2
+  file SkillIcon_10811 refs_from_skills=[10811] nrefs=1
+  file SkillIcon_10812 refs_from_skills=[10812] nrefs=1
+  file SkillIcon_10813 refs_from_skills=[10813, 1081304] nrefs=2
+  file SkillIcon_10814 refs_from_skills=[10814, 1081404] nrefs=2
+  file SkillIcon_10815 refs_from_skills=[10815, 1081504] nrefs=2
+  file SkillIcon_10816 refs_from_skills=[10816, 1081604] nrefs=2
+  file SkillIcon_10831 refs_from_skills=[10831] nrefs=1
+  file SkillIcon_10832 refs_from_skills=[10832] nrefs=1
+  file SkillIcon_10833 refs_from_skills=[10833, 1083304] nrefs=2
+  file SkillIcon_10834 refs_from_skills=[10834, 1083404] nrefs=2
+  file SkillIcon_10835 refs_from_skills=[10835, 1083504] nrefs=2
+  file SkillIcon_10836 refs_from_skills=[10836, 1083604] nrefs=2
+  file SkillIcon_10841 refs_from_skills=[10841] nrefs=1
+  file SkillIcon_10842 refs_from_skills=[10842] nrefs=1
+  file SkillIcon_10843 refs_from_skills=[10843, 1084304] nrefs=2
+  file SkillIcon_10844 refs_from_skills=[10844, 1084404] nrefs=2
+  file SkillIcon_10845 refs_from_skills=[10845, 1084504] nrefs=2
+  file SkillIcon_10846 refs_from_skills=[10846, 108461, 1084604] nrefs=3
+  file SkillIcon_10851 refs_from_skills=[10851] nrefs=1
+  file SkillIcon_10852 refs_from_skills=[10852] nrefs=1
+  file SkillIcon_10853 refs_from_skills=[10853, 1085304] nrefs=2
+  file SkillIcon_10854 refs_from_skills=[10854, 1085404] nrefs=2
+  file SkillIcon_10855 refs_from_skills=[10855, 1085504] nrefs=2
+  file SkillIcon_10856 refs_from_skills=[10856, 1085604] nrefs=2
+  file SkillIcon_10871 refs_from_skills=[10871] nrefs=1
+  file SkillIcon_10872 refs_from_skills=[10872] nrefs=1
+  file SkillIcon_10873 refs_from_skills=[10873, 1087304] nrefs=2
+  file SkillIcon_10874 refs_from_skills=[10874, 1087404] nrefs=2
+  file SkillIcon_10875 refs_from_skills=[10875, 1087504] nrefs=2
+  file SkillIcon_10876 refs_from_skills=[10876, 1087604] nrefs=2
+  file SkillIcon_10881 refs_from_skills=[10881] nrefs=1
+  file SkillIcon_10882 refs_from_skills=[10882] nrefs=1
+  file SkillIcon_10883 refs_from_skills=[10883, 1088304] nrefs=2
+  file SkillIcon_10884 refs_from_skills=[10884, 1088404] nrefs=2
+  file SkillIcon_10885 refs_from_skills=[10885, 1088504] nrefs=2
+  file SkillIcon_10886 refs_from_skills=[10886, 1088604] nrefs=2
+  file SkillIcon_10891 refs_from_skills=[10891] nrefs=1
+  file SkillIcon_10892 refs_from_skills=[10892] nrefs=1
+  file SkillIcon_10893 refs_from_skills=[10893, 1089304] nrefs=2
+  file SkillIcon_10894 refs_from_skills=[10894, 1089404] nrefs=2
+  file SkillIcon_10895 refs_from_skills=[10895, 108960, 1089504] nrefs=3
+  file SkillIcon_10896 refs_from_skills=[10896, 1089604] nrefs=2
+  file SkillIcon_10901 refs_from_skills=[10901, 30211, 30221, 30231] nrefs=4
+  file SkillIcon_10902 refs_from_skills=[10902, 30212, 30222, 30232] nrefs=4
+  file SkillIcon_10903 refs_from_skills=[10903, 30213, 30223, 30233, 1090304] nrefs=5
+  file SkillIcon_10904 refs_from_skills=[10904, 30214, 30224, 30234, 1090404] nrefs=5
+  file SkillIcon_10905 refs_from_skills=[10905, 30215, 30225, 30235, 1090504] nrefs=5
+  file SkillIcon_10906 refs_from_skills=[10906, 30216, 30226, 30236, 1090604] nrefs=5
+  file SkillIcon_10911 refs_from_skills=[10911] nrefs=1
+  file SkillIcon_10912 refs_from_skills=[10912] nrefs=1
+  file SkillIcon_10913 refs_from_skills=[10913, 1091304] nrefs=2
+  file SkillIcon_10914 refs_from_skills=[10914, 1091404] nrefs=2
+  file SkillIcon_10915 refs_from_skills=[10915, 1091504] nrefs=2
+  file SkillIcon_10916 refs_from_skills=[10916, 1091604] nrefs=2
+  file SkillIcon_10921 refs_from_skills=[10921] nrefs=1
+  file SkillIcon_10922 refs_from_skills=[10922] nrefs=1
+  file SkillIcon_10923 refs_from_skills=[10923, 1092304] nrefs=2
+  file SkillIcon_10924 refs_from_skills=[10924, 1092404] nrefs=2
+  file SkillIcon_10925 refs_from_skills=[10925, 1092504] nrefs=2
+  file SkillIcon_10926 refs_from_skills=[10926, 1092604] nrefs=2
+  file SkillIcon_10931 refs_from_skills=[10931] nrefs=1
+  file SkillIcon_10932 refs_from_skills=[10932] nrefs=1
+  file SkillIcon_10933 refs_from_skills=[10933, 1093304] nrefs=2
+  file SkillIcon_10934 refs_from_skills=[10934, 1093404] nrefs=2
+  file SkillIcon_10935 refs_from_skills=[10935, 1093504] nrefs=2
+  file SkillIcon_10936 refs_from_skills=[10936, 1093604] nrefs=2
+  file SkillIcon_10941 refs_from_skills=[10941] nrefs=1
+  file SkillIcon_10942 refs_from_skills=[10942] nrefs=1
+  file SkillIcon_10943 refs_from_skills=[10943, 1094304] nrefs=2
+  file SkillIcon_10944 refs_from_skills=[10944, 1094404] nrefs=2
+  file SkillIcon_10945 refs_from_skills=[10945, 1094504] nrefs=2
+  file SkillIcon_10946 refs_from_skills=[10946, 1094604] nrefs=2
+  file SkillIcon_10951 refs_from_skills=[10951] nrefs=1
+  file SkillIcon_10952 refs_from_skills=[10952] nrefs=1
+  file SkillIcon_10953 refs_from_skills=[10953, 1095304] nrefs=2
+  file SkillIcon_10954 refs_from_skills=[10954, 1095404] nrefs=2
+  file SkillIcon_10955 refs_from_skills=[10955, 1095504] nrefs=2
+  file SkillIcon_10956 refs_from_skills=[10956, 1095604] nrefs=2
+  file SkillIcon_10961 refs_from_skills=[10961, 30421, 30431, 30441] nrefs=4
+  file SkillIcon_10962 refs_from_skills=[10962, 30422, 30432, 30442] nrefs=4
+  file SkillIcon_10963 refs_from_skills=[10963, 30423, 30433, 30443, 1096304] nrefs=5
+  file SkillIcon_10964 refs_from_skills=[10964, 30424, 30434, 30444, 1096404] nrefs=5
+  file SkillIcon_10965 refs_from_skills=[10965, 30425, 30435, 30445, 1096504] nrefs=5
+  file SkillIcon_10966 refs_from_skills=[10966, 30426, 30436, 30446, 1096604] nrefs=5
+  file SkillIcon_10971 refs_from_skills=[10971] nrefs=1
+  file SkillIcon_10972 refs_from_skills=[10972] nrefs=1
+  file SkillIcon_10973 refs_from_skills=[10973, 1097304] nrefs=2
+  file SkillIcon_10974 refs_from_skills=[10974, 1097404] nrefs=2
+  file SkillIcon_10975 refs_from_skills=[10975, 1097504] nrefs=2
+  file SkillIcon_10976 refs_from_skills=[10976, 1097604] nrefs=2
+  file SkillIcon_10981 refs_from_skills=[10981] nrefs=1
+  file SkillIcon_10982 refs_from_skills=[10982] nrefs=1
+  file SkillIcon_10983 refs_from_skills=[10983, 1098304] nrefs=2
+  file SkillIcon_10984 refs_from_skills=[10984, 1098404] nrefs=2
+  file SkillIcon_10985 refs_from_skills=[10985, 1098504] nrefs=2
+  file SkillIcon_10986 refs_from_skills=[10986, 84065, 1098604] nrefs=3
+  file SkillIcon_10991 refs_from_skills=[10991] nrefs=1
+  file SkillIcon_10992 refs_from_skills=[10992] nrefs=1
+  file SkillIcon_10993 refs_from_skills=[10993, 1099304] nrefs=2
+  file SkillIcon_10994 refs_from_skills=[10994, 1099404] nrefs=2
+  file SkillIcon_10995 refs_from_skills=[10995, 1099504] nrefs=2
+  file SkillIcon_10996 refs_from_skills=[10996, 1099604] nrefs=2
+  file SkillIcon_11001 refs_from_skills=[11001] nrefs=1
+  file SkillIcon_11002 refs_from_skills=[11002] nrefs=1
+  file SkillIcon_11003 refs_from_skills=[11003, 1100304] nrefs=2
+  file SkillIcon_11004 refs_from_skills=[11004, 1100404] nrefs=2
+  file SkillIcon_11005 refs_from_skills=[11005, 1100504] nrefs=2
+  file SkillIcon_11006 refs_from_skills=[11006, 1100604] nrefs=2
+  file SkillIcon_11011 refs_from_skills=[11011] nrefs=1
+  file SkillIcon_11012 refs_from_skills=[11012] nrefs=1
+  file SkillIcon_11013 refs_from_skills=[11013, 1101304] nrefs=2
+  file SkillIcon_11014 refs_from_skills=[11014, 1101404] nrefs=2
+  file SkillIcon_11015 refs_from_skills=[11015, 1101504] nrefs=2
+  file SkillIcon_11016 refs_from_skills=[11016, 1101604] nrefs=2
+  file SkillIcon_11021 refs_from_skills=[11021] nrefs=1
+  file SkillIcon_11022 refs_from_skills=[11022] nrefs=1
+  file SkillIcon_11023 refs_from_skills=[11023, 1102304] nrefs=2
+  file SkillIcon_11024 refs_from_skills=[11024, 1102404] nrefs=2
+  file SkillIcon_11025 refs_from_skills=[11025, 1102504] nrefs=2
+  file SkillIcon_11026 refs_from_skills=[11026, 1102604] nrefs=2
+  file SkillIcon_11031 refs_from_skills=[11031, 30391, 30401, 30411] nrefs=4
+  file SkillIcon_11032 refs_from_skills=[11032, 30392, 30402, 30412] nrefs=4
+  file SkillIcon_11033 refs_from_skills=[11033, 30393, 30403, 30413, 1103304] nrefs=5
+  file SkillIcon_11034 refs_from_skills=[11034, 30394, 30404, 30414, 1103404] nrefs=5
+  file SkillIcon_11035 refs_from_skills=[11035, 30395, 30405, 30415, 1103504] nrefs=5
+  file SkillIcon_11036 refs_from_skills=[11036, 30396, 30406, 30416, 1103604] nrefs=5
+  file SkillIcon_11041 refs_from_skills=[11041] nrefs=1
+  file SkillIcon_11042 refs_from_skills=[11042] nrefs=1
+  file SkillIcon_11043 refs_from_skills=[11043, 1104304] nrefs=2
+  file SkillIcon_11044 refs_from_skills=[11044, 1104404] nrefs=2
+  file SkillIcon_11045 refs_from_skills=[11045, 1104504] nrefs=2
+  file SkillIcon_11046 refs_from_skills=[11046, 1104604] nrefs=2
+  file SkillIcon_11051 refs_from_skills=[11051] nrefs=1
+  file SkillIcon_11052 refs_from_skills=[11052] nrefs=1
+  file SkillIcon_11053 refs_from_skills=[11053, 1105304] nrefs=2
+  file SkillIcon_11054 refs_from_skills=[11054, 84064, 1105404] nrefs=3
+  file SkillIcon_11055 refs_from_skills=[11055, 1105504] nrefs=2
+  file SkillIcon_11056 refs_from_skills=[11056, 1105604] nrefs=2
+  file SkillIcon_11071 refs_from_skills=[11071] nrefs=1
+  file SkillIcon_11072 refs_from_skills=[11072] nrefs=1
+  file SkillIcon_11073 refs_from_skills=[11073, 1107304] nrefs=2
+  file SkillIcon_11074 refs_from_skills=[11074, 1107404] nrefs=2
+  file SkillIcon_11075 refs_from_skills=[11075, 1107504] nrefs=2
+  file SkillIcon_11076 refs_from_skills=[11076, 1107604] nrefs=2
+  file SkillIcon_11081 refs_from_skills=[11081] nrefs=1
+  file SkillIcon_11082 refs_from_skills=[11082, 110821] nrefs=2
+  file SkillIcon_11083 refs_from_skills=[11083, 110831, 1108304] nrefs=3
+  file SkillIcon_11084 refs_from_skills=[11084, 110841, 1108404] nrefs=3
+  file SkillIcon_11085 refs_from_skills=[11085, 110851, 1108504] nrefs=3
+  file SkillIcon_11086 refs_from_skills=[11086, 1108604] nrefs=2
+  file SkillIcon_11171 refs_from_skills=[11171] nrefs=1
+  file SkillIcon_11172 refs_from_skills=[11172] nrefs=1
+  file SkillIcon_11173 refs_from_skills=[11173, 1117304] nrefs=2
+  file SkillIcon_11174 refs_from_skills=[11174, 1117404] nrefs=2
+  file SkillIcon_11175 refs_from_skills=[11175, 1117504] nrefs=2
+  file SkillIcon_11176 refs_from_skills=[11176, 1117604] nrefs=2
+  file SkillIcon_11177 refs_from_skills=[11177] nrefs=1
+  file SkillIcon_11181 refs_from_skills=[11181] nrefs=1
+  file SkillIcon_11182 refs_from_skills=[11182] nrefs=1
+  file SkillIcon_11183 refs_from_skills=[11183, 1118304] nrefs=2
+  file SkillIcon_11184 refs_from_skills=[11184, 1118404] nrefs=2
+  file SkillIcon_11185 refs_from_skills=[11185, 1118504] nrefs=2
+  file SkillIcon_11186 refs_from_skills=[11186, 1118604] nrefs=2
+  file SkillIcon_11187 refs_from_skills=[11187] nrefs=1
+  file SkillIcon_11191 refs_from_skills=[11191] nrefs=1
+  file SkillIcon_11192 refs_from_skills=[11192] nrefs=1
+  file SkillIcon_11193 refs_from_skills=[11193, 1119304] nrefs=2
+  file SkillIcon_11194 refs_from_skills=[11194, 1119404] nrefs=2
+  file SkillIcon_11195 refs_from_skills=[11195, 1119504] nrefs=2
+  file SkillIcon_11196 refs_from_skills=[11196, 1119604] nrefs=2
+  file SkillIcon_11197 refs_from_skills=[11197] nrefs=1
+  file SkillIcon_11311 refs_from_skills=[11311] nrefs=1
+  file SkillIcon_11312 refs_from_skills=[11312] nrefs=1
+  file SkillIcon_11313 refs_from_skills=[11313, 1131304] nrefs=2
+  file SkillIcon_11314 refs_from_skills=[11314, 1131404] nrefs=2
+  file SkillIcon_11315 refs_from_skills=[11315, 1131504] nrefs=2
+  file SkillIcon_11316 refs_from_skills=[11316, 1131604] nrefs=2
+  file SkillIcon_11317 refs_from_skills=[11317] nrefs=1
+  file SkillIcon_20011 refs_from_skills=[20010, 20011] nrefs=2
+  file SkillIcon_20012 refs_from_skills=[20012] nrefs=1
+  file SkillIcon_20013 refs_from_skills=[20013] nrefs=1
+  file SkillIcon_20014 refs_from_skills=[20014] nrefs=1
+  file SkillIcon_20015 refs_from_skills=[20015, 50034, 50035] nrefs=3
+  file SkillIcon_20021 refs_from_skills=[20020, 20021] nrefs=2
+  file SkillIcon_20022 refs_from_skills=[20022] nrefs=1
+  file SkillIcon_20023 refs_from_skills=[20023, 50031, 50032] nrefs=3
+  file SkillIcon_20024 refs_from_skills=[20024] nrefs=1
+  file SkillIcon_20031 refs_from_skills=[20030, 20031] nrefs=2
+  file SkillIcon_20032 refs_from_skills=[20032] nrefs=1
+  file SkillIcon_20033 refs_from_skills=[20033] nrefs=1
+  file SkillIcon_20034 refs_from_skills=[20034] nrefs=1
+  file SkillIcon_20035 refs_from_skills=[20035] nrefs=1
+  file SkillIcon_20041 refs_from_skills=[20040, 20041] nrefs=2
+  file SkillIcon_20042 refs_from_skills=[20042] nrefs=1
+  file SkillIcon_20043 refs_from_skills=[20043] nrefs=1
+  file SkillIcon_20044 refs_from_skills=[20044] nrefs=1
+  file SkillIcon_20051 refs_from_skills=[20050, 20051] nrefs=2
+  file SkillIcon_20052 refs_from_skills=[20052] nrefs=1
+  file SkillIcon_20053 refs_from_skills=[20053] nrefs=1
+  file SkillIcon_20054 refs_from_skills=[20054] nrefs=1
+  file SkillIcon_20055 refs_from_skills=[20055] nrefs=1
+  file SkillIcon_20061 refs_from_skills=[20060, 20061] nrefs=2
+  file SkillIcon_20062 refs_from_skills=[20062] nrefs=1
+  file SkillIcon_20063 refs_from_skills=[20063] nrefs=1
+  file SkillIcon_20064 refs_from_skills=[20064] nrefs=1
+  file SkillIcon_20071 refs_from_skills=[20070, 20071] nrefs=2
+  file SkillIcon_20072 refs_from_skills=[20072] nrefs=1
+  file SkillIcon_20073 refs_from_skills=[20073] nrefs=1
+  file SkillIcon_20074 refs_from_skills=[20074] nrefs=1
+  file SkillIcon_20075 refs_from_skills=[20075] nrefs=1
+  file SkillIcon_20081 refs_from_skills=[20080, 20081] nrefs=2
+  file SkillIcon_20082 refs_from_skills=[20082] nrefs=1
+  file SkillIcon_20083 refs_from_skills=[20083] nrefs=1
+  file SkillIcon_20084 refs_from_skills=[20084] nrefs=1
+  file SkillIcon_20091 refs_from_skills=[20090, 20091] nrefs=2
+  file SkillIcon_20092 refs_from_skills=[20092] nrefs=1
+  file SkillIcon_20093 refs_from_skills=[20093] nrefs=1
+  file SkillIcon_20094 refs_from_skills=[20094] nrefs=1
+  file SkillIcon_20101 refs_from_skills=[20100, 20101, 30361, 30371, 30381] nrefs=5
+  file SkillIcon_20102 refs_from_skills=[20102, 30362, 30372, 30382] nrefs=4
+  file SkillIcon_20103 refs_from_skills=[20103, 30363, 30373, 30383] nrefs=4
+  file SkillIcon_20104 refs_from_skills=[20104, 30364, 30374, 30384] nrefs=4
+  file SkillIcon_20105 refs_from_skills=[20105, 30365, 30375, 30385] nrefs=4
+  file SkillIcon_20106 refs_from_skills=[30366, 30376, 30386] nrefs=3
+  file SkillIcon_20111 refs_from_skills=[20110, 20111] nrefs=2
+  file SkillIcon_20112 refs_from_skills=[20112] nrefs=1
+  file SkillIcon_20113 refs_from_skills=[20113] nrefs=1
+  file SkillIcon_20114 refs_from_skills=[20114] nrefs=1
+  file SkillIcon_20121 refs_from_skills=[20120, 20121] nrefs=2
+  file SkillIcon_20122 refs_from_skills=[20122] nrefs=1
+  file SkillIcon_20123 refs_from_skills=[20123] nrefs=1
+  file SkillIcon_20124 refs_from_skills=[20124] nrefs=1
+  file SkillIcon_20131 refs_from_skills=[20130, 20131] nrefs=2
+  file SkillIcon_20132 refs_from_skills=[20132] nrefs=1
+  file SkillIcon_20133 refs_from_skills=[20133] nrefs=1
+  file SkillIcon_20134 refs_from_skills=[20134] nrefs=1
+  file SkillIcon_20141 refs_from_skills=[20140, 20141] nrefs=2
+  file SkillIcon_20142 refs_from_skills=[20142] nrefs=1
+  file SkillIcon_20143 refs_from_skills=[20143, 50027, 50028] nrefs=3
+  file SkillIcon_20144 refs_from_skills=[20144] nrefs=1
+  file SkillIcon_20151 refs_from_skills=[20150, 20151] nrefs=2
+  file SkillIcon_20152 refs_from_skills=[20152] nrefs=1
+  file SkillIcon_20153 refs_from_skills=[20153] nrefs=1
+  file SkillIcon_20154 refs_from_skills=[20154] nrefs=1
+  file SkillIcon_30030 refs_from_skills=[30030, 30031, 30040, 30041, 30271, 30281, 30291] nrefs=7
+  file SkillIcon_30032 refs_from_skills=[30032, 30042, 30272, 30282, 30292] nrefs=5
+  file SkillIcon_30033 refs_from_skills=[30033, 30043, 30273, 30283, 30293] nrefs=5
+  file SkillIcon_30034 refs_from_skills=[30034, 30044, 30274, 30284, 30294] nrefs=5
+  file SkillIcon_30035 refs_from_skills=[30035, 30045, 30275, 30285, 30295] nrefs=5
+  file SkillIcon_30036 refs_from_skills=[30036, 30046, 30276, 30286, 30296] nrefs=5
+  file SkillIcon_50001 refs_from_skills=[50001, 53101] nrefs=2
+  file SkillIcon_50018 refs_from_skills=[50018] nrefs=1
+  file SkillIcon_50019 refs_from_skills=[50019] nrefs=1
+  file SkillIcon_50901 refs_from_skills=[50901] nrefs=1
+  file SkillIcon_60010 refs_from_skills=[60010] nrefs=1
+  file SkillIcon_60020 refs_from_skills=[60020] nrefs=1
+  file SkillIcon_60030 refs_from_skills=[60030] nrefs=1
+  file SkillIcon_60040 refs_from_skills=[60040] nrefs=1
+  file SkillIcon_60050 refs_from_skills=[60050] nrefs=1
+  file SkillIcon_60060 refs_from_skills=[60060] nrefs=1
+  file SkillIcon_60070 refs_from_skills=[60070] nrefs=1
+  file SkillIcon_60080 refs_from_skills=[60080] nrefs=1
+  file SkillIcon_60090 refs_from_skills=[60090] nrefs=1
+  file SkillIcon_60100 refs_from_skills=[60100] nrefs=1
+  file SkillIcon_60110 refs_from_skills=[60110] nrefs=1
+  file SkillIcon_60120 refs_from_skills=[60120] nrefs=1
+  file SkillIcon_60130 refs_from_skills=[60130] nrefs=1
+  file SkillIcon_60140 refs_from_skills=[60140] nrefs=1
+  file SkillIcon_60150 refs_from_skills=[60150] nrefs=1
+  file SkillIcon_60160 refs_from_skills=[60160] nrefs=1
+  file SkillIcon_60170 refs_from_skills=[60170] nrefs=1
+  file SkillIcon_60180 refs_from_skills=[60180] nrefs=1
+  file SkillIcon_60190 refs_from_skills=[60190] nrefs=1
+  file SkillIcon_60200 refs_from_skills=[60200] nrefs=1
+  file SkillIcon_60210 refs_from_skills=[60210] nrefs=1
+  file SkillIcon_60220 refs_from_skills=[60220] nrefs=1
+  file SkillIcon_60230 refs_from_skills=[60230] nrefs=1
+  file SkillIcon_60240 refs_from_skills=[60240] nrefs=1
+  file SkillIcon_60260 refs_from_skills=[60260] nrefs=1
+  file SkillIcon_60270 refs_from_skills=[60270] nrefs=1
+  file SkillIcon_60280 refs_from_skills=[60280] nrefs=1
+  file SkillIcon_60290 refs_from_skills=[60290] nrefs=1
+  file SkillIcon_60300 refs_from_skills=[60300] nrefs=1
+  file SkillIcon_60310 refs_from_skills=[60310] nrefs=1
+  file SkillIcon_60320 refs_from_skills=[60320] nrefs=1
+  file SkillIcon_60330 refs_from_skills=[60330] nrefs=1
+  file SkillIcon_60340 refs_from_skills=[60340] nrefs=1
+  file SkillIcon_60360 refs_from_skills=[60360] nrefs=1
+  file SkillIcon_60370 refs_from_skills=[60370] nrefs=1
+  file SkillIcon_60390 refs_from_skills=[60390] nrefs=1
+  file SkillIcon_60400 refs_from_skills=[60400] nrefs=1
+  file SkillIcon_60410 refs_from_skills=[60410] nrefs=1
+  file SkillIcon_60430 refs_from_skills=[60430] nrefs=1
+  file SkillIcon_60440 refs_from_skills=[60440] nrefs=1
+  file SkillIcon_60450 refs_from_skills=[60450] nrefs=1
+  file SkillIcon_60460 refs_from_skills=[60460] nrefs=1
+  file SkillIcon_60470 refs_from_skills=[60470] nrefs=1
+  file SkillIcon_60480 refs_from_skills=[60480] nrefs=1
+  file SkillIcon_60490 refs_from_skills=[60490] nrefs=1
+  file SkillIcon_60500 refs_from_skills=[60500] nrefs=1
+  file SkillIcon_60501 refs_from_skills=[60501] nrefs=1
+  file SkillIcon_60502 refs_from_skills=[60502] nrefs=1
+  file SkillIcon_60503 refs_from_skills=[60503] nrefs=1
+  file SkillIcon_60510 refs_from_skills=[60510] nrefs=1
+  file SkillIcon_60520 refs_from_skills=[60520] nrefs=1
+  file SkillIcon_60530 refs_from_skills=[60530] nrefs=1
+  file SkillIcon_60540 refs_from_skills=[60540] nrefs=1
+  file SkillIcon_60550 refs_from_skills=[60550] nrefs=1
+  file SkillIcon_60560 refs_from_skills=[60560] nrefs=1
+  file SkillIcon_60570 refs_from_skills=[60570] nrefs=1
+  file SkillIcon_60580 refs_from_skills=[60580] nrefs=1
+  file SkillIcon_60590 refs_from_skills=[60590] nrefs=1
+  file SkillIcon_60600 refs_from_skills=[60600] nrefs=1
+  file SkillIcon_60610 refs_from_skills=[60610] nrefs=1
+  file SkillIcon_60620 refs_from_skills=[60620] nrefs=1
+  file SkillIcon_60630 refs_from_skills=[60630] nrefs=1
+  file SkillIcon_60640 refs_from_skills=[60640] nrefs=1
+  file SkillIcon_60650 refs_from_skills=[60650] nrefs=1
+  file SkillIcon_60660 refs_from_skills=[60660] nrefs=1
+  file SkillIcon_60670 refs_from_skills=[60670] nrefs=1
+  file SkillIcon_60680 refs_from_skills=[60680] nrefs=1
+  file SkillIcon_60690 refs_from_skills=[60690] nrefs=1
+  file SkillIcon_60700 refs_from_skills=[60700] nrefs=1
+  file SkillIcon_60710 refs_from_skills=[60710] nrefs=1
+  file SkillIcon_60720 refs_from_skills=[60720] nrefs=1
+  file SkillIcon_60730 refs_from_skills=[60730] nrefs=1
+  file SkillIcon_60740 refs_from_skills=[60740] nrefs=1
+  file SkillIcon_60750 refs_from_skills=[60750] nrefs=1
+  file SkillIcon_60760 refs_from_skills=[60760] nrefs=1
+  file SkillIcon_60770 refs_from_skills=[60770] nrefs=1
+  file SkillIcon_60780 refs_from_skills=[60780] nrefs=1
+  file SkillIcon_60790 refs_from_skills=[60790] nrefs=1
+  file SkillIcon_60810 refs_from_skills=[60810] nrefs=1
+  file SkillIcon_60830 refs_from_skills=[60830] nrefs=1
+  file SkillIcon_60840 refs_from_skills=[60840] nrefs=1
+  file SkillIcon_60850 refs_from_skills=[60850] nrefs=1
+  file SkillIcon_60870 refs_from_skills=[60870] nrefs=1
+  file SkillIcon_60880 refs_from_skills=[60880] nrefs=1
+  file SkillIcon_60890 refs_from_skills=[60890] nrefs=1
+  file SkillIcon_60900 refs_from_skills=[60900] nrefs=1
+  file SkillIcon_60910 refs_from_skills=[60910] nrefs=1
+  file SkillIcon_60920 refs_from_skills=[60920] nrefs=1
+  file SkillIcon_60930 refs_from_skills=[60930] nrefs=1
+  file SkillIcon_60940 refs_from_skills=[60940] nrefs=1
+  file SkillIcon_60950 refs_from_skills=[60950] nrefs=1
+  file SkillIcon_60960 refs_from_skills=[60960] nrefs=1
+  file SkillIcon_60970 refs_from_skills=[60970] nrefs=1
+  file SkillIcon_60980 refs_from_skills=[60980] nrefs=1
+  file SkillIcon_60990 refs_from_skills=[60990] nrefs=1
+  file SkillIcon_61000 refs_from_skills=[61000] nrefs=1
+  file SkillIcon_61010 refs_from_skills=[61010] nrefs=1
+  file SkillIcon_61020 refs_from_skills=[61020] nrefs=1
+  file SkillIcon_61030 refs_from_skills=[61030] nrefs=1
+  file SkillIcon_61040 refs_from_skills=[61040] nrefs=1
+  file SkillIcon_61050 refs_from_skills=[61050] nrefs=1
+  file SkillIcon_61070 refs_from_skills=[61070] nrefs=1
+  file SkillIcon_61080 refs_from_skills=[61080] nrefs=1
+  file SkillIcon_61170 refs_from_skills=[61170] nrefs=1
+  file SkillIcon_61180 refs_from_skills=[] nrefs=0
+  file SkillIcon_61190 refs_from_skills=[61190] nrefs=1
+  file SkillIcon_65101 refs_from_skills=[65101] nrefs=1
+  file SkillIcon_65102 refs_from_skills=[65102] nrefs=1
+  file SkillIcon_65103 refs_from_skills=[65103] nrefs=1
+  file SkillIcon_65104 refs_from_skills=[65104] nrefs=1
+  file SkillIcon_65201 refs_from_skills=[65201] nrefs=1
+  file SkillIcon_65202 refs_from_skills=[65202] nrefs=1
+  file SkillIcon_65203 refs_from_skills=[65203] nrefs=1
+  file SkillIcon_65204 refs_from_skills=[65204] nrefs=1
+  file SkillIcon_65301 refs_from_skills=[65301] nrefs=1
+  file SkillIcon_65302 refs_from_skills=[65302] nrefs=1
+  file SkillIcon_65303 refs_from_skills=[65303] nrefs=1
+  file SkillIcon_65304 refs_from_skills=[65304] nrefs=1
+  file SkillIcon_65401 refs_from_skills=[65401] nrefs=1
+  file SkillIcon_65402 refs_from_skills=[65402] nrefs=1
+  file SkillIcon_65403 refs_from_skills=[65403] nrefs=1
+  file SkillIcon_65404 refs_from_skills=[65404] nrefs=1
+  file SkillIcon_65501 refs_from_skills=[65501] nrefs=1
+  file SkillIcon_65502 refs_from_skills=[65502] nrefs=1
+  file SkillIcon_65503 refs_from_skills=[65503] nrefs=1
+  file SkillIcon_65504 refs_from_skills=[65504] nrefs=1
+  file SkillIcon_66001 refs_from_skills=[10097, 10507, 66001] nrefs=3
+  file SkillIcon_66002 refs_from_skills=[66002] nrefs=1
+  file SkillIcon_66003 refs_from_skills=[66003] nrefs=1
+  file SkillIcon_66004 refs_from_skills=[66004] nrefs=1
+  file SkillIcon_66005 refs_from_skills=[66005] nrefs=1
+  file SkillIcon_66006 refs_from_skills=[66006] nrefs=1
+  file SkillIcon_66007 refs_from_skills=[66007] nrefs=1
+  file SkillIcon_66008 refs_from_skills=[66008] nrefs=1
+  file SkillIcon_70001 refs_from_skills=[70001] nrefs=1
+  file SkillIcon_70002 refs_from_skills=[70002] nrefs=1
+  file SkillIcon_70003 refs_from_skills=[70003] nrefs=1
+  file SkillIcon_70004 refs_from_skills=[70004] nrefs=1
+  file SkillIcon_70005 refs_from_skills=[70005] nrefs=1
+  file SkillIcon_70006 refs_from_skills=[70006] nrefs=1
+  file SkillIcon_70008 refs_from_skills=[70008] nrefs=1
+  file SkillIcon_70009 refs_from_skills=[70009] nrefs=1
+  file SkillIcon_70010 refs_from_skills=[70010] nrefs=1
+  file SkillIcon_70011 refs_from_skills=[70011] nrefs=1
+  file SkillIcon_70012 refs_from_skills=[70012] nrefs=1
+  file SkillIcon_70014 refs_from_skills=[70014] nrefs=1
+  file SkillIcon_70016 refs_from_skills=[70016] nrefs=1
+  file SkillIcon_70017 refs_from_skills=[70017] nrefs=1
+  file SkillIcon_70019 refs_from_skills=[70019] nrefs=1
+  file SkillIcon_80001 refs_from_skills=[80001] nrefs=1
+  file SkillIcon_80002 refs_from_skills=[80505] nrefs=1
+  file SkillIcon_80003 refs_from_skills=[80003, 80506] nrefs=2
+  file SkillIcon_80004 refs_from_skills=[80004, 80510] nrefs=2
+  file SkillIcon_80005 refs_from_skills=[] nrefs=0
+  file SkillIcon_80006 refs_from_skills=[80015] nrefs=1
+  file SkillIcon_80007 refs_from_skills=[80007] nrefs=1
+  file SkillIcon_80008 refs_from_skills=[80008, 80508] nrefs=2
+  file SkillIcon_80009 refs_from_skills=[80009] nrefs=1
+  file SkillIcon_80010 refs_from_skills=[80010, 80502] nrefs=2
+  file SkillIcon_80011 refs_from_skills=[80011, 80501] nrefs=2
+  file SkillIcon_80012 refs_from_skills=[] nrefs=0
+  file SkillIcon_80500 refs_from_skills=[80504] nrefs=1
+  file SkillIcon_80501 refs_from_skills=[] nrefs=0
+  file SkillIcon_80502 refs_from_skills=[50017, 80503] nrefs=2
+  file SkillIcon_80503 refs_from_skills=[80500] nrefs=1
+  file SkillIcon_80504 refs_from_skills=[] nrefs=0
+  file SkillIcon_80505 refs_from_skills=[] nrefs=0
+  file SkillIcon_80506 refs_from_skills=[50400, 80509] nrefs=2
+  file SkillIcon_80507 refs_from_skills=[50300, 50301, 50303, 80507] nrefs=4
+  file SkillIcon_80508 refs_from_skills=[80002] nrefs=1
+  file SkillIcon_80509 refs_from_skills=[80005] nrefs=1
+  file SkillIcon_80510 refs_from_skills=[80012] nrefs=1
+  file SkillIcon_80511 refs_from_skills=[80013] nrefs=1
+  file SkillIcon_80512 refs_from_skills=[80014] nrefs=1
+  file SkillIcon_80513 refs_from_skills=[80006] nrefs=1
+  file SkillIcon_85000 refs_from_skills=[85000] nrefs=1
+  file SkillIcon_85001 refs_from_skills=[85001] nrefs=1
+  file SkillIcon_85002 refs_from_skills=[85002, 85012, 85022, 85032, 85042] nrefs=5
+  file SkillIcon_85003 refs_from_skills=[85003, 85013, 85023, 85033, 85043] nrefs=5
+  file SkillIcon_85004 refs_from_skills=[85004, 85014, 85024, 85034, 85044] nrefs=5
+  file SkillIcon_85010 refs_from_skills=[85010] nrefs=1
+  file SkillIcon_85011 refs_from_skills=[85011] nrefs=1
+  file SkillIcon_85020 refs_from_skills=[85020] nrefs=1
+  file SkillIcon_85021 refs_from_skills=[85021, 85025] nrefs=2
+  file SkillIcon_85030 refs_from_skills=[85030] nrefs=1
+  file SkillIcon_85031 refs_from_skills=[85031] nrefs=1
+  file SkillIcon_85040 refs_from_skills=[85040] nrefs=1
+  file SkillIcon_85041 refs_from_skills=[85041] nrefs=1
+  file SkillIcon_100511 refs_from_skills=[30011, 30021, 30241, 30251, 30261, 100511] nrefs=6
+  file SkillIcon_100541 refs_from_skills=[30015, 30025, 30245, 30255, 30265] nrefs=5
+  file SkillIcon_100551 refs_from_skills=[30014, 30024, 30244, 30254, 30264] nrefs=5
+  file SkillIcon_100561 refs_from_skills=[30016, 30026, 30246, 30256, 30266] nrefs=5
+  file SkillIcon_100811 refs_from_skills=[100811] nrefs=1
+  file SkillIcon_100841 refs_from_skills=[100841] nrefs=1
+  file SkillIcon_100851 refs_from_skills=[100851] nrefs=1
+  file SkillIcon_101141 refs_from_skills=[101141] nrefs=1
+  file SkillIcon_101331 refs_from_skills=[101331, 1013310] nrefs=2
+  file SkillIcon_101332 refs_from_skills=[101332] nrefs=1
+  file SkillIcon_101333 refs_from_skills=[101333] nrefs=1
+  file SkillIcon_101334 refs_from_skills=[101334] nrefs=1
+  file SkillIcon_101335 refs_from_skills=[101335] nrefs=1
+  file SkillIcon_101336 refs_from_skills=[101336] nrefs=1
+  file SkillIcon_101337 refs_from_skills=[101337] nrefs=1
+  file SkillIcon_101338 refs_from_skills=[101338] nrefs=1
+  file SkillIcon_101339 refs_from_skills=[101339] nrefs=1
+  file SkillIcon_101341 refs_from_skills=[101341] nrefs=1
+  file SkillIcon_101351 refs_from_skills=[101351] nrefs=1
+  file SkillIcon_101361 refs_from_skills=[101361] nrefs=1
+  file SkillIcon_101831 refs_from_skills=[101831] nrefs=1
+  file SkillIcon_101832 refs_from_skills=[101832] nrefs=1
+  file SkillIcon_101841 refs_from_skills=[101841] nrefs=1
+  file SkillIcon_101842 refs_from_skills=[101842] nrefs=1
+  file SkillIcon_101851 refs_from_skills=[101851] nrefs=1
+  file SkillIcon_101852 refs_from_skills=[101852] nrefs=1
+  file SkillIcon_101861 refs_from_skills=[101861] nrefs=1
+  file SkillIcon_102011 refs_from_skills=[102031] nrefs=1
+  file SkillIcon_102041 refs_from_skills=[102041] nrefs=1
+  file SkillIcon_102051 refs_from_skills=[102051] nrefs=1
+  file SkillIcon_102325 refs_from_skills=[] nrefs=0
+  file SkillIcon_102631 refs_from_skills=[102631] nrefs=1
+  file SkillIcon_102632 refs_from_skills=[102632] nrefs=1
+  file SkillIcon_102633 refs_from_skills=[102633] nrefs=1
+  file SkillIcon_102634 refs_from_skills=[102634] nrefs=1
+  file SkillIcon_102635 refs_from_skills=[102635] nrefs=1
+  file SkillIcon_102641 refs_from_skills=[102641] nrefs=1
+  file SkillIcon_102642 refs_from_skills=[102642] nrefs=1
+  file SkillIcon_102643 refs_from_skills=[102643] nrefs=1
+  file SkillIcon_102644 refs_from_skills=[102644] nrefs=1
+  file SkillIcon_102645 refs_from_skills=[102645] nrefs=1
+  file SkillIcon_102841 refs_from_skills=[102841] nrefs=1
+  file SkillIcon_102961 refs_from_skills=[102961] nrefs=1
+  file SkillIcon_103051 refs_from_skills=[103051] nrefs=1
+  file SkillIcon_104911 refs_from_skills=[104911] nrefs=1
+  file SkillIcon_104912 refs_from_skills=[104912] nrefs=1
+  file SkillIcon_104913 refs_from_skills=[104961] nrefs=1
+  file SkillIcon_104914 refs_from_skills=[104962] nrefs=1
+  file SkillIcon_105031 refs_from_skills=[105031] nrefs=1
+  file SkillIcon_105032 refs_from_skills=[105032] nrefs=1
+  file SkillIcon_105033 refs_from_skills=[105033] nrefs=1
+  file SkillIcon_105041 refs_from_skills=[105041] nrefs=1
+  file SkillIcon_105042 refs_from_skills=[105042] nrefs=1
+  file SkillIcon_105043 refs_from_skills=[105043] nrefs=1
+  file SkillIcon_105261 refs_from_skills=[105261] nrefs=1
+  file SkillIcon_105641 refs_from_skills=[105641] nrefs=1
+  file SkillIcon_105911 refs_from_skills=[105901] nrefs=1
+  file SkillIcon_105912 refs_from_skills=[105902] nrefs=1
+  file SkillIcon_105913 refs_from_skills=[105903] nrefs=1
+  file SkillIcon_105921 refs_from_skills=[1059210] nrefs=1
+  file SkillIcon_105922 refs_from_skills=[1059220] nrefs=1
+  file SkillIcon_105923 refs_from_skills=[1059230] nrefs=1
+  file SkillIcon_105924 refs_from_skills=[1059240] nrefs=1
+  file SkillIcon_105941 refs_from_skills=[105941] nrefs=1
+  file SkillIcon_105942 refs_from_skills=[105942] nrefs=1
+  file SkillIcon_105943 refs_from_skills=[105943] nrefs=1
+  file SkillIcon_105944 refs_from_skills=[105944] nrefs=1
+  file SkillIcon_106231 refs_from_skills=[106231] nrefs=1
+  file SkillIcon_106232 refs_from_skills=[106232] nrefs=1
+  file SkillIcon_106311 refs_from_skills=[106311] nrefs=1
+  file SkillIcon_106312 refs_from_skills=[106312] nrefs=1
+  file SkillIcon_106341 refs_from_skills=[106341] nrefs=1
+  file SkillIcon_106611 refs_from_skills=[106611] nrefs=1
+  file SkillIcon_106631 refs_from_skills=[106631] nrefs=1
+  file SkillIcon_106641 refs_from_skills=[106641] nrefs=1
+  file SkillIcon_107951 refs_from_skills=[] nrefs=0
+  file SkillIcon_108121 refs_from_skills=[] nrefs=0
+  file SkillIcon_108131 refs_from_skills=[] nrefs=0
+  file SkillIcon_108461 refs_from_skills=[108461] nrefs=1
+  file SkillIcon_110821 refs_from_skills=[110821] nrefs=1
+  file SkillIcon_110831 refs_from_skills=[110831] nrefs=1
+  file SkillIcon_110841 refs_from_skills=[110841] nrefs=1
+  file SkillIcon_110851 refs_from_skills=[110851] nrefs=1
+  file SkillIcon_400100 refs_from_skills=[400100] nrefs=1
+  file SkillIcon_400300 refs_from_skills=[400300] nrefs=1
+  file SkillIcon_400400 refs_from_skills=[400400] nrefs=1
+  file SkillIcon_400500 refs_from_skills=[400500] nrefs=1
+  file SkillIcon_400600 refs_from_skills=[400600] nrefs=1
+  file SkillIcon_400700 refs_from_skills=[400700] nrefs=1
+  file SkillIcon_400800 refs_from_skills=[400800] nrefs=1
+  file SkillIcon_400900 refs_from_skills=[400900] nrefs=1
+  file SkillIcon_401000 refs_from_skills=[401000] nrefs=1
+  file SkillIcon_401100 refs_from_skills=[401100] nrefs=1
+  file SkillIcon_401200 refs_from_skills=[401200] nrefs=1
+  file SkillIcon_401300 refs_from_skills=[401300] nrefs=1
+  file SkillIcon_401400 refs_from_skills=[401400] nrefs=1
+  file SkillIcon_401500 refs_from_skills=[401500] nrefs=1
+  file SkillIcon_401600 refs_from_skills=[401600] nrefs=1
+  file SkillIcon_401700 refs_from_skills=[401700] nrefs=1
+  file SkillIcon_401800 refs_from_skills=[401800] nrefs=1
+  file SkillIcon_401900 refs_from_skills=[401900] nrefs=1
+  file SkillIcon_402000 refs_from_skills=[402000] nrefs=1
+  file SkillIcon_402100 refs_from_skills=[402100] nrefs=1
+  file SkillIcon_402200 refs_from_skills=[402200] nrefs=1
+  file SkillIcon_402300 refs_from_skills=[402300] nrefs=1
+  file SkillIcon_402400 refs_from_skills=[402400] nrefs=1
+  file SkillIcon_402500 refs_from_skills=[402500] nrefs=1
+  file SkillIcon_402600 refs_from_skills=[402600] nrefs=1
+  file SkillIcon_402700 refs_from_skills=[402700] nrefs=1
+  file SkillIcon_402800 refs_from_skills=[402800] nrefs=1
+  file SkillIcon_402900 refs_from_skills=[402900] nrefs=1
+  file SkillIcon_403000 refs_from_skills=[403000] nrefs=1
+  file SkillIcon_403100 refs_from_skills=[403100] nrefs=1
+  file SkillIcon_403200 refs_from_skills=[403200] nrefs=1
+  file SkillIcon_403300 refs_from_skills=[403300] nrefs=1
+  file SkillIcon_403700 refs_from_skills=[] nrefs=0
+  file SkillIcon_404100 refs_from_skills=[404100] nrefs=1
+  file SkillIcon_404300 refs_from_skills=[] nrefs=0
+  file SkillIcon_820100 refs_from_skills=[820100] nrefs=1
+  file SkillIcon_820200 refs_from_skills=[820200] nrefs=1
+  file SkillIcon_820300 refs_from_skills=[820300] nrefs=1
+  file SkillIcon_820400 refs_from_skills=[820400] nrefs=1
+  file SkillIcon_820500 refs_from_skills=[820500] nrefs=1
+  file SkillIcon_820600 refs_from_skills=[820600] nrefs=1
+  file SkillIcon_820700 refs_from_skills=[820700] nrefs=1
+  file SkillIcon_820800 refs_from_skills=[820800] nrefs=1
+  file SkillIcon_820900 refs_from_skills=[820900] nrefs=1
+  file SkillIcon_821000 refs_from_skills=[821000] nrefs=1
+  file SkillIcon_821100 refs_from_skills=[821100] nrefs=1
+  file SkillIcon_821200 refs_from_skills=[821200] nrefs=1
+  file SkillIcon_821300 refs_from_skills=[821300] nrefs=1
+  file SkillIcon_821400 refs_from_skills=[821400] nrefs=1
+  file SkillIcon_821500 refs_from_skills=[821500] nrefs=1
+  file SkillIcon_821600 refs_from_skills=[821600] nrefs=1
+  file SkillIcon_821700 refs_from_skills=[821700] nrefs=1
+  file SkillIcon_821800 refs_from_skills=[821800] nrefs=1
+  file SkillIcon_821900 refs_from_skills=[821900] nrefs=1
+  file SkillIcon_822000 refs_from_skills=[822000] nrefs=1
+  file SkillIcon_822100 refs_from_skills=[822100] nrefs=1
+  file SkillIcon_822200 refs_from_skills=[822200] nrefs=1
+  file SkillIcon_822300 refs_from_skills=[822300] nrefs=1
+  file SkillIcon_1013310 refs_from_skills=[1013310] nrefs=1
+
+=== SKILL_TYPE BY BAND ===
+hero {1: 210, 2: 105, 4: 173, 8: 54, 3: 232, 7: 18, None: 192}
+npc {1: 113, 2: 80, 3: 322, 4: 10}
+system5 {3: 447, None: 36}
+awaken {3: 125, 8: 12, 4: 7, None: 15, 7: 5}
+combo {6: 19, 3: 64}
+talent8 {3: 262, 6: 41}
+force {6: 165}
+artifact {5: 34}
+spirit {3: 24}
+1M+ {4: 174, 8: 54, 3: 175, 7: 18, 2: 5, None: 124}
+10xxxx {1: 19, 4: 27, 2: 8, 8: 3, 3: 21}
+FOUND SkillType = {
+    CombineSkill = 1, 
+    StrengthenSkill = 2 
+}
+ENUM GameDefine.SkillIconType = {     NormalSkill = 1,      SuperSkill = 2,      PassiveSkill = 3,      CombineSkill = 6  }
+ENUM GameDefine.GameSkillSourceType = {     Normal = "Normal",     WorldTree = "WorldTree"  }
+ENUM GameDefine.HeroRelationSkillType = {     CombineSkill = 1,      StrengthenSkill = 2  }

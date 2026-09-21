@@ -1,0 +1,432 @@
+{
+  "4500": {
+    "nameKey": "LC_Title_name_4500",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_1",
+    "quality": 5
+  },
+  "4501": {
+    "nameKey": "LC_Title_name_4501",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_3",
+    "quality": 5
+  },
+  "4502": {
+    "nameKey": "LC_Title_name_4502",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_4",
+    "quality": 5
+  },
+  "4503": {
+    "nameKey": "LC_Title_name_4503",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_5",
+    "quality": 5
+  },
+  "4504": {
+    "nameKey": "LC_Title_name_4504",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_6",
+    "quality": 5
+  },
+  "4505": {
+    "nameKey": "LC_Title_name_4505",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_7",
+    "quality": 5
+  },
+  "4506": {
+    "nameKey": "LC_Title_name_4506",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_8",
+    "quality": 5
+  },
+  "4507": {
+    "nameKey": "LC_Title_name_4507",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_9",
+    "quality": 5
+  },
+  "4508": {
+    "nameKey": "LC_Title_name_4508",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_10",
+    "quality": 5
+  },
+  "4509": {
+    "nameKey": "LC_Title_name_4509",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_11",
+    "quality": 5
+  },
+  "4510": {
+    "nameKey": "LC_Title_name_4510",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_12",
+    "quality": 5
+  },
+  "4511": {
+    "nameKey": "LC_Title_name_4511",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_13",
+    "quality": 5
+  },
+  "4512": {
+    "nameKey": "LC_Title_name_4512",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_14",
+    "quality": 5
+  },
+  "4513": {
+    "nameKey": "LC_Title_name_4513",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_15",
+    "quality": 5
+  },
+  "4514": {
+    "nameKey": "LC_Title_name_4514",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_16",
+    "quality": 5
+  },
+  "4515": {
+    "nameKey": "LC_Title_name_4515",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_17",
+    "quality": 5
+  },
+  "4516": {
+    "nameKey": "LC_Title_name_4516",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_18",
+    "quality": 5
+  },
+  "4517": {
+    "nameKey": "LC_Title_name_4517",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_19",
+    "quality": 5
+  },
+  "4518": {
+    "nameKey": "LC_Title_name_4518",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_20",
+    "quality": 5
+  },
+  "4519": {
+    "nameKey": "LC_Title_name_4519",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_21",
+    "quality": 5
+  },
+  "4520": {
+    "nameKey": "LC_Title_name_4520",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_22",
+    "quality": 5
+  },
+  "4521": {
+    "nameKey": "LC_Title_name_4521",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_23",
+    "quality": 5
+  },
+  "4522": {
+    "nameKey": "LC_Title_name_4522",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_24",
+    "quality": 5
+  },
+  "4523": {
+    "nameKey": "LC_Title_name_4523",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_25",
+    "quality": 5
+  },
+  "4524": {
+    "nameKey": "LC_Title_name_4524",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_26",
+    "quality": 5
+  },
+  "4525": {
+    "nameKey": "LC_Title_name_4525",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_27",
+    "quality": 5
+  },
+  "4526": {
+    "nameKey": "LC_Title_name_4526",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_28",
+    "quality": 5
+  },
+  "4527": {
+    "nameKey": "LC_Title_name_4527",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_29",
+    "quality": 5
+  },
+  "4528": {
+    "nameKey": "LC_Title_name_4528",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_30",
+    "quality": 5
+  },
+  "4529": {
+    "nameKey": "LC_Title_name_4529",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_31",
+    "quality": 5
+  },
+  "4530": {
+    "nameKey": "LC_Title_name_4530",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_32",
+    "quality": 5
+  },
+  "4531": {
+    "nameKey": "LC_Title_name_4531",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_33",
+    "quality": 5
+  },
+  "4532": {
+    "nameKey": "LC_Title_name_4532",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_34",
+    "quality": 5
+  },
+  "4533": {
+    "nameKey": "LC_Title_name_4533",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_36",
+    "quality": 5
+  },
+  "4534": {
+    "nameKey": "LC_Title_name_4534",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_37",
+    "quality": 5
+  },
+  "4535": {
+    "nameKey": "LC_Title_name_4535",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_38",
+    "quality": 5
+  },
+  "4536": {
+    "nameKey": "LC_Title_name_4536",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_39",
+    "quality": 5
+  },
+  "4537": {
+    "nameKey": "LC_Title_name_4537",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_40",
+    "quality": 5
+  },
+  "4538": {
+    "nameKey": "LC_Title_name_4538",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_41",
+    "quality": 5
+  },
+  "4539": {
+    "nameKey": "LC_Title_name_4539",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_42",
+    "quality": 5
+  },
+  "4540": {
+    "nameKey": "LC_Title_name_4540",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_43",
+    "quality": 5
+  },
+  "4541": {
+    "nameKey": "LC_Title_name_4541",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_44",
+    "quality": 5
+  },
+  "4542": {
+    "nameKey": "LC_Title_name_4542",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_45",
+    "quality": 5
+  },
+  "4543": {
+    "nameKey": "LC_Title_name_4543",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_46",
+    "quality": 5
+  },
+  "4544": {
+    "nameKey": "LC_Title_name_4544",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_47",
+    "quality": 5
+  },
+  "4545": {
+    "nameKey": "LC_Title_name_4545",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_48",
+    "quality": 5
+  },
+  "4546": {
+    "nameKey": "LC_Title_name_4546",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_49",
+    "quality": 5
+  },
+  "4547": {
+    "nameKey": "LC_Title_name_4547",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_50",
+    "quality": 5
+  },
+  "4548": {
+    "nameKey": "LC_Title_name_4548",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_51",
+    "quality": 5
+  },
+  "4549": {
+    "nameKey": "LC_Title_name_4549",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_52",
+    "quality": 5
+  },
+  "4550": {
+    "nameKey": "LC_Title_name_4550",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_53",
+    "quality": 5
+  },
+  "4551": {
+    "nameKey": "LC_Title_name_4551",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_54",
+    "quality": 5
+  },
+  "4552": {
+    "nameKey": "LC_Title_name_4552",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_55",
+    "quality": 5
+  },
+  "4553": {
+    "nameKey": "LC_Title_name_4553",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_56",
+    "quality": 5
+  },
+  "4554": {
+    "nameKey": "LC_Title_name_4554",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_57",
+    "quality": 5
+  },
+  "4555": {
+    "nameKey": "LC_Title_name_4555",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_58",
+    "quality": 5
+  },
+  "4556": {
+    "nameKey": "LC_Title_name_4556",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_59",
+    "quality": 5
+  },
+  "4557": {
+    "nameKey": "LC_Title_name_4557",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_60",
+    "quality": 5
+  },
+  "4558": {
+    "nameKey": "LC_Title_name_4558",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_61",
+    "quality": 5
+  },
+  "4559": {
+    "nameKey": "LC_Title_name_4559",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_62",
+    "quality": 4
+  },
+  "4560": {
+    "nameKey": "LC_Title_name_4560",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_63",
+    "quality": 4
+  },
+  "4561": {
+    "nameKey": "LC_Title_name_4561",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_64",
+    "quality": 4
+  },
+  "4562": {
+    "nameKey": "LC_Title_name_4562",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_65",
+    "quality": 4
+  },
+  "4563": {
+    "nameKey": "LC_Title_name_4563",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_66",
+    "quality": 5
+  },
+  "4564": {
+    "nameKey": "LC_Title_name_4564",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_67",
+    "quality": 4
+  },
+  "4565": {
+    "nameKey": "LC_Title_name_4565",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_68",
+    "quality": 5
+  },
+  "4566": {
+    "nameKey": "LC_Title_name_4566",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_69",
+    "quality": 5
+  },
+  "4567": {
+    "nameKey": "LC_Title_name_4567",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_70",
+    "quality": 5
+  },
+  "4568": {
+    "nameKey": "LC_Title_name_4568",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_71",
+    "quality": 5
+  },
+  "4569": {
+    "nameKey": "LC_Title_name_4569",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_72",
+    "quality": 5
+  },
+  "4570": {
+    "nameKey": "LC_Title_name_4570",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_73",
+    "quality": 5
+  },
+  "4571": {
+    "nameKey": "LC_Title_name_4571",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_74",
+    "quality": 5
+  },
+  "4572": {
+    "nameKey": "LC_Title_name_4572",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_75",
+    "quality": 5
+  },
+  "4573": {
+    "nameKey": "LC_Title_name_4573",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_76",
+    "quality": 5
+  },
+  "4574": {
+    "nameKey": "LC_Title_name_4574",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_77",
+    "quality": 5
+  },
+  "4575": {
+    "nameKey": "LC_Title_name_4575",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_78",
+    "quality": 5
+  },
+  "4576": {
+    "nameKey": "LC_Title_name_4576",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_79",
+    "quality": 5
+  },
+  "4577": {
+    "nameKey": "LC_Title_name_4577",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_80",
+    "quality": 5
+  },
+  "4578": {
+    "nameKey": "LC_Title_name_4578",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_81",
+    "quality": 5
+  },
+  "4579": {
+    "nameKey": "LC_Title_name_4579",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_82",
+    "quality": 5
+  },
+  "4580": {
+    "nameKey": "LC_Title_name_4580",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_83",
+    "quality": 5
+  },
+  "4581": {
+    "nameKey": "LC_Title_name_4581",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_84",
+    "quality": 5
+  },
+  "4582": {
+    "nameKey": "LC_Title_name_4582",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_85",
+    "quality": 5
+  },
+  "4583": {
+    "nameKey": "LC_Title_name_4583",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_86",
+    "quality": 5
+  },
+  "4584": {
+    "nameKey": "LC_Title_name_4584",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_87",
+    "quality": 5
+  },
+  "4585": {
+    "nameKey": "LC_Title_name_4585",
+    "iconPath": "Textures/Common/TitleIcon/%s/icon_88",
+    "quality": 5
+  }
+}

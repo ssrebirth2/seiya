@@ -26,6 +26,7 @@ const ENTITY_SITE_KEY: Record<
   | 'changelogEntityFigure'
   | 'changelogEntityHeroStar'
   | 'changelogEntityHeroAwaken'
+  | 'changelogEntityGallery'
 > = {
   hero: 'changelogEntityHero',
   skill: 'changelogEntitySkill',
@@ -40,6 +41,7 @@ const ENTITY_SITE_KEY: Record<
   figure: 'changelogEntityFigure',
   hero_star: 'changelogEntityHeroStar',
   hero_awaken: 'changelogEntityHeroAwaken',
+  gallery: 'changelogEntityGallery',
 }
 
 type ChangelogEntryCardProps = {

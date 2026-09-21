@@ -215,3 +215,17 @@ export function resolveCompanionListIcon(
   if (!iconPath) return { src: IMAGE_UNAVAILABLE }
   return { src: iconPath, rawSrc: iconPath }
 }
+
+/**
+ * Gallery collection thumb from game Textures/... path (GalleryConfig-linked).
+ * Manifest-only — no invented fallback image.
+ */
+export function resolveGalleryThumbAsset(
+  gameTexturePath?: string | null
+): { src: string; rawSrc?: string } {
+  if (!gameTexturePath) return { src: IMAGE_UNAVAILABLE }
+  const iconPath = getCanonicalAssetPath(texturePathFromDb(gameTexturePath))
+  if (!iconPath) return { src: IMAGE_UNAVAILABLE }
+  return { src: iconPath, rawSrc: iconPath }
+}
+

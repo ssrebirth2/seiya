@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "gallery:build": "python scripts/build-gallery-index.py",
+    "gallery:assets": "npm run gallery:build && python scripts/game-assets/cli.py extract --recipe gallery && npm run assets:manifest",
     "items:get-path:build": "node tools/build-item-get-path-index.mjs",
     "items:stage-rewards:build": "node tools/build-item-stage-rewards-index.mjs",
     "items:sources:audit": "node tools/audit-item-sources.mjs",

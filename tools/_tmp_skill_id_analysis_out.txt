@@ -1,0 +1,228 @@
+TOTAL_SKILLS 3506
+MIN_ID 10010 MAX_ID 1136604
+HERO_ROLE_IDS 171 min 1000 max 1910
+NPC_ROLE_IDS 407 min 2000 max 3680
+
+=== BAND COUNTS ===
+hero_1xxxx: 984  range=[10010-11367]
+talent_display_1M+: 550  range=[1001304-1136604]
+npc_2_3xxxx: 525  range=[20010-36806]
+system_5xxxx: 483  range=[50001-53504]
+talent_8xxxx: 303  range=[80001-89999]
+force_card_9xxxx: 165  range=[90000-93087]
+awaken_6xxxx: 164  range=[60001-67503]
+combo_bond_7xxxx: 83  range=[70001-73064]
+other_10xxxx: 78  range=[100511-108960]
+other_52xxxx: 61  range=[520001-520061]
+other_51xxxx: 44  range=[510001-510044]
+artifact_4xxxxx: 34  range=[400100-404100]
+spirit_82xxxx: 24  range=[820100-822400]
+other_11xxxx: 4  range=[110821-110851]
+other_50xxxx: 2  range=[500000-500001]
+other_60xxxx: 2  range=[600003-600010]
+
+=== THOUSAND HISTOGRAM ===
+10xxx 705
+10xxxx 78
+11xxx 279
+11xxxx 4
+1M+ 550
+20xxx 85
+22xxx 35
+30xxx 353
+31xxx 46
+36xxx 6
+40xxxx 34
+50xxx 391
+50xxxx 2
+51xxx 10
+51xxxx 44
+52xxxx 61
+53xxx 82
+60xxx 110
+60xxxx 2
+61xxx 17
+65xxx 25
+66xxx 8
+67xxx 4
+70xxx 19
+73xxx 64
+80xxx 26
+81xxx 39
+82xxxx 24
+83xxx 14
+84xxx 190
+85xxx 26
+89xxx 8
+90xxx 9
+91xxx 24
+92xxx 44
+93xxx 88
+
+=== HERO 1xxxx sub-bands (per 100 hero ids) ===
+10000-10099: 64
+10100-10199: 73
+10200-10299: 73
+10300-10399: 70
+10400-10499: 70
+10500-10599: 71
+10600-10699: 70
+10700-10799: 70
+10800-10899: 74
+10900-10999: 70
+11000-11099: 70
+11100-11199: 73
+11200-11299: 80
+11300-11399: 56
+
+=== HERO BAND SLOT ANALYSIS ===
+slot digit counts: {0: 136, 1: 136, 2: 136, 3: 136, 4: 136, 5: 136, 6: 136, 7: 32}
+matched to RoleConfig hero: 984 / 984
+unmatched total 0 sample []
+slots among matched: {0: 136, 1: 136, 2: 136, 3: 136, 4: 136, 5: 136, 6: 136, 7: 32}
+skill_type by slot (matched):
+  slot 0: {1: 105, None: 31} names: {'nil': 136}
+  slot 1: {1: 105, None: 31} names: {'named': 105, 'nil': 31}
+  slot 2: {2: 105, None: 31} names: {'named': 105, 'nil': 31}
+  slot 3: {4: 75, 8: 12, 3: 10, 7: 8, None: 31} names: {'named': 105, 'nil': 31}
+  slot 4: {8: 22, 4: 67, 3: 13, None: 31, 7: 3} names: {'named': 105, 'nil': 31}
+  slot 5: {3: 56, 4: 29, 8: 18, 7: 2, None: 31} names: {'named': 105, 'nil': 31}
+  slot 6: {3: 121, 7: 5, 8: 2, None: 6, 4: 2} names: {'named': 105, 'nil': 31}
+  slot 7: {3: 32} names: {'named': 32}
+AA stubs (*0): 136 nil_name= 136 has_icon= 136 has_des= 0
+unique hero bases in skill band: 136
+common slot patterns (top 20):
+  (0, 1, 2, 3, 4, 5, 6): 104
+  (0, 1, 2, 3, 4, 5, 6, 7): 32
+heroes with at least one hid*10+slot skill: 136 / 171
+heroes with NO such skills sample: [1000, 1500, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1512, 1513, 1514, 1515, 1516, 1517, 1518, 1519, 1520, 1521, 1522, 1900, 1901, 1902, 1903, 1904, 1905]
+
+=== NPC 2-3xxxx ===
+count 525 range 20010 36806
+npc slot digits: {0: 33, 1: 80, 2: 80, 3: 80, 4: 80, 5: 75, 6: 97}
+npc skills whose id//10 in RoleConfig: 525
+
+=== OWNER CONFIG CROSS-CHECK ===
+HeroAwakenInfoConfig mentions of 6xxxx literals: 136
+  of which in SkillConfig: 111
+HeroRelationSkillConfig row keys: 75 range 70001 73064
+7xxxx literals in relation config: 75 in SkillConfig 75
+relation id==last_num: 0 diff: 75
+HeroTalentSkillConfig keys: 1224 range 100101 113609
+8xxxx in talent cfg: 26 in SkillConfig 26
+1M+ in talent cfg: 544 sample [1001304, 1001404, 1001504, 1001604, 1002304, 1002404, 1002504, 1002604, 1003304, 1003404] in SkillConfig 544
+9xxxx literals in forcecard configs: 174 in SkillConfig 165
+9xxxx sample: [90000, 90001, 90002, 90003, 90004, 90005, 90006, 90007, 90008, 90360, 91000, 91001, 91002, 91003, 91004, 91005, 91006, 91007, 91008, 91009]
+40xxxx in artifact configs: 911 in SkillConfig 34
+spirit skills in SkillConfig: 24 sample [820100, 820200, 820300, 820400, 820500, 820600, 820700, 820800, 820900, 821000, 821100, 821200, 821300, 821400, 821500]
+system 5xxxx: 483 range 50001 53504
+5xxxx skill_type: Counter({3: 447, None: 36})
+5xxxx named: 238
+
+=== INCOMPLETENESS GLOBAL ===
+name nil: 853 (24.3%)
+iconpath nil: 767 (21.9%)
+skill_des nil: 929 (26.5%)
+combos (N=name I=icon D=des):
+  NID (full): 1876
+  NI- (name+icon): 495
+  --D (des_only): 419
+  -I- (icon_only): 368
+  N-D (name+des): 282
+  --- (empty): 66
+
+=== INCOMPLETENESS BY BAND ===
+hero_1xxxx: n=984 name_nil=322 icon_nil=0 des_nil=322 full=662 empty=0 icon_only=322
+talent_display_1M+: n=550 name_nil=0 icon_nil=0 des_nil=484 full=66 empty=0 icon_only=0
+npc_2_3xxxx: n=525 name_nil=25 icon_nil=0 des_nil=29 full=496 empty=0 icon_only=25
+system_5xxxx: n=483 name_nil=245 icon_nil=450 des_nil=7 full=33 empty=7 icon_only=0
+talent_8xxxx: n=303 name_nil=2 icon_nil=16 des_nil=0 full=287 empty=0 icon_only=0
+force_card_9xxxx: n=165 name_nil=165 icon_nil=165 des_nil=0 full=0 empty=0 icon_only=0
+awaken_6xxxx: n=164 name_nil=28 icon_nil=13 des_nil=15 full=136 empty=0 icon_only=15
+combo_bond_7xxxx: n=83 name_nil=7 icon_nil=64 des_nil=6 full=13 empty=0 icon_only=6
+other_10xxxx: n=78 name_nil=0 icon_nil=0 des_nil=2 full=76 empty=0 icon_only=0
+other_52xxxx: n=61 name_nil=59 icon_nil=59 des_nil=59 full=2 empty=59 icon_only=0
+other_51xxxx: n=44 name_nil=0 icon_nil=0 des_nil=0 full=44 empty=0 icon_only=0
+artifact_4xxxxx: n=34 name_nil=0 icon_nil=0 des_nil=5 full=29 empty=0 icon_only=0
+spirit_82xxxx: n=24 name_nil=0 icon_nil=0 des_nil=0 full=24 empty=0 icon_only=0
+other_11xxxx: n=4 name_nil=0 icon_nil=0 des_nil=0 full=4 empty=0 icon_only=0
+other_50xxxx: n=2 name_nil=0 icon_nil=0 des_nil=0 full=2 empty=0 icon_only=0
+other_60xxxx: n=2 name_nil=0 icon_nil=0 des_nil=0 full=2 empty=0 icon_only=0
+
+=== PUBLIC ICONS ===
+hero skillicon files: 1057
+artifact skillicon files: 36
+config rows with iconpath: 2739
+icon files whose ID not in SkillConfig keys: 21
+  sample: [20106, 61180, 80511, 80512, 80513, 100541, 100551, 100561, 102011, 102325, 104913, 104914, 105911, 105912, 105913, 105924, 107951, 108121, 108131, 403700, 404300]
+icon files not matching any skillid OR iconpath id: 7
+  sample: [61180, 102325, 107951, 108121, 108131, 403700, 404300]
+config iconpath missing file on public: 703
+  reasons: {'missing_hero': 584, 'no_id_in_path': 119}
+  sample: [(10010, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10010', 'missing_hero'), (10020, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10020', 'missing_hero'), (10030, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10030', 'missing_hero'), (10040, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10040', 'missing_hero'), (10050, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10050', 'missing_hero'), (10060, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10060', 'missing_hero'), (10070, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10070', 'missing_hero'), (10080, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10080', 'missing_hero'), (10090, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10090', 'missing_hero'), (10100, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10100', 'missing_hero'), (10110, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10110', 'missing_hero'), (10120, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10120', 'missing_hero'), (10130, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10130', 'missing_hero'), (10140, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10140', 'missing_hero'), (10150, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10150', 'missing_hero'), (10160, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10160', 'missing_hero'), (10170, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10170', 'missing_hero'), (10180, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10180', 'missing_hero'), (10190, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10190', 'missing_hero'), (10200, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10200', 'missing_hero'), (10210, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10210', 'missing_hero'), (10220, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10220', 'missing_hero'), (10230, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10230', 'missing_hero'), (10240, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10240', 'missing_hero'), (10250, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10250', 'missing_hero'), (10257, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10257', 'missing_hero'), (10260, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10260', 'missing_hero'), (10270, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10270', 'missing_hero'), (10280, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10280', 'missing_hero'), (10290, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10290', 'missing_hero')]
+orphan icon file bands: {'npc_2_3xxxx': 1, 'awaken_6xxxx': 1, 'talent_8xxxx': 3, 'other_10xxxx': 14, 'artifact_4xxxxx': 2}
+
+=== ICONPATH PREFIXES ===
+  Textures/Hero/SkillIcon/Texture: 2586
+  (nil): 767
+  Textures/Artifact/ArtifactSkill/SkillIcon: 34
+  UI/Sprites/Common/yz_icon_gongji_2: 15
+  UI/Sprites/Common/yz_icon_shengming_2: 15
+  UI/Sprites/Common/yz_icon_wufang_2: 15
+  UI/Sprites/Common/yz_icon_poji_2: 6
+  UI/Sprites/Common/yz_icon_shanghaizengjia_2: 5
+  UI/Sprites/Common/yz_icon_shanghaijianmian_2: 5
+  UI/Sprites/Common/yz_icon_shanbi_2: 4
+  UI/Sprites/Common/yz_icon_mingzhong_2: 4
+  UI/Sprites/Common/yz_icon_baoji_2: 4
+  UI/Sprites/Common/yz_icon_zhaojia_2: 2
+  Textures/DimensionSpace/Buff/buff_icon_1001: 1
+  Textures/DimensionSpace/Buff/buff_icon_1002: 1
+  Textures/DimensionSpace/Buff/buff_icon_1003: 1
+  Textures/DimensionSpace/Buff/buff_icon_1004: 1
+  Textures/DimensionSpace/Buff/buff_icon_1005: 1
+  Textures/DimensionSpace/Buff/buff_icon_1006: 1
+  Textures/DimensionSpace/Buff/buff_icon_1007: 1
+  Textures/DimensionSpace/Buff/buff_icon_1008: 1
+  Textures/DimensionSpace/Buff/buff_icon_1009: 1
+  Textures/DimensionSpace/Buff/buff_icon_1010: 1
+  Textures/DimensionSpace/Buff/buff_icon_1011: 1
+  Textures/DimensionSpace/Buff/buff_icon_1012: 1
+
+iconpath SkillIcon_id != skillid: 1141
+samples: [(10097, 66001, 'Textures/Hero/SkillIcon/Texture/SkillIcon_66001'), (10507, 66001, 'Textures/Hero/SkillIcon/Texture/SkillIcon_66001'), (20010, 20011, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20011'), (20020, 20021, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20021'), (20030, 20031, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20031'), (20040, 20041, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20041'), (20050, 20051, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20051'), (20060, 20061, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20061'), (20070, 20071, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20071'), (20080, 20081, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20081'), (20090, 20091, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20091'), (20100, 20101, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20101'), (20110, 20111, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20111'), (20120, 20121, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20121'), (20130, 20131, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20131'), (20140, 20141, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20141'), (20150, 20151, 'Textures/Hero/SkillIcon/Texture/SkillIcon_20151'), (22210, 10500, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10500'), (22211, 10501, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10501'), (22212, 10502, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10502'), (22213, 10503, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10503'), (22214, 10504, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10504'), (22215, 10505, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10505'), (22216, 10506, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10506'), (22260, 10260, 'Textures/Hero/SkillIcon/Texture/SkillIcon_10260')]
+
+=== STREAMING / GAME BUNDLE SEARCH ===
+SkillIcon dirs found (up to 30): ['C:\\rb2\\assets\\StreamingResources\\textures\\hero\\skillicon', 'C:\\rb2\\assets\\StreamingResources\\textures\\artifact\\artifactskill\\skillicon']
+bundle skillicon hits: []
+
+=== GAMEDEFINE SKILL-RELATED ===
+SkillIconType = {     NormalSkill = 1,      SuperSkill = 2,      PassiveSkill = 3,      CombineSkill = 6  }
+HeroRelationSkillType = {     CombineSkill = 1,      StrengthenSkill = 2  }
+
+=== COMMENT / ENUM SEARCH (skill id ranges) ===
+comment hits: 0
+
+=== ARTIFACT / SPIRIT DETAIL ===
+artifact n= 34 min= 400100 max= 404100 named% 100.0 icon% 100.0 des% 85.3
+  sample ids: [400100, 400200, 400300, 400400, 400500, 400600, 400700, 400800] ... [403100, 403200, 403300, 404100]
+spirit n= 24 min= 820100 max= 822400 named% 100.0 icon% 100.0 des% 100.0
+  sample ids: [820100, 820200, 820300, 820400, 820500, 820600, 820700, 820800] ... [822100, 822200, 822300, 822400]
+talent_display n= 550 min= 1001304 max= 1136604 named% 100.0 icon% 100.0 des% 12.0
+  sample ids: [1001304, 1001404, 1001504, 1001604, 1002304, 1002404, 1002504, 1002604] ... [1136304, 1136404, 1136504, 1136604]
+talent_8 n= 303 min= 80001 max= 89999 named% 99.3 icon% 94.7 des% 100.0
+  sample ids: [80001, 80002, 80003, 80004, 80005, 80006, 80007, 80008] ... [89905, 89906, 89998, 89999]
+force n= 165 min= 90000 max= 93087 named% 0.0 icon% 0.0 des% 100.0
+  sample ids: [90000, 90001, 90002, 90003, 90004, 90005, 90006, 90007] ... [93084, 93085, 93086, 93087]
+awaken n= 164 min= 60001 max= 67503 named% 82.9 icon% 92.1 des% 90.9
+  sample ids: [60001, 60002, 60003, 60004, 60005, 60006, 60007, 60008] ... [67500, 67501, 67502, 67503]
+combo n= 83 min= 70001 max= 73064 named% 91.6 icon% 22.9 des% 92.8
+  sample ids: [70001, 70002, 70003, 70004, 70005, 70006, 70007, 70008] ... [73061, 73062, 73063, 73064]
+
+=== SNEAK-PEEK CANDIDATES (hero band: icon, no name) ===
+count 322 sample [10010, 10020, 10030, 10040, 10050, 10060, 10070, 10080, 10090, 10100, 10110, 10120, 10130, 10140, 10150, 10160, 10170, 10180, 10190, 10200, 10210, 10220, 10230, 10240, 10250, 10260, 10270, 10280, 10290, 10300, 10310, 10320, 10330, 10340, 10350, 10360, 10370, 10380, 10381, 10382]
+all bands icon+no_name: 368
+by band: {'hero_1xxxx': 322, 'npc_2_3xxxx': 25, 'awaken_6xxxx': 15, 'combo_bond_7xxxx': 6}
+
+=== SKILL_TYPE DISTRIBUTION ===
+{1: 346, 2: 200, 4: 391, 8: 123, 3: 1720, 7: 41, None: 426, 6: 225, 5: 34}

@@ -49,7 +49,7 @@ function popoverStyle(
 
   const style: CSSProperties = {
     position: 'fixed',
-    zIndex: 110,
+    zIndex: 200,
   }
 
   if (placement === 'below') {

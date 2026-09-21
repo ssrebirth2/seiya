@@ -1,10 +1,21 @@
 import { createClient } from '@supabase/supabase-js'
+import { existsSync, readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { contentHash, normalizeDesList, normalizeJson, collectLcKeysFromDesLists } from './hash.mjs'
 import { emptySnapshot, SITE_LANGS } from './schema.mjs'
 import { isListed } from './hidden.mjs'
 import { parseDesValueKeys } from './plain-text.mjs'
 
 const PAGE = 1000
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..')
+const GALLERY_INDEX_PATH = join(ROOT, 'public/data/gallery-index.json')
+
+function galleryThumbPublicPath(thumbPath) {
+  if (!thumbPath || typeof thumbPath !== 'string') return undefined
+  const relative = thumbPath.replace(/^Textures\//i, '').replace(/\\/g, '/').toLowerCase()
+  return `/assets/resources/textures/${relative}.png`
+}
 
 function pushOwner(skillOwners, skillId, owner) {
   const id = Number(skillId)
@@ -13,6 +24,31 @@ function pushOwner(skillOwners, skillId, owner) {
   if (!skillOwners[id].some((o) => o.type === owner.type && o.id === owner.id)) {
     skillOwners[id].push(owner)
   }
+}
+
+/** Listed catalog heroes from a hero_list / condition array. */
+function listedHeroIds(raw, hidden) {
+  const parsed = normalizeJson(raw)
+  const list = Array.isArray(parsed) ? parsed : []
+  return list
+    .map(Number)
+    .filter((n) => Number.isFinite(n) && n > 0 && isListed(hidden, 'hero', n))
+}
+
+/**
+ * HeroRelationSkillConfig.hero_id is the launcher for combine skills.
+ * combine_state rows use hero_id=0 — ownership comes from hero_list instead.
+ */
+function resolveRelationOwnerHeroIds(heroId, heroList, hidden) {
+  const primary = Number(heroId)
+  if (Number.isFinite(primary) && primary > 0 && isListed(hidden, 'hero', primary)) {
+    return [primary]
+  }
+  return listedHeroIds(heroList, hidden)
+}
+
+function heroPortraitSrc(heroId) {
+  return `/assets/resources/textures/hero/squareherohead/SquareHeroHead_${heroId}0.png`
 }
 
 /** Propagate ownership to nested sub_skills (stance skills on hero profile). */
@@ -466,6 +502,14 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
       const id = Number(row.id)
       const nameKey = row.name || `LC_ROLE_Fetters_${id}`
       if (typeof nameKey === 'string') lcKeys.add(nameKey)
+      const conditionHeroes = listedHeroIds(row.condition, hidden)
+      const primaryHero = conditionHeroes[0] ?? null
+      const activeSkill = Number(row.active_skill)
+      if (Number.isFinite(activeSkill)) {
+        for (const hid of conditionHeroes) {
+          pushOwner(skillOwners, activeSkill, { type: 'hero', id: hid })
+        }
+      }
       snap.entities.bond[String(id)] = record(
         {
           kind: 'fetter',
@@ -474,7 +518,12 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
           active_skill: row.active_skill ?? null,
           attribute: normalizeJson(row.attribute),
         },
-        { nameKey }
+        {
+          nameKey,
+          href: primaryHero != null ? `/heroes/${primaryHero}` : null,
+          portraitSrc: primaryHero != null ? heroPortraitSrc(primaryHero) : null,
+          ownerHeroIds: conditionHeroes,
+        }
       )
     }
   } catch (e) {
@@ -493,26 +542,28 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
       if (nameKey) lcKeys.add(nameKey)
       const heroId = Number(row.hero_id)
       const skillId = Number(row.skill_id)
-      // Combo skill belongs to the launcher hero (HeroRelationSkillConfig.hero_id)
-      if (Number.isFinite(heroId) && isListed(hidden, 'hero', heroId) && Number.isFinite(skillId)) {
-        pushOwner(skillOwners, skillId, { type: 'hero', id: heroId })
+      const ownerHeroIds = resolveRelationOwnerHeroIds(heroId, row.hero_list, hidden)
+      const primaryHero = ownerHeroIds[0] ?? null
+      // Launcher combo → hero_id; combine_state (hero_id=0) → every hero in hero_list
+      if (Number.isFinite(skillId)) {
+        for (const hid of ownerHeroIds) {
+          pushOwner(skillOwners, skillId, { type: 'hero', id: hid })
+        }
       }
       snap.entities.bond[id] = record(
         {
           kind: 'combo',
           name: nameKey,
-          hero_id: Number.isFinite(heroId) ? heroId : null,
+          hero_id: Number.isFinite(heroId) && heroId > 0 ? heroId : null,
           hero_list: normalizeJson(row.hero_list),
           skill_id: row.skill_id ?? null,
           type: row.type ?? null,
         },
         {
           nameKey,
-          href: Number.isFinite(heroId) && isListed(hidden, 'hero', heroId) ? `/heroes/${heroId}` : null,
-          portraitSrc:
-            Number.isFinite(heroId) && isListed(hidden, 'hero', heroId)
-              ? `/assets/resources/textures/hero/squareherohead/SquareHeroHead_${heroId}0.png`
-              : null,
+          href: primaryHero != null ? `/heroes/${primaryHero}` : null,
+          portraitSrc: primaryHero != null ? heroPortraitSrc(primaryHero) : null,
+          ownerHeroIds,
         }
       )
     }
@@ -1041,17 +1092,72 @@ export async function buildSnapshotFromSupabase(sb, hidden) {
   expandSubSkillOwners(skillOwners, snap.entities.skill)
   snap.skillOwners = skillOwners
 
-  // Drop skill entities that never appear on the site (no catalog owner)
-  const ownedSkillIds = new Set(Object.keys(skillOwners))
+  // Keep skills that appear in the site compendium (owned OR have name/icon/des).
+  // Drop only empty stubs with no owner and no content.
   let droppedOrphanSkills = 0
   for (const id of Object.keys(snap.entities.skill)) {
-    if (!ownedSkillIds.has(id)) {
+    const entity = snap.entities.skill[id]
+    const owned = Boolean(skillOwners[id]?.length)
+    const fields = entity?.fields || {}
+    const hasName = typeof fields.name === 'string' && fields.name.trim()
+    const hasIcon = typeof fields.iconpath === 'string' && fields.iconpath.trim()
+    const hasDes =
+      (Array.isArray(fields.skill_des) && fields.skill_des.length > 0) ||
+      (Array.isArray(fields.skill_sketch) && fields.skill_sketch.length > 0) ||
+      (Array.isArray(fields.awaken_skill_des) && fields.awaken_skill_des.length > 0)
+    if (!owned && !hasName && !hasIcon && !hasDes) {
       delete snap.entities.skill[id]
       droppedOrphanSkills++
+      continue
     }
+    // Compendium detail link
+    entity.href = `/skills?open=${id}`
   }
   if (droppedOrphanSkills) {
-    console.log(`[changelog] dropped ${droppedOrphanSkills} orphan skills (not used on site)`)
+    console.log(`[changelog] dropped ${droppedOrphanSkills} empty orphan skills`)
+  }
+
+  // --- Gallery collection (China index from public/data/gallery-index.json) ---
+  try {
+    if (existsSync(GALLERY_INDEX_PATH)) {
+      const galleryIndex = JSON.parse(readFileSync(GALLERY_INDEX_PATH, 'utf8'))
+      const galleryEntries = Array.isArray(galleryIndex?.entries) ? galleryIndex.entries : []
+      for (const entry of galleryEntries) {
+        const id = Number(entry?.id)
+        if (!Number.isFinite(id)) continue
+        const categoryType =
+          typeof entry.categoryType === 'string' && entry.categoryType ? entry.categoryType : null
+        const nameKey =
+          typeof entry.nameKey === 'string' && entry.nameKey.trim() ? entry.nameKey.trim() : null
+        if (nameKey) lcKeys.add(nameKey)
+        const thumbPath =
+          typeof entry.thumbPath === 'string' && entry.thumbPath.trim()
+            ? entry.thumbPath.trim()
+            : null
+        snap.entities.gallery[String(id)] = record(
+          {
+            categoryType,
+            objectId: Number.isFinite(Number(entry.objectId)) ? Number(entry.objectId) : null,
+            exp: Number.isFinite(Number(entry.exp)) ? Number(entry.exp) : 0,
+            awardId: entry.awardId ?? null,
+            unlockRewards: entry.unlockRewards ?? [],
+            descKey: entry.descKey ?? null,
+            conditions: entry.conditions ?? [],
+            name: nameKey,
+            thumbPath,
+          },
+          {
+            href: categoryType ? `/gallery?category=${encodeURIComponent(categoryType)}` : '/gallery',
+            portraitSrc: galleryThumbPublicPath(thumbPath),
+          }
+        )
+      }
+      console.log(`[changelog] gallery entries from index: ${Object.keys(snap.entities.gallery).length}`)
+    } else {
+      console.warn(`[changelog] gallery index missing: ${GALLERY_INDEX_PATH}`)
+    }
+  } catch (e) {
+    console.warn(`[changelog] gallery index: ${e.message}`)
   }
 
   console.log(`[changelog] fetching ${lcKeys.size} LC keys × ${SITE_LANGS.length} langs…`)

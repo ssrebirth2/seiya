@@ -9,6 +9,8 @@ import {
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
+import { NOT_AVAILABLE_LABEL } from '@/lib/i18n/language-package'
+import { NO_DATA_LC_KEY } from '@/lib/i18n/ui-keys'
 
 export type SkillViewModelLine = {
   level: number
@@ -54,16 +56,25 @@ export function buildSkillViewModel({
   const skillId = String(skill.skillid ?? '')
   const name = displayOrNoData(getT(String(skill.name ?? '')), noDataLabel)
   const skillTypeLabel = resolveSkillTypeLabel(skill.skill_type, getT)
+  const noDataLc = getT(NO_DATA_LC_KEY)
   const tagLabels = parsePrimitiveList(skill.label_list)
     .map((id) => labelMap[Number(id)])
-    .filter((label): label is string => Boolean(label) && !isNotAvailableLabel(label, noDataLabel))
+    .filter((label): label is string => {
+      if (!label?.trim()) return false
+      if (isNotAvailableLabel(label, noDataLabel)) return false
+      if (isNotAvailableLabel(label, noDataLc)) return false
+      if (label === NOT_AVAILABLE_LABEL) return false
+      return true
+    })
 
-  // Awaken profile skills: game uses awaken_skill_des (GetAwakenSkillContentDesc), not skill_des.
-  const desSource =
-    preferAwakenSketch && normalizeDesValueList(skill.awaken_skill_des).length > 0
-      ? skill.awaken_skill_des
-      : skill.skill_des
-  const desList = normalizeDesValueList(desSource)
+  // Awaken skills: game uses awaken_skill_des for level progression
+  // (GetAwakenSkillContentDesc). Some rows (e.g. 61190) point skill_sketch at
+  // LC keys that were never shipped — only awaken_* keys exist.
+  const awakenDes = normalizeDesValueList(skill.awaken_skill_des)
+  const preferAwaken = Boolean(preferAwakenSketch && awakenDes.length > 0)
+
+  // Main blurb stays on skill_des (base tip); awaken texts are the level list.
+  const desList = normalizeDesValueList(skill.skill_des)
   const mainDescriptionHtml =
     desList.length > 0
       ? (() => {
@@ -75,14 +86,28 @@ export function buildSkillViewModel({
         })()
       : ''
 
-  const sketchField = preferAwakenSketch ? 'awaken_skill_des' : 'skill_sketch'
-  const sketches = normalizeDesValueList(skill[sketchField])
-  const sketchTexts = sketches.map((s) => {
+  let sketches = normalizeDesValueList(preferAwaken ? skill.awaken_skill_des : skill.skill_sketch)
+  let sketchTexts = sketches.map((s) => {
     if (!s.des) return noDataLabel
     const raw = getT(s.des)
     if (!raw.trim() || isNotAvailableLabel(raw, noDataLabel)) return noDataLabel
     return applySkillValues(raw, s.value ?? 0, valuesMap)
   })
+
+  // If sketch progression is empty/unresolved but awaken_skill_des exists, use awaken.
+  if (
+    !preferAwaken &&
+    awakenDes.length > 0 &&
+    sketchTexts.every((t) => !t.trim() || isNotAvailableLabel(t, noDataLabel))
+  ) {
+    sketches = awakenDes
+    sketchTexts = sketches.map((s) => {
+      if (!s.des) return noDataLabel
+      const raw = getT(s.des)
+      if (!raw.trim() || isNotAvailableLabel(raw, noDataLabel)) return noDataLabel
+      return applySkillValues(raw, s.value ?? 0, valuesMap)
+    })
+  }
 
   const conds = normalizeConditionList(skill.skill_condition)
   const levelLines: SkillViewModelLine[] = sketchTexts

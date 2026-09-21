@@ -5,6 +5,7 @@ import {
   parseGameData,
   parsePrimitiveList,
 } from '@/lib/game/parse-game-data'
+import { synthesizeAwakenSkillStub } from '@/lib/game/synthesize-awaken-skill-stub'
 
 export type HeroProfileSkillEntry = {
   skillId: string
@@ -112,11 +113,21 @@ export async function loadHeroProfileSkillMap(
   const rootIds = entries.map((e) => e.skillId)
   if (!rootIds.length) return new Map()
 
-  const { data: roots } = await supabase.from('SkillConfig').select('*').in('skillid', rootIds)
-  if (!roots?.length) return new Map()
+  const numericIds = rootIds.map(Number).filter(Number.isFinite)
+  const { data: roots } = await supabase.from('SkillConfig').select('*').in('skillid', numericIds)
+  const found = new Set((roots || []).map((r) => Number(r.skillid)))
+  const mergedRoots: Record<string, unknown>[] = [
+    ...(roots || []),
+    ...numericIds
+      .filter((id) => !found.has(id))
+      .map((id) => synthesizeAwakenSkillStub(id) as unknown as Record<string, unknown>),
+  ]
+  if (!mergedRoots.length) return new Map()
 
   const subIds = new Set<string>()
-  roots.forEach((r) => parsePrimitiveList(r.sub_skills).forEach((sid) => subIds.add(String(sid))))
+  mergedRoots.forEach((r) =>
+    parsePrimitiveList(r.sub_skills).forEach((sid) => subIds.add(String(sid)))
+  )
 
   let subs: Record<string, unknown>[] = []
   if (subIds.size > 0) {
@@ -127,5 +138,5 @@ export async function loadHeroProfileSkillMap(
     subs = subData || []
   }
 
-  return new Map([...roots, ...subs].map((s) => [String(s.skillid), s]))
+  return new Map([...mergedRoots, ...subs].map((s) => [String(s.skillid), s]))
 }

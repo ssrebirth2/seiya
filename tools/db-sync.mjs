@@ -10,8 +10,12 @@
  *   npm run db -- --langs
  *   npm run db -- --assets
  *   npm run db -- --assets cosmo,heroes
+ *   npm run db -- --assets skills   (alias → skill-item UI frames)
  *   npm run db -- --dry-run --configs skills
  *   npm run db -- --force-extract
+ *
+ * Config groups include `skills` (SkillConfig + SkillLabelConfig + SkillValueConfig).
+ * Menu option 10 runs skills-only: configs skills → skill-item assets → changelog.
  *
  * Configs come from StreamingResources_cn → luascript/luascript_bundle.assetbundle
  * Assets use CN → global → assets mirror → backup (via BundleResolver).
@@ -47,6 +51,7 @@ const ASSET_RECIPES = [
   'artifacts',
   'catalog-icons',
   'hero-overview',
+  'gallery',
 ]
 
 const RECIPE_ALIASES = {
@@ -67,6 +72,7 @@ const RECIPE_ALIASES = {
   'hero-overview': 'hero-overview',
   cloth: 'hero-overview',
   figures: 'hero-overview',
+  gallery: 'gallery',
 }
 
 function run(label, cmd, args, { env } = {}) {
@@ -165,6 +171,7 @@ function buildIndexes() {
   run('Item usage index', 'npm', ['run', 'items:index'])
   run('Item get-path index', 'npm', ['run', 'items:get-path:build'])
   run('Item stage rewards index', 'npm', ['run', 'items:stage-rewards:build'])
+  run('Gallery index', 'npm', ['run', 'gallery:build'])
 }
 
 function extractAssets(recipes) {
@@ -227,22 +234,37 @@ function ask(rl, question) {
   return new Promise((resolve) => rl.question(question, resolve))
 }
 
+function skillsOnlySync({ dryRun = false } = {}) {
+  ensureLuaExtract({ status: getStatus() })
+  if (dryRun) {
+    importConfigs(['skills'], { dryRun: true })
+    return
+  }
+  importConfigs(['skills'])
+  extractAssets(['skills'])
+  buildManifest()
+  buildChangelog()
+  console.log('\nSkills-only sync complete (configs skills → skill-item assets → changelog).')
+}
+
 async function interactiveMenu() {
   const rl = createInterface({ input: process.stdin, output: process.stdout })
   const status = getStatus()
   printStatusBanner(status)
 
-  console.log('1) Full sync (extract lua if stale → configs → langs → indexes → assets → changelog → manifest)')
+  console.log('1) Full sync (extract lua if stale → configs → langs → indexes/gallery → assets → changelog → manifest)')
   console.log('2) Refresh Lua base only (luascript_bundle)')
   console.log('3) Supabase configs (select groups) → changelog')
+  console.log('   Groups include: heroes, skills, talents, spirits, artifacts, forcecards, items, cosmo, …')
   console.log('4) Language packs → changelog')
   console.log('5) Assets / textures (select recipes)')
   console.log('6) Dry-run configs (+ optional langs)')
   console.log('7) Status only')
   console.log('8) Build DB changelog only')
-  console.log('9) Exit')
+  console.log('9) Skills only (configs skills → skill-item assets → changelog)')
+  console.log('10) Exit')
 
-  const choice = (await ask(rl, '\nSelect [1-9]: ')).trim()
+  const choice = (await ask(rl, '\nSelect [1-10]: ')).trim()
 
   try {
     switch (choice) {
@@ -284,7 +306,7 @@ async function interactiveMenu() {
         return
       case '5': {
         console.log(
-          `Recipes: all, ${ASSET_RECIPES.join(', ')} (aliases: heroes, items, nav, skills, cosmo, companions, artifacts, icons)`
+          `Recipes: all, ${ASSET_RECIPES.join(', ')} (aliases: heroes, items, nav, skills, cosmo, companions, artifacts, icons, gallery)`
         )
         const raw = (await ask(rl, 'Recipes (comma-separated, or all): ')).trim().toLowerCase()
         rl.close()
@@ -312,6 +334,10 @@ async function interactiveMenu() {
         buildChangelog()
         return
       case '9':
+        rl.close()
+        skillsOnlySync()
+        return
+      case '10':
       default:
         rl.close()
         console.log('Bye.')
@@ -335,6 +361,7 @@ function parseArgs(argv) {
     configs: null,
     assets: null,
     changelog: false,
+    skillsOnly: false,
     menu: true,
   }
   for (let i = 0; i < argv.length; i++) {
@@ -346,6 +373,9 @@ function parseArgs(argv) {
       opts.skipChangelog = true
     } else if (a === '--changelog') {
       opts.changelog = true
+      opts.menu = false
+    } else if (a === '--skills') {
+      opts.skillsOnly = true
       opts.menu = false
     } else if (a === '--status') {
       opts.status = true
@@ -387,9 +417,11 @@ function parseArgs(argv) {
   --extract-lua       Unpack luascript_bundle
   --force-extract     Re-extract even if FRESH
   --configs [g,...]   Import config groups (omit list = all)
-  --langs             Import language packs
+                      (skills = SkillConfig + labels + values)
   --assets [r,...]    Extract asset recipes (omit list = all)
+                      (skills alias → skill-item)
   --changelog         Build DB changelog from live Supabase snapshot
+  --skills            Skills-only: configs skills → skill-item → changelog
   --skip-changelog    Skip changelog step during --full
   --dry-run           Parse-only for config/lang imports
 `)
@@ -413,6 +445,11 @@ async function main() {
       dryRun: opts.dryRun,
       skipChangelog: opts.skipChangelog,
     })
+    return
+  }
+
+  if (opts.skillsOnly) {
+    skillsOnlySync({ dryRun: opts.dryRun })
     return
   }
 

@@ -1,6 +1,10 @@
 import { UI_KEYS } from '@/lib/i18n/ui-keys'
 import type { FunOpenIconKey } from '@/lib/game/fun-open-icons'
-import { ITEMS_SECTION_ENABLED } from '@/lib/site/site-sections'
+import {
+  GALLERY_SECTION_ENABLED,
+  ITEMS_SECTION_ENABLED,
+  SKILLS_SECTION_ENABLED,
+} from '@/lib/site/site-sections'
 
 export type FunctionShortcutIcon = FunOpenIconKey | 'lucide-home'
 
@@ -18,11 +22,17 @@ export const CATALOG_SHORTCUTS: FunctionShortcutItem[] = [
   ...(ITEMS_SECTION_ENABLED
     ? [{ href: '/items', lcKey: UI_KEYS.nav.items, icon: 'bag' as const }]
     : []),
+  ...(SKILLS_SECTION_ENABLED
+    ? [{ href: '/skills', lcKey: UI_KEYS.nav.skills, icon: 'skills' as const }]
+    : []),
 ]
 
 export const TOOLS_SHORTCUTS: FunctionShortcutItem[] = [
   { href: '/team-builder', lcKey: UI_KEYS.nav.teamBuilder, icon: 'teamBuilder' },
   { href: '/stage-up', lcKey: UI_KEYS.nav.stageUp, icon: 'heroes' },
+  ...(GALLERY_SECTION_ENABLED
+    ? [{ href: '/gallery', lcKey: UI_KEYS.nav.galleryMode, icon: 'gallery' as const }]
+    : []),
 ]
 
 export const HOME_SHORTCUTS: FunctionShortcutItem[] = [

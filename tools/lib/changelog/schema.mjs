@@ -17,6 +17,7 @@ export const ENTITY_ORDER = [
   'figure',
   'hero_star',
   'hero_awaken',
+  'gallery',
 ]
 
 /** Entity types that belong to a hero detail page and group under that hero. */
@@ -38,7 +39,7 @@ export const HOME_ENTRY_LIMIT = 12
 export const MAX_ENTRIES_PER_RELEASE = Infinity
 
 /** Bump when snapshot entity shapes change (forces baseline, avoids false "added" flood). */
-export const SNAPSHOT_VERSION = 2
+export const SNAPSHOT_VERSION = 3
 export const CHANGELOG_VERSION = 1
 
 export function emptyLangMap(fallback = '') {
@@ -73,6 +74,7 @@ export function emptySnapshot() {
       figure: {},
       hero_star: {},
       hero_awaken: {},
+      gallery: {},
     },
     lc: Object.fromEntries(SITE_LANGS.map((l) => [l, {}])),
     skillValues: {},

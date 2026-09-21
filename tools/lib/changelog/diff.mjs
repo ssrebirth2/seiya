@@ -44,6 +44,29 @@ function canonicalizeValue(value, key = '') {
   return value
 }
 
+/** Fields never published as patch-note lines (internal IDs / taxonomy). */
+const IGNORED_PATCH_FIELDS = new Set([
+  'nameKey',
+  'valueIds',
+  'label_list',
+  'skill_type',
+  'skill_condition',
+  'sub_skills',
+  // iconpath is meaningful for skills — handled explicitly below
+  'skill_quality',
+  'quality',
+  'initial_quality',
+  'general_item',
+  'consume',
+  'get_path',
+  'child_type',
+  'type',
+  'compose',
+  'des_value',
+  'isRare',
+  'icon_path',
+])
+
 function fieldChanges(beforeFields, afterFields) {
   const keys = new Set([
     ...Object.keys(beforeFields || {}),
@@ -51,7 +74,7 @@ function fieldChanges(beforeFields, afterFields) {
   ])
   const changes = []
   for (const key of keys) {
-    if (key === 'nameKey' || key === 'valueIds') continue
+    if (IGNORED_PATCH_FIELDS.has(key)) continue
     const b = beforeFields?.[key]
     const a = afterFields?.[key]
     if (contentHash({ v: canonicalizeValue(b, key) }) === contentHash({ v: canonicalizeValue(a, key) })) {
@@ -185,6 +208,65 @@ function buildOwner(owners, snap) {
   }
 }
 
+/** Prefer HeroRelationSkillConfig / Fetters title over SkillConfig name for bond skills. */
+function bondTitleForSkill(snap, skillId) {
+  const sid = Number(skillId)
+  if (!Number.isFinite(sid)) return null
+  for (const bond of Object.values(snap?.entities?.bond || {})) {
+    if (Number(bond.fields?.skill_id) !== sid) continue
+    const key = bond.nameKey || bond.fields?.name
+    if (typeof key === 'string' && key.startsWith('LC_')) {
+      return resolveItemTitleMap(snap.lc, key, null, String(sid))
+    }
+  }
+  return null
+}
+
+function ownersForBondEntity(entity) {
+  const ids = Array.isArray(entity?.ownerHeroIds)
+    ? entity.ownerHeroIds
+    : Array.isArray(entity?.fields?.hero_list)
+      ? entity.fields.hero_list
+      : Array.isArray(entity?.fields?.condition)
+        ? entity.fields.condition
+        : []
+  const heroId = Number(entity?.fields?.hero_id)
+  const fromPrimary =
+    Number.isFinite(heroId) && heroId > 0 ? [{ type: 'hero', id: heroId }] : []
+  const fromList = ids
+    .map(Number)
+    .filter((n) => Number.isFinite(n) && n > 0)
+    .map((id) => ({ type: 'hero', id }))
+  const merged = [...fromPrimary]
+  for (const o of fromList) {
+    if (!merged.some((m) => m.type === o.type && m.id === o.id)) merged.push(o)
+  }
+  return merged
+}
+
+/**
+ * Combine-state bond skills / bonds belong to every hero in hero_list — emit one
+ * entry per hero so each knight's changelog card shows the relationship update.
+ */
+function expandOwnedEntries(entry, owners, snap) {
+  if (!entry) return []
+  if (entry.entityType !== 'skill' && entry.entityType !== 'bond') return [entry]
+  const heroOwners = (owners || [])
+    .filter((o) => o.type === 'hero')
+    .filter((o) => snap?.entities?.hero?.[String(o.id)])
+  if (heroOwners.length <= 1) return [entry]
+  return heroOwners.map((o) => {
+    const owner = buildOwner([o], snap)
+    return {
+      ...entry,
+      id: `${entry.id}:hero-${o.id}`,
+      owner,
+      href: owner?.href || entry.href,
+      portraitSrc: owner?.portraitSrc || entry.portraitSrc,
+    }
+  })
+}
+
 function skillTextChanges(prevEntity, nextEntity, prevSnap, nextSnap) {
   const changes = []
   const prevDes = prevEntity?.fields?.skill_des?.[0]
@@ -283,24 +365,53 @@ function makeEntry({
   const entity = nextEntity || prevEntity
   const snap = nextSnap || prevSnap
   let title = nameTitle(entity, snap, entityId)
-  const owners = (nextSnap || prevSnap).skillOwners?.[String(entityId)] || []
-  const owner = entityType === 'skill' ? buildOwner(owners, nextSnap || prevSnap) : undefined
+  const skillOwners =
+    entityType === 'skill'
+      ? (nextSnap || prevSnap).skillOwners?.[String(entityId)] || []
+      : []
+  const bondOwners = entityType === 'bond' ? ownersForBondEntity(entity) : []
+  const owner =
+    entityType === 'skill'
+      ? buildOwner(skillOwners, nextSnap || prevSnap)
+      : entityType === 'bond'
+        ? buildOwner(bondOwners, nextSnap || prevSnap)
+        : undefined
 
-  // Skills not linked to any site catalog entity are noise — never publish
-  if (entityType === 'skill' && !owner) return null
+  // Skills without a catalog owner still appear in the Skills Compendium
+  // (sneak peek / WIP). Keep them with /skills/[id] href.
+
+  // Relation / combine-state skills: show the fetter title users see on the bonds tab
+  if (entityType === 'skill') {
+    const bondTitle = bondTitleForSkill(snap, entityId)
+    if (bondTitle && !isIdOnlyTitle(bondTitle, entityId)) title = bondTitle
+  }
 
   // Force-card / artifact skills often have null SkillConfig.name — use owner card/relic name
   if (entityType === 'skill' && isIdOnlyTitle(title, entityId) && owner?.title) {
     title = owner.title
   }
 
+  // Still unresolved — never publish bare skill id as the user-facing title
+  if (entityType === 'skill' && isIdOnlyTitle(title, entityId)) {
+    title = {
+      EN: 'Skill has no name',
+      CN: '技能暂无名称',
+      PT: 'Habilidade sem nome',
+      SP: 'Habilidad sin nombre',
+      FR: 'Compétence sans nom',
+      ID: 'Skill belum punya nama',
+    }
+  }
+
   let href = entity?.href ?? null
   if (!href && owner?.href) href = owner.href
+  if (!href && entityType === 'skill') href = `/skills?open=${entityId}`
   if (!href && entityType === 'hero') href = `/heroes/${entityId}`
   if (!href && entityType === 'companion') href = `/companions/${entityId}`
   if (!href && entityType === 'artifact') href = `/artifacts/${entityId}`
   if (!href && entityType === 'force_card') href = `/force-cards/${entityId}`
   if (!href && entityType === 'item') href = `/items/${entityId}`
+  if (!href && entityType === 'gallery') href = '/gallery'
   if (!href && HERO_SCOPED_ENTITY_TYPES.includes(entityType)) href = `/heroes/${entityId}`
 
   // Bonds without a hero page link are not shown on the site
@@ -312,24 +423,20 @@ function makeEntry({
     if (entityType === 'skill') {
       changes.push(...skillTextChanges(prevEntity, nextEntity, prevSnap, nextSnap))
       const structural = fieldChanges(prevEntity?.fields, nextEntity?.fields).filter(
-        (c) =>
-          ![
-            'skill_des',
-            'skill_sketch',
-            'awaken_skill_des',
-            'valueIds',
-            'label_list',
-            'skill_type',
-            'skill_condition',
-            'sub_skills',
-            'iconpath',
-            'skill_quality',
-            'quality',
-            'initial_quality',
-            'general_item',
-          ].includes(c.field)
+        (c) => !['skill_des', 'skill_sketch', 'awaken_skill_des'].includes(c.field)
       )
       for (const c of structural) {
+        if (c.field === 'iconpath') {
+          const beforePath = c.before == null ? '' : String(c.before)
+          const afterPath = c.after == null ? '' : String(c.after)
+          if (beforePath === afterPath) continue
+          changes.push({
+            field: 'iconpath',
+            before: langMapFromScalar(beforePath || '—'),
+            after: langMapFromScalar(afterPath || '—'),
+          })
+          continue
+        }
         if (c.field === 'name' || c.field === 'desc') {
           const beforeMap = isLcKeyString(c.before)
             ? resolveTitleMap(prevSnap.lc, c.before, c.before)
@@ -400,6 +507,11 @@ function makeEntry({
   if (!portraitSrc && entityType === 'force_card') {
     portraitSrc = `/assets/resources/textures/dynamis/card/Card_small_${entityId}.png`
   }
+  if (!portraitSrc && entityType === 'gallery' && entity?.fields?.thumbPath) {
+    const tp = String(entity.fields.thumbPath)
+    const relative = tp.replace(/^Textures\//i, '').replace(/\\/g, '/').toLowerCase()
+    portraitSrc = `/assets/resources/textures/${relative}.png`
+  }
   if (!portraitSrc && owner?.type === 'force_card' && owner.id != null) {
     portraitSrc = `/assets/resources/textures/dynamis/card/Card_small_${owner.id}.png`
   }
@@ -450,6 +562,17 @@ export function diffSnapshots(prevSnap, nextSnap) {
     return true
   }
 
+  function pushEntries(entry, entityId) {
+    if (!entry) return
+    const owners =
+      entry.entityType === 'skill'
+        ? nextSnap.skillOwners?.[String(entityId)] || prevSnap.skillOwners?.[String(entityId)] || []
+        : entry.entityType === 'bond'
+          ? ownersForBondEntity(nextSnap.entities?.bond?.[String(entityId)] || prevSnap.entities?.bond?.[String(entityId)])
+          : []
+    entries.push(...expandOwnedEntries(entry, owners, nextSnap || prevSnap))
+  }
+
   for (const entityType of types) {
     const prevMap = prevSnap.entities[entityType] || {}
     const nextMap = nextSnap.entities[entityType] || {}
@@ -463,48 +586,36 @@ export function diffSnapshots(prevSnap, nextSnap) {
       if (!publishable(entityType, id)) continue
 
       if (!prev && next) {
-        const entry = makeEntry({
-          entityType,
-          action: 'added',
-          entityId: id,
-          nextEntity: next,
-          nextSnap,
-          prevSnap,
-        })
-        if (entry) entries.push(entry)
+        pushEntries(
+          makeEntry({
+            entityType,
+            action: 'added',
+            entityId: id,
+            nextEntity: next,
+            nextSnap,
+            prevSnap,
+          }),
+          id
+        )
         continue
       }
       if (prev && !next) {
-        const entry = makeEntry({
-          entityType,
-          action: 'removed',
-          entityId: id,
-          prevEntity: prev,
-          prevSnap,
-          nextSnap,
-        })
-        if (entry) entries.push(entry)
+        pushEntries(
+          makeEntry({
+            entityType,
+            action: 'removed',
+            entityId: id,
+            prevEntity: prev,
+            prevSnap,
+            nextSnap,
+          }),
+          id
+        )
         continue
       }
       if (prev && next && prev.contentHash !== next.contentHash) {
-        const entry = makeEntry({
-          entityType,
-          action: 'updated',
-          entityId: id,
-          prevEntity: prev,
-          nextEntity: next,
-          prevSnap,
-          nextSnap,
-        })
-        if (entry) entries.push(entry)
-        continue
-      }
-
-      // Same structural hash — still check skill LC / values drift for skills
-      if (entityType === 'skill' && prev && next) {
-        const textChanges = skillTextChanges(prev, next, prevSnap, nextSnap)
-        if (textChanges.length) {
-          const entry = makeEntry({
+        pushEntries(
+          makeEntry({
             entityType,
             action: 'updated',
             entityId: id,
@@ -512,15 +623,35 @@ export function diffSnapshots(prevSnap, nextSnap) {
             nextEntity: next,
             prevSnap,
             nextSnap,
-          })
-          if (entry) entries.push(entry)
+          }),
+          id
+        )
+        continue
+      }
+
+      // Same structural hash — still check skill LC / values drift for skills
+      if (entityType === 'skill' && prev && next) {
+        const textChanges = skillTextChanges(prev, next, prevSnap, nextSnap)
+        if (textChanges.length) {
+          pushEntries(
+            makeEntry({
+              entityType,
+              action: 'updated',
+              entityId: id,
+              prevEntity: prev,
+              nextEntity: next,
+              prevSnap,
+              nextSnap,
+            }),
+            id
+          )
         }
       }
     }
   }
 
   // Also detect LC-only text changes for catalog entities (same key, different resolved text)
-  for (const entityType of ['hero', 'companion', 'artifact', 'force_card', 'item', 'cloth', 'figure']) {
+  for (const entityType of ['hero', 'companion', 'artifact', 'force_card', 'item', 'cloth', 'figure', 'bond']) {
     const prevMap = prevSnap.entities[entityType] || {}
     const nextMap = nextSnap.entities[entityType] || {}
     for (const id of Object.keys(nextMap)) {
@@ -626,19 +757,24 @@ export function diffSnapshots(prevSnap, nextSnap) {
       )
       if (!kept.length) continue
       const titleKey = nameKey || String(id)
-      entries.push({
+      const baseEntry = {
         id: `${entityType}:updated:${id}:lc`,
         action: 'updated',
         entityType,
-        entityId: Number(id),
+        entityId: Number.isFinite(Number(id)) && !String(id).includes('_') ? Number(id) : id,
         href: nextMap[id].href,
+        owner:
+          entityType === 'bond'
+            ? buildOwner(ownersForBondEntity(nextMap[id]), nextSnap)
+            : undefined,
         title:
           typeof nameKey === 'string' && nameKey.startsWith('LC_')
             ? resolveItemTitleMap(nextSnap.lc, nameKey, nextMap[id].fields?.des_value, String(id))
             : resolveTitleMap(nextSnap.lc, titleKey, String(id)),
         changes: kept,
         portraitSrc: nextMap[id].portraitSrc,
-      })
+      }
+      pushEntries(baseEntry, id)
     }
   }
 

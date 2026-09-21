@@ -47,7 +47,7 @@ export function ConsumeList({
                 title={resolved.name}
                 href={href ?? undefined}
                 size="sm"
-                showQuantity
+                showQuantity={item.num > 0}
               />
               <p className="item-detail-rewards-grid__name" title={resolved.name}>
                 {href ? (
@@ -95,7 +95,7 @@ export function ConsumeList({
                 title={resolved.name}
                 href={resolved.href}
                 size="sm"
-                showQuantity
+                showQuantity={item.num > 0}
               />
             </li>
           )

@@ -16,6 +16,7 @@ export const FUN_OPEN_IDS = {
   forceCards: 10071,
   teamBuilder: 10054,
   tools: 10076,
+  skills: 10040,
 } as const
 
 export type FunOpenIconKey =
@@ -28,6 +29,7 @@ export type FunOpenIconKey =
   | 'forceCards'
   | 'teamBuilder'
   | 'tools'
+  | 'skills'
   | 'menu'
 
 /** Lua get_path_icon values mirrored under public/assets/resources/textures/levelup/ */
@@ -41,6 +43,8 @@ const GAME_TEXTURE_PATH: Record<FunOpenIconKey, string> = {
   forceCards: 'Textures/LevelUp/Action_force_card',
   teamBuilder: 'Textures/LevelUp/Action_quickly_set',
   tools: 'Textures/LevelUp/Action_reductionHelper',
+  /** Reuse hero action icon until a dedicated FunOpen skill texture is mapped. */
+  skills: 'Textures/LevelUp/Action_combine_skill',
   menu: 'Textures/LevelUp/Action_function_7',
 }
 
@@ -60,6 +64,7 @@ export const SITE_NAV_ICONS = {
   '/companions': 'companions',
   '/force-cards': 'forceCards',
   '/items': 'bag',
+  '/skills': 'skills',
   '/team-builder': 'teamBuilder',
   '/stage-up': 'heroes',
 } as const satisfies Record<string, FunOpenIconKey>

@@ -246,6 +246,9 @@ export function filterSiteVisibleEntries(entries: ChangelogEntry[]): ChangelogEn
 
     if (e.entityType === 'skill') {
 
+      // Prefer Skills Compendium link; still allow owner-linked skills.
+      if (typeof e.href === 'string' && (e.href.startsWith('/skills/') || e.href.startsWith('/skills?'))) return true
+
       if (!e.owner) return false
 
       return isCatalogOwner(e.owner.type, e.owner.id)

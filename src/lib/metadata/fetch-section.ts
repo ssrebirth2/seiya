@@ -10,15 +10,18 @@ export type SectionKey =
   | 'force-cards'
   | 'team-builder'
   | 'stage-up'
+  | 'gallery'
   | 'items'
+  | 'skills'
 
-const SECTION_NAV_KEYS: Record<Exclude<SectionKey, 'home' | 'items'>, string> = {
+const SECTION_NAV_KEYS: Record<Exclude<SectionKey, 'home' | 'items' | 'skills'>, string> = {
   heroes: UI_KEYS.nav.heroes,
   companions: UI_KEYS.nav.companions,
   artifacts: UI_KEYS.nav.artifacts,
   'force-cards': UI_KEYS.nav.forceCards,
   'team-builder': UI_KEYS.nav.teamBuilder,
   'stage-up': UI_KEYS.nav.stageUp,
+  gallery: UI_KEYS.nav.galleryMode,
 }
 
 function localizedStageUpDesc(lang: string): string {
@@ -26,7 +29,20 @@ function localizedStageUpDesc(lang: string): string {
   return SITE_LOCALIZED_LABELS.stageUpDesc[upper] ?? SITE_LOCALIZED_LABELS.stageUpDesc.EN
 }
 
-const SECTION_DESCRIPTIONS: Record<Exclude<SectionKey, 'home' | 'stage-up'>, string> = {
+function localizedGalleryDesc(lang: string): string {
+  const upper = lang.toUpperCase() as keyof typeof SITE_LOCALIZED_LABELS.galleryDesc
+  return SITE_LOCALIZED_LABELS.galleryDesc[upper] ?? SITE_LOCALIZED_LABELS.galleryDesc.EN
+}
+
+function localizedSkillsDesc(lang: string): string {
+  const upper = lang.toUpperCase() as keyof typeof SITE_LOCALIZED_LABELS.skillsCardDesc
+  return SITE_LOCALIZED_LABELS.skillsCardDesc[upper] ?? SITE_LOCALIZED_LABELS.skillsCardDesc.EN
+}
+
+const SECTION_DESCRIPTIONS: Record<
+  Exclude<SectionKey, 'home' | 'stage-up' | 'gallery' | 'skills'>,
+  string
+> = {
   heroes: SITE_ONLY_LABELS.heroesCardDesc,
   companions: SITE_ONLY_LABELS.companionsCardDesc,
   artifacts: SITE_ONLY_LABELS.artifactsCardDesc,
@@ -63,10 +79,24 @@ export async function fetchSectionMetadata(
     }
   }
 
+  if (section === 'skills') {
+    const navKey = UI_KEYS.nav.skills
+    const translated = await translateKeys([navKey], lang)
+    return {
+      title: translated[navKey] || SITE_ONLY_LABELS.skillList,
+      description: localizedSkillsDesc(lang),
+      imageUrl: null,
+    }
+  }
+
   const navKey = SECTION_NAV_KEYS[section]
   const translated = await translateKeys([navKey], lang)
   const description =
-    section === 'stage-up' ? localizedStageUpDesc(lang) : SECTION_DESCRIPTIONS[section]
+    section === 'stage-up'
+      ? localizedStageUpDesc(lang)
+      : section === 'gallery'
+        ? localizedGalleryDesc(lang)
+        : SECTION_DESCRIPTIONS[section]
   const title = translated[navKey] || description
 
   return {

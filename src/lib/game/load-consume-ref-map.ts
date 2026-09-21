@@ -1,4 +1,5 @@
 import { resolveArtifactListIcon, resolveForceCardListIcon } from '@/lib/assets/game-images'
+import { IMAGE_UNAVAILABLE, resolveAssetUrl } from '@/lib/assets/asset-registry'
 import {
   fetchHeroHeadIconEntry,
   getHeroSquareHeadUrl,
@@ -10,6 +11,7 @@ import {
 } from '@/lib/game/figure-ref'
 import { parseFigureAttributePayload } from '@/lib/game/parse-figure-attribute-payload'
 import { translateKeys } from '@/lib/i18n/language-package'
+import { getSiteLanguageBundleLang } from '@/lib/i18n/site-languages'
 import { translateItemConfigNames } from '@/lib/game/item-i18n'
 import {
   consumeRefKey,
@@ -19,6 +21,13 @@ import {
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import { itemIconUrl } from '@/lib/game/resolve-item-icon'
 import { supabase } from '@/lib/supabase-client'
+import titleInfoIcons from '@/data/title-info-icons.json'
+
+type TitleInfoIconRow = {
+  nameKey: string
+  iconPath: string
+  quality?: number
+}
 
 type RefRow = {
   name: string
@@ -367,6 +376,82 @@ async function loadHeroRefs(
   return map
 }
 
+async function loadStyleFrameRefs(
+  entries: ConsumeEntry[],
+  lang: string
+): Promise<Map<number, RefRow>> {
+  const ids = [
+    ...new Set(
+      entries
+        .filter((e) => e.type === 'style_frame' && e.sid != null && e.sid > 0)
+        .map((e) => e.sid!)
+    ),
+  ]
+  const map = new Map<number, RefRow>()
+  if (!ids.length) return map
+
+  const nameKeys = ids.map((id) => `LC_SETTING_icon_box_name_${id}`)
+  const tmap = await translateKeys(nameKeys, lang)
+
+  for (const id of ids) {
+    const nameKey = `LC_SETTING_icon_box_name_${id}`
+    const iconPath = `Textures/UseSetting/HeadFrame/headframe_${id}`
+    map.set(id, {
+      name: tmap[nameKey] || nameKey,
+      nameKey,
+      iconUrl: itemIconUrl(iconPath),
+      iconPath,
+      quality: 5,
+    })
+  }
+
+  return map
+}
+
+async function loadTitleRefs(
+  entries: ConsumeEntry[],
+  lang: string
+): Promise<Map<number, RefRow>> {
+  const ids = [
+    ...new Set(
+      entries
+        .filter((e) => e.type === 'title' && e.sid != null && e.sid > 0)
+        .map((e) => e.sid!)
+    ),
+  ]
+  const map = new Map<number, RefRow>()
+  if (!ids.length) return map
+
+  const iconTable = titleInfoIcons as Record<string, TitleInfoIconRow>
+  const bundleLang = getSiteLanguageBundleLang(lang)
+  const nameKeys = ids.map((id) => iconTable[String(id)]?.nameKey || `LC_Title_name_${id}`)
+  const tmap = await translateKeys(nameKeys, lang)
+
+  for (const id of ids) {
+    const meta = iconTable[String(id)]
+    const nameKey = meta?.nameKey || `LC_Title_name_${id}`
+    const template = meta?.iconPath || `Textures/Common/TitleIcon/%s/icon_${id}`
+    // Prefer site language folder; fall back to cn (only folder published today).
+    const preferredPath = template.replace(/%s/g, bundleLang)
+    const cnPath = template.replace(/%s/g, 'cn')
+    const preferredUrl = itemIconUrl(preferredPath)
+    const cnUrl = itemIconUrl(cnPath)
+    const preferredResolved = resolveAssetUrl(preferredUrl)
+    const iconUrl =
+      preferredResolved !== IMAGE_UNAVAILABLE ? preferredResolved : resolveAssetUrl(cnUrl)
+
+    map.set(id, {
+      name: tmap[nameKey] || nameKey,
+      nameKey,
+      iconUrl: iconUrl === IMAGE_UNAVAILABLE ? cnUrl : iconUrl,
+      iconPath: preferredResolved !== IMAGE_UNAVAILABLE ? preferredPath : cnPath,
+      quality: meta?.quality ?? 5,
+    })
+  }
+
+  return map
+}
+
 function fallbackEntity(entry: ConsumeEntry): ConsumeRefEntity {
   return {
     name: entry.sid ? `#${entry.sid}` : entry.type || 'Unknown',
@@ -410,14 +495,17 @@ export async function loadConsumeRefMap(
 
   const uniqueEntries = [...new Map(entries.map((entry) => [consumeRefKey(entry), entry])).values()]
 
-  const [itemById, moneyById, artifactById, forceCardById, figureById, heroById] = await Promise.all([
-    loadItemRefs(uniqueEntries, lang),
-    loadMoneyRefs(uniqueEntries, lang),
-    loadArtifactRefs(uniqueEntries, lang),
-    loadForceCardRefs(uniqueEntries, lang),
-    loadFigureRefs(uniqueEntries, lang),
-    loadHeroRefs(uniqueEntries, lang),
-  ])
+  const [itemById, moneyById, artifactById, forceCardById, figureById, heroById, styleFrameById, titleById] =
+    await Promise.all([
+      loadItemRefs(uniqueEntries, lang),
+      loadMoneyRefs(uniqueEntries, lang),
+      loadArtifactRefs(uniqueEntries, lang),
+      loadForceCardRefs(uniqueEntries, lang),
+      loadFigureRefs(uniqueEntries, lang),
+      loadHeroRefs(uniqueEntries, lang),
+      loadStyleFrameRefs(uniqueEntries, lang),
+      loadTitleRefs(uniqueEntries, lang),
+    ])
 
   for (const entry of uniqueEntries) {
     const key = consumeRefKey(entry)
@@ -440,6 +528,16 @@ export async function loadConsumeRefMap(
 
     if (entry.type === 'hero' && entry.sid) {
       map[key] = toEntity(heroById.get(entry.sid), entry)
+      continue
+    }
+
+    if (entry.type === 'style_frame' && entry.sid) {
+      map[key] = toEntity(styleFrameById.get(entry.sid), entry)
+      continue
+    }
+
+    if (entry.type === 'title' && entry.sid) {
+      map[key] = toEntity(titleById.get(entry.sid), entry)
       continue
     }
 

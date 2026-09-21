@@ -7,11 +7,115 @@
       "syncedAt": "2026-09-17T00:11:07.249Z",
       "summary": {
         "added": 14,
-        "updated": 237,
+        "updated": 239,
         "removed": 0
       },
       "totalEntries": 251,
       "entries": [
+        {
+          "id": "skill:updated:73064:skill_des:hero-1029",
+          "action": "updated",
+          "entityType": "skill",
+          "entityId": 73064,
+          "href": "/heroes/1029",
+          "owner": {
+            "type": "hero",
+            "id": 1029,
+            "href": "/heroes/1029",
+            "extraCount": 1,
+            "title": {
+              "CN": "天雄星·艾亚格斯",
+              "PT": "Aiacos de Garuda",
+              "EN": "Garuda Aiacos",
+              "SP": "Aiacos de Garuda",
+              "FR": "Eaque du Garuda",
+              "ID": "Garuda Aiacos"
+            },
+            "portraitSrc": "/assets/resources/textures/hero/squareherohead/SquareHeroHead_10290.png"
+          },
+          "title": {
+            "CN": "杀意四溅",
+            "PT": "Erupção de Sede de Sangue",
+            "EN": "Bloodlust Eruption",
+            "SP": "Estallido Sanguinario",
+            "FR": "Éruption sanguinaire",
+            "ID": "Niat Membunuh Memancar"
+          },
+          "changes": [
+            {
+              "field": "skill_des",
+              "before": {
+                "CN": "",
+                "PT": "",
+                "EN": "",
+                "SP": "",
+                "FR": "",
+                "ID": ""
+              },
+              "after": {
+                "CN": "天雄星·艾亚格斯与冥衣·修罗对处于流血效果的目标造成伤害时,暴击率提升8%,暴击伤害提升15%",
+                "PT": "Quando Aiacos de Garuda e Shura de Surplice causam dano a alvos sob efeito de Sangramento, a Taxa de Acerto Crítico é aumentada em 8% e o Dano Crítico é aumentado em 15%.",
+                "EN": "When Garuda Aiacos and Specter Shura deal DMG to targets with Bleeding, increases Crit Rate by 8% and Crit DMG by 15%.",
+                "SP": "Cuando Aiacos de Garuda y Shura de Sobrepelliz infligen DAÑO a objetivos con Sangrado, incrementa el Índice Crítico en 8% y el DAÑO Crítico en 15%.",
+                "FR": "Quand Eaque du Garuda et Surplis de Shura infligent des DGT à des cibles affectées par l'effet Saignement, le taux CRIT augmente de 8% et les DGT CRIT de 15%.",
+                "ID": "Saat Garuda Aiacos dan Specter Shura menyebabkan DMG kepada target dengan efek Berdarah, meningkatkan tingkat Crit Rate sebesar 8% dan meningkatkan Crit DMG sebesar 15%"
+              }
+            }
+          ],
+          "portraitSrc": "/assets/resources/textures/hero/squareherohead/SquareHeroHead_10290.png"
+        },
+        {
+          "id": "skill:updated:73064:skill_des:hero-1084",
+          "action": "updated",
+          "entityType": "skill",
+          "entityId": 73064,
+          "href": "/heroes/1084",
+          "owner": {
+            "type": "hero",
+            "id": 1084,
+            "href": "/heroes/1084",
+            "extraCount": 1,
+            "title": {
+              "CN": "冥衣·修罗",
+              "PT": "Espectro Shura",
+              "EN": "Specter Shura",
+              "SP": "Espectro Shura",
+              "FR": "Spectre Shura",
+              "ID": "Specter Shura"
+            },
+            "portraitSrc": "/assets/resources/textures/hero/squareherohead/SquareHeroHead_10840.png"
+          },
+          "title": {
+            "CN": "杀意四溅",
+            "PT": "Erupção de Sede de Sangue",
+            "EN": "Bloodlust Eruption",
+            "SP": "Estallido Sanguinario",
+            "FR": "Éruption sanguinaire",
+            "ID": "Niat Membunuh Memancar"
+          },
+          "changes": [
+            {
+              "field": "skill_des",
+              "before": {
+                "CN": "",
+                "PT": "",
+                "EN": "",
+                "SP": "",
+                "FR": "",
+                "ID": ""
+              },
+              "after": {
+                "CN": "天雄星·艾亚格斯与冥衣·修罗对处于流血效果的目标造成伤害时,暴击率提升8%,暴击伤害提升15%",
+                "PT": "Quando Aiacos de Garuda e Shura de Surplice causam dano a alvos sob efeito de Sangramento, a Taxa de Acerto Crítico é aumentada em 8% e o Dano Crítico é aumentado em 15%.",
+                "EN": "When Garuda Aiacos and Specter Shura deal DMG to targets with Bleeding, increases Crit Rate by 8% and Crit DMG by 15%.",
+                "SP": "Cuando Aiacos de Garuda y Shura de Sobrepelliz infligen DAÑO a objetivos con Sangrado, incrementa el Índice Crítico en 8% y el DAÑO Crítico en 15%.",
+                "FR": "Quand Eaque du Garuda et Surplis de Shura infligent des DGT à des cibles affectées par l'effet Saignement, le taux CRIT augmente de 8% et les DGT CRIT de 15%.",
+                "ID": "Saat Garuda Aiacos dan Specter Shura menyebabkan DMG kepada target dengan efek Berdarah, meningkatkan tingkat Crit Rate sebesar 8% dan meningkatkan Crit DMG sebesar 15%"
+              }
+            }
+          ],
+          "portraitSrc": "/assets/resources/textures/hero/squareherohead/SquareHeroHead_10840.png"
+        },
         {
           "id": "skill:added:61190",
           "action": "added",

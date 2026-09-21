@@ -15,6 +15,7 @@ import {
 
 import { resolveSkillIconUrl } from '@/lib/game/resolve-skill-icon'
 import { resolveSkillTypeLabel, skillTypeLcKey } from '@/lib/game/format-skill-labels'
+import { synthesizeAwakenSkillStub } from '@/lib/game/synthesize-awaken-skill-stub'
 import SkillCooldownMeta from './SkillCooldownMeta'
 import { SITE_ONLY_LABELS } from '@/lib/i18n/ui-keys'
 
@@ -67,19 +68,26 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
 
       if (!allSkillIds.length) return
 
+      const uniqueIds = [...new Set(allSkillIds)]
       const { data: skillRows } = await supabase
         .from('SkillConfig')
         .select('*')
-        .in('skillid', allSkillIds as number[])
+        .in('skillid', uniqueIds as number[])
 
-      if (!skillRows?.length) return
+      const found = new Set((skillRows || []).map((s) => Number(s.skillid)))
+      const merged = [
+        ...(skillRows || []),
+        ...uniqueIds.filter((id) => !found.has(id)).map((id) => synthesizeAwakenSkillStub(id)),
+      ]
+
+      if (!merged.length) return
 
       // Coleta chaves de tradução, valores e IDs de labels
       const tkeys = new Set<string>()
       const usedValueIds = new Set<number>()
       const labelIds = new Set<number>()
 
-      skillRows.forEach((s) => {
+      merged.forEach((s) => {
         if (s.name?.startsWith('LC_')) tkeys.add(s.name)
         if (s.skill_type) {
           const typeKey = skillTypeLcKey(s.skill_type)
@@ -116,7 +124,7 @@ export default function HeroAwakenSkills({ heroId }: HeroAwakenSkillsProps) {
       setTranslations(tmap)
       setValuesMap(vals)
       setLabelMap(lblMap)
-      setSkills(skillRows || [])
+      setSkills(merged)
     }
 
     loadAwakenSkills()
