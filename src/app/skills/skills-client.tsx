@@ -381,7 +381,7 @@ export default function SkillsClient() {
                 labelMap={labelMap}
                 expanded={expandedId === row.skillid}
                 onToggle={() => toggleExpanded(row.skillid)}
-                bandLabel={skillBandFilterLabel(row.band, t, (key) => site(key as 'skillBandHero'))}
+                bandLabel={skillBandFilterLabel(row.band, t, site)}
               />
             ))}
           </div>

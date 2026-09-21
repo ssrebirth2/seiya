@@ -18,7 +18,7 @@ export { ALL_UI_LC_KEYS, SITE_LOCALIZED_LABELS, SITE_ONLY_LABELS, UI_KEYS }
 
 type SiteOnlyKey = keyof typeof SITE_ONLY_LABELS
 type SiteLocalizedKey = keyof typeof SITE_LOCALIZED_LABELS
-type SiteLabelKey = SiteOnlyKey | SiteLocalizedKey
+export type SiteLabelKey = SiteOnlyKey | SiteLocalizedKey
 
 /**
  * Preloads all static UI LC keys. Call from pages that need full chrome translation.

@@ -1,14 +1,16 @@
 import { SKILL_BAND_LABEL_KEYS, type SkillIdBand } from '@/lib/game/skill-id-band'
 import type { SkillOwnerType } from '@/lib/game/skill-owners'
 import { UI_KEYS } from '@/lib/i18n/ui-keys'
+import type { SiteLabelKey } from '@/lib/i18n/use-ui-translation'
 
 type Translate = (key: string) => string
+type SiteTranslate = (key: SiteLabelKey) => string
 
 /** Prefer shared UI LC keys; fall back to site-only band labels. */
 export function skillBandFilterLabel(
   band: SkillIdBand,
   t: Translate,
-  site: (key: string) => string
+  site: SiteTranslate
 ): string {
   switch (band) {
     case 'hero':
@@ -36,11 +38,11 @@ export function skillBandFilterLabel(
     case 'system':
       return t(UI_KEYS.common.system)
     default:
-      return site(SKILL_BAND_LABEL_KEYS[band])
+      return site(SKILL_BAND_LABEL_KEYS[band] as SiteLabelKey)
   }
 }
 
-const OWNER_SITE_KEYS: Record<SkillOwnerType, string> = {
+const OWNER_SITE_KEYS: Record<SkillOwnerType, SiteLabelKey> = {
   hero: 'skillOwnerHero',
   force_card: 'skillOwnerForceCard',
   artifact: 'skillOwnerArtifact',
@@ -53,7 +55,7 @@ const OWNER_SITE_KEYS: Record<SkillOwnerType, string> = {
 export function skillOwnerFilterLabel(
   kind: SkillOwnerType,
   t: Translate,
-  site: (key: string) => string
+  site: SiteTranslate
 ): string {
   switch (kind) {
     case 'hero':
