@@ -83,12 +83,19 @@ export function SkillIndexRow({
     [row.raw, row.band, getT, displayCopy.noDescription, valuesMap, labelMap]
   )
 
-  const incomplete = incompletenessMessages(row.flags, {
-    ...displayCopy,
-    noNameYet: site('skillNoNameYet'),
-    noIconYet: site('skillNoIconYet'),
-    noDesYet: site('skillNoDesYet'),
-  })
+  const incomplete = incompletenessMessages(
+    row.flags,
+    {
+      ...displayCopy,
+      noNameYet: site('skillNoNameYet'),
+      noIconYet: site('skillNoIconYet'),
+      noDesYet: site('skillNoDesYet'),
+    },
+    {
+      hasName: !nameInfo.isPlaceholder,
+      hasIcon: iconUrl !== IMAGE_UNAVAILABLE,
+    }
+  )
 
   const levelLines = useMemo(
     () =>

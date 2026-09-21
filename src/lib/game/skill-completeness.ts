@@ -190,13 +190,23 @@ export function skillDisplayDesPreview(
   return { text: copy.noDescription, isPlaceholder: true }
 }
 
+export type SkillDisplayedIdentity = {
+  /** True when the row already shows a resolved name (skill key or force-card owner). */
+  hasName?: boolean
+  /** True when the row already shows a real icon (skill path or force-card owner). */
+  hasIcon?: boolean
+}
+
 export function incompletenessMessages(
   flags: SkillCompletenessFlags,
-  copy: SkillDisplayCopy & { noNameYet?: string; noIconYet?: string; noDesYet?: string }
+  copy: SkillDisplayCopy & { noNameYet?: string; noIconYet?: string; noDesYet?: string },
+  displayed?: SkillDisplayedIdentity
 ): string[] {
   const msgs: string[] = []
-  if (!flags.hasNameKey) msgs.push(copy.noNameYet ?? copy.noName)
-  if (!flags.hasIconPath || !flags.hasIconFile) msgs.push(copy.noIconYet ?? copy.noIcon)
+  const hasName = displayed?.hasName ?? flags.hasNameKey
+  const hasIcon = displayed?.hasIcon ?? (flags.hasIconPath && flags.hasIconFile)
+  if (!hasName) msgs.push(copy.noNameYet ?? copy.noName)
+  if (!hasIcon) msgs.push(copy.noIconYet ?? copy.noIcon)
   if (!flags.hasDes) msgs.push(copy.noDesYet ?? copy.noDescription)
   return msgs
 }
