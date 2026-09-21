@@ -33,14 +33,12 @@ export function GalleryWorkspace({
 }: GalleryWorkspaceProps) {
   const { t } = useUiTranslation()
 
-  const globalCurrencyItems = useMemo(
-    (): ConsumeEntry[] =>
-      [
-        totals.totalRmb > 0 ? { num: totals.totalRmb, type: 'rmb' } : null,
-        totals.totalGold > 0 ? { num: totals.totalGold, type: 'role_money' } : null,
-      ].filter((x): x is ConsumeEntry => x != null),
-    [totals.totalRmb, totals.totalGold]
-  )
+  const globalCurrencyItems = useMemo(() => {
+    const items: ConsumeEntry[] = []
+    if (totals.totalRmb > 0) items.push({ num: totals.totalRmb, type: 'rmb' })
+    if (totals.totalGold > 0) items.push({ num: totals.totalGold, type: 'role_money' })
+    return items
+  }, [totals.totalRmb, totals.totalGold])
 
   return (
     <div className="gallery-workspace space-y-4">
