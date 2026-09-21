@@ -6,8 +6,8 @@ import { GalleryCategoryChips } from '@/components/gallery/GalleryCategoryChips'
 import { GalleryEntryList } from '@/components/gallery/GalleryEntryList'
 import { GalleryProgressPanel } from '@/components/gallery/GalleryProgressPanel'
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
-import type { ConsumeEntry } from '@/lib/game/parse-game-data'
 import type { GalleryCategory, GalleryEntry, GalleryTotals } from '@/lib/game/gallery-types'
+import { aggregateGalleryTotalRewards } from '@/lib/game/gallery-total-rewards'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type GalleryWorkspaceProps = {
@@ -33,12 +33,10 @@ export function GalleryWorkspace({
 }: GalleryWorkspaceProps) {
   const { t } = useUiTranslation()
 
-  const globalCurrencyItems = useMemo(() => {
-    const items: ConsumeEntry[] = []
-    if (totals.totalRmb > 0) items.push({ num: totals.totalRmb, type: 'rmb' })
-    if (totals.totalGold > 0) items.push({ num: totals.totalGold, type: 'role_money' })
-    return items
-  }, [totals.totalRmb, totals.totalGold])
+  const globalCurrencyItems = useMemo(
+    () => aggregateGalleryTotalRewards({ overall, categories, entries }),
+    [overall, categories, entries]
+  )
 
   return (
     <div className="gallery-workspace space-y-4">

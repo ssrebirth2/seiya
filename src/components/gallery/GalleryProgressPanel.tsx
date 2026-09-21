@@ -4,12 +4,20 @@ import { useMemo } from 'react'
 import { ConsumeList } from '@/components/game/ConsumeList'
 import type { ConsumeRefMap } from '@/lib/game/load-hero-talents-bundle'
 import type { ConsumeEntry } from '@/lib/game/parse-game-data'
-import type { GalleryCategory, GalleryReward, GalleryTier, GalleryTotals } from '@/lib/game/gallery-types'
+import type {
+  GalleryCategory,
+  GalleryEntry,
+  GalleryReward,
+  GalleryTier,
+  GalleryTotals,
+} from '@/lib/game/gallery-types'
+import { aggregateGalleryTotalRewards } from '@/lib/game/gallery-total-rewards'
 import { UI_KEYS, useUiTranslation } from '@/lib/i18n/use-ui-translation'
 
 type GalleryProgressPanelProps = {
   overall: GalleryCategory | null
   categories: GalleryCategory[]
+  entries?: GalleryEntry[]
   totals: GalleryTotals
   consumeRefMap: ConsumeRefMap
   getT: (key: string) => string
@@ -52,6 +60,7 @@ function pointsLabel(tier: GalleryTier, pointsWord: string): string {
 export function GalleryProgressPanel({
   overall,
   categories,
+  entries = [],
   totals,
   consumeRefMap,
   getT,
@@ -73,12 +82,10 @@ export function GalleryProgressPanel({
     [active]
   )
 
-  const globalCurrencyItems = useMemo(() => {
-    const items: ConsumeEntry[] = []
-    if (totals.totalRmb > 0) items.push({ num: totals.totalRmb, type: 'rmb' })
-    if (totals.totalGold > 0) items.push({ num: totals.totalGold, type: 'role_money' })
-    return items
-  }, [totals.totalRmb, totals.totalGold])
+  const globalCurrencyItems = useMemo(
+    () => aggregateGalleryTotalRewards({ overall, categories, entries }),
+    [overall, categories, entries]
+  )
 
   const maxExp = active?.maxExp ?? 0
 
