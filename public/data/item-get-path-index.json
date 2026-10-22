@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T00:07:39.396Z",
+  "generatedAt": "2026-10-22T21:37:34.651Z",
   "defaultArea": "China",
   "areas": [
     "Asia",
@@ -902,6 +902,43 @@
       "SoutheastAsia": [
         {
           "funopenId": 10066,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "10285": {
+      "Asia": [
+        {
+          "funopenId": 20338,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "China": [
+        {
+          "funopenId": 20338,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Europe": [
+        {
+          "funopenId": 20338,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "Japan": [
+        {
+          "funopenId": 20338,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "SoutheastAsia": [
+        {
+          "funopenId": 20338,
           "type": 1,
           "value": null
         }
@@ -2051,36 +2088,6 @@
         }
       ]
     },
-    "35096": {
-      "Asia": [
-        {
-          "funopenId": 10039,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "China": [
-        {
-          "funopenId": 10039,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "Europe": [
-        {
-          "funopenId": 10039,
-          "type": 2,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 10039,
-          "type": 2,
-          "value": null
-        }
-      ]
-    },
     "35099": {
       "Asia": [
         {
@@ -3117,6 +3124,13 @@
     "10270": [
       {
         "funopenId": 10066,
+        "type": 1,
+        "value": null
+      }
+    ],
+    "10285": [
+      {
+        "funopenId": 20338,
         "type": 1,
         "value": null
       }
@@ -6689,6 +6703,12 @@
       "nameKey": "LC_FUNCTION_20334",
       "descKey": null,
       "uiType": "HeroGiftednessView",
+      "iconPath": null
+    },
+    "20338": {
+      "nameKey": "LC_FUNCTION_20338",
+      "descKey": null,
+      "uiType": "primary_spirit_starpower_shop",
       "iconPath": null
     },
     "20406": {

@@ -8,7 +8,7 @@
  * First run (no snapshot): writes baseline snapshot, no release.
  * Subsequent runs: diffs → prepends release to public/data/db-changelog.json
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import dotenv from 'dotenv'
@@ -38,6 +38,12 @@ function saveJson(path, data) {
   writeFileSync(path, JSON.stringify(data, null, 2), 'utf8')
 }
 
+function keepPreviousSnapshot() {
+  if (!existsSync(SNAPSHOT_PATH)) return
+  const backupPath = join(dirname(SNAPSHOT_PATH), 'db-changelog-snapshot.prev.json')
+  copyFileSync(SNAPSHOT_PATH, backupPath)
+}
+
 function releaseIdFromDate(d = new Date()) {
   // Include ms so rapid consecutive syncs never collide / overwrite
   return d.toISOString().replace(/:/g, '-')
@@ -61,24 +67,34 @@ async function main() {
   const versionMismatch =
     prevSnap && Number(prevSnap.version) !== Number(nextSnap.version)
 
-  if (!prevSnap || baselineOnly || forceBaseline || versionMismatch) {
+  if (!prevSnap || baselineOnly || forceBaseline) {
+    keepPreviousSnapshot()
     saveJson(SNAPSHOT_PATH, nextSnap)
     if (!existsSync(CHANGELOG_PATH)) {
       saveJson(CHANGELOG_PATH, emptyChangelog())
     }
-    const reason = versionMismatch
-      ? `snapshot version ${prevSnap.version} → ${nextSnap.version}`
-      : 'first run / baseline-only'
     console.log(
       `[changelog] baseline snapshot written → ${SNAPSHOT_PATH} (${Object.values(counts).reduce((a, b) => a + b, 0)} entities)`
     )
-    console.log(`[changelog] no release generated (${reason})`)
+    console.log('[changelog] no release generated (first run / baseline-only)')
     return
+  }
+
+  if (versionMismatch) {
+    const backupPath = join(
+      dirname(SNAPSHOT_PATH),
+      `db-changelog-snapshot.v${prevSnap.version}.json`
+    )
+    if (!existsSync(backupPath)) copyFileSync(SNAPSHOT_PATH, backupPath)
+    console.log(
+      `[changelog] snapshot version ${prevSnap.version} → ${nextSnap.version} — diffing existing entities, backup ${backupPath}`
+    )
   }
 
   console.log('[changelog] diffing against previous snapshot…')
   const { entries, summary, collapsedNote, totalEntries } = diffSnapshots(prevSnap, nextSnap)
 
+  keepPreviousSnapshot()
   saveJson(SNAPSHOT_PATH, nextSnap)
 
   if (entries.length === 0) {

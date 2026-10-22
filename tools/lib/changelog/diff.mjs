@@ -539,7 +539,11 @@ function makeEntry({
  */
 export function diffSnapshots(prevSnap, nextSnap) {
   const entries = []
-  const types = ENTITY_ORDER
+  const versionChanged = Number(prevSnap?.version) !== Number(nextSnap?.version)
+  const types = ENTITY_ORDER.filter((entityType) => {
+    if (!versionChanged) return true
+    return Object.prototype.hasOwnProperty.call(prevSnap?.entities || {}, entityType)
+  })
 
   function publishable(entityType, id) {
     // Types without a hidden/cap list always publish

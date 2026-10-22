@@ -27897,6 +27897,28 @@
     }
   },
   {
+    "id": "43012:BoxAwardShowConfig:35271:box_contains",
+    "item_id": 43012,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35271",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35271
+    }
+  },
+  {
+    "id": "43011:BoxAwardShowConfig:35271:box_contains",
+    "item_id": 43011,
+    "source_table": "BoxAwardShowConfig",
+    "source_id": "35271",
+    "role": "box_contains",
+    "qty": 1,
+    "meta": {
+      "box_item_id": 35271
+    }
+  },
+  {
     "id": "10240:HeroTalentAttributeLevelConfig:111011:hero_talent",
     "item_id": 10240,
     "source_table": "HeroTalentAttributeLevelConfig",

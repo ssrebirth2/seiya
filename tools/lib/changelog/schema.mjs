@@ -38,7 +38,7 @@ export const HOME_ENTRY_LIMIT = 12
 /** @deprecated Kept for callers; releases no longer truncate at build time. */
 export const MAX_ENTRIES_PER_RELEASE = Infinity
 
-/** Bump when snapshot entity shapes change (forces baseline, avoids false "added" flood). */
+/** Bump when a new entity bucket is added. Existing buckets are still diffed; the new bucket is skipped once so it is not reported as a flood of additions. */
 export const SNAPSHOT_VERSION = 3
 export const CHANGELOG_VERSION = 1
 
