@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T21:37:34.651Z",
+  "generatedAt": "2026-11-04T22:08:52.387Z",
   "defaultArea": "China",
   "areas": [
     "Asia",
@@ -865,6 +865,22 @@
       "SoutheastAsia": [
         {
           "funopenId": 10066,
+          "type": 1,
+          "value": null
+        }
+      ]
+    },
+    "10240": {
+      "Japan": [
+        {
+          "funopenId": 20228,
+          "type": 1,
+          "value": null
+        }
+      ],
+      "SoutheastAsia": [
+        {
+          "funopenId": 20097,
           "type": 1,
           "value": null
         }
@@ -4336,6 +4352,20 @@
         "value": null
       }
     ],
+    "110240": [
+      {
+        "funopenId": 20228,
+        "type": 1,
+        "value": null
+      }
+    ],
+    "110241": [
+      {
+        "funopenId": 20228,
+        "type": 1,
+        "value": null
+      }
+    ],
     "130019": [
       {
         "funopenId": 20020,
@@ -4417,6 +4447,13 @@
       },
       {
         "funopenId": 20332,
+        "type": 1,
+        "value": null
+      }
+    ],
+    "141071": [
+      {
+        "funopenId": 20095,
         "type": 1,
         "value": null
       }
@@ -4789,6 +4826,13 @@
       {
         "funopenId": 20085,
         "type": 2,
+        "value": null
+      }
+    ],
+    "410240": [
+      {
+        "funopenId": 20097,
+        "type": 1,
         "value": null
       }
     ],

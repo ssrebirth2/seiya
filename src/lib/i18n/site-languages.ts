@@ -10,7 +10,11 @@ export type SiteLanguage = {
   /** Supabase suffix: LanguagePackage_{code} */
   code: string
   label: string
-  /** File under C:/rb2/languages/ — table name = stem (LanguagePackage_{suffix}) */
+  /**
+   * Lua filename stem → Supabase table LanguagePackage_{suffix}.
+   * CN is read from StreamingAssets luascript extract
+   * (`luaconfig/language/`); other codes from C:/rb2/languages/.
+   */
   luaFile: string
 }
 
