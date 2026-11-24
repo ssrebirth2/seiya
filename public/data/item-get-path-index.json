@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T22:08:52.387Z",
+  "generatedAt": "2026-11-24T22:08:27.696Z",
   "defaultArea": "China",
   "areas": [
     "Asia",
@@ -865,22 +865,6 @@
       "SoutheastAsia": [
         {
           "funopenId": 10066,
-          "type": 1,
-          "value": null
-        }
-      ]
-    },
-    "10240": {
-      "Japan": [
-        {
-          "funopenId": 20228,
-          "type": 1,
-          "value": null
-        }
-      ],
-      "SoutheastAsia": [
-        {
-          "funopenId": 20097,
           "type": 1,
           "value": null
         }
